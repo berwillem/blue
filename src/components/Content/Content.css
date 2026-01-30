@@ -1,0 +1,18 @@
+.content-container img {
+  width: 100%;
+}
+.content-container h4 {
+  color: black;
+  margin-top: 1rem;
+}
+.content-container p {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.content-container .know-more {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}

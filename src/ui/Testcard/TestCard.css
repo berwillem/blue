@@ -1,0 +1,28 @@
+.testCard-container {
+  border-radius: 3rem;
+  border: 1px solid rgba(228, 228, 228, 1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.testCard-container img {
+  width: 100%;
+  border-radius: 1rem;
+}
+.testCard-container h1 {
+  color: black;
+  font-size: 1.1rem;
+}
+.testCard-container p {
+  color: rgba(87, 87, 87, 1);
+  margin-top: 0.5rem;
+}
+.start-test-btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+}

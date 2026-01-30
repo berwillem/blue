@@ -1,0 +1,10 @@
+.intro-container img {
+  width: 100%;
+  border-radius: 2rem;
+}
+.intro-container h2 {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+}

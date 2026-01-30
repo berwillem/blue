@@ -1,0 +1,27 @@
+.why-container h2 {
+  color: black;
+}
+.why-container p {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .why-container {
+    width: 100%;
+    padding: 2rem 3rem;
+    margin: 0;
+  }
+
+  .why-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .why-container p {
+    font-size: 1.25rem;
+    line-height: 2;
+    margin-top: 1.5rem;
+  }
+}

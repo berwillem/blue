@@ -1,0 +1,50 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+.home-container > a {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-container > a > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-container h1 {
+  font-size: 3rem;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.corporates {
+  background: var(--primary-bg);
+  color: var(--white-color);
+}
+.home-logo{
+  display: none;
+}
+/* 💻 Desktop */
+@media (min-width: 1024px) {
+  .home-container {
+    flex-direction: row;
+  }
+  .home-logo{
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    width: 3vw;
+    height: auto;
+  }
+}
