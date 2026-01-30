@@ -10,7 +10,8 @@ export default function Individuals() {
   return (
     <div className="individuals-container">
       <Navbar></Navbar>
-      <Intro></Intro>
+
+      {/*  <Intro></Intro> */}
       {/* <Why></Why> */}
       <Content></Content>
       <Content></Content>
