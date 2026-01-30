@@ -7,7 +7,9 @@ import Home from "./pages/Home/Home";
 import Individuals from "./pages/Individuals/Individuals";
 import About from "./pages/About/About";
 import Corporates from "./pages/Corporates/Corporates";
-
+import Contact from "./pages/Contact/Contact";
+import NotFound from "./pages/NotFound/NotFound";
+import "./i18n";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />,
   },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  }
 ]);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

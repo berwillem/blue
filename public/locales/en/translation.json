@@ -1,0 +1,12 @@
+{
+  "navbar":{
+    "home": "Home",
+    "individuals": "Individuals",
+    "corporates": "Corporates",
+    "about": "About",
+    "contact": "Book a call",
+    "services": "Services",
+    "why_us": "Why Us"
+    
+  }
+}

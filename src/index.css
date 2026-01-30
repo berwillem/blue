@@ -6,13 +6,16 @@
 }
 :root {
   --primary-bg: linear-gradient(180deg, #0a1933 0%, #00296f 100%);
-  --primary-color: rgba(0, 41, 111, 1);
+  --primary-color: #00296f;
   --white-color: #ffffff;
 }
 html,
 body,
 #root {
   height: 100%;
+}
+body:has(.open) {
+  overflow: hidden;
 }
 body {
   font-family: "Rethink Sans", sans-serif;
@@ -23,6 +26,6 @@ body {
 a {
   text-decoration: none;
 }
-ul{
+ul {
   list-style: none;
 }
