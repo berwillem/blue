@@ -4,10 +4,40 @@ nav {
   align-items: center;
   margin-bottom: 2rem;
   position: relative;
+  z-index: 1;
+  padding: 1.5rem 3rem;
 }
 
 nav ul {
-  display: none;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white-color);
+  height: calc(100vh);
+  align-items: flex-start;
+  clip-path: inset(0 0 0 100%);
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  padding-bottom: 4rem;
+  padding: 3rem;
+
+  box-sizing: border-box;
+}
+nav ul li {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000000;
+}
+
+nav ul a:first-of-type {
+  margin-top: 4rem;
 }
 
 .nav-infos {
@@ -17,10 +47,54 @@ nav ul {
 nav .menu {
   cursor: pointer;
 }
-
+.nav-infos2 button {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: none;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 3;
+}
+.open {
+  clip-path: inset(0 0 0 0);
+}
+.nav-infos2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: auto;
+}
+.nav-infos2 .languages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-weight: 450;
+  color: #000000;
+}
+.nav-infos .languages span {
+  cursor: pointer;
+  z-index: 2;
+}
+.selected-language {
+  text-decoration: underline;
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 @media (min-width: 1024px) {
-  nav {
-    padding: 0 2rem;
+  nav ul a:first-of-type {
+    margin-top: 0rem;
+  }
+  .nav-infos2 {
+    display: none;
   }
 
   nav .menu {
@@ -35,6 +109,19 @@ nav .menu {
     transform: translateX(-50%);
     margin: 0;
     padding: 0;
+    clip-path: inset(0 0 0 0%);
+
+    align-items: auto;
+    flex-direction: row;
+
+    font-size: auto;
+
+    top: auto;
+    width: 100%;
+    background-color: transparent;
+    height: auto;
+    justify-content: center;
+    clip-path: inset(0 0 0 0);
   }
 
   nav ul li {
@@ -67,5 +154,8 @@ nav .menu {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+  }
+  .top-nav {
+    display: none;
   }
 }

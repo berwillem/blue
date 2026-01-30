@@ -9,6 +9,7 @@ export default function Intro() {
         and morally—so they can live with strength, purpose, and responsibility
         instead of exhaustion and confusion
       </h2>
+
     </div>
   );
 }
