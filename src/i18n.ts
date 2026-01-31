@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next) // passe i18n à react-i18next
   .init({
     fallbackLng: "en", // langue par défaut
-    debug: true,       // active les logs pour le dev
+    debug: false,       // active les logs pour le dev
     interpolation: {
       escapeValue: false, // pas nécessaire pour React
     },

@@ -3,13 +3,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-background-color: transparent;
+  background-color: transparent;
   z-index: 3;
   padding: 1.5rem 3rem;
   position: fixed;
   top: 0;
   width: 100%;
-
 }
 
 nav ul {
@@ -30,7 +29,6 @@ nav ul {
   text-align: center;
   padding-bottom: 4rem;
   padding: 3rem;
-
 
   box-sizing: border-box;
 }
@@ -59,8 +57,9 @@ nav .menu {
   padding: 1rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   z-index: 3;
+  font-weight: 550;
 }
 .open {
   clip-path: inset(0 0 0 0);
@@ -95,7 +94,7 @@ nav .menu {
   width: 100%;
 }
 @media (min-width: 1024px) {
-  nav{
+  nav {
     background-color: transparent;
   }
   nav ul a:first-of-type {
@@ -162,6 +161,7 @@ nav .menu {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    font-weight: 550;
   }
   .top-nav {
     display: none;
