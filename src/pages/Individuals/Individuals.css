@@ -1,0 +1,111 @@
+.individuals-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.sections-container {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+}
+.section {
+  height: 100vh; /* Chaque section occupe toute la hauteur de la fenêtre */
+  scroll-snap-align: start; /* Arrêt au début de chaque section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.section:first-child {
+  height: auto; /* Chaque section occupe toute la hauteur de la fenêtre */
+}
+.section.active {
+  /* Ici tu peux gérer l'animation des sections actives */
+}
+.intro {
+  /* Styles de la section Intro */
+}
+.why {
+  /* Styles de la section Why */
+} /* Sections restantes */
+.Content {
+  /* Ton style pour les sections de contenu */
+}
+.Last {
+  /* Ton style pour Last */
+}
+/* Le conteneur parent qui gère le magnétisme */
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  /* 'y' pour vertical, 'mandatory' pour forcer l'aimant */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Les sections qui doivent "snapper" (TikTok style) */
+.snap-section {
+  height: 100vh;
+  width: 100%;
+  /* Force le haut de la section à s'aligner en haut de l'écran */
+  scroll-snap-align: start;
+  
+
+  justify-content: center;
+  align-items: center;
+
+
+}
+.snap-section:first-child{
+height: auto;
+  scroll-snap-align:end;
+}
+
+/* La section classique */
+.normal-section {
+  /* On snap seulement le DEBUT de cette section */
+  scroll-snap-align: start; 
+  
+  min-height: 150vh; /* Plus grand que l'écran pour scroller librement */
+
+  background: #f4f4f4;
+}
+
+/* --- GARDER TES STYLES ACTUELS AU-DESSUS --- */
+
+/* --- DÉSACTIVATION POUR PC --- */
+@media (min-width: 1280px) {
+  
+  /* 1. On tue le magnétisme sur tous les conteneurs de scroll */
+  .sections-container, 
+  .scroll-container {
+    scroll-snap-type: none !important;
+    height: auto !important; /* On laisse le contenu définir la hauteur */
+    overflow-y: visible !important; /* On laisse le scroll se faire sur le body */
+  }
+
+  /* 2. On retire l'alignement forcé des sections */
+  .section, 
+  .snap-section, 
+  .normal-section {
+    scroll-snap-align: none !important;
+    height: auto !important; /* Très important pour ne pas couper le texte sur PC */
+    min-height: 100vh; /* On garde au moins un plein écran pour le look */
+  }
+
+  /* 3. On ajuste le conteneur principal si nécessaire */
+  .individuals-container {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 4. On réinitialise le premier enfant si besoin */
+  .section:first-child, 
+  .snap-section:first-child {
+    height: auto !important;
+  }
+}
