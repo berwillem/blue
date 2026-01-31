@@ -11,8 +11,8 @@ export default function Last() {
         </p>
       </div>
       <div className="cards">
-        <TestCard></TestCard>
-        <TestCard></TestCard>
+        <TestCard link="personal-capacity"></TestCard>
+        <TestCard link="metabolic-health"></TestCard>
       </div>
     </div>
   );

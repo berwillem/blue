@@ -6,8 +6,6 @@ export default function Contact() {
     <div className="contact-container ">
       <Navbar />
       <Form inputs={{ Name: "", Email: "" }} textArea={{ Message: "" }} />
-
-
     </div>
-  )
+  );
 }

@@ -10,6 +10,7 @@ import Corporates from "./pages/Corporates/Corporates";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
 import "./i18n";
+import MultiStepTest from "./pages/MultiStepTest/MultiStepTest";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,9 +33,21 @@ const router = createBrowserRouter([
     element: <Contact />,
   },
   {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/tests/personal-capacity",
+    element: <MultiStepTest />,
+  },
+  {
+    path: "/tests/metabolic-health",
+    element: <MultiStepTest />,
+  },
+  {
     path: "*",
     element: <NotFound />,
-  }
+  },
 ]);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
