@@ -33,6 +33,14 @@
   transform: translateX(-50%);
   z-index: 3;
 }
+
+.part1 .scroll-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
 .part1 {
   position: sticky;
   top: 0;
@@ -84,7 +92,7 @@
   /* 1. On désactive le magnétisme sur le parent */
   /* Note: Remplace '.parent-container' par le nom de ta div principale */
   .parent-container {
-    scroll-snap-type: none !important;
+  
   }
   .part2{
     display: none;
@@ -98,7 +106,7 @@
 
   /* 2. On retire l'aimantage des sections */
   .part1, .part2, .why-container {
-    scroll-snap-align: none !important;
+
   }
 
   /* 3. Optionnel : Si tu veux aussi désactiver l'effet "sticky" sur PC 
@@ -156,3 +164,27 @@
 }
 
 }
+
+
+.scroll-btn {
+  position: absolute;
+  bottom: 15%; /* Ajuste la position verticale */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; /* Doit être au-dessus de TOUT */
+  pointer-events: auto;
+}
+
+
+
+
+
+
+/* Sur PC, on centre bien le bouton */
+@media screen and (min-width: 1280px) {
+  .scroll-btn {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+

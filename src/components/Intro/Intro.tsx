@@ -3,14 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import "./Intro.css";
 import placeholder from "../../assets/images/redaplaceholder.png";
 import Button from "../../ui/button/Button";
-import BlurText from "../../ui/BlurText"; // Assure-toi que le chemin est correct
+import BlurText from "../../ui/BlurText";
 
 export default function Intro() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isPC, setIsPC] = useState(false);
-
   const containerRef = useRef<HTMLDivElement>(null);
-  const part2Ref = useRef<HTMLDivElement>(null);
 
   // Détection du device
   useEffect(() => {
@@ -20,31 +17,44 @@ export default function Intro() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  // On suit le scroll
+  // On suit le scroll sur toute la section Intro
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
+  // --- ANIMATIONS LIÉES AU SCROLL ---
+  
+  // 1. L'image (Agrandissement)
   const width = useTransform(scrollYProgress, [0, 0.2], isPC ? ["80%", "100%"] : ["100%", "100%"]);
   const height = useTransform(scrollYProgress, [0, 0.2], isPC ? ["70vh", "100dvh"] : ["auto", "auto"]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.2], isPC ? ["2rem", "0rem"] : ["2rem", "2rem"]);
   
-  // Cette opacité fera disparaître le texte proprement quand tu scrolles vers le bas
-  const opacityText = useTransform(scrollYProgress, [0, 0.15], isPC ? [1, 0] : [1, 1]);
+  // 2. Le texte principal (Disparition progressive)
+  const opacityText = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { setIsVisible(entry.isIntersecting); },
-      { threshold: 0.8 },
-    );
-    if (part2Ref.current) observer.observe(part2Ref.current);
-    return () => observer.disconnect();
-  }, []);
+  // 3. Le bouton de la Part 1 (Disparition rapide dès le début du scroll)
+
 
   return (
     <div className="intro-container" ref={containerRef}>
+      {/* PARTIE 1 : L'accroche et l'image principale */}
       <div className="part1">
+        
+        <motion.div
+          className="scroll-btn"
+          style={{ 
+           
+           
+            zIndex: 50 
+          }}
+          initial={{ opacity: 0, y: 50 ,x: "-50%"}}
+          animate={{ opacity: 1, y: -50 ,x: "-50%"}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <Button width="auto" text="About the founder" />
+        </motion.div>
+
         <motion.div
           className="img-wrapper"
           style={{
@@ -57,7 +67,6 @@ export default function Intro() {
           <img src={placeholder} alt="placeholder" className="main-img" />
         </motion.div>
 
-        {/* On enveloppe BlurText dans un motion.div pour gérer la disparition au scroll */}
         <motion.div style={{ opacity: opacityText }} className="intro-h2-wrapper">
           <BlurText
             text="I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion"
@@ -69,16 +78,13 @@ export default function Intro() {
         </motion.div>
       </div>
 
-      <div className="part2" ref={part2Ref}>
+      {/* PARTIE 2 : La suite après le scroll (optionnelle selon ton design) */}
+      <div className="part2">
         <img src={placeholder} alt="placeholder" className="img-scroll" />
-        <motion.div
-          className="scroll-btn"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Button width="auto" text="About the founder" />
-        </motion.div>
+        {/* On peut garder un bouton fixe ici ou un bouton qui apparaît seulement à la fin */}
+        <div className="scroll-btn-fixed">
+           <Button width="auto" text="About the founder" />
+        </div>
       </div>
     </div>
   );
