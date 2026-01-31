@@ -1,13 +1,158 @@
-.intro-container img {
-  width: 100%;
-  border-radius: 2rem;
-}
-.intro-container h2 {
-  margin-top: 2.5rem;
-  text-align: center;
-  font-weight: 500;
-  font-size: 1.4rem;
-}
+/* --- STYLES GÉNÉRAUX (Mobile par défaut) --- */
 .intro-container {
+  position: relative;
+}
+
+.part1 {
+  position: sticky;
+  left: 0;
+  top: 0;
   padding: 3rem;
+  padding-top: 100px;
+  z-index: 0;
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+.part2 {
+  margin-top: 100vh;
+  height: 100vh;
+  z-index: 2;
+  position: relative;
+  background: white; /* Important pour couvrir la part1 */
+  scroll-snap-align: start;
+}
+
+/* Ton bouton et tes images */
+.intro-container img { width: 100%; border-radius: 2rem; }
+.part2 img { width: 100%; height: 100%; border-radius: 0; object-fit: cover; }
+.part2 button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.part1 {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+ flex-direction: column;
+  align-items: center;
+
+  z-index: 1;
+  background-color: white; /* Ou la couleur de ton site */
+}
+
+.img-wrapper {
+ /* Hauteur initiale de l'image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.part1 h2 {
+
+  margin-top: 2rem;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.part2 {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  margin-top: 100vh; /* Pour laisser la part1 visible au début */
+  background: white;
+}
+
+/* On s'assure que l'image de la part2 prend tout l'écran aussi */
+.part2 img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+
+  .part1 h2 {
+    font-size: 2.5rem;
+  }
+}
+/* --- VERSION PC (Désactivation du Snap) --- */
+@media (min-width: 1280px) {
+  /* 1. On désactive le magnétisme sur le parent */
+  /* Note: Remplace '.parent-container' par le nom de ta div principale */
+  .parent-container {
+    scroll-snap-type: none !important;
+  }
+  .part2{
+    display: none;
+  }
+  .part1{
+    flex-direction: column-reverse;
+    display: flex;
+    padding: 3rem 0rem;
+    margin-top: 100px;
+  }
+
+  /* 2. On retire l'aimantage des sections */
+  .part1, .part2, .why-container {
+    scroll-snap-align: none !important;
+  }
+
+  /* 3. Optionnel : Si tu veux aussi désactiver l'effet "sticky" sur PC 
+     pour que tout se suive normalement sans superposition */
+  .part1 {
+    position: relative !important;
+    height: auto !important;
+  }
+  .part1 h2{
+    font-size: 3rem;
+    text-align: center;
+  }
+  .part2 {
+    margin-top: 0 !important;
+  }
+  .intro-container {
+  position: relative;
+  /* Pas de overflow hidden ici pour laisser le sticky marcher */
+}
+
+.part1 {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+ gap: 100px;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-color: white; /* Ou la couleur de ton site */
+}
+
+
+
+.part1 h2 {
+  max-width: auto;
+  margin-top: 2rem;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.part2 {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  margin-top: 100vh; /* Pour laisser la part1 visible au début */
+  background: white;
+}
+
+/* On s'assure que l'image de la part2 prend tout l'écran aussi */
+.part2 img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
 }

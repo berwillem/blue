@@ -1,8 +1,9 @@
-import "./Intro.css"
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import "./Intro.css";
 import placeholder from "../../assets/images/redaplaceholder.png";
 import Button from "../../ui/button/Button";
-import BlurText from "../../ui/BlurText";
-; // Assure-toi que le chemin est correct
+import BlurText from "../../ui/BlurText"; // Assure-toi que le chemin est correct
 
 export default function Intro() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +12,6 @@ export default function Intro() {
   const containerRef = useRef<HTMLDivElement>(null);
   const part2Ref = useRef<HTMLDivElement>(null);
 
-  // Détection du device
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth > 1280);
     checkDevice();
@@ -19,40 +19,21 @@ export default function Intro() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  // On suit le scroll
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // --- TRANSFORMATIONS (Uniquement actives si isPC est true) ---
-  // L'image passe de 80% à 100% de la largeur/hauteur et perd ses arrondis
-  const width = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["80%", "100%"] : ["100%", "100%"],
-  );
-  const height = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["70vh", "100vh"] : ["auto", "auto"],
-  );
-  const borderRadius = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["2rem", "0rem"] : ["2rem", "2rem"],
-  );
-  const opacityText = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? [1, 0] : [1, 1],
-  );
+  const width = useTransform(scrollYProgress, [0, 0.2], isPC ? ["80%", "100%"] : ["100%", "100%"]);
+  const height = useTransform(scrollYProgress, [0, 0.2], isPC ? ["70vh", "100vh"] : ["auto", "auto"]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.2], isPC ? ["2rem", "0rem"] : ["2rem", "2rem"]);
+  
+  // Cette opacité fera disparaître le texte proprement quand tu scrolles vers le bas
+  const opacityText = useTransform(scrollYProgress, [0, 0.15], isPC ? [1, 0] : [1, 1]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
+      ([entry]) => { setIsVisible(entry.isIntersecting); },
       { threshold: 0.8 },
     );
     if (part2Ref.current) observer.observe(part2Ref.current);

@@ -163,7 +163,7 @@
     width: 100%;
   }
 
-  .left, .right {
+  .content-container .left,  .content-container .right {
     width: 50%;
     height: 100vh !important;
     padding: 5rem;
