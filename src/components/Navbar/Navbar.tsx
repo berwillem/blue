@@ -15,25 +15,39 @@ export default function Navbar() {
     i18n.changeLanguage(lng);
   };
   const [isScrolled, setIsScrolled] = useState(false);
-  const userType = useUserTypeStore((state) => state.userType);
+   const userType = useUserTypeStore((state) => state.userType);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsScrolled(true);
-        } else {
-          if (entry.boundingClientRect.top > 0) {
-            setIsScrolled(false);
-          }
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      // Si on voit la section Why (même un tout petit peu), 
+      // la navbar devient blanche.
+      if (entry.isIntersecting) {
+        setIsScrolled(true);
+      } else {
+        // Si Why n'est pas là, on vérifie si on est au-dessus ou en-dessous.
+        // On utilise le "boundingClientRect" pour savoir si Why est en haut ou en bas.
+        if (entry.boundingClientRect.top > 0) {
+          setIsScrolled(false);
         }
-      },
-      {
-        threshold: 0.9,
-      },
-    );
+      }
+    },
+    { 
+      threshold: 0.9 // Déclenchement immédiat dès qu'un pixel apparaît
+    }
+  );
 
-    const secondSection = document.querySelector(".why-container");
+  // On cible Why ou la section qui suit l'Intro
+  const secondSection = document.querySelector(".why-container");
+  
+  if (secondSection) {
+    observer.observe(secondSection);
+  }
+
+  return () => observer.disconnect();
+}, []);
+  return (
+    <nav style={{backgroundColor:isScrolled?"white":"transparent"}}>
 
     if (secondSection) {
       observer.observe(secondSection);

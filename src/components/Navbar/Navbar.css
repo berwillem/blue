@@ -23,7 +23,7 @@ nav ul {
   left: 0;
   width: 100%;
   background-color: var(--white-color);
-  height: calc(100vh);
+  height: calc(100dvh);
   align-items: flex-start;
   clip-path: inset(0 0 0 100%);
   transition: 0.3s ease-in-out;

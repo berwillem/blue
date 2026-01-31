@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import "./Individuals.css";
 import Navbar from "../../components/Navbar/Navbar";

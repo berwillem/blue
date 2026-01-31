@@ -23,7 +23,7 @@
 }
 .content-container {
   padding: 3rem;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -44,21 +44,26 @@
   flex-direction: column;
 }
 .big-size {
-  display: none;
+  display: none !important;
 }
 @media screen and (min-width: 768px) {
+    .sticky-active {
+ 
+    flex-direction: row !important;
+
+  }
   .content-container {
     padding: 0;
   }
   .big-size {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
   }
   .big-size .left {
     background: linear-gradient(180deg, #00314d 0%, #001a28 100%);
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: 50vh !important;
     padding: 3rem 5rem;
   }
   .mobile {
@@ -113,18 +118,80 @@
     width: fit-content;
   }
 }
+/* --- LE WRAPPER QUI PERMET LE SCROLL --- */
+.content-scroll-wrapper {
+  position: relative; /* Parent nécessaire pour le sticky */
+  width: 100%;
+}
+
+/* --- LA SECTION QUI BLOQUE L'ÉCRAN --- */
 @media screen and (min-width: 1280px) {
-  .big-size {
+
+    
+    .content-container .left h4 {
+    font-size: 2rem !important;
+ 
+  }
+    .big-size {
     display: flex;
     flex-direction: row;
   }
   .content-container .left,
   .content-container .right {
-    height: 100vh !important;
+    height: 100dvh !important;
     width: 50%;
+      padding-top: 5rem;
   }
+  
   .content-container .right img {
     height: 300px;
     min-height: 300px;
   }
+  .sticky-active {
+    position: sticky !important;
+    top: 0;
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Empêche le scroll interne */
+  }
+
+  .big-size {
+    display: flex;
+    flex-direction: row !important;
+    height: 100dvh;
+    width: 100%;
+  }
+
+  .content-container .left,  .content-container .right {
+    width: 50%;
+    height: 100dvh !important;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* --- ZONE DES TEXTES SUPERPOSÉS --- */
+  .rotating-text-box {
+    position: relative;
+    flex: 1; /* Prend l'espace disponible */
+    margin-top: 2rem;
+  }
+
+  .rotating-text-box p {
+    position: absolute; /* Ils sont tous les uns sur les autres */
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2.5rem !important;
+    color: white;
+    font-weight: 300;
+    line-height: 1;
+  }
+}
+
+/* Styles restants (dégradés, boutons, etc.) identiques à tes précédents */
+.content-container .left {
+  background: linear-gradient(180deg, #00314d 0%, #001a28 100%);
 }

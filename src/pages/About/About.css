@@ -1,6 +1,6 @@
 .about-container {
-  min-height: 100vh;
-overflow-y: hidden;
+  min-height: 100dvh;
+overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -62,7 +62,7 @@ overflow-y: hidden;
     flex-direction: row-reverse;
     gap: 3rem;
         padding: 2rem 5rem;
-        margin-top: 100px;
+        margin-top: 40px;
   }
 
   .about-content img {

@@ -9,6 +9,7 @@ footer .left {
   width: 60%;
   border: 1px solid rgba(228, 228, 228, 1);
   border-bottom: none;
+  border-top: 0;
   border-right: 0;
   padding: 1rem;
 }
@@ -174,6 +175,7 @@ footer .down .title {
     border: 1px solid rgba(228, 228, 228, 1);
     border-bottom: none;
     border-right: none;
+    border-top: 0;
     padding: 3rem;
   }
   footer .right {
