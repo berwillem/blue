@@ -108,7 +108,7 @@ height: auto;
   .snap-section:first-child {
     height: auto !important;
   }
-  .normal-section .content-scroll-wrapper:not(:first-child) {
+  .video3 ,.video4 {
   display: none !important;
   }
 }
