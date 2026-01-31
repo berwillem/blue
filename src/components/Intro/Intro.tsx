@@ -12,6 +12,7 @@ export default function Intro() {
   const containerRef = useRef<HTMLDivElement>(null);
   const part2Ref = useRef<HTMLDivElement>(null);
 
+  // Détection du device
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth > 1280);
     checkDevice();
@@ -19,6 +20,7 @@ export default function Intro() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
+  // On suit le scroll
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],

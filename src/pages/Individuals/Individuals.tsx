@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from "react";
 import "./Individuals.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Intro from "../../components/Intro/Intro";
