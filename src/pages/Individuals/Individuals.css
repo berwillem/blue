@@ -1,17 +1,17 @@
 .individuals-container {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 .sections-container {
-  height: 100vh;
+  height: 100dvh;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   scroll-behavior: smooth;
   position: relative;
 }
 .section {
-  height: 100vh; /* Chaque section occupe toute la hauteur de la fenêtre */
+  height: 100dvh; /* Chaque section occupe toute la hauteur de la fenêtre */
   scroll-snap-align: start; /* Arrêt au début de chaque section */
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@
 }
 /* Le conteneur parent qui gère le magnétisme */
 .scroll-container {
-  height: 100vh;
+  height: 100dvh;
   overflow-y: scroll;
   /* 'y' pour vertical, 'mandatory' pour forcer l'aimant */
   scroll-snap-type: y mandatory;
@@ -49,7 +49,7 @@
 
 /* Les sections qui doivent "snapper" (TikTok style) */
 .snap-section {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   /* Force le haut de la section à s'aligner en haut de l'écran */
   scroll-snap-align: start;
@@ -94,7 +94,7 @@ height: auto;
   .normal-section {
     scroll-snap-align: none !important;
     height: auto !important; /* Très important pour ne pas couper le texte sur PC */
-    min-height: 100vh; /* On garde au moins un plein écran pour le look */
+    min-height: 100dvh; /* On garde au moins un plein écran pour le look */
   }
 
   /* 3. On ajuste le conteneur principal si nécessaire */

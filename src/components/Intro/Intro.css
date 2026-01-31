@@ -10,13 +10,13 @@
   padding: 3rem;
   padding-top: 100px;
   z-index: 0;
-  height: 100vh;
+  height: 50dvh;
   scroll-snap-align: start;
 }
 
 .part2 {
-  margin-top: 100vh;
-  height: 100vh;
+  margin-top: 50vh;
+  height: 100dvh;
   z-index: 2;
   position: relative;
   background: white; /* Important pour couvrir la part1 */
@@ -36,7 +36,7 @@
 .part1 {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 90dvh;
   display: flex;
  flex-direction: column;
   align-items: center;
@@ -54,23 +54,23 @@
 
 .part1 h2 {
 
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
-  padding: 0 2rem;
+ 
 }
 
 .part2 {
   position: relative;
   z-index: 2;
-  height: 100vh;
-  margin-top: 100vh; /* Pour laisser la part1 visible au début */
+  height: 100dvh;
+  margin-top: 20dvh; /* Pour laisser la part1 visible au début */
   background: white;
 }
 
 /* On s'assure que l'image de la part2 prend tout l'écran aussi */
 .part2 img {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   object-fit: cover;
 }
 @media screen and (min-width: 768px) {
@@ -122,7 +122,7 @@
 .part1 {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
  gap: 100px;
   align-items: center;
@@ -143,15 +143,15 @@
 .part2 {
   position: relative;
   z-index: 2;
-  height: 100vh;
-  margin-top: 100vh; /* Pour laisser la part1 visible au début */
+  height: 100dvh;
+  margin-top: 100dvh; /* Pour laisser la part1 visible au début */
   background: white;
 }
 
 /* On s'assure que l'image de la part2 prend tout l'écran aussi */
 .part2 img {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   object-fit: cover;
 }
 

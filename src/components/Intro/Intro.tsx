@@ -25,7 +25,7 @@ export default function Intro() {
   });
 
   const width = useTransform(scrollYProgress, [0, 0.2], isPC ? ["80%", "100%"] : ["100%", "100%"]);
-  const height = useTransform(scrollYProgress, [0, 0.2], isPC ? ["70vh", "100vh"] : ["auto", "auto"]);
+  const height = useTransform(scrollYProgress, [0, 0.2], isPC ? ["70vh", "100dvh"] : ["auto", "auto"]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.2], isPC ? ["2rem", "0rem"] : ["2rem", "2rem"]);
   
   // Cette opacité fera disparaître le texte proprement quand tu scrolles vers le bas
