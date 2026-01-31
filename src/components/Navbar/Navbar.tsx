@@ -2,7 +2,7 @@ import "./Navbar.css";
 import logo1 from "../../assets/images/logo1.png";
 import { Menu } from "lucide-react";
 import { Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 
@@ -13,8 +13,39 @@ export default function Navbar() {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
+  const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      // Si on voit la section Why (même un tout petit peu), 
+      // la navbar devient blanche.
+      if (entry.isIntersecting) {
+        setIsScrolled(true);
+      } else {
+        // Si Why n'est pas là, on vérifie si on est au-dessus ou en-dessous.
+        // On utilise le "boundingClientRect" pour savoir si Why est en haut ou en bas.
+        if (entry.boundingClientRect.top > 0) {
+          setIsScrolled(false);
+        }
+      }
+    },
+    { 
+      threshold: 0.9 // Déclenchement immédiat dès qu'un pixel apparaît
+    }
+  );
+
+  // On cible Why ou la section qui suit l'Intro
+  const secondSection = document.querySelector(".why-container");
+  
+  if (secondSection) {
+    observer.observe(secondSection);
+  }
+
+  return () => observer.disconnect();
+}, []);
   return (
-    <nav>
+    <nav style={{backgroundColor:isScrolled?"white":"transparent"}}>
 
       <img src={logo1} alt="logo" />
       <Menu color="black" className="menu" onClick={() => setOpen(!open)} />

@@ -26,6 +26,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  position: relative;
 }
 .button-container button {
   border-radius: 16px;
@@ -95,7 +97,7 @@
     font-weight: 300;
   }
   .content-container .right img {
-    height: 250px;
+    height: 400px;
     min-height: 250px;
   }
   .content-container .know-more {

@@ -3,9 +3,13 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
+background-color: transparent;
+  z-index: 3;
   padding: 1.5rem 3rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
 }
 
 nav ul {
@@ -26,6 +30,7 @@ nav ul {
   text-align: center;
   padding-bottom: 4rem;
   padding: 3rem;
+
 
   box-sizing: border-box;
 }
@@ -90,6 +95,9 @@ nav .menu {
   width: 100%;
 }
 @media (min-width: 1024px) {
+  nav{
+    background-color: transparent;
+  }
   nav ul a:first-of-type {
     margin-top: 0rem;
   }

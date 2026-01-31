@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./Individuals.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Intro from "../../components/Intro/Intro";
@@ -7,17 +8,28 @@ import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
 
 export default function Individuals() {
+  
+
+
   return (
     <div className="individuals-container">
-      <Navbar></Navbar>
+      <Navbar />
+<div className="scroll-container">
+  <section className="snap-section video1">   <Intro /></section>
+  <section className="snap-section video2">  <Why /></section>
+  
+  <section className="normal-section">
+     <Content />
+      <Content />
+      <Content />
+      <Last />
 
-      {/*  <Intro></Intro> */}
-      {/* <Why></Why> */}
-      <Content></Content>
-      <Content></Content>
-      <Content></Content>
-      <Last></Last>
       <Footer />
+  </section>
+</div>
+   
+
+   
     </div>
   );
 }
