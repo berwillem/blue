@@ -1,5 +1,6 @@
 import TestCard from "../../ui/Testcard/TestCard";
 import "./Last.css";
+import psyimg from "../../assets/images/testpsy.jpg";
 export default function Last() {
   return (
     <div className="last-container">
@@ -11,8 +12,8 @@ export default function Last() {
         </p>
       </div>
       <div className="cards">
-        <TestCard link="personal-capacity"></TestCard>
-        <TestCard link="metabolic-health"></TestCard>
+        <TestCard link="personal-capacity" img={psyimg}></TestCard>
+        <TestCard link="metabolic-health" img={psyimg}></TestCard>
       </div>
     </div>
   );

@@ -1,31 +1,43 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import placeholder1 from "../../assets/images/redaplaceholder.png";
-import placeholder2 from "../../assets/images/redaplaceholder.png";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import placeholder1 from "../../assets/images/redacontent1.png";
+import placeholder2 from "../../assets/images/redacontent2.jpg";
 import placeholder3 from "../../assets/images/redaplaceholder.png";
 import Button from "../../ui/button/Button";
 import "./Content.css";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 
 const DATA = [
-  { 
-    id: 1, 
-    leftText: "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
-    rightDesc: "Sustainable excellence begins with metabolism - through a profound balance.",
-    img: placeholder1 
+  {
+    id: 1,
+    leftText:
+      "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
+    rightDesc:
+      "Sustainable excellence begins with metabolism - through a profound balance.",
+    img: placeholder1,
   },
-  { 
-    id: 2, 
-    leftText: "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.", 
-    rightDesc: "Optimize your brain and body with precision-based nutritional protocols.",
-    img: placeholder2 
+  {
+    id: 2,
+    leftText:
+      "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.",
+    rightDesc:
+      "Optimize your brain and body with precision-based nutritional protocols.",
+    img: placeholder2,
   },
-  { 
-    id: 3, 
-    leftText: "A transformative journey designed for those who refuse to settle for average health.", 
-    rightDesc: "Long-term health is not an accident; it's a deliberate executive strategy.",
-    img: placeholder3 
-  }
+  {
+    id: 3,
+    leftText:
+      "A transformative journey designed for those who refuse to settle for average health.",
+    rightDesc:
+      "Long-term health is not an accident; it's a deliberate executive strategy.",
+    img: placeholder3,
+  },
 ];
 
 export default function Content() {
@@ -46,7 +58,11 @@ export default function Content() {
   });
 
   // Découpage propre des zones de scroll (PC uniquement)
-  const activeIndex = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 0, 1, 2]);
+  const activeIndex = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    [0, 0, 1, 2],
+  );
 
   useEffect(() => {
     if (!isPC) return;
@@ -57,20 +73,21 @@ export default function Content() {
   }, [activeIndex, currentIndex, isPC]);
 
   return (
-    <div 
-      className="content-scroll-wrapper" 
+    <div
+      className="content-scroll-wrapper"
       ref={containerRef}
       style={{ height: isPC ? "300vh" : "100dvh" }}
     >
       <div className={`content-container ${isPC ? "sticky-active" : ""}`}>
-        
         {/* --- VERSION MOBILE --- */}
         <div className="mobile">
           <img src={DATA[0].img} alt="Metabolic Method" />
           <h4>Why we do what we do?</h4>
           <p>{DATA[0].leftText}</p>
           <div className="button-container">
-            <Button text="Start a metabolic test" width="auto" />
+            <Link to="/tests/metabolic-health">
+              <Button text="Start a metabolic test" width="auto" />
+            </Link>
           </div>
         </div>
 
@@ -92,7 +109,9 @@ export default function Content() {
               </AnimatePresence>
             </div>
             <div className="button-container">
-              <Button text="Start a metabolic test" width="auto" />
+              <Link to="/tests/metabolic-health">
+                <Button text="Start a metabolic test" width="auto" />
+              </Link>
             </div>
           </div>
 
@@ -112,14 +131,15 @@ export default function Content() {
                 <div className="image-wrapper-tiktok">
                   <img src={DATA[currentIndex].img} alt="Metabolic" />
                 </div>
-                <p className="know-more">
-                  know more <ArrowRight size={15} />
-                </p>
+                <Link to="/about">
+                  <p className="know-more">
+                    know more <ArrowRight size={15} />
+                  </p>
+                </Link>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
-
       </div>
     </div>
   );

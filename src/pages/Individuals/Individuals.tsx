@@ -20,16 +20,16 @@ export default function Individuals() {
         <section className="snap-section video2">
           <Why />
         </section>
-        
+
         {/* SECTION 3: CONTENT (L'effet TikTok des 3 images se passe ici) */}
         <section className="snap-section">
-           <Content />
+          <Content />
         </section>
         <section className="snap-section video3">
-           <Content />
+          <Content />
         </section>
         <section className="snap-section video4">
-           <Content />
+          <Content />
         </section>
 
         {/* SECTION 4: LAST & FOOTER */}

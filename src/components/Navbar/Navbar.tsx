@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,14 +33,18 @@ export default function Navbar() {
     );
 
     const secondSection = document.querySelector(".why-container");
-
     if (secondSection) observer.observe(secondSection);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
+    <motion.nav
+      style={{ backgroundColor: isScrolled ? "white" : "transparent" }}
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
+    >
       <img src={logo1} alt="logo" />
 
       <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
@@ -83,7 +88,9 @@ export default function Navbar() {
               FR
             </span>
           </div>
-          <button>{t("navbar.contact")}</button>
+          <Link to="/contact" className="contact-btn">
+            {t("navbar.contact")}
+          </Link>
         </div>
       </ul>
 
@@ -102,8 +109,10 @@ export default function Navbar() {
             FR
           </span>
         </div>
-        <button>{t("navbar.contact")}</button>
+        <Link to="/contact" className="contact-btn">
+          {t("navbar.contact")}
+        </Link>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
