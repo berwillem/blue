@@ -63,6 +63,7 @@
 @media screen and (min-width: 1280px) {
   .why-container {
     padding: 5rem;
+    justify-content: start;
   }
 
   .why-container h2 {

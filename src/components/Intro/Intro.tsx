@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import "./Intro.css";
 import redaintro from "../../assets/images/redaintro.jpg";
 import Button from "../../ui/button/Button";
@@ -8,15 +8,11 @@ import { Link } from "react-router";
 
 export default function Intro() {
   const [isPC, setIsPC] = useState(false);
+  const [isFull, setIsFull] = useState(false); // État pour l'animation "On/Off"
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Count words in text to sync animation
-  const introText =
-    "I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion";
-  const textWords = introText.split(" ");
-  const textWordCount = textWords.length;
+  const introText = "I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion";
 
-  // --- Detect device ---
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth > 1280);
     checkDevice();
@@ -24,33 +20,22 @@ export default function Intro() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  // --- Scroll transforms ---
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
-  const width = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["80%", "100%"] : ["100%", "100%"],
-  );
-  const height = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["70vh", "100dvh"] : ["auto", "auto"],
-  );
-  const borderRadius = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isPC ? ["2rem", "0rem"] : ["2rem", "2rem"],
-  );
-  const opacityText = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-
-  // --- Duration sync ---
-  const stepDuration = 0.7;
-  const delayPerWord = 0.07;
-  const imageDuration = stepDuration + textWordCount * delayPerWord;
+  // --- LE DÉCLENCHEUR (TRIGGER) ---
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (isPC) {
+      // Si on scroll plus de 10% (0.1), on active le plein écran
+      if (latest > 0.1) {
+        setIsFull(true);
+      } else {
+        setIsFull(false);
+      }
+    }
+  });
 
   return (
     <div className="intro-container" ref={containerRef}>
@@ -59,8 +44,12 @@ export default function Intro() {
           className="scroll-btn"
           style={{ zIndex: 50 }}
           initial={{ opacity: 0, y: 50, x: "-50%" }}
-          animate={{ opacity: 1, y: -50, x: "-50%" }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          animate={{ 
+            opacity: !isPC ? 0 : 1, // Disparaît quand l'image prend tout l'écran
+            y:  -50, 
+            x: "-50%" 
+          }}
+          transition={{ duration: 0.4 }}
         >
           <Link to="/about">
             <Button width="auto" text="About the founder" />
@@ -69,10 +58,19 @@ export default function Intro() {
 
         <motion.div
           className="img-wrapper"
+          animate={{
+            // On utilise l'état isFull pour définir les valeurs directes
+            width: isPC ? (isFull ? "100%" : "80%") : "100%",
+            height: isPC ? (isFull ? "100dvh" : "70vh") : "auto",
+            borderRadius: isPC ? (isFull ? "0rem" : "2rem") : "2rem",
+          }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 100, 
+            damping: 20, // Effet rebond pour le "snap"
+            duration: 0.5 
+          }}
           style={{
-            width: isPC ? width : "100%",
-            height: isPC ? height : "auto",
-            borderRadius: isPC ? borderRadius : "2rem",
             overflow: "hidden",
             display: "flex",
             justifyContent: "center",
@@ -83,38 +81,30 @@ export default function Intro() {
             src={redaintro}
             alt="redaintro"
             className="main-img"
-            initial={{ opacity: 0, y: 20, scale: 1.05 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              duration: imageDuration,
-              ease: [0.42, 0, 0.58, 1],
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </motion.div>
 
         <motion.div
-          style={{ opacity: opacityText }}
+          animate={{ opacity:isPC ? isFull ? 0 : 1:1, y: isFull ? 20 : 0 }}
           className="intro-h2-wrapper"
         >
           <BlurText
             text={introText}
             delay={80}
-            stepDuration={stepDuration}
             animateBy="words"
             direction="bottom"
             className="intro-title"
-            easing={(t) => t * t * (3 - 2 * t)}
           />
         </motion.div>
       </div>
 
-      {/* Part 2 */}
       <div className="part2">
         <img src={redaintro} alt="redaintro" className="img-scroll" />
         <div className="scroll-btn-fixed">
-          <Link to="/about">
+      
             <Button width="auto" text="About the founder" />
-          </Link>
+         
         </div>
       </div>
     </div>

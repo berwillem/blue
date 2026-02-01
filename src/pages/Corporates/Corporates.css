@@ -54,7 +54,7 @@
 @media (min-width: 1280px) {
   .sections-container,
   .scroll-container {
-    scroll-snap-type: none !important;
+ 
     height: auto !important;
     overflow-y: visible !important;
   }
@@ -62,6 +62,13 @@
   .section,
   .snap-section,
   .normal-section {
+ 
+    height: auto !important;
+    min-height: 100dvh;
+  }
+     .corporates-container .section,
+   .corporates-container .snap-section,
+    .corporates-container .normal-section {
     scroll-snap-align: none !important;
     height: auto !important;
     min-height: 100dvh;
