@@ -18,22 +18,21 @@ export default function Navbar() {
 
   const userType = useUserTypeStore((state) => state.userType);
 
+  // 🔥 Scroll observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsScrolled(true);
-        } else {
-          if (entry.boundingClientRect.top > 0) {
-            setIsScrolled(false);
-          }
+        } else if (entry.boundingClientRect.top > 0) {
+          setIsScrolled(false);
         }
       },
-      { threshold: 0.9 },
+      { threshold: 0.9 }
     );
 
-    const secondSection = document.querySelector(".why-container");
-    if (secondSection) observer.observe(secondSection);
+    const target = document.querySelector(".why-container");
+    if (target) observer.observe(target);
 
     return () => observer.disconnect();
   }, []);
@@ -45,31 +44,50 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
     >
-      <img src={logo1} alt="logo" />
+      {/* LEFT / LOGO */}
+      <Link to="/" onClick={() => setOpen(false)}>
+        <img src={logo1} alt="logo" className="logo" />
+      </Link>
 
-      <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
+      {/* MOBILE RIGHT */}
+      <div className="langMob">
+        <span
+          onClick={() => changeLanguage("en")}
+          className={currentLanguage === "en" ? "selected-language" : ""}
+        >
+          EN
+        </span>
+        <span
+          onClick={() => changeLanguage("fr")}
+          className={currentLanguage === "fr" ? "selected-language" : ""}
+        >
+          FR
+        </span>
+        <Menu className="menu" onClick={() => setOpen(true)} />
+      </div>
 
+      {/* MOBILE MENU */}
       <ul className={open ? "open" : ""}>
         <div className="top-nav">
-          <img src={logo1} alt="logo" />
-          <div className="CLOSE">
-            <IoClose onClick={() => setOpen(false)} />
-          </div>
+          <Link to="/" onClick={() => setOpen(false)}>
+            <img src={logo1} alt="logo" />
+          </Link>
+          <IoClose onClick={() => setOpen(false)} />
         </div>
 
-        <Link to={`/${userType}`}>
+        <Link to="/" onClick={() => setOpen(false)}>
           <li>{t("navbar.home")}</li>
         </Link>
 
-        <Link to="/about">
+        <Link to="/about" onClick={() => setOpen(false)}>
           <li>{t("navbar.about")}</li>
         </Link>
 
-        <Link to="#">
+        <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.why_us")}</li>
         </Link>
 
-        <Link to="#">
+        <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.services")}</li>
         </Link>
 
@@ -88,12 +106,18 @@ export default function Navbar() {
               FR
             </span>
           </div>
-          <Link to="/contact" className="contact-btn">
+
+          <Link
+            to="/contact"
+            className="contact-btn"
+            onClick={() => setOpen(false)}
+          >
             {t("navbar.contact")}
           </Link>
         </div>
       </ul>
 
+      {/* DESKTOP RIGHT */}
       <div className="nav-infos">
         <div className="languages">
           <span
@@ -109,6 +133,7 @@ export default function Navbar() {
             FR
           </span>
         </div>
+
         <Link to="/contact" className="contact-btn">
           {t("navbar.contact")}
         </Link>

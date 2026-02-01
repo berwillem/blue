@@ -83,9 +83,25 @@ nav .menu {
   font-weight: 450;
   color: #000000;
 }
+.logo{
+  position: relative;
+  z-index: 10;
+}
 .nav-infos .languages span {
   cursor: pointer;
   z-index: 2;
+}
+.CLOSE{
+  cursor: pointer;
+}
+.langMob{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.langMob span{
+  cursor: pointer;
+  color: #000000;
 }
 .selected-language {
   text-decoration: underline;
@@ -101,7 +117,10 @@ nav .menu {
   font-weight: 600;
 }
 @media (min-width: 1024px) {
-  nav {
+  .langMob{
+  display: none;
+}
+  nav{
     background-color: transparent;
   }
   nav ul a:first-of-type {
