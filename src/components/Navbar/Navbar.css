@@ -81,6 +81,10 @@ nav .menu {
   font-weight: 450;
   color: #000000;
 }
+.logo{
+  position: relative;
+  z-index: 10;
+}
 .nav-infos .languages span {
   cursor: pointer;
   z-index: 2;

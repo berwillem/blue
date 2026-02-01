@@ -50,7 +50,7 @@ useEffect(() => {
 
 
     <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
-      <img src={logo1} alt="logo" />
+      <Link to="/" onClick={() => setOpen(false)}><img src={logo1} alt="logo" className="logo"/></Link>
       <div className="langMob">
             <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
             <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
@@ -59,7 +59,7 @@ useEffect(() => {
      
       <ul className={open ? "open" : ""}>
         <div className="top-nav">
-          <img src={logo1} alt="logo" />
+           <Link to="/" onClick={() => setOpen(false)}><img src={logo1} alt="logo" /></Link>
           <div className="CLOSE">
             <IoClose onClick={() => setOpen(false)} />
           </div>
