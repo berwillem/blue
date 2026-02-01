@@ -44,7 +44,7 @@
 .part1 {
   position: sticky;
   top: 0;
-  height: 90dvh;
+  height: 100dvh;
   display: flex;
  flex-direction: column;
   align-items: center;
@@ -71,8 +71,9 @@
   position: relative;
   z-index: 2;
   height: 100dvh;
-  margin-top: 20dvh; /* Pour laisser la part1 visible au début */
+  margin-top: 0dvh; /* Pour laisser la part1 visible au début */
   background: white;
+  padding-bottom: 0%;
 }
 
 /* On s'assure que l'image de la part2 prend tout l'écran aussi */

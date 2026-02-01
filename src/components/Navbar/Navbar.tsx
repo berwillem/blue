@@ -8,16 +8,41 @@ import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
 import { motion } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({
+  links,
+}: {
+  links: { name: string; path: string }[];
+}) {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
-  const changeLanguage = (lng: string) => i18n.changeLanguage(lng);
-
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+  const [isScrolled, setIsScrolled] = useState(false);
   const userType = useUserTypeStore((state) => state.userType);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Si on voit la section Why (même un tout petit peu),
+        // la navbar devient blanche.
+        if (entry.isIntersecting) {
+          setIsScrolled(true);
+        } else {
+          // Si Why n'est pas là, on vérifie si on est au-dessus ou en-dessous.
+          // On utilise le "boundingClientRect" pour savoir si Why est en haut ou en bas.
+          if (entry.boundingClientRect.top > 0) {
+            setIsScrolled(false);
+          }
+        }
+      },
+      {
+        threshold: 0.9, // Déclenchement immédiat dès qu'un pixel apparaît
+      },
+    );
   // 🔥 Scroll observer
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,25 +56,20 @@ export default function Navbar() {
       { threshold: 0.9 }
     );
 
-    const target = document.querySelector(".why-container");
-    if (target) observer.observe(target);
+    // On cible Why ou la section qui suit l'Intro
+    const secondSection = document.querySelector(".why-container");
+
+    if (secondSection) {
+      observer.observe(secondSection);
+    }
 
     return () => observer.disconnect();
   }, []);
-
   return (
-    <motion.nav
-      style={{ backgroundColor: isScrolled ? "white" : "transparent" }}
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
-    >
-      {/* LEFT / LOGO */}
+    <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
       <Link to="/" onClick={() => setOpen(false)}>
         <img src={logo1} alt="logo" className="logo" />
       </Link>
-
-      {/* MOBILE RIGHT */}
       <div className="langMob">
         <span
           onClick={() => changeLanguage("en")}
@@ -63,33 +83,23 @@ export default function Navbar() {
         >
           FR
         </span>
-        <Menu className="menu" onClick={() => setOpen(true)} />
+        <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
       </div>
 
-      {/* MOBILE MENU */}
       <ul className={open ? "open" : ""}>
         <div className="top-nav">
           <Link to="/" onClick={() => setOpen(false)}>
             <img src={logo1} alt="logo" />
           </Link>
-          <IoClose onClick={() => setOpen(false)} />
+          <div className="CLOSE">
+            <IoClose onClick={() => setOpen(false)} />
+          </div>
         </div>
-
-        <Link to="/" onClick={() => setOpen(false)}>
-          <li>{t("navbar.home")}</li>
-        </Link>
-
-        <Link to="/about" onClick={() => setOpen(false)}>
-          <li>{t("navbar.about")}</li>
-        </Link>
-
-        <Link to="#" onClick={() => setOpen(false)}>
-          <li>{t("navbar.why_us")}</li>
-        </Link>
-
-        <Link to="#" onClick={() => setOpen(false)}>
-          <li>{t("navbar.services")}</li>
-        </Link>
+        {links.map((link, index) => (
+          <Link key={index} to={link.path} onClick={() => setOpen(false)}>
+            <li>{t(`navbar.${link.name}`)}</li>
+          </Link>
+        ))}
 
         <div className="nav-infos2">
           <div className="languages">
