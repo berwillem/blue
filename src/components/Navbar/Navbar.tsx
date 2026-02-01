@@ -6,77 +6,91 @@ import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
-  const [isScrolled, setIsScrolled] = useState(false);
-   const userType = useUserTypeStore((state) => state.userType);
+  const changeLanguage = (lng: string) => i18n.changeLanguage(lng);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      // Si on voit la section Why (même un tout petit peu), 
-      // la navbar devient blanche.
-      if (entry.isIntersecting) {
-        setIsScrolled(true);
-      } else {
-        // Si Why n'est pas là, on vérifie si on est au-dessus ou en-dessous.
-        // On utilise le "boundingClientRect" pour savoir si Why est en haut ou en bas.
-        if (entry.boundingClientRect.top > 0) {
+  const userType = useUserTypeStore((state) => state.userType);
+
+  // 🔥 Scroll observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsScrolled(true);
+        } else if (entry.boundingClientRect.top > 0) {
           setIsScrolled(false);
         }
-      }
-    },
-    { 
-      threshold: 0.9 // Déclenchement immédiat dès qu'un pixel apparaît
-    }
-  );
+      },
+      { threshold: 0.9 }
+    );
 
-  // On cible Why ou la section qui suit l'Intro
-  const secondSection = document.querySelector(".why-container");
-  
-  if (secondSection) {
-    observer.observe(secondSection);
-  }
+    const target = document.querySelector(".why-container");
+    if (target) observer.observe(target);
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
+
   return (
+    <motion.nav
+      style={{ backgroundColor: isScrolled ? "white" : "transparent" }}
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: [0.42, 0, 0.58, 1] }}
+    >
+      {/* LEFT / LOGO */}
+      <Link to="/" onClick={() => setOpen(false)}>
+        <img src={logo1} alt="logo" className="logo" />
+      </Link>
 
-
-    <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
-      <Link to="/" onClick={() => setOpen(false)}><img src={logo1} alt="logo" className="logo"/></Link>
+      {/* MOBILE RIGHT */}
       <div className="langMob">
-            <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
-            <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
-             <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
-          </div>
-     
+        <span
+          onClick={() => changeLanguage("en")}
+          className={currentLanguage === "en" ? "selected-language" : ""}
+        >
+          EN
+        </span>
+        <span
+          onClick={() => changeLanguage("fr")}
+          className={currentLanguage === "fr" ? "selected-language" : ""}
+        >
+          FR
+        </span>
+        <Menu className="menu" onClick={() => setOpen(true)} />
+      </div>
+
+      {/* MOBILE MENU */}
       <ul className={open ? "open" : ""}>
         <div className="top-nav">
-           <Link to="/" onClick={() => setOpen(false)}><img src={logo1} alt="logo" /></Link>
-          <div className="CLOSE">
-            <IoClose onClick={() => setOpen(false)} />
-          </div>
+          <Link to="/" onClick={() => setOpen(false)}>
+            <img src={logo1} alt="logo" />
+          </Link>
+          <IoClose onClick={() => setOpen(false)} />
         </div>
 
         <Link to="/" onClick={() => setOpen(false)}>
           <li>{t("navbar.home")}</li>
         </Link>
+
         <Link to="/about" onClick={() => setOpen(false)}>
           <li>{t("navbar.about")}</li>
         </Link>
+
         <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.why_us")}</li>
-        </Link >
+        </Link>
+
         <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.services")}</li>
         </Link>
+
         <div className="nav-infos2">
           <div className="languages">
             <span
@@ -92,9 +106,18 @@ useEffect(() => {
               FR
             </span>
           </div>
-          <button>{t("navbar.contact")}</button>
+
+          <Link
+            to="/contact"
+            className="contact-btn"
+            onClick={() => setOpen(false)}
+          >
+            {t("navbar.contact")}
+          </Link>
         </div>
       </ul>
+
+      {/* DESKTOP RIGHT */}
       <div className="nav-infos">
         <div className="languages">
           <span
@@ -110,8 +133,11 @@ useEffect(() => {
             FR
           </span>
         </div>
-        <button>{t("navbar.contact")}</button>
+
+        <Link to="/contact" className="contact-btn">
+          {t("navbar.contact")}
+        </Link>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

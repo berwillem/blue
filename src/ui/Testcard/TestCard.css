@@ -8,8 +8,10 @@
   margin-top: 1rem;
 }
 .testCard-container img {
-  width: 100%;
+  height: 32vh;
+
   border-radius: 1rem;
+  object-fit: cover;
 }
 .testCard-container h1 {
   color: black;
