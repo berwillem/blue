@@ -52,10 +52,29 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset }) => {
 export default function About() {
   // Texte 1: environ 40 mots. À 0.08s par mot = ~3.2 secondes d'anim.
   // Texte 2: On le fait commencer après 3.5 secondes pour être sûr.
+  const links=[  {
+      name:"home",
+      path:"/"
+    },
+    {
+      name:"about",
+      path:"/about"
+    },
+    {
+      name:"why_us",
+      path:"#"
+    },
+    {
+      name:"services",
+      path:"#"
+    }
+  ]
+  
+      
   
   return (
     <div className="about-container">
-      <Navbar />
+      <Navbar links={links} />
       <div className="about-content">
         <img src={redaabout} alt="about" />
         <div className="left">

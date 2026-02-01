@@ -28,6 +28,8 @@ nav ul {
   text-align: center;
   padding-bottom: 4rem;
   padding: 3rem;
+
+z-index: 2;
   box-sizing: border-box;
 }
 nav ul li {
@@ -40,7 +42,8 @@ nav ul li {
 nav ul li:hover {
   color: var(--primary-color);
 }
-nav ul a:first-of-type {
+
+nav ul >a:first-of-type {
   margin-top: 4rem;
 }
 
@@ -85,7 +88,7 @@ nav .menu {
 }
 .logo{
   position: relative;
-  z-index: 10;
+  z-index: 2;
 }
 .nav-infos .languages span {
   cursor: pointer;
@@ -117,6 +120,10 @@ nav .menu {
   font-weight: 600;
 }
 @media (min-width: 1024px) {
+  .logo{
+  position: relative;
+  z-index: 10;
+}
   .langMob{
   display: none;
 }

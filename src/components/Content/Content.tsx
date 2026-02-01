@@ -16,6 +16,7 @@ import { Link } from "react-router";
 const DATA = [
   {
     id: 1,
+    title: "Metabolic Method",
     leftText:
       "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
     rightDesc:
@@ -23,7 +24,9 @@ const DATA = [
     img: placeholder1,
   },
   {
+
     id: 2,
+    title: "Precision Nutrition",
     leftText:
       "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.",
     rightDesc:
@@ -31,7 +34,9 @@ const DATA = [
     img: placeholder2,
   },
   {
+
     id: 3,
+    title: "Resilient Health",
     leftText:
       "A transformative journey designed for those who refuse to settle for average health.",
     rightDesc:
@@ -81,7 +86,7 @@ export default function Content() {
       <div className={`content-container ${isPC ? "sticky-active" : ""}`}>
         {/* --- VERSION MOBILE --- */}
         <div className="mobile">
-          <img src={DATA[0].img} alt="Metabolic Method" />
+          <img src={DATA[0].img} alt={DATA[0].title} />
           <h4>Why we do what we do?</h4>
           <p>{DATA[0].leftText}</p>
           <div className="button-container">
@@ -94,7 +99,7 @@ export default function Content() {
         {/* --- VERSION DESKTOP --- */}
         <div className="big-size">
           <div className="left">
-            <h4>Why we do what we do?</h4>
+            <h4>  {DATA[currentIndex].title}</h4>
             <div className="rotating-text-box">
               <AnimatePresence mode="wait">
                 <motion.p

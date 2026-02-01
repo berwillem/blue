@@ -65,8 +65,7 @@
   /* 1. On tue le magnétisme sur tous les conteneurs de scroll */
   .sections-container,
   .scroll-container {
-    scroll-snap-type: none !important;
-    height: auto !important; /* On laisse le contenu définir la hauteur */
+ /* On laisse le contenu définir la hauteur */
     overflow-y: visible !important; /* On laisse le scroll se faire sur le body */
   }
 
@@ -74,8 +73,7 @@
   .section,
   .snap-section,
   .normal-section {
-    scroll-snap-align: none !important;
-    height: auto !important; /* Très important pour ne pas couper le texte sur PC */
+   /* Très important pour ne pas couper le texte sur PC */
     min-height: 100dvh; /* On garde au moins un plein écran pour le look */
   }
 
