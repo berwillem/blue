@@ -11,6 +11,9 @@ importers:
       '@emailjs/browser':
         specifier: ^4.4.1
         version: 4.4.1
+      emailjs:
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.3)
       framer-motion:
         specifier: ^12.29.2
         version: 12.29.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -727,6 +730,15 @@ packages:
 
   electron-to-chromium@1.5.277:
     resolution: {integrity: sha512-wKXFZw4erWmmOz5N/grBoJ2XrNJGDFMu2+W5ACHza5rHtvsqrK4gb6rnLC7XxKB9WlJ+RmyQatuEXmtm86xbnw==}
+
+  emailjs@5.0.0:
+    resolution: {integrity: sha512-J7gxswcLGRZQM+HQBgll0DJuEMFiJIa7UzgK3GsjlytyRS4X2z7K1brQLlezEs3ul+jqvYYoCTqPAgWrVZf0mw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   esbuild@0.27.2:
     resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
@@ -1867,6 +1879,10 @@ snapshots:
   deep-is@0.1.4: {}
 
   electron-to-chromium@1.5.277: {}
+
+  emailjs@5.0.0(typescript@5.9.3):
+    optionalDependencies:
+      typescript: 5.9.3
 
   esbuild@0.27.2:
     optionalDependencies:

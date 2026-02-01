@@ -47,15 +47,8 @@ useEffect(() => {
   return () => observer.disconnect();
 }, []);
   return (
-    <nav style={{backgroundColor:isScrolled?"white":"transparent"}}>
 
-    if (secondSection) {
-      observer.observe(secondSection);
-    }
 
-    return () => observer.disconnect();
-  }, []);
-  return (
     <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
       <img src={logo1} alt="logo" />
       <div className="langMob">

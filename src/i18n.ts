@@ -9,6 +9,7 @@ i18n
   .use(LanguageDetector) // détecte la langue du navigateur
   .use(initReactI18next) // passe i18n à react-i18next
   .init({
+     lng: 'en',
     fallbackLng: "en", // langue par défaut
     debug: true,       // active les logs pour le dev
     interpolation: {
