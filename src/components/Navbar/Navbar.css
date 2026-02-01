@@ -85,6 +85,18 @@ nav .menu {
   cursor: pointer;
   z-index: 2;
 }
+.CLOSE{
+  cursor: pointer;
+}
+.langMob{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.langMob span{
+  cursor: pointer;
+  color: #000000;
+}
 .selected-language {
   text-decoration: underline;
 }
@@ -95,6 +107,9 @@ nav .menu {
   width: 100%;
 }
 @media (min-width: 1024px) {
+  .langMob{
+  display: none;
+}
   nav{
     background-color: transparent;
   }

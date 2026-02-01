@@ -58,7 +58,12 @@ useEffect(() => {
   return (
     <nav style={{ backgroundColor: isScrolled ? "white" : "transparent" }}>
       <img src={logo1} alt="logo" />
-      <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
+      <div className="langMob">
+            <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
+            <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
+             <Menu color="black" className="menu" onClick={() => setOpen(!open)} />
+          </div>
+     
       <ul className={open ? "open" : ""}>
         <div className="top-nav">
           <img src={logo1} alt="logo" />
@@ -67,16 +72,16 @@ useEffect(() => {
           </div>
         </div>
 
-        <Link to={`/${userType}`}>
+        <Link to="/" onClick={() => setOpen(false)}>
           <li>{t("navbar.home")}</li>
         </Link>
-        <Link to="/about">
+        <Link to="/about" onClick={() => setOpen(false)}>
           <li>{t("navbar.about")}</li>
         </Link>
-        <Link to="#">
+        <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.why_us")}</li>
-        </Link>
-        <Link to="#">
+        </Link >
+        <Link to="#" onClick={() => setOpen(false)}>
           <li>{t("navbar.services")}</li>
         </Link>
         <div className="nav-infos2">
