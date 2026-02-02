@@ -44,33 +44,37 @@ export default function Intro() {
       });
 
       // 2. TIMELINE DE SCROLL UNIQUE
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=350%", // Longueur du scroll total
-          scrub: 1,
-          pin: true,
-        },
-      });
+// 2. TIMELINE DE SCROLL UNIQUE
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: containerRef.current,
+    start: "top top",
+    end: "+=400%", // On allonge un peu pour plus de confort
+    scrub: 1,
+    pin: true,
+  },
+});
 
-      tl.to(textRef.current, { opacity: 0, y: -50, filter: "blur(10px)" }, 0)
-        .to(imageRef.current, {
-          width: "100vw",
-          height: "100vh",
-          borderRadius: 0,
-          duration: 1
-        }, 0)
-        .to(buttonRef.current, { opacity: 1, y: -20 }, 0.3)
-        // C'EST ICI : Why commence à monter quand l'image est presque finie (0.6)
-        .to(whyRef.current, { y: "0%", duration: 1 }, 0.6) 
-        // Puis on allume les mots
-        .to(".revealWord", { 
-            opacity: 1, 
-            stagger: 0.02, 
-            duration: 0.5 
-        }, 1.2);
-
+tl.to(textRef.current, { opacity: 0, y: -50, filter: "blur(10px)" }, 0)
+  .to(imageRef.current, {
+    width: "100vw",
+    height: "100vh",
+    borderRadius: 0,
+    bottom: 0,
+    duration: 1 // L'image finit son zoom à l'indice 1
+  }, 0)
+  .to(buttonRef.current, { opacity: 1, y: -20 }, 0.3)
+  
+  // CHANGEMENT ICI : Why commence à 1 (pile quand l'image a fini son zoom)
+  // On peut même mettre 1.1 pour laisser une mini pause "image fixe"
+  .to(whyRef.current, { y: "0%", duration: 1 }, 1) 
+  
+  // Les mots s'allument après que Why soit bien en place (indice 2)
+  .to(".revealWord", { 
+      opacity: 1, 
+      stagger: 0.02, 
+      duration: 0.5 
+  }, 2);
     }, containerRef);
     return () => ctx.revert();
   }, []);

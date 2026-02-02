@@ -103,7 +103,13 @@
     width: 95%;
   }
 }
-
+.selected-language{
+  text-decoration: underline;
+}
+.langBtn{
+  display: flex;
+  gap: 5px;
+}
 nav .mobile-nav-links {
   display: flex;
   gap: 1rem;

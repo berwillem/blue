@@ -21,6 +21,8 @@ const DATA = [
       "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
     rightDesc:
       "Sustainable excellence begins with metabolism - through a profound balance.",
+    rightDesc2:
+      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
     img: placeholder1,
   },
   {
@@ -31,6 +33,8 @@ const DATA = [
       "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.",
     rightDesc:
       "Optimize your brain and body with precision-based nutritional protocols.",
+          rightDesc2:
+      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
     img: placeholder2,
   },
   {
@@ -41,6 +45,8 @@ const DATA = [
       "A transformative journey designed for those who refuse to settle for average health.",
     rightDesc:
       "Long-term health is not an accident; it's a deliberate executive strategy.",
+          rightDesc2:
+      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
     img: placeholder3,
   },
 ];
@@ -49,6 +55,7 @@ export default function Content() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPC, setIsPC] = useState(false);
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth >= 1280);
@@ -89,6 +96,12 @@ export default function Content() {
           <img src={DATA[0].img} alt={DATA[0].title} />
           <h4>Why we do what we do?</h4>
           <p>{DATA[0].leftText}</p>
+          {show &&         <p className="right-description">
+                  {DATA[currentIndex].rightDesc2}
+                </p>}
+            <p className="know-more seeMore"  onClick={()=>{setShow(!show)}}>
+                   <span> know more</span> 
+                  </p>
           <div className="button-container">
             <Link to="/tests/metabolic-health">
               <Button text="Start a metabolic test" width="auto" />
@@ -130,13 +143,17 @@ export default function Content() {
                 exit={{ y: "-100%", opacity: 0 }}
                 transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
               >
-                <p className="right-description">
-                  {DATA[currentIndex].rightDesc}
-                </p>
+           
                 <div className="image-wrapper-tiktok">
                   <img src={DATA[currentIndex].img} alt="Metabolic" />
                 </div>
-                <Link to="/about">
+                     <p className="right-description">
+                  {DATA[currentIndex].rightDesc}
+                </p>
+             {show &&         <p className="right-description">
+                  {DATA[currentIndex].rightDesc2}
+                </p>}
+                <Link onClick={()=>{setShow(!show)}}>
                   <p className="know-more">
                     know more <ArrowRight size={15} />
                   </p>

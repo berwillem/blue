@@ -21,7 +21,7 @@
   flex-direction: column;
   height: 100%;
  gap: 1rem;
- padding-top: 3rem;
+ padding-top: 5rem;
 }
 
 .mobile img {
@@ -40,18 +40,33 @@
 .mobile p {
   font-size: 1rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
 }
 .mobile .button-container{
   margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .big-size {
   display: none;
 }
-
+/* Dans le CSS de ton composant Content */
+@media (max-width: 768px) {
+  .content-scroll-wrapper {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 /* --- VERSION PC (1280px+) --- */
 @media screen and (min-width: 1280px) {
-  .restSections .content-scroll-wrapper:not(:first-of-type){
+  .snap-group-container .snap-panel:not(:first-of-type){
   display: none;
 
 }

@@ -61,7 +61,7 @@ overflow: hidden;
   .about-content {
     flex-direction: row-reverse;
     gap: 3rem;
-        padding: 3rem 5rem;
+        padding: 5rem 5rem;
         margin-top: 40px;
   }
 
