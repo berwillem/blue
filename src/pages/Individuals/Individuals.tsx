@@ -27,24 +27,23 @@ export default function Individuals() {
 
 
   return (
-    <div className="individuals-container">
-      <Navbar links={links} />
-<div className="scroll-container">
-  <section className="snap-section video1">   <Intro /></section>
-  <section className="snap-section video2">  <Why /></section>
-  
-  <section className="normal-section">
-     <Content />
-      <Content />
-      <Content />
-      <Last />
+ <div className={'mainWrapper'}>
+      <div className="navbar-anim">
+       <Navbar links={links} />
+      </div>
 
-      <Footer />
-  </section>
-</div>
-   
+      {/* 1. L'INTRO (Hero avec Zoom image) */}
+      <Intro  />
 
-   
+ 
+      {/* 3. LE RESTE (Split Sections) */}
+      <section className={"restSections"}>
+        <Content />
+        <Content />
+        <Content />
+        <Last/>
+      </section>
+      <Footer/>
     </div>
   );
 }

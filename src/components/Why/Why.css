@@ -1,81 +1,278 @@
-/* --- Wrapper --- */
-.why-scroll-wrapper {
-  position: relative;
+.mainWrapper {
+  background: #ffffff;
   width: 100%;
-  height: 300vh; /* total scroll duration */
-  scroll-snap-align: start;
+  /* Crucial: remove overflow hidden here if it exists */
 }
 
-/* --- Container --- */
-.why-container {
-  position: sticky;
-  top: 0; /* adjust if navbar height exists, e.g., top: 80px */
-  height: 100dvh;
+/* HERO (Preserved) */
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.page {
+  height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  background-color: white;
-  padding: 2rem 5rem;
+  position: relative;
+}
+.headline {
+  position: absolute;
+  top: 20%;
+  text-align: center;
+  z-index: 15;
+  width: 85vw;
+  color: #0e3a4a;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  font-weight: 500;
+}
+.word {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+.imageCard {
+  overflow: hidden;
+  z-index: 20;
+}
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.founderBtn {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 20px 32px;
+  background: #fff;
+  border: none;
+  color: #0e3a4a;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.yellow {
+  width: 12px;
+  height: 12px;
+  background: #ffcc00;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.overlaySection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 40;
+  padding: 100px 5vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1000px;
+}
+.smallTitle {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 3rem;
+  color: #0e3a4a;
+}
+.longText {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  line-height: 1.6;
+  color: #0e3a4a;
+}
+.revealWord {
+  display: inline-block;
+  white-space: pre-wrap;
+  opacity: 0.1;
+  will-change: opacity;
+}
+.longText p {
+  margin-bottom: 2rem;
 }
 
-/* --- Heading --- */
-.why-container h2 {
-  color: black;
-  font-size: 2.5rem;
+/* SPLIT SECTION FIX */
+.splitSection {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: flex-start; /* Ensures sticky works */
+}
+
+.leftSide {
+  flex: 1;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  transition: background-color 0.8s ease;
+  z-index: 10;
+}
+
+.stickyContent {
+  width: 100%;
+  max-width: 450px;
+}
+.miniTitle {
+  color: #fff;
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.description {
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.testBtn {
+  padding: 16px 32px;
+  border-radius: 50px;
+  border: none;
+  background: #fff;
+  color: #0e3a4a;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.rightSide {
+  flex: 1;
+  background: #fff;
+  position: relative;
+}
+
+.scrollZone {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+}
+
+.rightCard {
+  width: 100%;
+  max-width: 500px;
+}
+.imgContainer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.seeMore {
+  color: #0e3a4a;
+  text-decoration: underline;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.philosophy-section {
+  width: 100%;
+  height: 100vh; /* Garde la section à la taille de l'écran */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.why-content-container {
+ 
+  padding: 0 10vw;
+  width: 100%;
+}
+
+.smallTitle {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  color: #0e3a4a;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.longText {
+  color: #0e3a4a;
+  /* Typographie plus grande pour un look premium */
+  font-size: clamp(1.5rem, 3vw, 2.5rem); 
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.longText p {
   margin-bottom: 3rem;
 }
 
-/* --- Paragraphs / Animated text --- */
-.animated-paragraph {
-  margin-bottom: 2.5rem;
-  line-height: 1.4;
+.revealWord {
+  opacity: 0.1; /* État éteint au début */
+  display: inline-block;
+  white-space: pre-wrap;
+  will-change: opacity;
+}
+/* Intro.css */
+.hero {
+  position: relative;
+  z-index: 1; /* L'image est au niveau 1 */
+  height: 100vh;
+}
+
+/* Why.css */
+.philosophy-section {
+  position: relative;
+  z-index: 10; /* Why est au niveau 10, elle passe forcément DEVANT l'image */
+  background-color: #ffffff; /* Fond blanc opaque pour cacher l'image dessous */
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  font-weight: 500;
+  align-items: center;
+  /* Optionnel : On peut ajouter une petite ombre portée sur le bord haut 
+     pour bien voir la section "monter" sur l'image */
+  box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
 }
 
-/* --- Reveal text --- */
-.reveal-text {
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+.revealWord {
+  opacity: 0.15;
+}
+@media screen and (max-width: 1200px) {
+  .why-content-container{
+    margin-top: 100px;
+  }
+  
+}
+.whySection {
+  position: relative;
+  z-index: 10; /* Passe par-dessus l'Intro */
+  background: #ffffff; /* Opaque */
+  min-height: 100vh;
+  width: 100%;
+  
+  /* C'est ce qui permet de cacher l'Intro au lieu de simplement la pousser */
+  margin-top: -100vh; 
+  
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 -20px 50px rgba(0,0,0,0.1);
 }
 
-/* --- Tablet / Medium screens --- */
-@media screen and (min-width: 768px) {
-  .why-container h2 {
-    font-size: 2.3rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .why-container p {
-    font-size: 2rem;
-    line-height: normal;
-    margin-top: 1.2rem;
-  }
+.revealWord {
+  opacity: 0.15;
+  display: inline-block;
 }
 
-/* --- Desktop / Large screens --- */
-@media screen and (min-width: 1280px) {
-  .why-container {
-    padding: 5rem;
-    justify-content: start;
-  }
-
-  .why-container h2 {
-    font-size: 2rem;
-  }
-
-  .animated-paragraph {
-    font-size: 2rem;
-  }
-
-  .reveal-text {
-    font-size: 2rem;
-    line-height: 1.4;
-  }
-}
