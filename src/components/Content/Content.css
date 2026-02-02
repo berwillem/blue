@@ -51,6 +51,10 @@
 
 /* --- VERSION PC (1280px+) --- */
 @media screen and (min-width: 1280px) {
+  .restSections .content-scroll-wrapper:not(:first-of-type){
+  display: none;
+
+}
   .content-container {
  
     padding: 0;
