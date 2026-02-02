@@ -99,7 +99,19 @@ useEffect(() => {
 }, []);
 // ...existing code...
   return (
-    <nav  ref={navRef} style={{ backgroundColor: isScrolled ? "white" : "transparent"}}>
+   <motion.nav  
+  ref={navRef} 
+  
+  // Animation de lancement
+  initial={{ y: -100, opacity: 0 }} 
+  animate={{ y: 0, opacity: 1 }} 
+  transition={{ duration: 0.8, ease: "easeOut" }}
+
+  // Garde tes styles existants
+  style={{ 
+    backgroundColor: isScrolled ? "white" : "transparent"
+  }}
+>
       <Link to="/" onClick={() => setOpen(false)}>
         <img src={logo1} alt="logo" className="logo" />
       </Link>
@@ -187,6 +199,6 @@ useEffect(() => {
           {t("navbar.contact")}
         </Link>
       </div>
-    </nav>
+    </motion.nav  >
   );
 }
