@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Globe, Menu } from "lucide-react"; // Using lucide-react for the icon
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import logo1 from "../../assets/images/logo1.png";
+import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 export default function Navbar({
   links,

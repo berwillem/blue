@@ -2,6 +2,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../../assets/images/redacontent1.png";
+import redaintro from "../../assets/images/redaintro.jpg";
+import Button from "../../ui/button/Button";
+import BlurText from "../../ui/BlurText";
+import { Link } from "react-router-dom";
 import "./Intro.css";
 
 gsap.registerPlugin(ScrollTrigger);
