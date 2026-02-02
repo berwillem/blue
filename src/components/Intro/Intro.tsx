@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 export default function Intro() {
   const [isPC, setIsPC] = useState(false);
-  const [isFull, setIsFull] = useState(false); // État pour l'animation "On/Off"
+  const [isFull, setIsFull] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const introText = "I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion";
@@ -25,31 +25,26 @@ export default function Intro() {
     offset: ["start start", "end end"],
   });
 
-  // --- LE DÉCLENCHEUR (TRIGGER) ---
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (isPC) {
-      // Si on scroll plus de 10% (0.1), on active le plein écran
-      if (latest > 0.1) {
-        setIsFull(true);
-      } else {
-        setIsFull(false);
-      }
+      // On déclenche l'agrandissement très tôt pour éviter les entre-deux
+      setIsFull(latest > 0.2);
     }
   });
 
   return (
     <div className="intro-container" ref={containerRef}>
-      <div className="part1">
+      <div className="part1" style={{marginTop:isPC && isFull ? 0 : "100px",paddingTop: isFull ? 0 : "100px"}}>
         <motion.div
           className="scroll-btn"
           style={{ zIndex: 50 }}
           initial={{ opacity: 0, y: 50, x: "-50%" }}
           animate={{ 
-            opacity: !isPC ? 0 : 1, // Disparaît quand l'image prend tout l'écran
+            opacity: !isPC ? 0 : 1, // On cache quand c'est plein écran
             y:  -50, 
             x: "-50%" 
           }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
         >
           <Link to="/about">
             <Button width="auto" text="About the founder" />
@@ -59,35 +54,46 @@ export default function Intro() {
         <motion.div
           className="img-wrapper"
           animate={{
-            // On utilise l'état isFull pour définir les valeurs directes
-            width: isPC ? (isFull ? "100%" : "80%") : "100%",
-            height: isPC ? (isFull ? "100dvh" : "70vh") : "auto",
+            // On utilise vw et vh pour garantir le remplissage TOTAL de l'écran
+            width: isPC ? (isFull ? "100vw" : "80vw") : "100%",
+            height: isPC ? (isFull ? "100vh" : "70vh") : "auto",
             borderRadius: isPC ? (isFull ? "0rem" : "2rem") : "2rem",
           }}
           transition={{ 
             type: "spring", 
             stiffness: 100, 
-            damping: 20, // Effet rebond pour le "snap"
-            duration: 0.5 
+            damping: 25 
           }}
           style={{
             overflow: "hidden",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            zIndex: 3
           }}
         >
           <motion.img
             src={redaintro}
             alt="redaintro"
             className="main-img"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ 
+              width: "100%", 
+              height: "100%", 
+              objectFit: "cover",
+              scale: isFull ? 1.05 : 1 // Léger zoom pour remplir parfaitement
+            }}
           />
         </motion.div>
 
         <motion.div
-          animate={{ opacity:isPC ? isFull ? 0 : 1:1, y: isFull ? 20 : 0 }}
+          animate={{ 
+            height: isPC ? (isFull ? "0vh" : "30vh") : "auto",
+            opacity: isPC ? (isFull ? 0 : 1) : 1, 
+            y: isFull ? 40 : 0 
+          }}
+          transition={{ duration: 0.3 }}
           className="intro-h2-wrapper"
+          style={{ zIndex: 45 }}
         >
           <BlurText
             text={introText}
@@ -102,9 +108,7 @@ export default function Intro() {
       <div className="part2">
         <img src={redaintro} alt="redaintro" className="img-scroll" />
         <div className="scroll-btn-fixed">
-      
-            <Button width="auto" text="About the founder" />
-         
+          <Button width="auto" text="About the founder" />
         </div>
       </div>
     </div>

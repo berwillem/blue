@@ -61,7 +61,7 @@ overflow: hidden;
   .about-content {
     flex-direction: row-reverse;
     gap: 3rem;
-        padding: 2rem 5rem;
+        padding: 3rem 5rem;
         margin-top: 40px;
   }
 
@@ -71,11 +71,11 @@ overflow: hidden;
   }
 
   .about-content p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 1.8;
   }
   .about-content p:first-child {
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 1.8;
     margin: 0;
   }

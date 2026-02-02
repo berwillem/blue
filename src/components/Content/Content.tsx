@@ -65,8 +65,8 @@ export default function Content() {
   // Découpage propre des zones de scroll (PC uniquement)
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    [0, 0, 1, 2],
+ [0, 0.25, 0.5, 0.75, 1], // On définit 0.75 comme la fin du mouvement
+      [0, 0, 1, 2, 2]
   );
 
   useEffect(() => {
