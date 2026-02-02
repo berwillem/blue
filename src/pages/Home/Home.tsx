@@ -1,77 +1,135 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router";
-import { useUserTypeStore } from "../../store/useUserTypeStore";
-import { motion, AnimatePresence } from "framer-motion";
-import "./Home.css";
-import logo from "../../assets/images/logo1.png";
+// @ts-nocheck
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
+import Splitting from "splitting";
+import styles from "./Home.module.css";
+import TransitionOverlay from "../../components/TransitionOverlay/TransitionOverlay"; // use alias @ = src/ if configured, or adjust path
 
 export default function Home() {
-  const setUserType = useUserTypeStore((state) => state.setUserType);
-  const [step, setStep] = useState(0); // 0: Proverbe 1, 1: Proverbe 2, 2: Menu Final
+  const navigate = useNavigate();
+
+  const [transition, setTransition] = useState({
+    active: false,
+    x: 0,
+    y: 0,
+    targetPath: "",
+  });
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStep(1), 2000); // 2ème proverbe à 2s
-    const timer2 = setTimeout(() => setStep(2), 4000); // Menu final à 4s
-    return () => { clearTimeout(timer1); clearTimeout(timer2); };
+    Splitting({
+      target: [
+        ".quote",
+        ".individuals-title",
+        ".individuals-subtitle",
+        ".corporate-title",
+        ".corporate-subtitle",
+      ],
+    });
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // 1️⃣ QUOTES IN (both sides together)
+    tl.fromTo(
+      ".quote",
+      { opacity: 0, filter: "blur(12px)", y: 10 },
+      { opacity: 1, filter: "blur(0px)", y: 0, duration: 1.2 },
+    );
+
+    // 2️⃣ QUOTES OUT
+    tl.to(
+      ".quote",
+      {
+        opacity: 0,
+        filter: "blur(12px)",
+        y: -10,
+        duration: 0.8,
+      },
+      "+=0.8",
+    );
+
+    // 3️⃣ MAIN TEXTS (your original animation, untouched)
+    tl.fromTo(
+      ".individuals-title .char, .individuals-subtitle .char, .corporate-title .char, .corporate-subtitle .char",
+      { opacity: 0, filter: "blur(12px)", y: 12 },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 1.3,
+        stagger: 0.035,
+      },
+    );
   }, []);
 
-  const variants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 }
+  const handleClick = (e, path) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    setTransition({
+      active: true,
+      x,
+      y,
+      targetPath: path,
+    });
+  };
+
+  const handleTransitionComplete = () => {
+    // Navigate while the yellow overlay is still fully covering the screen
+    navigate(transition.targetPath);
+    // Do NOT reset transition.active → overlay stays big on the next page
   };
 
   return (
-    <div className="home-container">
-      {/* Côté Individuals */}
-      <Link 
-        to="/individuals" 
-        onClick={(e) => step < 2 ? e.preventDefault() : setUserType("individuals")}
-        style={{ cursor: step < 2 ? "default" : "pointer" }}
-      >
-        <div className="individuals">
-          <AnimatePresence mode="wait">
-            {step === 0 && (
-              <motion.h1 key="q1" {...variants}>"Build with purpose"</motion.h1>
-            )}
-            {step === 1 && (
-              <motion.h1 key="q2" {...variants}>"Strength in discipline"</motion.h1>
-            )}
-            {step === 2 && (
-              <motion.div key="final" {...variants}>
-                <h1>Individuals</h1>
-                <p>Coaching and mentoring</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </Link>
+    <>
+      <div className={styles.splitContainer}>
+        {/* Left: Individuals */}
+        <div
+          className={styles.side}
+          style={{ backgroundColor: "white" }}
+          onClick={(e) => handleClick(e, "/individuals")}
+        >
+          <div className={styles.content}>
+            {/* QUOTE */}
+            <p className={`${styles.quote} ${styles.corporateQuote} quote`}>
+              “love yourself.”
+            </p>
 
-      {/* Côté Corporates */}
-      <Link 
-        to="/corporates" 
-        onClick={(e) => step < 2 ? e.preventDefault() : setUserType("corporates")}
-        style={{ cursor: step < 2 ? "default" : "pointer" }}
-      >
-        <div className="corporates">
-          <AnimatePresence mode="wait">
-            {step === 0 && (
-              <motion.h1 key="q3" {...variants}>"Lead with responsibility"</motion.h1>
-            )}
-            {step === 1 && (
-              <motion.h1 key="q4" {...variants}>"Clarity is power"</motion.h1>
-            )}
-            {step === 2 && (
-              <motion.div key="final2" {...variants}>
-                <h1>Corporates</h1>
-                <p>Consulting and advice</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            {/* REAL TEXT */}
+            <h1 className={`${styles.title} individuals-title`}>Individuals</h1>
+            <p className={`${styles.subtitle} individuals-subtitle`}>
+              Coaching <span className={styles.and}>and</span> Mentoring
+            </p>
+          </div>
         </div>
-      </Link>
+        {/* Right: Corporates */}
+        <div
+          className={styles.side}
+          style={{ background: "linear-gradient(to top, #00296F, #001D4F)" }}
+          onClick={(e) => handleClick(e, "/corporates")}
+        >
+          <div className={styles.content}>
+            {/* QUOTE */}
+            <p className={`${styles.quote} ${styles.individualsQuote} quote`}>
+              “you can do it.”
+            </p>
 
-      <img src={logo} alt="Logo" className="home-logo" style={{ opacity: step < 2 ? 0.5 : 1 }} />
-    </div>
+            {/* REAL TEXT */}
+            <h1 className={`${styles.title} corporate-title`}>Corporates</h1>
+            <p className={`${styles.subtitle} corporate-subtitle`}>
+              Consulting <span className={styles.and}>and</span> Advice
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Persistent overlay */}
+      <TransitionOverlay
+        isActive={transition.active}
+        clickX={transition.x}
+        clickY={transition.y}
+        onComplete={handleTransitionComplete}
+      />
+    </>
   );
 }

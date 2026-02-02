@@ -4,7 +4,7 @@ import "./Intro.css";
 import redaintro from "../../assets/images/redaintro.jpg";
 import Button from "../../ui/button/Button";
 import BlurText from "../../ui/BlurText";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Intro() {
   const [isPC, setIsPC] = useState(false);

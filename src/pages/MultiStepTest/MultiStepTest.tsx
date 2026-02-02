@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import "./MultiStepTest.css";
 
 const TESTS_MAP = {
