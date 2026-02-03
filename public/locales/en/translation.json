@@ -7,6 +7,11 @@
     "contact": "Book a call",
     "services": "Services",
     "why_us": "Why Us",
-    "joinus": "Join US"
+    "joinus": "Join US",
+    "privacy":"privacy"
+  },
+  "individuals":{
+    "main_title":"I lead Blu to help people rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
+    "button":"About the founder"
   }
 }

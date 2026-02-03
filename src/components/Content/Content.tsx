@@ -15,43 +15,9 @@ import placeholder1 from "../../assets/images/redaplaceholder.png";
 import placeholder2 from "../../assets/images/redaplaceholder.png";
 import placeholder3 from "../../assets/images/redaplaceholder.png";
 
-const DATA = [
-  {
-    id: 1,
-    title: "Metabolic Method",
-    leftText:
-      "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
-    rightDesc:
-      "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential. ",
-    rightDesc2:
-      "We never disclose personal details, and your information is used only to support your wellness journey. You can trust us to protect your personal life with the utmost care and discretion. We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services. We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure. Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law.",
-    img: placeholder1,
-  },
-  {
-    id: 2,
-    title: "Precision Nutrition",
-    leftText:
-      "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.",
-    rightDesc:
-      "Optimize your brain and body with precision-based nutritional protocols.",
-    rightDesc2:
-      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
-    img: placeholder2,
-  },
-  {
-    id: 3,
-    title: "Resilient Health",
-    leftText:
-      "A transformative journey designed for those who refuse to settle for average health.",
-    rightDesc:
-      "Long-term health is not an accident; it's a deliberate executive strategy.",
-    rightDesc2:
-      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
-    img: placeholder3,
-  },
-];
 
-export default function Content() {
+
+export default function Content({DATA}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPC, setIsPC] = useState(false);
