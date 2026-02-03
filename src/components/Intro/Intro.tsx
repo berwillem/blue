@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../../assets/images/redaabout.png";
 
 import "./Intro.css";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +15,7 @@ export default function Intro() {
   const imageRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const whyRef = useRef<HTMLElement | null>(null);
-
+  const { t, i18n } = useTranslation();
   const headlineText =
     "I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion";
 
@@ -127,7 +128,7 @@ export default function Intro() {
       <section ref={containerRef} className="hero-container">
         <div className="intro-section">
           <h1 ref={textRef} className="headline">
-            {headlineText.split(" ").map((word, i) => (
+            {t("individuals.main_title").split(" ").map((word, i) => (
               <span key={i} className="word">
                 {word}&nbsp;
               </span>
@@ -150,22 +151,16 @@ export default function Intro() {
 
         {/* WHY OVERLAY */}
         <section ref={whyRef} className="why-overlay">
-          <span className="smallTitle">[ PHILOSOPHY ]</span>
+          <span className="smallTitle">Why?</span>
           <div className="longText">
             <p>
-              Avec plus de 21 ans d’expérience dans des environnements exigeants
-              — dont 15 années à des postes de responsabilités — Redha a
-              longtemps évolué à haut niveau tout en faisant face à des
-              difficultés personnelles bien réelles.
+    We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become reliable for themselves and for others
             </p>
             <p>
-              En parcourant son propre chemin de transformation, il a
-              progressivement retrouvé une énergie durable, une clarté d’esprit
-              profonde et une discipline plus stable et alignée.
+             Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline, metabolic health, responsibility, and meaning
             </p>
             <p>
-              Aujourd’hui, il met cette expérience vécue au service des
-              personnes qui souhaitent se reconnecter à elles-mêmes.
+             When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most: family, responsibility, and legacy.
             </p>
           </div>
         </section>

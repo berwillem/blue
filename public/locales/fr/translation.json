@@ -7,6 +7,11 @@
         "contact": "Réserver un appel",
         "services": "Services",
         "why_us": "Pourquoi nous",
-        "joinus": "Nous rejoindre"
-    }
+        "joinus": "Nous rejoindre",
+        "privacy":"privacy"
+    },
+      "individuals":{
+    "main_title":"Je guide Blu pour aider les gens à se reconstruire — santé physique, force mentale et clarté — afin que la vie retrouve son sens.",
+      "button" : "À propos du fondateur"
+  }
 }
