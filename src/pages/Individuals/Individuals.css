@@ -243,25 +243,32 @@
   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* ======================= RESPONSIVE SCROLL SNAP (MOBILE) ======================= */
+/* --- MOBILE UNIQUEMENT --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-  .snap-group-container {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
+  
+  /* 1. On applique le type de snap sur le parent global sans bloquer la hauteur */
+  .mainWrapper {
+    /* Supprime height: 100vh ici si présent */
+    scroll-snap-type: y proximity; /* Proximity évite le blocage rigide */
+    overflow-y: visible; 
   }
 
-  .snap-group-container::-webkit-scrollbar {
-    display: none;
-  }
-
+  /* 2. On définit les zones de "capture" du scroll */
   .snap-panel {
     height: 100vh;
     width: 100%;
+    /* C'est ici que l'aimant s'active */
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    
+    /* Sécurité pour le contenu qui dépasse */
+    overflow: hidden; 
   }
+
+  /* 3. L'Intro et les autres ne doivent PAS avoir de snap-align */
+  .navbar-anim, .intro-container, .last-container {
+    scroll-snap-align: none;
+  }
+  
 }
