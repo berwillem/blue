@@ -16,6 +16,7 @@ export default function Intro() {
   const buttonRef = useRef<HTMLDivElement | null>(null);
   const whyRef = useRef<HTMLElement | null>(null);
   const { t, i18n } = useTranslation();
+
   const headlineText =
     "I conduct Blu to help people rebuild themselves—physically, mentally, and morally—so they can live with strength, purpose, and responsibility instead of exhaustion and confusion";
 
@@ -66,6 +67,7 @@ export default function Intro() {
           anticipatePin: 1,
         },
       });
+
       const entryTl = gsap.timeline({ defaults: { ease: "power4.out" } });
       entryTl
         .to(imageRef.current, { bottom: 0, opacity: 1, duration: 1.5 })
@@ -78,9 +80,10 @@ export default function Intro() {
             duration: 1,
             stagger: 0.02,
           },
-          "-=1.0",
+          "-=1.0"
         )
         .from(".navbar-anim", { y: -100, opacity: 0, duration: 1.2 }, "-=1.2");
+
       tl.to(textRef.current, {
         opacity: 0,
         y: -50,
@@ -96,7 +99,7 @@ export default function Intro() {
             bottom: 0,
             duration: 1,
           },
-          "<",
+          "<"
         )
         .to(
           buttonRef.current,
@@ -105,7 +108,7 @@ export default function Intro() {
             y: 0,
             duration: 0.8,
           },
-          "<0.2",
+          "<0.2"
         )
         .to(whyRef.current, { y: "0%", duration: 1 }, "+=0.2")
         .to(
@@ -115,7 +118,7 @@ export default function Intro() {
             stagger: 0.02,
             duration: 0.5,
           },
-          "<0.5",
+          "<0.5"
         );
     }, containerRef);
 
@@ -128,11 +131,13 @@ export default function Intro() {
       <section ref={containerRef} className="hero-container">
         <div className="intro-section">
           <h1 ref={textRef} className="headline">
-            {t("individuals.main_title").split(" ").map((word, i) => (
-              <span key={i} className="word">
-                {word}&nbsp;
-              </span>
-            ))}
+            {t("individuals.main_title")
+              .split(" ")
+              .map((word, i) => (
+                <span key={i} className="word">
+                  {word}&nbsp;
+                </span>
+              ))}
           </h1>
 
           <div ref={imageRef} className="imageCard">
@@ -143,7 +148,7 @@ export default function Intro() {
             <Link to="/about">
               <button className="founderBtn">
                 <div className="yellow" />
-                About the founder
+                {t("individuals.button")}
               </button>
             </Link>
           </div>
@@ -151,17 +156,11 @@ export default function Intro() {
 
         {/* WHY OVERLAY */}
         <section ref={whyRef} className="why-overlay">
-          <span className="smallTitle">Why?</span>
+          <span className="smallTitle">{t("individuals.why")}</span>
           <div className="longText">
-            <p>
-    We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become reliable for themselves and for others
-            </p>
-            <p>
-             Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline, metabolic health, responsibility, and meaning
-            </p>
-            <p>
-             When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most: family, responsibility, and legacy.
-            </p>
+            <p>{t("individuals.whyp1")}</p>
+            <p>{t("individuals.whyp2")}</p>
+            <p>{t("individuals.whyp3")}</p>
           </div>
         </section>
       </section>

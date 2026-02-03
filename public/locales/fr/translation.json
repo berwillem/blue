@@ -3,15 +3,285 @@
         "home": "Accueil",
         "individuals": "Particuliers",
         "corporates": "Entreprises",
-        "about": "À propos",
+        "about": "À Propos",
         "contact": "Réserver un appel",
         "services": "Services",
-        "why_us": "Pourquoi nous",
-        "joinus": "Nous rejoindre",
-        "privacy":"privacy"
+        "why_us": "Pourquoi Nous",
+        "joinus": "Nous Rejoindre",
+        "privacy": "Confidentialité"
     },
-      "individuals":{
-    "main_title":"Je guide Blu pour aider les gens à se reconstruire — santé physique, force mentale et clarté — afin que la vie retrouve son sens.",
-      "button" : "À propos du fondateur"
-  }
+ 
+    "individuals": {
+        "main_title": "Je dirige Blu pour aider les gens à se reconstruire — santé physique, force mentale et clarté — pour que la vie retrouve son sens.",
+        "button": "À propos du fondateur",
+           "why": "pourquoi",
+    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour elles-mêmes et pour les autres",
+    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers la discipline, la santé métabolique, la responsabilité et le sens",
+    "whyp3": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui compte le plus : la famille, la responsabilité et l'héritage.",
+        "sections": [
+            {
+                "id": 1,
+                "title": "Pourquoi faisons-nous ce que nous faisons ?",
+                "leftText": "Méthode Métabolique Executive pour les performeurs et les ambitieux. Performance, Discipline et Sens — Le Nouveau Code de l'Élite.",
+                "rightDesc": "L'excellence durable commence de l'intérieur — par un équilibre profond entre métabolisme, état d'esprit et bien-être global. Cette compréhension nous a conduits à dévouer notre travail à l'accompagnement d'individus qui ne recherchent pas seulement le succès, mais un alignement entre le corps, l'esprit et leur raison d'être.",
+                "moreContent": {
+                    "paragraphs": [
+                        "Si vous êtes un performeur de haut niveau et que vous vous sentez épuisé malgré le succès, nous vous aidons à restaurer votre discipline, votre énergie et votre clarté. Notre approche holistique et basée sur des preuves intègre la santé métabolique, le mindset et les principes de leadership — pour que performance et équilibre puissent coexister. Les leaders ne s'épuisent pas — ils se reconstruisent. Restaurez votre énergie, votre confiance et votre clarté — de manière privée et permanente."
+                    ],
+                    "lists": [
+                        {
+                            "title": "Ce sur quoi nous travaillons avec vous :",
+                            "items": [
+                                "Santé Métabolique & Énergie",
+                                "Habitudes & Discipline",
+                                "Sens & Responsabilité",
+                                "État d'esprit & Structure"
+                            ]
+                        },
+                        {
+                            "title": "À qui nous nous adressons :",
+                            "items": [
+                                "Entrepreneurs, investisseurs et indépendants recherchant haute performance et bien-être.",
+                                "Cadres et dirigeants d'entreprise dans des structures de taille moyenne à grande.",
+                                "Professionnels, performeurs d'élite et athlètes ouverts à une optimisation mentale et métabolique basée sur la science."
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": 2,
+                "title": "Pourquoi faisons-nous ce que nous faisons ?",
+                "leftText": "Notre approche allie clarté stratégique et profondeur humaine, vous guidant à travers un voyage de transformation fondé sur l'autodiscipline, la force intérieure et une santé métabolique optimale.",
+                "rightDesc": "Grâce à des séances individuelles personnalisées et un suivi continu, nous vous guidons dans la création d'habitudes et de systèmes durables qui soutiennent votre nutrition, votre activité physique et votre état d'esprit.",
+                "moreContent": {
+                    "paragraphs": [
+                        "Notre Méthode Métabolique™ est conçue pour restaurer votre énergie, votre concentration et votre dynamisme, vous aidant à vous reconnecter avec vous-même. Nous travaillons en étroite collaboration avec vous pour définir des priorités et des objectifs clairs, garantissant que votre croissance est à la fois mesurable et significative. Avec le soutien de nos partenaires de confiance si nécessaire, nous vous aidons à adopter la santé métabolique et le mindset comme nouvelle monnaie du leadership."
+                    ]
+                }
+            },
+            {
+                "id": 3,
+                "title": "Pourquoi faisons-nous ce que nous faisons ?",
+                "leftText": "Notre travail se déroule lors de sessions privées en personne, où la vie privée et la confidentialité sont fondamentales.",
+                "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel.",
+                "moreContent": {
+                    "paragraphs": [
+                        "Nous ne divulguons jamais de détails personnels, et vos informations sont utilisées uniquement pour soutenir votre parcours de bien-être.",
+                        "Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et discrétion.",
+                        "Nous prenons la protection de vos données personnelles au sérieux. Toute information que vous choisissez de partager est traitée avec soin, discrétion et confidentialité, et traitée uniquement à des fins légitimes et clairement définies liées à nos services professionnels.",
+                        "Nous ne divulguons pas de données personnelles à des tiers sans base légale valide, et nous appliquons les mesures techniques et organisationnelles appropriées pour protéger vos informations.",
+                        "Vos données personnelles sont traitées conformément aux règlements de l'Union Européenne sur la protection des données (RGPD) et aux obligations de confidentialité applicables. Vous pouvez exercer vos droits à tout moment, conformément à la loi applicable."
+                    ]
+                }
+            }
+        ]
+    },
+    "last": {
+    "title": "Découvrez votre point de départ",
+    "description": "Prenez quelques minutes pour explorer votre capacité personnelle ou votre équilibre métabolique — et obtenez un aperçu personnel immédiat.",
+    "button": "Commencer le test",
+    "card1": {
+      "title": "Évaluation des capacités personnelles",
+      "desc": "Mesure votre énergie, votre concentration et vos performances quotidiennes."
+    },
+    "card2": {
+      "title": "Test de santé métabolique",
+      "desc": "Évalue la façon dont votre corps gère l'énergie et la récupération."
+    }
+  },
+  
+  "footer": {
+    "headline": "Élever la performance par <br /> l'équilibre, la clarté et la croissance.",
+    "cta": "Contactez-nous",
+    "col1": {
+      "title": "Pour les particuliers",
+      "links": ["Accueil", "Ce que nous faisons", "Test de capacité personnelle", "Test de santé métabolique", "Contactez-nous", "Liens utiles"]
+    },
+    "col2": {
+      "title": "Pour les entreprises",
+      "links": ["Accueil", "Ce que nous faisons", "Contactez-nous", "Liens utiles"]
+    },
+    "col3": {
+      "title": "Partenariats",
+      "links": ["Accueil", "Ce que nous faisons", "Devenir partenaire"]
+    }
+  },
+  "about": {
+    "paragraph1": "Avec plus de 21 ans d’expérience dans des environnements exigeants — dont 15 années à des postes de responsabilités — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples.",
+    "paragraph2": "En parcourant son propre chemin de transformation, il a progressivement retrouvé une énergie durable, une clarté d’esprit profonde et une discipline plus stable et alignée.",
+    "button": "Prendre rendez-vous"
+  },
+
+  "sections2": [
+    {
+      "id": 1,
+      "title": "Gouvernance",
+      "leftText": "Nous concevons une architecture de gouvernance moderne qui améliore la responsabilité, la transparence et la prise de décision tout en soutenant la performance.",
+      "rightDesc": "Gouvernance d'Entreprise Moderne : Nous accompagnons les conseils d'administration et les directions dans la mise en place de systèmes équilibrant contrôle, rapidité et responsabilité. La gouvernance devient un levier de performance et non une contrainte bureaucratique.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 2,
+      "title": "Performance financière & création de valeur",
+      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer les moteurs de la performance financière. En connectant stratégie et discipline, nous permettons une croissance rentable durable.",
+      "rightDesc": "Croissance Rentable Durable : Nous soutenons les organisations dans une croissance rentable sur le long terme. Nous alignons les ambitions avec la génération de trésorerie et la gestion des risques pour une performance durable.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Business",
+      "leftText": "Nous transformons la stratégie en exécution en améliorant l'efficacité, le positionnement, la tarification, l'efficacité commerciale et les capacités numériques.",
+      "rightDesc": "Stratégie & Vision : Nous aidons les dirigeants à définir une direction stratégique claire et à traduire la vision en priorités concrètes qui guident les décisions quotidiennes.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Leadership & Systèmes Humains",
+      "leftText": "Nous travaillons avec les leaders pour bâtir des organisations efficaces où les collaborateurs performent, apprennent et prennent leurs responsabilités. Le leadership et la culture sont des moteurs de performance clés.",
+      "rightDesc": "Ce qui fait un Leader : Nous aidons les leaders à développer clarté, responsabilité et cohérence. Le leadership devient visible dans les comportements et les décisions, et non dans les titres.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Changement Organisationnel & Excellence Opérationnelle",
+      "leftText": "Nous aidons les organisations à évoluer dans des environnements complexes. En renforçant la résilience et la discipline d'exécution, nous permettons un changement qui améliore la performance sans la perturber.",
+      "rightDesc": "Le changement comme transformation cognitive : Nous abordons le changement avant tout comme une évolution de la pensée. Le changement durable survient lorsque les individus internalisent de nouveaux modèles mentaux.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Formation Organisationnelle",
+      "leftText": "Nous proposons un développement ciblé des compétences pour les cadres afin de renforcer la prise de décision, la résilience et la création de valeur dans des environnements complexes.",
+      "rightDesc": "Nous fournissons une formation exécutive sur mesure et des connaissances pratiques aux dirigeants confrontés à des décisions à enjeux élevés et à la transformation.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 7,
+      "title": "Programmes de Coaching & Mentorat pour Cadres",
+      "leftText": "Basé sur la Méthode Métabolique Exécutive, ce programme soutient les cadres sous pression pour restaurer l'énergie, la concentration et la qualité des décisions tout en renforçant la présence et la discipline.",
+      "rightDesc": "Basé sur la Méthode Métabolique Exécutive, ce programme soutient les cadres sous pression constante en restaurant l'énergie, la concentration et la qualité décisionnelle tout en renforçant la discipline d'exécution.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    }
+  ],
+  "intro": {
+    "subtitle": "Quand la performance rencontre l'équilibre.",
+    "title": "Aligner l'énergie physique, la clarté mentale et\nl'action ciblée pour générer des résultats à\ntous les niveaux",
+    "button": "À propos du fondateur"
+  },
+  
+  "modus": {
+    "title": "Découvrez notre modus \n operandi",
+    "steps": {
+      "step1": {
+        "title": "Conception",
+        "desc": "Notre processus commence par la phase de conception, où nous nous concentrons sur une analyse approfondie et une réflexion partagée."
+      },
+      "step2": {
+        "title": "Formation",
+        "desc": "Nous alignons la vision, la mission et la stratégie tout en définissant des cibles et des objectifs clairs."
+      },
+      "step3": {
+        "title": "Exécution",
+        "desc": "Nous assurons un suivi continu par la réflexion et des mesures correctives."
+      }
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "message": "Message"
+    }
+  },
+  
+  "form": {
+    "submit": "Réserver un appel",
+    "success": "Message envoyé avec succès !",
+    "error_send": "Échec de l'envoi. Réessayez.",
+    "error_empty": "Veuillez remplir le champ {{field}}.",
+    "error_email": "Veuillez entrer une adresse e-mail valide."
+  
+},
+
+  "join": {
+    "hero": {
+      "overline": "Rejoignez-nous en tant que partenaire",
+      "title": "Tout le monde ne devrait pas nous rejoindre. Et c'est intentionnel.",
+      "p1": "Blu s'associe à des professionnels expérimentés qui comprennent que la santé durable, la performance et la prise de décision exigent une structure, une discipline et une responsabilité professionnelle — et non des tendances ou des raccourcis.",
+      "p2": "Si vous vous engagez à obtenir des résultats vérifiables, une responsabilité à long terme et une pratique éthique, vous avez peut-être votre place ici."
+    },
+    "partners_section": {
+      "overline": "Avec qui nous associons-nous ?",
+      "title": "Nous collaborons avec des professionnels expérimentés qui souhaitent accroître leur impact sans compromettre leurs standards :",
+      "card_label": "Médecins et praticiens de santé agréés"
+    },
+    "why_blu": {
+      "overline": "Pourquoi s'associer à Blu.",
+      "title": "Il ne s'agit pas d'un système de recommandation. C'est une collaboration professionnelle.",
+      "label": "En tant que partenaire, vous gagnez :",
+      "list": [
+        "Un environnement de travail structuré et aligné sur les normes professionnelles",
+        "L'accès à des pairs pluridisciplinaires opérant dans des limites claires",
+        "Un alignement professionnel avec une plateforme sérieuse et sélective",
+        "La capacité de contribuer de manière significative à des cas complexes et à haute responsabilité",
+        "Une valeur professionnelle à long terme, et non un engagement transactionnel"
+      ]
+    },
+    "standards": {
+      "overline": "Nos Standards",
+      "label": "Nous travaillons uniquement avec des professionnels qui :",
+      "list": [
+        "Acceptent la responsabilité personnelle de leur rôle et de leurs décisions",
+        "Respectent les limites de compétences et le champ d'exercice",
+        "Opèrent avec confidentialité, discrétion et rigueur éthique",
+        "Préfèrent la précision à la commodité",
+        "Sont prêts à être évalués et maintenus à des standards élevés"
+      ],
+      "footer": "Si cela vous parle, nous devrions discuter."
+    },
+    "cta": {
+      "overline": "Commencer la conversation",
+      "text": "Si vous pensez que votre expertise a sa place dans une alliance sérieuse, disciplinée et axée sur un objectif, nous vous invitons à postuler.",
+      "button": "Postuler pour devenir partenaire Blu."
+    }
+  },
+  
+  "home": {
+    "individuals": {
+      "quote": "“Aimez-vous vous-même.”",
+      "title": "Particuliers",
+      "subtitle": "Coaching <1>et</1> Mentorat"
+    },
+    "corporates": {
+      "quote": "“Vous pouvez le faire.”",
+      "title": "Entreprises",
+      "subtitle": "Consulting <1>et</1> Conseil"
+    }
+  
+}
+
+
+
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -5,17 +6,18 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./About.css";
 import redaabout from "../../assets/images/redaabout.png";
 import Button from "../../ui/button/Button";
+import { useTranslation } from "react-i18next";
 
 interface AnimatedTextProps {
   text: string;
-  delayOffset: number; // Délai avant le début du paragraphe
+  delayOffset: number;
 }
 
 const wordVariants: Variants = {
   hidden: { opacity: 0.2 },
   visible: { 
     opacity: 1,
-    transition: { duration: 0.2 } // Vitesse d'allumage de chaque mot (plus lent)
+    transition: { duration: 0.2 } 
   },
 };
 
@@ -25,8 +27,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset }) => {
   const containerVariants: Variants = {
     visible: {
       transition: {
-        delayChildren: delayOffset, // Attend son tour
-        staggerChildren: 0.08,      // Vitesse entre chaque mot (augmentée pour ralentir)
+        delayChildren: delayOffset,
+        staggerChildren: 0.08,
       },
     },
   };
@@ -50,39 +52,42 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset }) => {
 };
 
 export default function About() {
-  // Texte 1: environ 40 mots. À 0.08s par mot = ~3.2 secondes d'anim.
-  // Texte 2: On le fait commencer après 3.5 secondes pour être sûr.
+  const { t, i18n } = useTranslation();
+
   const links = [
     { name: "home", path: "/individuals" },
     { name: "about", path: "/about" },
     { name: "why_us", path: "#" },
     { name: "services", path: "#" }
   ];
-      
-  
+
   return (
     <div className="about-container">
       <Navbar links={links} />
       <div className="about-content">
         <img src={redaabout} alt="about" />
         <div className="left">
+          {/* On utilise i18n.language dans la key pour forcer le re-mount et relancer l'anim au switch de langue */}
           <AnimatedText 
+            key={`p1-${i18n.language}`}
             delayOffset={0.1}
-            text="Avec plus de 21 ans d’expérience dans des environnements exigeants — dont 15 années à des postes de responsabilités — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples." 
+            text={t("about.paragraph1")} 
           />
           
           <AnimatedText 
-            delayOffset={4.0} // Commence après la fin du premier
-            text="En parcourant son propre chemin de transformation, il a progressivement retrouvé une énergie durable, une clarté d’esprit profonde et une discipline plus stable et alignée." 
+            key={`p2-${i18n.language}`}
+            delayOffset={4.0} 
+            text={t("about.paragraph2")} 
           />
 
           <motion.div 
             className="button-about"
+            key={`btn-${i18n.language}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 6.0, duration: 0.8 }} // Apparaît à la toute fin
+            transition={{ delay: 6.0, duration: 0.8 }}
           >
-            <Button text="Book a meet" width="100%" />
+            <Button text={t("about.button")} width="100%" />
           </motion.div>
         </div>
       </div>

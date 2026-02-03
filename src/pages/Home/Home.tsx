@@ -1,12 +1,14 @@
 // @ts-nocheck
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation, Trans } from "react-i18next";
 import gsap from "gsap";
 import Splitting from "splitting";
 import styles from "./Home.module.css";
-import TransitionOverlay from "../../components/TransitionOverlay/TransitionOverlay"; // use alias @ = src/ if configured, or adjust path
+import TransitionOverlay from "../../components/TransitionOverlay/TransitionOverlay";
 
 export default function Home() {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
   const [transition, setTransition] = useState({
@@ -17,6 +19,7 @@ export default function Home() {
   });
 
   useEffect(() => {
+    // On attend que le texte soit rendu pour Splitting
     Splitting({
       target: [
         ".quote",
@@ -29,7 +32,7 @@ export default function Home() {
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // 1️⃣ QUOTES IN (both sides together)
+    // 1️⃣ QUOTES IN
     tl.fromTo(
       ".quote",
       { opacity: 0, filter: "blur(12px)", y: 10 },
@@ -48,7 +51,7 @@ export default function Home() {
       "+=0.8",
     );
 
-    // 3️⃣ MAIN TEXTS (your original animation, untouched)
+    // 3️⃣ MAIN TEXTS
     tl.fromTo(
       ".individuals-title .char, .individuals-subtitle .char, .corporate-title .char, .corporate-subtitle .char",
       { opacity: 0, filter: "blur(12px)", y: 12 },
@@ -60,7 +63,7 @@ export default function Home() {
         stagger: 0.035,
       },
     );
-  }, []);
+  }, [i18n.language]); // Relance l'animation si la langue change
 
   const handleClick = (e, path) => {
     const x = e.clientX;
@@ -75,55 +78,57 @@ export default function Home() {
   };
 
   const handleTransitionComplete = () => {
-    // Navigate while the yellow overlay is still fully covering the screen
     navigate(transition.targetPath);
-    // Do NOT reset transition.active → overlay stays big on the next page
   };
 
   return (
     <>
       <div className={styles.splitContainer}>
-        {/* Left: Individuals */}
+        {/* Gauche: Individuals */}
         <div
           className={styles.side}
           style={{ backgroundColor: "white" }}
           onClick={(e) => handleClick(e, "/individuals")}
         >
           <div className={styles.content}>
-            {/* QUOTE */}
             <p className={`${styles.quote} ${styles.corporateQuote} quote`}>
-              “love yourself.”
+              {t("home.individuals.quote")}
             </p>
 
-            {/* REAL TEXT */}
-            <h1 className={`${styles.title} individuals-title`}>Individuals</h1>
+            <h1 className={`${styles.title} individuals-title`}>
+              {t("home.individuals.title")}
+            </h1>
             <p className={`${styles.subtitle} individuals-subtitle`}>
-              Coaching <span className={styles.and}>and</span> Mentoring
+              <Trans i18nKey="home.individuals.subtitle">
+                Coaching <span className={styles.and}>and</span> Mentoring
+              </Trans>
             </p>
           </div>
         </div>
-        {/* Right: Corporates */}
+
+        {/* Droite: Corporates */}
         <div
           className={styles.side}
           style={{ background: "linear-gradient(to top, #00296F, #001D4F)" }}
           onClick={(e) => handleClick(e, "/corporates")}
         >
           <div className={styles.content}>
-            {/* QUOTE */}
             <p className={`${styles.quote} ${styles.individualsQuote} quote`}>
-              “you can do it.”
+              {t("home.corporates.quote")}
             </p>
 
-            {/* REAL TEXT */}
-            <h1 className={`${styles.title} corporate-title`}>Corporates</h1>
+            <h1 className={`${styles.title} corporate-title`}>
+              {t("home.corporates.title")}
+            </h1>
             <p className={`${styles.subtitle} corporate-subtitle`}>
-              Consulting <span className={styles.and}>and</span> Advice
+              <Trans i18nKey="home.corporates.subtitle">
+                Consulting <span className={styles.and}>and</span> Advice
+              </Trans>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Persistent overlay */}
       <TransitionOverlay
         isActive={transition.active}
         clickX={transition.x}

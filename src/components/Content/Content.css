@@ -150,7 +150,7 @@
 
   .right-description {
     font-size: 1.5rem !important;
-    color: #333;
+  
     line-height: 1.4;
     margin: 0 !important;
   }
@@ -183,4 +183,13 @@
     font-size: 0.9rem;
     cursor: pointer;
   }
+}
+.expanded-content{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.expanded-content ul li{
+font-size: 1.5rem;
+font-weight: 400;
 }

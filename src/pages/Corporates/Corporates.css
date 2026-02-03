@@ -73,5 +73,20 @@
   .snap-section:first-child {
     height: auto !important;
   }
+  .corporates-container     .rotating-text-box p{
+font-size: 1.5rem !important
+
+;
 }
+.corporates-container .content-container .left H4{
+
+font-size: 2rem
+;
+}
+}
+.corporates-container .content-container .left{
+background: linear-gradient(180deg, #00286D 0%, #001D4F 100%);
+;
+}
+
 
