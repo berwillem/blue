@@ -22,9 +22,9 @@ const DATA = [
     leftText:
       "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
     rightDesc:
-      "Sustainable excellence begins with metabolism - through a profound balance.",
+      "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential. ",
     rightDesc2:
-      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
+      "We never disclose personal details, and your information is used only to support your wellness journey. You can trust us to protect your personal life with the utmost care and discretion. We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services. We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure. Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law.",
     img: placeholder1,
   },
   {
@@ -83,6 +83,10 @@ export default function Content() {
     });
   }, [activeIndex, currentIndex, isPC]);
 
+ // ... (imports inchangés)
+
+
+
   return (
     <div
       className="content-scroll-wrapper"
@@ -90,8 +94,8 @@ export default function Content() {
       style={{ height: isPC ? "300vh" : "100dvh" }}
     >
       <div className={`content-container ${isPC ? "sticky-active" : ""}`}>
-        {/* --- VERSION MOBILE --- */}
-        <div className="mobile">
+        
+            <div className="mobile">
           <img src={DATA[0].img} alt={DATA[0].title} />
           <h4>Why we do what we do?</h4>
           <p>{DATA[0].leftText}</p>
@@ -124,108 +128,98 @@ export default function Content() {
         </div>
 
         {/* --- VERSION DESKTOP --- */}
-     <div className="big-size">
-  {/* --- CÔTÉ GAUCHE (LEFT) --- */}
-  <div className="left">
-    <h4> {DATA[currentIndex].title}</h4>
-<div className="rotating-text-box">
-  <AnimatePresence mode="wait">
+        <div className="big-size">
+          
+          {/* CÔTÉ GAUCHE */}
+          <div className="left">
+            <motion.h4 layout> {DATA[currentIndex].title}</motion.h4>
+            <div className="rotating-text-box">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.4 }}
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                  layout // Permet au container de s'adapter si show change
+                >
+                  <motion.p layout className="description-text">
+                    {DATA[currentIndex].leftText}
+                  </motion.p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <motion.div layout className="button-container">
+              <Link to="/tests/metabolic-health">
+                <Button text="Start a metabolic test" width="auto" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* CÔTÉ DROIT */}
+      {/* CÔTÉ DROIT */}
+<div className="right" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+  <AnimatePresence mode="popLayout" initial={false}>
     <motion.div
       key={currentIndex}
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 20 }}
-      transition={{ duration: 0.4 }}
-      // On s'assure que ce container gère ses enfants l'un sous l'autre
-      style={{ display: 'flex', flexDirection: 'column', position: 'relative' }}
+      className="tiktok-slide-content"
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: "-100%", opacity: 0 }}
+      transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+      layout
+      style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', height: '100%' }}
     >
-      {/* Premier texte (toujours là) */}
-      <p className="description-text">
-        {DATA[currentIndex].leftText}
-      </p>
+      {/* L'image est maintenant en haut mais sera poussée si le texte en bas grandit */}
+      <motion.div layout className="image-wrapper-tiktok" >
+        <img src={DATA[currentIndex].img} alt="Metabolic" />
+      </motion.div>
+      
+      <motion.p layout className="right-description">
+        {DATA[currentIndex].rightDesc}
+      </motion.p>
 
-      {/* Deuxième texte (extensible) */}
-      <div style={{ overflow: "hidden" }}>
+      {/* Section extensible */}
+      <motion.div >
         <AnimatePresence initial={false}>
           {show && (
             <motion.p
+              className="right-description"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="description-text-secondary"
+              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+              style={{ fontSize: '0.9rem', lineHeight: '1.4' }}
             >
               {DATA[currentIndex].rightDesc2}
             </motion.p>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
+
+      <motion.div
+        layout
+        style={{ cursor: "pointer", display: "inline-block", marginTop: "10px" }}
+        onClick={() => setShow(!show)}
+      >
+        <p className="know-more">
+          {show ? "show less" : "know more"}{" "}
+          <motion.span
+            animate={{ rotate: show ? 90 : 0 }}
+            style={{ display: "inline-block" }}
+          >
+            <ArrowRight size={15} />
+          </motion.span>
+        </p>
+      </motion.div>
     </motion.div>
   </AnimatePresence>
 </div>
-
-    <div className="button-container">
-      <Link to="/tests/metabolic-health">
-        <Button text="Start a metabolic test" width="auto" />
-      </Link>
-    </div>
-  </div>
-
-  {/* --- CÔTÉ DROIT (RIGHT) --- */}
-  <div className="right">
-    <AnimatePresence mode="popLayout" initial={false}>
-      <motion.div
-        key={currentIndex}
-        className="tiktok-slide-content"
-        initial={{ y: "100%", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: "-100%", opacity: 0 }}
-        transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-      >
-        <div className="image-wrapper-tiktok">
-          <img src={DATA[currentIndex].img} alt="Metabolic" />
         </div>
-        
-        <p className="right-description">
-          {DATA[currentIndex].rightDesc}
-        </p>
-
-        {/* Texte extensible à droite */}
-        <div style={{ overflow: "hidden" }}>
-          <AnimatePresence initial={false}>
-            {show && (
-              <motion.p
-                className="right-description"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              >
-                {DATA[currentIndex].rightDesc2}
-              </motion.p>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div
-          style={{ cursor: "pointer", display: "inline-block", marginTop: "10px" }}
-          onClick={() => setShow(!show)}
-        >
-          <p className="know-more">
-            {show ? "show less" : "know more"}{" "}
-            <motion.span
-              animate={{ rotate: show ? 90 : 0 }}
-              style={{ display: "inline-block" }}
-            >
-              <ArrowRight size={15} />
-            </motion.span>
-          </p>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  </div>
-</div>
       </div>
     </div>
   );
 }
+
