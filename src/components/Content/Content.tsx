@@ -11,11 +11,12 @@ import "./Content.css";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function Content({ DATA }) {
+export default function Content({ DATA, DATA2 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPC, setIsPC] = useState(false);
   const [show, setShow] = useState(false);
+  console.log(DATA2);
 
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth >= 1280);
@@ -45,7 +46,7 @@ export default function Content({ DATA }) {
       const val = Math.round(v);
       if (val !== currentIndex && val < numItems) {
         setCurrentIndex(val);
-        setShow(false); 
+        setShow(false);
       }
     });
   }, [activeIndex, currentIndex, isPC, numItems]);
@@ -58,23 +59,85 @@ export default function Content({ DATA }) {
       style={{ height: isPC ? `${numItems * 100}vh` : "auto" }}
     >
       <div className={`content-container ${isPC ? "sticky-active" : ""}`}>
-        
         {/* --- MOBILE (Scroll standard) --- */}
-        {!isPC && (
-          <div className="mobile-list">
-            {DATA.map((item, index) => (
-              <div key={index} className="mobile-card" style={{ marginBottom: "40px" }}>
-                <img src={item.img} alt={item.title} />
-                <h4>{item.title}</h4>
-                <p>{item.leftText}</p>
-                <div className="button-container">
-                   <Button text="Start a metabolic test" width="auto" />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+   <div className="mobile">
+  <img src={DATA2.img} alt={DATA2.title} />
+  <h4>{DATA2.title}</h4>
+  <p>{DATA2.leftText}</p>
 
+  {/* Paragraphes additionnels */}
+  {DATA2?.moreContent?.paragraphs?.map((value, index) => (
+    <motion.p
+      key={index}
+      className="right-description"
+      initial={false}
+      animate={{
+        height: show ? "auto" : 0,
+        opacity: show ? 1 : 0,
+        marginBottom: show ? 15 : 0,
+      }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      style={{ overflow: "hidden" }}
+    >
+      {value}
+    </motion.p>
+  ))}
+
+  {/* Listes additionnelles corrigées */}
+  {DATA2?.moreContent?.lists?.map((list, idx) => (
+    <motion.div
+      key={idx}
+      className="dynamic-list-area"
+      initial={false}
+      animate={{
+        height: show ? "auto" : 0,
+        opacity: show ? 1 : 0,
+        marginBottom: show ? 20 : 0, // Fusion des styles ici
+      }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      style={{ overflow: "hidden" }} // Assure que le contenu est bien masqué
+    >
+      <p
+        style={{
+          fontSize: "1.2rem",
+          marginBottom: "8px",
+          color: "#002b49",
+          fontWeight: "bold",
+        }}
+      >
+        {list.title}
+      </p>
+      <ul
+        style={{
+          paddingLeft: "20px",
+          fontSize: "0.85rem",
+          listStyleType: "disc",
+        }}
+      >
+        {list.items.map((item, i) => (
+          <li key={i} style={{ marginBottom: "5px" }}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  ))}
+
+  {/* Bouton Know More / Show Less */}
+  <p
+    className="know-more seeMore"
+    style={{ cursor: "pointer" }}
+    onClick={() => setShow(!show)}
+  >
+    <span>{show ? "show less" : "know more"}</span>
+  </p>
+
+  <div className="button-container">
+    <Link to="/tests/metabolic-health">
+      <Button text="Start a metabolic test" width="auto" />
+    </Link>
+  </div>
+</div>
         {/* --- DESKTOP (Sticky Scroll) --- */}
         {isPC && (
           <div className="big-size">
@@ -143,24 +206,54 @@ export default function Content({ DATA }) {
                           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                           className="expanded-content"
                         >
-                          {DATA[currentIndex]?.moreContent?.paragraphs?.map((p, i) => (
-                            <p key={i} className="right-description" style={{ fontSize: "0.9rem", marginBottom: "15px" }}>
-                              {p}
-                            </p>
-                          ))}
-
-                          {DATA[currentIndex]?.moreContent?.lists?.map((list, idx) => (
-                            <div key={idx} className="dynamic-list-area" style={{ marginBottom: "20px" }}>
-                              <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>
-                                {list.title}
+                          {DATA[currentIndex]?.moreContent?.paragraphs?.map(
+                            (p, i) => (
+                              <p
+                                key={i}
+                                className="right-description"
+                                style={{
+                                  fontSize: "0.9rem",
+                                  marginBottom: "15px",
+                                }}
+                              >
+                                {p}
                               </p>
-                              <ul style={{ paddingLeft: "20px", fontSize: "0.85rem", listStyleType: "disc" }}>
-                                {list.items.map((item, i) => (
-                                  <li key={i} style={{ marginBottom: "5px" }}>{item}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
+                            ),
+                          )}
+
+                          {DATA[currentIndex]?.moreContent?.lists?.map(
+                            (list, idx) => (
+                              <div
+                                key={idx}
+                                className="dynamic-list-area"
+                                style={{ marginBottom: "20px" }}
+                              >
+                                <p
+                                  style={{
+                                    fontSize: "1.2rem",
+                                    marginBottom: "8px",
+                                    color: "#002b49",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  {list.title}
+                                </p>
+                                <ul
+                                  style={{
+                                    paddingLeft: "20px",
+                                    fontSize: "0.85rem",
+                                    listStyleType: "disc",
+                                  }}
+                                >
+                                  {list.items.map((item, i) => (
+                                    <li key={i} style={{ marginBottom: "5px" }}>
+                                      {item}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ),
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -168,12 +261,19 @@ export default function Content({ DATA }) {
 
                   <motion.div
                     layout
-                    style={{ cursor: "pointer", display: "inline-block", marginTop: "10px" }}
+                    style={{
+                      cursor: "pointer",
+                      display: "inline-block",
+                      marginTop: "10px",
+                    }}
                     onClick={() => setShow(!show)}
                   >
                     <p className="know-more">
                       {show ? "show less" : "know more"}{" "}
-                      <motion.span animate={{ rotate: show ? 90 : 0 }} style={{ display: "inline-block" }}>
+                      <motion.span
+                        animate={{ rotate: show ? 90 : 0 }}
+                        style={{ display: "inline-block" }}
+                      >
                         <ArrowRight size={15} />
                       </motion.span>
                     </p>

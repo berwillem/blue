@@ -44,13 +44,13 @@ export default function Individuals() {
       <div className="snap-group-container">
         {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
         <div className="snap-panel">
-          <Content DATA={DATA} />
+          <Content DATA={DATA} DATA2={DATA[0]}  />
         </div>
         <div className="snap-panel">
-          <Content DATA={DATA} />
+          <Content DATA={DATA} DATA2={DATA[1]}/>
         </div>
         <div className="snap-panel">
-          <Content DATA={DATA} />
+          <Content DATA={DATA} DATA2={DATA[2]}/>
         </div>
       </div>
 

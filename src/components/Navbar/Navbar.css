@@ -137,6 +137,15 @@ nav .mobile-nav-links li {
   font-weight: 600;
   color: #000000;
   width: 100%;
+  display: flex;
+}
+nav .mobile-nav-links li a{
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000000;
+
+  display: flex;
 }
 nav .mobile-nav-links li:hover {
   color: var(--primary-color);

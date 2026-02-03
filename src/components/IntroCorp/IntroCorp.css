@@ -8,6 +8,7 @@
   justify-content: center; /* vertical centering for content */
   align-items: center;
   padding: 2rem 1rem;
+  z-index: 20;
   position: relative; /* needed for scroll indicator absolute */
 }
 

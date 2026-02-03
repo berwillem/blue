@@ -16,17 +16,25 @@ import Modus from "../../components/Modus/Modus";
 import { useTranslation } from "react-i18next";
 
 export default function Corporates() {
-    const { t } = useTranslation();
-const links = [
-  { name: "home", path: "/corporates" },
-  { name: "about", path: "/about" },
-  { name: "services", path: "#" },
-  { name: "joinus", path: "/joinus" },
-  { name: "privacy", path: "/privacy.pdf", isExternal: true }, // Ajout ici
-];
+  const { t } = useTranslation();
+  const links = [
+    { name: "home", path: "/corporates" },
+    { name: "about", path: "/about" },
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+    { name: "privacy", path: "/privacy.pdf", isExternal: true }, // Ajout ici
+  ];
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("sections2", { returnObjects: true });
-  const images = [placeholder1, placeholder2, placeholder3,placeholder4 ,placeholder5,placeholder6,placeholder7];
+  const images = [
+    placeholder1,
+    placeholder2,
+    placeholder3,
+    placeholder4,
+    placeholder5,
+    placeholder6,
+    placeholder7,
+  ];
 
   // On combine les textes traduits avec les images locales
   const DATA = sectionsData.map((item, idx) => ({
@@ -34,31 +42,39 @@ const links = [
     img: images[idx],
   }));
   return (
-    <div className="corporates-container">
-      <Navbar links={links} />
-      <IntroCorp></IntroCorp>
-
-      <div className="scroll-container">
-        <section className="snap-section video1"> </section>
-        <section className="snap-section video2">
-          {" "}
-          <Why />
-        </section>
-        <section className="normal-section">
-           <div className="snap-group-container">
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-        
-           </div>
-          <Modus></Modus>
-          <Footer />
-        </section>
+    <div className="mainWrapper">
+      <div className="navbar-anim">
+        <Navbar links={links} />
       </div>
+
+      <IntroCorp></IntroCorp>
+      <Why />
+      <div className="snap-group-container">
+        {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[0]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[1]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[2]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[3]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[4]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[5]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[6]} />
+        </div>
+      </div>
+      <Modus></Modus>
+      <Footer />
     </div>
   );
 }
