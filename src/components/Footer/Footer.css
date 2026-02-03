@@ -4,6 +4,24 @@ footer {
   overflow: hidden;
   background-color: white;
   position: relative;
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform;
+}
+.footer-video-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.footer-spacer {
+  height: 30vh;
+}
+.footer-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 footer .left {
   width: 60%;
@@ -92,7 +110,7 @@ footer .down .title {
     width: 70%;
     border: 1px solid rgba(228, 228, 228, 1);
     border-bottom: none;
-        border-right: none;
+    border-right: none;
     padding: 2rem;
     border-right: 0;
   }

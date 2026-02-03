@@ -5,6 +5,16 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
 :root {
   --primary-bg: linear-gradient(180deg, #0a1933 0%, #00296f 100%);
   --primary-color: rgba(0, 49, 77, 1);
@@ -32,6 +42,7 @@ body {
   color: var(--primary-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none;
 }
 button{
   font-family: "Rethink Sans",

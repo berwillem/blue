@@ -11,16 +11,14 @@ export default function Corporates() {
   return (
     <div className="corporates-container">
       {/* <Navbar /> */}
+      <IntroCorp></IntroCorp>
+
       <div className="scroll-container">
-        <section className="snap-section video1">
-          {" "}
-          <IntroCorp></IntroCorp>
-        </section>
+        <section className="snap-section video1"> </section>
         <section className="snap-section video2">
           {" "}
           <Why />
         </section>
-
         <section className="normal-section">
           <Content />
           <Content />

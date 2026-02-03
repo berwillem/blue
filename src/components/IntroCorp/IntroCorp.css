@@ -60,7 +60,7 @@
 .scroll-indicator {
   position: absolute; /* stick to bottom of section */
   bottom: 2rem; /* distance from bottom */
-  width: 0.4rem;
+  width: 0.2rem;
   height: 72px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.12);
@@ -71,7 +71,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 0.4rem;
+  width: 0.2rem;
   height: 1.5rem;
   border-radius: 4px;
   background: white;

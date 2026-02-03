@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useEffect, useRef } from "react";
 import Button from "../../ui/button/Button";
 import gsap from "gsap";
@@ -21,7 +22,7 @@ export default function IntroCorp() {
     tl.fromTo(
       h3Ref.current,
       { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 }
+      { y: 0, opacity: 1, duration: 0.8 },
     );
 
     // h1 characters stagger reveal with blur and opacity
@@ -32,10 +33,10 @@ export default function IntroCorp() {
         y: 0,
         opacity: 1,
         filter: "blur(0px)",
-        duration: 1.2,
-        stagger: 0.03
+        duration: 1,
+        stagger: 0.03,
       },
-      "-=0.5" // overlap slightly with h3
+      "-=0.5", // overlap slightly with h3
     );
   }, []);
 
@@ -62,4 +63,3 @@ export default function IntroCorp() {
     </div>
   );
 }
- 
