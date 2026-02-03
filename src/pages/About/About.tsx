@@ -52,24 +52,12 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset }) => {
 export default function About() {
   // Texte 1: environ 40 mots. À 0.08s par mot = ~3.2 secondes d'anim.
   // Texte 2: On le fait commencer après 3.5 secondes pour être sûr.
-  const links=[  {
-      name:"home",
-      path:"/"
-    },
-    {
-      name:"about",
-      path:"/about"
-    },
-    {
-      name:"why_us",
-      path:"#"
-    },
-    {
-      name:"services",
-      path:"#"
-    }
-  ]
-  
+  const links = [
+    { name: "home", path: "/individuals" },
+    { name: "about", path: "/about" },
+    { name: "why_us", path: "#" },
+    { name: "services", path: "#" }
+  ];
       
   
   return (
@@ -79,7 +67,7 @@ export default function About() {
         <img src={redaabout} alt="about" />
         <div className="left">
           <AnimatedText 
-            delayOffset={0.5}
+            delayOffset={0.1}
             text="Avec plus de 21 ans d’expérience dans des environnements exigeants — dont 15 années à des postes de responsabilités — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples." 
           />
           

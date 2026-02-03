@@ -1,0 +1,210 @@
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--blue);
+}
+.logo span {
+  color: var(--gold);
+}
+
+.lang {
+  font-size: 11px;
+  font-weight: bold;
+  border-right: 1px solid #ddd;
+  padding-right: 15px;
+}
+.inactive {
+  color: #ccc;
+}
+.pageWrapper {
+  padding: 7rem;
+}
+/* Sections */
+.sectionHeader {
+  margin-bottom: 25px;
+}
+.overline {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+}
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 0;
+}
+.mainTitle {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 400;
+  width: 100%;
+}
+.leadText {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+/* PartnerCard.module.css (A mettre dans son propre fichier) */
+.card {
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 8px;
+}
+.imagePlaceholder {
+  background: #e5e7eb;
+  aspect-ratio: 16/9;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.cardTitle {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Lists */
+
+.textBlock {
+  margin-bottom: 60px;
+}
+.listLabel {
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.list {
+  list-style: none;
+  padding: 0;
+}
+.list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+.italicNote {
+  font-weight: 400;
+  margin-top: 30px;
+  font-size: 2rem;
+}
+
+/* Footer */
+.footer {
+  padding: 80px 0;
+}
+.ctaText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.btnSmall {
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btnLarge {
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size:1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  width: max-content;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .navLinks {
+    display: none;
+  }
+
+  .pageWrapper {
+    padding: 7rem 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 0;
+  }
+  .mainTitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+    width: 100%;
+  }
+  .leadText {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .listLabel {
+    font-size: 1.5rem;
+  }
+
+  .list li {
+    font-size: 1rem;
+  }
+
+  .italicNote {
+    font-size: 1.5rem;
+  }
+  .btnLarge,.btnSmall{
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+  .pageWrapper {
+    padding: 7rem 2rem;
+  }
+}

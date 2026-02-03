@@ -1,0 +1,166 @@
+.formPage {
+ 
+  margin: 0 auto;
+  padding: 7rem ;
+  color: #00334e;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.overline {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  display: block;
+  color: black;
+}
+.form{
+  max-width: 800px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 60px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.sectionTitle {
+  font-size: 2rem ;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.field {
+  margin-bottom: 25px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.field input[type="text"], 
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #00334e;
+}
+
+.radioGroup, .checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioLabel, .checkboxLabel {
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+   color: black;
+}
+
+.radioLabel input, .checkboxLabel input {
+  margin-top: 3px;
+   color: black;
+}
+
+.subtext {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 15px;
+   color: black;
+}
+
+/* GDPR Specific */
+.gdprSection {
+
+
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.gdprText {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+   color: black;
+}
+
+.consentBox {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+.consentTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Actions */
+.actions {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.submitBtn {
+  background-color: #00334e;
+  color: white;
+  border: none;
+  padding: 18px 60px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submitBtn:hover {
+  opacity: 0.9;
+}
+
+.finalNote {
+  font-size: 10px;
+  color: #666;
+  margin-top: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .title { font-size: 18px; }
+  .gdprSection { padding: 20px; }
+  .formPage{
+    padding: 7rem 3rem;
+  }
+}
+@media (max-width: 640px) {
+  .title { font-size: 18px; }
+  .gdprSection { padding: 20px; }
+  .formPage{
+    padding: 7rem 2rem;
+  }
+}

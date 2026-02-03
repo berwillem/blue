@@ -280,3 +280,36 @@
   text-transform: uppercase;
   font-size: 0.85rem;
 }
+/* Sur Desktop, on garde le comportement normal */
+/* Désactivé par défaut sur Desktop */
+
+.mainWrapper {
+  width: 100%;
+}
+
+/* --- MOBILE UNIQUEMENT --- */
+@media (max-width: 768px) {
+  .snap-group-container {
+    /* On définit une hauteur fixe pour créer une zone de scroll interne */
+    height: 100vh; 
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    
+    /* Cache la scrollbar pour un look propre */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll sur iOS */
+  }
+
+  .snap-group-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snap-panel{
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always; /* Force l'arrêt à chaque section */
+  }
+}
+

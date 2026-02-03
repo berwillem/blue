@@ -235,10 +235,12 @@
   height: 100vh;
   background: white;
   z-index: 20;
-  padding: 100px 10%;
+  padding: 150px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+ 
+  padding-top: 20%;
 }
 @media screen and (max-width: 1200px) {
 .why-overlay{
@@ -246,6 +248,7 @@
   }
   
 }
+
 .revealWord {
   opacity: 0.15;
   will-change: opacity;
@@ -258,3 +261,13 @@
     z-index: 2;
 }
 /* ... ajoute tes styles de texte smallTitle et longText ici ... */
+.btn-wrapper{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  height: min-content;
+  z-index: 5;
+}

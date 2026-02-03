@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Globe, Menu } from "lucide-react"; // Using lucide-react for the icon
+import { Globe } from "lucide-react"; // Using lucide-react for the icon
 import { useTranslation } from "react-i18next";
-import logo1 from "../../assets/images/logo1.png";
+import {motion} from "@motionone/react"
+
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+
 import { IoClose } from "react-icons/io5";
 export default function Navbar({
   links,
@@ -21,7 +22,17 @@ export default function Navbar({
     i18n.changeLanguage(lng);
   };
   return (
-    <nav className="navContainer">
+    <motion.nav  
+
+  
+  // Animation de lancement
+  initial={{ y: -100, opacity: 0 }} 
+  animate={{ y: 0, opacity: 1 }} 
+  transition={{ duration: 0.8, ease: "easeOut" }}
+
+  // Garde tes styles existants
+className="navContainer"
+>
       <div className="navBox">
         {/* Left: Logo */}
         <div className="logo">
@@ -81,12 +92,25 @@ export default function Navbar({
         {/* Right: Actions */}
         <div className="navActions">
           <button className="langBtn" onClick={() => changeLanguage(currentLanguage === "en" ? "fr" : "en")}>
-            <Globe size={20} />
+               <span
+          onClick={() => changeLanguage("en")}
+          className={currentLanguage === "en" ? "selected-language" : ""}
+             
+        >
+          EN
+        </span>
+        <span
+          onClick={() => changeLanguage("fr")}
+          className={currentLanguage === "fr" ? "selected-language" : ""}
+             
+        >
+          FR
+        </span>
           </button>
           <button className="ctaBtn">{t("navbar.contact")}</button>
             <Menu  className="menu" onClick={() => setOpen(!open)} />
         </div>
       </div>
-    </nav>
+    </motion.nav >
   );
 }
