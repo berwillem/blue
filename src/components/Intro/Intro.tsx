@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../../assets/images/redaabout.png";
 
 import "./Intro.css";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,7 @@ export default function Intro() {
           anticipatePin: 1,
         },
       });
-     const entryTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      const entryTl = gsap.timeline({ defaults: { ease: "power4.out" } });
       entryTl
         .to(imageRef.current, { bottom: 0, opacity: 1, duration: 1.5 })
         .from(
@@ -138,10 +139,12 @@ export default function Intro() {
           </div>
 
           <div ref={buttonRef} className="btn-wrapper">
-            <button className="founderBtn">
-              <div className="yellow" />
-              About the founder
-            </button>
+            <Link to="/about">
+              <button className="founderBtn">
+                <div className="yellow" />
+                About the founder
+              </button>
+            </Link>
           </div>
         </div>
 

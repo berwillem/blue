@@ -1,3 +1,12 @@
 .results-container {
   background: linear-gradient(180deg, #00314d 0%, #002438 100%);
+  height: 100dvh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.results-container h1 {
+  width: 80%;
+  text-align: center;
 }
