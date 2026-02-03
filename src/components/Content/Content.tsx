@@ -11,6 +11,9 @@ import Button from "../../ui/button/Button";
 import "./Content.css";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import placeholder1 from "../../assets/images/redaplaceholder.png";
+import placeholder2 from "../../assets/images/redaplaceholder.png";
+import placeholder3 from "../../assets/images/redaplaceholder.png";
 
 const DATA = [
   {

@@ -52,20 +52,21 @@ export default function Individuals() {
   ];
 
   return (
-<div className="mainWrapper">
-  <div className="navbar-anim"><Navbar links={links}/></div>
-  
-  {/* Section libre (pas de snap ici) */}
-  <div className="normal-section"><Intro /></div>
+    <div className="mainWrapper">
+      <div className="navbar-anim">
+        <Navbar  links={links}/>
+      </div>
 
-  {/* Sections avec aimant (snap) */}
-  <div className="snap-panel"><Content /></div>
-  <div className="snap-panel"><Content /></div>
-  <div className="snap-panel"><Content /></div>
-  
-  {/* Retour au scroll normal */}
-  <div className="normal-section"><Last /></div>
-  <Footer />
-</div>
+      <Intro />
+
+      <div className="snap-group-container">
+        <div className="snap-panel"><Content /></div>
+        <div className="snap-panel"><Content /></div>
+        <div className="snap-panel"><Content /></div>
+   
+      </div>
+     <div ><Last /></div>
+      <Footer />
+    </div>
   );
 }
