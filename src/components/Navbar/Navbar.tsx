@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Navbar.css";
-import { Globe } from "lucide-react"; // Using lucide-react for the icon
 import { useTranslation } from "react-i18next";
 import { motion } from "@motionone/react";
 
@@ -31,9 +30,11 @@ export default function Navbar({
     >
       <div className="navBox">
         {/* Left: Logo */}
-        <div className="logo">
-          Blu<span>.</span>
-        </div>
+        <Link to="/">
+          <div className="logo">
+            Blu<span>.</span>
+          </div>
+        </Link>
 
         {/* Middle: Links */}
         <ul className="navLinks">
@@ -108,7 +109,9 @@ export default function Navbar({
               FR
             </span>
           </button>
-          <button className="ctaBtn">{t("navbar.contact")}</button>
+          <Link to={"/contact"}>
+            <button className="ctaBtn">{t("navbar.contact")}</button>
+          </Link>
           <Menu className="menu" onClick={() => setOpen(!open)} />
         </div>
       </div>

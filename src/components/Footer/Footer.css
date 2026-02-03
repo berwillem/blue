@@ -17,6 +17,7 @@ footer {
 }
 .footer-spacer {
   height: 30vh;
+  background-color: var(--white-color);
 }
 .footer-video-wrapper video {
   width: 100%;

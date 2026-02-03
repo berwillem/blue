@@ -6,6 +6,7 @@ import Last from "../../components/Last/Last";
 import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
 import IntroCorp from "../../components/IntroCorp/IntroCorp";
+import Modus from "../../components/Modus/Modus";
 
 export default function Corporates() {
   return (
@@ -20,12 +21,12 @@ export default function Corporates() {
           <Why />
         </section>
         <section className="normal-section">
+          {/* <Content />
           <Content />
-          <Content />
-          <Content />
+          <Content /> */}
           <Last />
-
-          <Footer />
+          <Modus></Modus>
+          {/* <Footer /> */}
         </section>
       </div>
     </div>

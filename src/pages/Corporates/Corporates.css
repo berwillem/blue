@@ -45,30 +45,20 @@
   scroll-snap-align: end;
 }
 
-.normal-section {
-  scroll-snap-align: start;
-  min-height: 150vh;
-  background: #f4f4f4;
-}
-
 @media (min-width: 1280px) {
   .sections-container,
   .scroll-container {
- 
     height: auto !important;
     overflow-y: visible !important;
   }
 
   .section,
-  .snap-section,
-  .normal-section {
- 
+  .snap-section {
     height: auto !important;
     min-height: 100dvh;
   }
-     .corporates-container .section,
-   .corporates-container .snap-section,
-    .corporates-container .normal-section {
+  .corporates-container .section,
+  .corporates-container .snap-section {
     scroll-snap-align: none !important;
     height: auto !important;
     min-height: 100dvh;
@@ -82,8 +72,5 @@
   .section:first-child,
   .snap-section:first-child {
     height: auto !important;
-  }
-  .normal-section .content-scroll-wrapper:not(:first-child) {
-    display: none !important;
   }
 }

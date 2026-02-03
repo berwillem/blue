@@ -1,0 +1,85 @@
+.modus-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.modus-container h1 {
+  text-align: center;
+  margin-bottom: 100px;
+  font-size: 2em;
+}
+
+/* Steps container */
+.modus-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Each step */
+.modus-step {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center; /* vertical alignment with line */
+  margin-bottom: 180px; /* spacing between steps */
+  position: relative;
+}
+
+/* Vertical guide line */
+.modus-guide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circle/Step number */
+.modus-step-title {
+  background-color: #002b45;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 50%;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2;
+  margin-bottom: 10px;
+}
+
+/* Vertical line below circle */
+.modus-step-line {
+  width: 4px;
+  background-color: #002b45;
+  flex-grow: 1;
+  min-height: 150px; /* length of line */
+}
+
+/* Texts container */
+.modeus-texts {
+  width: 40%;
+  padding: 0 40px; /* spacing from line */
+}
+
+/* Alternate sides */
+.modus-step:nth-child(odd) .modeus-texts {
+  text-align: left;
+  order: 2; /* right side of line */
+}
+
+.modus-step:nth-child(even) .modeus-texts {
+  text-align: right;
+  order: 0; /* left side of line */
+}
+
+.modeus-texts h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.modeus-texts p {
+  font-size: 0.95em;
+  line-height: 1.5em;
+}

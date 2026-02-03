@@ -1,144 +1,63 @@
-.individuals-container {
-  position: relative;
-  height: 100dvh;
-  overflow: hidden;
-}
-.sections-container {
-  height: 100dvh;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  position: relative;
-}
-.section {
-  height: 100dvh; /* Chaque section occupe toute la hauteur de la fenêtre */
-  scroll-snap-align: start; /* Arrêt au début de chaque section */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
-.section:first-child {
-  height: auto; /* Chaque section occupe toute la hauteur de la fenêtre */
-}
-
-/* Le conteneur parent qui gère le magnétisme */
-.scroll-container {
-  height: 100dvh;
-  overflow-y: scroll;
-  /* 'y' pour vertical, 'mandatory' pour forcer l'aimant */
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-/* Les sections qui doivent "snapper" (TikTok style) */
-.snap-section {
-  height: 100dvh;
-  width: 100%;
-  /* Force le haut de la section à s'aligner en haut de l'écran */
-  scroll-snap-align: start;
-
-  justify-content: center;
-  align-items: center;
-}
-.snap-section:first-child {
-  height: auto;
-  scroll-snap-align: end;
-}
-
-/* La section classique */
-.normal-section {
-  /* On snap seulement le DEBUT de cette section */
-  scroll-snap-align: start;
-
-  min-height: 150vh; /* Plus grand que l'écran pour scroller librement */
-
-  background: #f4f4f4;
-}
-
-/* --- GARDER TES STYLES ACTUELS AU-DESSUS --- */
-
-/* --- DÉSACTIVATION POUR PC --- */
-@media (min-width: 1280px) {
-  /* 1. On tue le magnétisme sur tous les conteneurs de scroll */
-  .sections-container,
-  .scroll-container {
- /* On laisse le contenu définir la hauteur */
-    overflow-y: visible !important; /* On laisse le scroll se faire sur le body */
-  }
-
-  /* 2. On retire l'alignement forcé des sections */
-  .section,
-  .snap-section,
-  .normal-section {
-   /* Très important pour ne pas couper le texte sur PC */
-    min-height: 100dvh; /* On garde au moins un plein écran pour le look */
-  }
-
-  /* 3. On ajuste le conteneur principal si nécessaire */
-  .individuals-container {
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  /* 4. On réinitialise le premier enfant si besoin */
-  .section:first-child,
-  .snap-section:first-child {
-    height: auto !important;
-  }
-  .video3,
-  .video4 {
-    display: none !important;
-  }
-}
-.restSections{
-  display: flex;
-  flex-direction: column;
-}
+/* ======================= MAIN WRAPPER ======================= */
 .mainWrapper {
-  background: #ffffff;
   width: 100%;
-  /* Crucial: remove overflow hidden here if it exists */
+  background: #ffffff;
 }
 
-/* HERO (Preserved) */
-.hero {
-  height: 100vh;
+/* ======================= HERO / INTRO ======================= */
+.hero,
+.hero-container {
   position: relative;
-  overflow: hidden;
-}
-.page {
-  height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
 }
+
+.intro-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .headline {
   position: absolute;
   top: 20%;
   text-align: center;
-  z-index: 15;
   width: 85vw;
   color: #0e3a4a;
   font-size: clamp(1.2rem, 2.2vw, 2rem);
   font-weight: 500;
+  z-index: 2;
+  will-change: opacity, filter, transform;
 }
+
 .word {
   display: inline-block;
   white-space: pre-wrap;
 }
+
+/* ======================= IMAGE CARD ======================= */
 .imageCard {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   z-index: 20;
+  will-change: transform, opacity;
+  position: relative;
 }
+
 .imageCard img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
+
+/* ======================= BUTTON ======================= */
 .founderBtn {
   position: absolute;
   bottom: 8%;
@@ -155,6 +74,7 @@
   align-items: center;
   cursor: pointer;
 }
+
 .yellow {
   width: 12px;
   height: 12px;
@@ -162,6 +82,20 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+
+.btn-wrapper {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  height: min-content;
+  z-index: 5;
+}
+
+/* ======================= OVERLAY / PHILOSOPHY ======================= */
+.why-overlay,
 .overlaySection {
   position: absolute;
   top: 0;
@@ -169,38 +103,49 @@
   width: 100%;
   height: 100vh;
   background: #ffffff;
-  z-index: 40;
-  padding: 100px 5vw;
+  z-index: 20;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 20% 10%;
 }
+
+@media screen and (max-width: 1200px) {
+  .why-overlay {
+    padding: 100px 5%;
+  }
+}
+
 .smallTitle {
   font-weight: bold;
   display: block;
   margin-bottom: 3rem;
   color: #0e3a4a;
 }
+
 .longText {
   font-size: clamp(1.2rem, 2.5vw, 2rem);
   line-height: 1.6;
   color: #0e3a4a;
 }
-.revealWord {
-  display: inline-block;
-  white-space: pre-wrap;
-  opacity: 0.1;
-  will-change: opacity;
-}
+
 .longText p {
   margin-bottom: 2rem;
 }
 
-/* SPLIT SECTION FIX */
+.revealWord {
+  display: inline-block;
+  white-space: pre-wrap;
+  opacity: 0.15;
+  will-change: opacity;
+}
+
+/* ======================= SPLIT SECTION ======================= */
 .splitSection {
   display: flex;
   width: 100%;
   position: relative;
-  align-items: flex-start; /* Ensures sticky works */
+  align-items: flex-start;
 }
 
 .leftSide {
@@ -220,6 +165,7 @@
   width: 100%;
   max-width: 450px;
 }
+
 .miniTitle {
   color: #fff;
   display: block;
@@ -227,12 +173,14 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .description {
   color: #fff;
   font-size: 1.4rem;
   line-height: 1.5;
   margin-bottom: 30px;
 }
+
 .testBtn {
   padding: 16px 32px;
   border-radius: 50px;
@@ -261,18 +209,21 @@
   width: 100%;
   max-width: 500px;
 }
+
 .imgContainer {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 20px;
 }
+
 .imgContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .seeMore {
   color: #0e3a4a;
   text-decoration: underline;
@@ -280,36 +231,37 @@
   text-transform: uppercase;
   font-size: 0.85rem;
 }
-/* Sur Desktop, on garde le comportement normal */
-/* Désactivé par défaut sur Desktop */
 
-.mainWrapper {
+/* ======================= PHILOSOPHY SECTION ======================= */
+.philosophy-section {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  min-height: 100vh;
   width: 100%;
+  margin-top: -100vh; /* chevauchement du pinSpacing */
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* --- MOBILE UNIQUEMENT --- */
+/* ======================= RESPONSIVE SCROLL SNAP (MOBILE) ======================= */
 @media (max-width: 768px) {
   .snap-group-container {
-    /* On définit une hauteur fixe pour créer une zone de scroll interne */
-    height: 100vh; 
+    height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    
-    /* Cache la scrollbar pour un look propre */
-    scrollbar-width: none; 
+    scrollbar-width: none;
     -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch; /* Smooth scroll sur iOS */
+    -webkit-overflow-scrolling: touch;
   }
 
   .snap-group-container::-webkit-scrollbar {
     display: none;
   }
 
-  .snap-panel{
+  .snap-panel {
     height: 100vh;
     width: 100%;
     scroll-snap-align: start;
-    scroll-snap-stop: always; /* Force l'arrêt à chaque section */
+    scroll-snap-stop: always;
   }
 }
-
