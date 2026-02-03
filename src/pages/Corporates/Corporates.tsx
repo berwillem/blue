@@ -42,7 +42,7 @@ export default function Corporates() {
     img: images[idx],
   }));
   return (
-    <div className="mainWrapper">
+    <div className="mainWrapper b2b">
       <div className="navbar-anim">
         <Navbar links={links} />
       </div>

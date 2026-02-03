@@ -185,7 +185,8 @@ export default function Content({ DATA, DATA2 }) {
                     height: "100%",
                   }}
                 >
-                  <motion.div layout className="image-wrapper-tiktok">
+                  <motion.div layout className="image-wrapper-tiktok"  initial={{  opacity: 0 }}
+                  animate={{  opacity: 1 }}   transition={{ duration: 2 }}>
                     <img
                       src={DATA[currentIndex]?.img}
                       alt={DATA[currentIndex]?.title}

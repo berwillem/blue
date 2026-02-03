@@ -1,0 +1,127 @@
+/* Configuration de base */
+.contact-container {
+ 
+    color: #002d40;
+
+    margin: 0 auto;
+    padding: 8rem ;
+    line-height: 1.5;
+}
+
+/* Header */
+.contact-header {
+    margin-bottom: 60px;
+}
+
+.contact-label {
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.contact-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #00334e;
+}
+
+/* Formulaire */
+.contact-form {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.form-section {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Champs de saisie */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box; /* Important pour le padding */
+}
+
+.input-group input::placeholder {
+    color: #cbd5e0;
+}
+
+/* Consentement */
+.consent-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.consent-group input {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+}
+
+.consent-text {
+    font-size: 12px;
+    color: #4a5568;
+}
+
+/* Bouton */
+.submit-button {
+    width: 100%;
+    background-color: #00334e;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #00253a;
+}
+
+/* Footer / Disclaimer */
+.disclaimer {
+    font-size: 10px;
+    color: #718096;
+    margin-top: 30px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-container{
+           padding: 2rem ;
+    }
+    .contact-title {
+        font-size: 24px;
+    }
+}

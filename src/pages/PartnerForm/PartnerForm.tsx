@@ -3,11 +3,12 @@ import styles from './PartnerForm.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 
 const PartnerForm: React.FC = () => {
-    const links = [
+  const links = [
     { name: "home", path: "/individuals" },
     { name: "about", path: "/about" },
-    { name: "why_us", path: "#" },
-    { name: "services", path: "#" }
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+    { name: "privacy", path: "/privacy.pdf", isExternal: true },
   ];
   return (
     <div className={styles.formPage}>
