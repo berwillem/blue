@@ -2,8 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./Footer.css";
 import ocean from "../../assets/videos/ocean.mp4";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const footerRef = useRef(null);
   const videoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -27,13 +29,11 @@ export default function Footer() {
     };
 
     window.addEventListener("scroll", onFirstScroll);
-
     let ctx;
 
     const initGSAP = async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger, ScrollToPlugin } = await import("gsap/all");
-
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
       if (!footerRef.current || !videoRef.current) return;
@@ -58,15 +58,11 @@ export default function Footer() {
               start: "top 85%",
               onEnter: () => {
                 if (!hasUserScrolled || isAnimating) return;
-
                 isAnimating = true;
                 disableScroll();
 
                 gsap.to(window, {
-                  scrollTo: {
-                    y: footerRef.current,
-                    autoKill: false,
-                  },
+                  scrollTo: { y: footerRef.current, autoKill: false },
                   duration: 1.2,
                   ease: "power3.out",
                   onComplete: () => {
@@ -77,49 +73,19 @@ export default function Footer() {
 
                 const tl = gsap.timeline();
                 tl.to(videoRef.current, { autoAlpha: 1, duration: 0 });
-                tl.fromTo(
-                  videoRef.current,
-                  { yPercent: 100 },
-                  { yPercent: 0, duration: 2.5, ease: "power3.out" },
-                  0,
-                );
-                tl.fromTo(
-                  footerRef.current,
-                  { scale: 1 },
-                  { scale: 0.85, duration: 2, ease: "power3.out" },
-                  0,
-                );
+                tl.fromTo(videoRef.current, { yPercent: 100 }, { yPercent: 0, duration: 2.5, ease: "power3.out" }, 0);
+                tl.fromTo(footerRef.current, { scale: 1 }, { scale: 0.85, duration: 2, ease: "power3.out" }, 0);
                 tl.fromTo(
                   footerRef.current.querySelector(".footer-content"),
                   { opacity: 0, y: 24 },
-                  {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                  },
-                  0.2,
+                  { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+                  0.2
                 );
               },
-
               onLeaveBack: () => {
-                gsap.to(videoRef.current, {
-                  yPercent: 100,
-                  autoAlpha: 0,
-                  duration: 0.6,
-                  ease: "power3.in",
-                });
-                gsap.to(footerRef.current, {
-                  scale: 1,
-                  duration: 0.6,
-                  ease: "power3.in",
-                });
-                gsap.to(footerRef.current.querySelector(".footer-content"), {
-                  opacity: 0,
-                  y: 24,
-                  duration: 0.4,
-                  ease: "power3.in",
-                });
+                gsap.to(videoRef.current, { yPercent: 100, autoAlpha: 0, duration: 0.6, ease: "power3.in" });
+                gsap.to(footerRef.current, { scale: 1, duration: 0.6, ease: "power3.in" });
+                gsap.to(footerRef.current.querySelector(".footer-content"), { opacity: 0, y: 24, duration: 0.4, ease: "power3.in" });
               },
             });
           }, 300);
@@ -128,7 +94,6 @@ export default function Footer() {
     };
 
     initGSAP();
-
     return () => {
       window.removeEventListener("scroll", onFirstScroll);
       if (ctx) ctx.revert();
@@ -149,43 +114,36 @@ export default function Footer() {
         <div className="footer-content">
           <div className="up">
             <div className="left">
-              <h2>
-                Elevating performance through <br />
-                balance, clarity, and growth.
-              </h2>
+              <h2 dangerouslySetInnerHTML={{ __html: t("footer.headline") }} />
             </div>
             <div className="right">
               <button>
-                <span></span>
-                <span>Contact us</span>
+                <span />
+                <span>{t("footer.cta")}</span>
               </button>
             </div>
           </div>
 
           <div className="down">
             <ul>
-              <li className="title">For individuals</li>
-              <li>Home page</li>
-              <li>What we do</li>
-              <li>Start personal capacity test</li>
-              <li>Start metabolic health test</li>
-              <li>Contact us</li>
-              <li>Useful links</li>
+              <li className="title">{t("footer.col1.title")}</li>
+              {t("footer.col1.links", { returnObjects: true }).map((link, i) => (
+                <li key={i}>{link}</li>
+              ))}
             </ul>
 
             <ul>
-              <li className="title">For individuals</li>
-              <li>Home page</li>
-              <li>What we do</li>
-              <li>Contact us</li>
-              <li>Useful links</li>
+              <li className="title">{t("footer.col2.title")}</li>
+              {t("footer.col2.links", { returnObjects: true }).map((link, i) => (
+                <li key={i}>{link}</li>
+              ))}
             </ul>
 
             <ul>
-              <li className="title">For partnership</li>
-              <li>Home page</li>
-              <li>What we do</li>
-              <li>Become a partner</li>
+              <li className="title">{t("footer.col3.title")}</li>
+              {t("footer.col3.links", { returnObjects: true }).map((link, i) => (
+                <li key={i}>{link}</li>
+              ))}
             </ul>
           </div>
         </div>

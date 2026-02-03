@@ -9,7 +9,7 @@
 /* --- CONTAINER MOBILE (Défaut) --- */
 .content-container {
   width: 100%;
-  height: 100dvh;
+
   background-color: white;
   padding: 2rem;
   display: flex;
@@ -71,7 +71,7 @@
 
 }
   .content-container {
- 
+ height: 100dvh;
     padding: 0;
    
   }
@@ -150,7 +150,7 @@
 
   .right-description {
     font-size: 1.5rem !important;
-    color: #333;
+  
     line-height: 1.4;
     margin: 0 !important;
   }
@@ -183,4 +183,13 @@
     font-size: 0.9rem;
     cursor: pointer;
   }
+}
+.expanded-content{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.expanded-content ul li{
+font-size: 1.5rem;
+font-weight: 400;
 }

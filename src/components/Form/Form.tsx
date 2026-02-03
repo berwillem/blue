@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FiCalendar } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
@@ -16,6 +17,7 @@ export default function Form({
   inputs: FormInputs;
   textArea: FormInputs;
 }) {
+  const { t } = useTranslation();
   const formRef = useRef<HTMLFormElement>(null);
 
   const [formData, setFormData] = useState<{ [key: string]: string }>(() => {
@@ -39,40 +41,39 @@ export default function Form({
     e.preventDefault();
     if (!formRef.current) return;
 
-    // Empty check
+    // Vérification des champs vides (avec message traduit)
     for (const [key, value] of Object.entries(formData)) {
       if (!value.trim()) {
-        toast.error(`Please fill in the ${key} field.`);
+        toast.error(t("form.error_empty", { field: key }));
         return;
       }
     }
 
-    // Detect email field
-    const emailKey = Object.keys(inputs).find((key) =>
-      key.toLowerCase().includes("email"),
+    // Détection dynamique (l'index est souvent plus sûr que le nom traduit)
+    const keys = Object.keys(inputs);
+    const emailKey = keys.find((key) => 
+      key.toLowerCase().includes("email") || key.toLowerCase().includes("e-mail")
     );
 
     if (emailKey) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData[emailKey])) {
-        toast.error("Please enter a valid email address.");
+        toast.error(t("form.error_email"));
         return;
       }
     }
 
-    // ✅ Detect name field dynamically
-    const nameKey = Object.keys(inputs).find(
+    const nameKey = keys.find(
       (key) =>
-        key.toLowerCase().includes("name") &&
+        (key.toLowerCase().includes("name") || key.toLowerCase().includes("nom")) &&
         !key.toLowerCase().includes("email"),
     );
 
-    // Build EmailJS payload
     const emailData = {
-      fullName: nameKey ? formData[nameKey] : "",
-      email: emailKey ? formData[emailKey] : "",
+      fullName: nameKey ? formData[nameKey] : "Client",
+      email: emailKey ? formData[emailKey] : "No email provided",
       message: Object.keys(textArea)
-        .map((key) => formData[key])
+        .map((key) => `${key}: ${formData[key]}`)
         .join("\n"),
       time: new Date().toLocaleString(),
     };
@@ -86,14 +87,14 @@ export default function Form({
       )
       .then(
         () => {
-          toast.success("Message sent successfully!");
+          toast.success(t("form.success"));
           const cleared: { [key: string]: string } = {};
           Object.keys(formData).forEach((key) => (cleared[key] = ""));
           setFormData(cleared);
         },
         (error) => {
           console.error("Email error:", error.text);
-          toast.error("Failed to send message. Try again.");
+          toast.error(t("form.error_send"));
         },
       );
   };
@@ -104,7 +105,7 @@ export default function Form({
         {Object.entries(inputs).map(([key]) => (
           <div key={key} className="form-group">
             <input
-              type={key.toLowerCase().includes("email") ? "email" : "text"}
+              type={key.toLowerCase().includes("email") || key.toLowerCase().includes("mail") ? "email" : "text"}
               name={key}
               value={formData[key] || ""}
               onChange={handleChange}
@@ -127,7 +128,7 @@ export default function Form({
         ))}
 
         <button type="submit">
-          <FiCalendar /> Book a call
+          <FiCalendar /> {t("form.submit")}
         </button>
       </form>
 

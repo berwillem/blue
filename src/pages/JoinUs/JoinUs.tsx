@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import styles from "./JoinUs.module.css";
 
 import PartnerCard from "../../components/PartnerCard/PartnerCard";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import Navbar from "../../components/Navbar/Navbar";
 
-// Configuration de l'animation de base
 const fadeInVariant = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -16,21 +16,23 @@ const fadeInVariant = {
   },
 };
 
-// Configuration pour l'apparition en cascade (stagger) des cartes
 const containerVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const JoinUs: React.FC = () => {
-  const partners = Array(7).fill(
-    "Medical Doctors & Licensed Health Practitioners",
-  );
+  const { t } = useTranslation();
+
+  // On récupère les listes depuis le JSON
+  const whyList = t("join.why_blu.list", { returnObjects: true }) as string[];
+  const standardsList = t("join.standards.list", { returnObjects: true }) as string[];
+
+  const partners = Array(7).fill(t("join.partners_section.card_label"));
+
   const links = [
     { name: "home", path: "/individuals" },
     { name: "about", path: "/about" },
@@ -51,23 +53,13 @@ const JoinUs: React.FC = () => {
           viewport={{ once: true }}
           variants={fadeInVariant}
         >
-          <SectionHeader overline="Join us as a partner" />
-          <h1 className={styles.mainTitle}>
-            Not everyone should join us. And that is intentional.
-          </h1>
-          <p className={styles.leadText}>
-            Blu partners with experienced professionals who understand that
-            sustained health, performance, and decision-making require
-            structure, discipline, and professional accountability — not trends
-            or shortcuts.
-          </p>
-          <p className={styles.leadText}>
-            If you are committed to verifiable results, long-term
-            responsibility, and ethical practice, you may belong here.
-          </p>
+          <SectionHeader overline={t("join.hero.overline")} />
+          <h1 className={styles.mainTitle}>{t("join.hero.title")}</h1>
+          <p className={styles.leadText}>{t("join.hero.p1")}</p>
+          <p className={styles.leadText}>{t("join.hero.p2")}</p>
         </motion.header>
 
-        {/* Grid Section avec Stagger Effect */}
+        {/* Grid Section */}
         <motion.section
           className={styles.gridSection}
           initial="hidden"
@@ -77,8 +69,8 @@ const JoinUs: React.FC = () => {
         >
           <motion.div variants={fadeInVariant}>
             <SectionHeader
-              overline="Who We Partner With ?"
-              title="We collaborate with experienced professionals who want to expand their impact without compromising their standards:"
+              overline={t("join.partners_section.overline")}
+              title={t("join.partners_section.title")}
             />
           </motion.div>
 
@@ -101,27 +93,12 @@ const JoinUs: React.FC = () => {
             variants={fadeInVariant}
           >
             <SectionHeader
-              overline="Why Partner With Blu."
-              title="This is not a referral scheme. It's a professional collaboration"
+              overline={t("join.why_blu.overline")}
+              title={t("join.why_blu.title")}
             />
-            <p className={styles.listLabel}>As a partner, you gain:</p>
+            <p className={styles.listLabel}>{t("join.why_blu.label")}</p>
             <ul className={styles.list}>
-              <li>
-                A structured working environment aligned with professional
-                standards
-              </li>
-              <li>
-                Access to cross-disciplinary peers operating under clear
-                boundaries
-              </li>
-              <li>Professional alignment with a serious, selective platform</li>
-              <li>
-                The ability to contribute meaningfully in complex,
-                high-responsibility cases
-              </li>
-              <li>
-                Long-term professional value, not transactional engagement
-              </li>
+              {whyList.map((item, i) => <li key={i}>{item}</li>)}
             </ul>
           </motion.div>
 
@@ -132,29 +109,16 @@ const JoinUs: React.FC = () => {
             viewport={{ once: true }}
             variants={fadeInVariant}
           >
-            <SectionHeader overline="Our Standards" />
-            <p className={styles.listLabel}>
-              We work only with professionals who:
-            </p>
+            <SectionHeader overline={t("join.standards.overline")} />
+            <p className={styles.listLabel}>{t("join.standards.label")}</p>
             <ul className={styles.list}>
-              <li>
-                Accept personal accountability for their role and decisions
-              </li>
-              <li>Respect competence boundaries and scope of practice</li>
-              <li>
-                Operate with confidentiality, discretion, and ethical rigor
-              </li>
-              <li>Prefer accuracy over convenience</li>
-              <li>Are willing to be evaluated and held to high standards</li>
+              {standardsList.map((item, i) => <li key={i}>{item}</li>)}
             </ul>
-            <p className={styles.italicNote}>
-              If that resonates, we should talk.
-            </p>
+            <p className={styles.italicNote}>{t("join.standards.footer")}</p>
           </motion.div>
         </section>
       </main>
 
-      {/* Footer CTA */}
       <motion.footer
         className={styles.footer}
         initial="hidden"
@@ -162,13 +126,10 @@ const JoinUs: React.FC = () => {
         viewport={{ once: true }}
         variants={fadeInVariant}
       >
-        <SectionHeader overline="Start the Conversation" />
-        <p className={styles.ctaText}>
-          If you believe your expertise belongs in a serious, disciplined, and
-          purpose-driven alliance, we invite you to apply.
-        </p>
+        <SectionHeader overline={t("join.cta.overline")} />
+        <p className={styles.ctaText}>{t("join.cta.text")}</p>
         <button className={styles.btnLarge}>
-          Apply to Become a Blu. Partner
+          {t("join.cta.button")}
         </button>
       </motion.footer>
     </div>

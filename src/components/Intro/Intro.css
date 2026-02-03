@@ -281,3 +281,16 @@
   height: min-content;
   z-index: 5;
 }
+.revealWord {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* On s'assure que le container a une hauteur minimale pour éviter que le footer remonte */
+.hero-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}

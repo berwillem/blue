@@ -247,7 +247,7 @@
 
   /* 2. On définit les zones de "capture" du scroll */
   .snap-panel {
-    height: 100vh;
+   
     width: 100%;
     /* C'est ici que l'aimant s'active */
     scroll-snap-align: start;

@@ -2,79 +2,79 @@ import "./Corporates.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Intro from "../../components/Intro/Intro";
 import Why from "../../components/Why/Why";
-import placeholder1 from "../../assets/images/redacontent1.jpg";
-import placeholder2 from "../../assets/images/redcontent2.jpg";
-import placeholder3 from "../../assets/images/redacontent3.jpg";
+import placeholder1 from "../../assets/images/corporates1.jpg";
+import placeholder2 from "../../assets/images/corporates2.jpg";
+import placeholder3 from "../../assets/images/corporates3.jpg";
+import placeholder4 from "../../assets/images/corporates4.jpg";
+import placeholder5 from "../../assets/images/corporates5.jpg";
+import placeholder6 from "../../assets/images/corporates6.jpg";
+import placeholder7 from "../../assets/images/corporates7.jpg";
 import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
 import IntroCorp from "../../components/IntroCorp/IntroCorp";
 import Modus from "../../components/Modus/Modus";
+import { useTranslation } from "react-i18next";
 
 export default function Corporates() {
-const links = [
-  { name: "home", path: "/individuals" },
-  { name: "about", path: "/about" },
-  { name: "services", path: "#" },
-  { name: "joinus", path: "/joinus" },
-  { name: "privacy", path: "/privacy.pdf", isExternal: true }, // Ajout ici
-];
-const DATA = [
-  {
-    id: 1,
-    title: "Metabolic Method",
-    leftText:
-      "Executive metabolic method for high performers and achievers. Performance, discipline and purpose.",
-    rightDesc:
-      "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose. ",
-    rightDesc2:
-      "We never disclose personal details, and your information is used only to support your wellness journey. You can trust us to protect your personal life with the utmost care and discretion. We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services. We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure. Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law.",
-    img: placeholder1,
-  },
-  {
-    id: 2,
-    title: "Precision Nutrition",
-    leftText:
-      "Tailored protocols to optimize your energy levels and cognitive clarity throughout the day.",
-    rightDesc:
-      "Optimize your brain and body with precision-based nutritional protocols.",
-    rightDesc2:
-      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
-    img: placeholder2,
-  },
-  {
-    id: 3,
-    title: "Resilient Health",
-    leftText:
-      "A transformative journey designed for those who refuse to settle for average health.",
-    rightDesc:
-      "Long-term health is not an accident; it's a deliberate executive strategy.",
-    rightDesc2:
-      "Sustainable excellence begins with - through a profound balance of metabolism, mindset, and overall well being. Sustainable excellence begins with",
-    img: placeholder3,
-  },
-];
-  return (
-    <div className="corporates-container">
-      <Navbar links={links} />
-      <IntroCorp></IntroCorp>
+  const { t } = useTranslation();
+  const links = [
+    { name: "home", path: "/corporates" },
+    { name: "about", path: "/about" },
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+    { name: "privacy", path: "/privacy.pdf", isExternal: true }, // Ajout ici
+  ];
+  // On récupère le tableau brut des sections via t() avec returnObjects
+  const sectionsData = t("sections2", { returnObjects: true });
+  const images = [
+    placeholder1,
+    placeholder2,
+    placeholder3,
+    placeholder4,
+    placeholder5,
+    placeholder6,
+    placeholder7,
+  ];
 
-      <div className="scroll-container">
-        <section className="snap-section video1"> </section>
-        <section className="snap-section video2">
-          {" "}
-          <Why />
-        </section>
-        <section className="normal-section">
-           <div className="snap-group-container">
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-             <div className="snap-panel"><Content DATA={DATA}/></div>
-        
-           </div>
-          <Modus></Modus>
-          <Footer />
-        </section>
+  // On combine les textes traduits avec les images locales
+  const DATA = sectionsData.map((item, idx) => ({
+    ...item,
+    img: images[idx],
+  }));
+  return (
+    <div className="mainWrapper">
+      <div className="navbar-anim">
+        <Navbar links={links} />
       </div>
+
+      <IntroCorp></IntroCorp>
+      <Why />
+      <div className="snap-group-container">
+        {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[0]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[1]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[2]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[3]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[4]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[5]} />
+        </div>
+        <div className="snap-panel">
+          <Content DATA={DATA} DATA2={DATA[6]} />
+        </div>
+      </div>
+      <Modus></Modus>
+      <Footer />
     </div>
   );
 }

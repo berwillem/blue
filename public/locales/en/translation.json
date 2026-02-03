@@ -8,10 +8,275 @@
     "services": "Services",
     "why_us": "Why Us",
     "joinus": "Join US",
-    "privacy":"privacy"
+    "privacy": "Privacy"
   },
-  "individuals":{
-    "main_title":"I lead Blu to help people rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
-    "button":"About the founder"
+  "individuals": {
+    "main_title": "I lead Blu to help people rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
+    "button": "About the founder",
+    "why": "Why",
+    "whyp1": "We help people who are suffering regain control of their body,mind, and life—so they can stand upright again and become reliablefor themselves and for others ",
+    "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline,metabolic health, responsibility, and meaning",
+    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most:family, responsibility, and legacy.",
+    "sections": [
+      {
+        "id": 1,
+        "title": "Why we do what we do?",
+        "leftText": "Executive Metabolic Method for high performers and achievers. Performance, Discipline, and Purpose — The New Elite Code.",
+        "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
+        "moreContent": {
+          "paragraphs": [
+            "If you’re a high achievers who feel exhausted behind success we would help you restore discipline, energy, and purpose. Our holistic, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — privately and permanently."
+          ],
+          "lists": [
+            {
+              "title": "What we work on with you:",
+              "items": [
+                "Metabolic Health & Energy",
+                "Habits & Discipline",
+                "Meaning, & Responsibility",
+                "Mindset & structure"
+              ]
+            },
+            {
+              "title": "We address:",
+              "items": [
+                "Entrepreneurs, investors, and independent professionals seeking high performance and well-being.",
+                "Executives and corporate leaders in mid- to large-sized companies.",
+                "Professionals, elite performers and athletes open to science-backed mental and metabolic optimization"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "title": "Why we do what we do?",
+        "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health",
+        "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
+        "moreContent": {
+          "paragraphs": [
+            "Our Metabolic Method™ is designed to restore your energy, focus, and drive, helping you reconnect with yourself. We work closely with you to set clear priorities and targets, ensuring your growth is both measurable and meaningful. With the support of our trusted partners when needed, we help you embrace metabolic health and mindset as the new currency of leadership, empowering you to perform at your best in every area of life"
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "title": "Why we do what we do?",
+        "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
+        "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
+        "moreContent": {
+          "paragraphs": [
+            "We never disclose personal details, and your information is used only to support your wellness journey.",
+            "You can trust us to protect your personal life with the utmost care and discretion.",
+            "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services.",
+            "We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure.",
+            "Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law."
+          ]
+        }
+      }
+    ]
+  },
+  
+  "last": {
+    "title": "Discover Your Starting Point",
+    "description": "Take a few minutes to explore either your personal capacity or your metabolic balance — and gain immediate personal insight.",
+    "button": "Start the test",
+    "card1": {
+      "title": "Personal Capacity Assessment",
+      "desc": "Measures your energy, focus, and daily performance."
+    },
+    "card2": {
+      "title": "Metabolic Health Test",
+      "desc": "Evaluates how your body manages energy and recovery."
+    }
+  },
+  "footer": {
+    "headline": "Elevating performance through <br /> balance, clarity, and growth.",
+    "cta": "Contact us",
+    "col1": {
+      "title": "For individuals",
+      "links": ["Home page", "What we do", "Start personal capacity test", "Start metabolic health test", "Contact us", "Useful links"]
+    },
+    "col2": {
+      "title": "For corporates",
+      "links": ["Home page", "What we do", "Contact us", "Useful links"]
+    },
+    "col3": {
+      "title": "For partnership",
+      "links": ["Home page", "What we do", "Become a partner"]
+    }
+  },
+  
+  "about": {
+    "paragraph1": "With over 21 years of experience in demanding environments — including 15 years in leadership positions — Redha evolved at a high level while facing real personal challenges: being overweight, low energy, concentration issues, and multiple metabolic imbalances.",
+    "paragraph2": "Through his own journey of transformation, he gradually regained sustainable energy, profound mental clarity, and a more stable, aligned discipline.",
+    "button": "Book a meet"
+  
+},
+
+  "sections2": [
+    {
+      "id": 1,
+      "title": "Governance",
+      "leftText": "We design modern governance architecture that improve accountability, transparency, and decision-making while supporting performance.",
+      "rightDesc": "Modern Corporate Governance: We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 2,
+      "title": "Financial performance & value creation",
+      "leftText": "We help leaders understand, measure, and improve what truly drives financial performance. By connecting strategy, operations, and capital discipline, we enable sustainable profitable growth and value creation for shareholders.",
+      "rightDesc": "Sustainable Profitable Growth: We support organizations in growing profitably over time, not just fast. We align growth ambitions with cash generation, capital efficiency, and risk management to ensure performance is durable and scalable.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 3,
+      "title": "Business",
+      "leftText": "We turn strategy into execution by improving efficiency, positioning, pricing, sales effectiveness, and digital capabilities.",
+      "rightDesc": "Strategy & Vision: We help leaders define a clear strategic direction and translate vision into concrete priorities that guide daily decisions.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 4,
+      "title": "Leadership & Human Systems",
+      "leftText": "We work with leaders to build effective organizations where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
+      "rightDesc": "What Makes a Leader: We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 5,
+      "title": "Organizational Change & Operational Excellence",
+      "leftText": "We help organizations evolve continuously in complex environments. By strengthening resilience, fast learning, and execution discipline, we enable change that improves performance rather than disrupting it.",
+      "rightDesc": "Organizational Change as Cognitive Change: We approach change primarily as a shift in thinking, not structure. Sustainable change happens when people understand and internalize new mental models.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 6,
+      "title": "Organizational Training",
+      "leftText": "We deliver targeted competence development for executives and managers to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
+      "rightDesc": "We provide tailored executive education and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    },
+    {
+      "id": 7,
+      "title": "Coaching & Mentoring Programs for Executives",
+      "leftText": "Powered by the Executive Metabolic Method, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "rightDesc": "Powered by the Executive Metabolic Method, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "moreContent": {
+        "paragraphs": [],
+        "lists": []
+      }
+    }
+  ],
+  
+"intro": {
+    "subtitle": "Where performance meets balance.",
+    "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
+    "button": "About the Founder"
+  },
+  "modus": {
+    "title": "Discover our modus \n operandi",
+    "steps": {
+      "step1": {
+        "title": "Design",
+        "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection."
+      },
+      "step2": {
+        "title": "Train",
+        "desc": "We align vision, mission, and strategy while defining clear targets and objectives."
+      },
+      "step3": {
+        "title": "Execute",
+        "desc": "We ensure continuous follow-up through reflection and corrective measures."
+      }
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    }
+  },
+  "form": {
+    "submit": "Book a call",
+    "success": "Message sent successfully!",
+    "error_send": "Failed to send message. Try again.",
+    "error_empty": "Please fill in the {{field}} field.",
+    "error_email": "Please enter a valid email address."
+  },
+  "join": {
+    "hero": {
+      "overline": "Join us as a partner",
+      "title": "Not everyone should join us. And that is intentional.",
+      "p1": "Blu partners with experienced professionals who understand that sustained health, performance, and decision-making require structure, discipline, and professional accountability — not trends or shortcuts.",
+      "p2": "If you are committed to verifiable results, long-term responsibility, and ethical practice, you may belong here."
+    },
+    "partners_section": {
+      "overline": "Who We Partner With?",
+      "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
+      "card_label": "Medical Doctors & Licensed Health Practitioners"
+    },
+    "why_blu": {
+      "overline": "Why Partner With Blu.",
+      "title": "This is not a referral scheme. It's a professional collaboration.",
+      "label": "As a partner, you gain:",
+      "list": [
+        "A structured working environment aligned with professional standards",
+        "Access to cross-disciplinary peers operating under clear boundaries",
+        "Professional alignment with a serious, selective platform",
+        "The ability to contribute meaningfully in complex, high-responsibility cases",
+        "Long-term professional value, not transactional engagement"
+      ]
+    },
+    "standards": {
+      "overline": "Our Standards",
+      "label": "We work only with professionals who:",
+      "list": [
+        "Accept personal accountability for their role and decisions",
+        "Respect competence boundaries and scope of practice",
+        "Operate with confidentiality, discretion, and ethical rigor",
+        "Prefer accuracy over convenience",
+        "Are willing to be evaluated and held to high standards"
+      ],
+      "footer": "If that resonates, we should talk."
+    },
+    "cta": {
+      "overline": "Start the Conversation",
+      "text": "If you believe your expertise belongs in a serious, disciplined, and purpose-driven alliance, we invite you to apply.",
+      "button": "Apply to Become a Blu. Partner"
+    }
+  },
+  "home": {
+    "individuals": {
+      "quote": "“Love yourself.”",
+      "title": "Individuals",
+      "subtitle": "Coaching <1>and</1> Mentoring"
+    },
+    "corporates": {
+      "quote": "“You can do it.”",
+      "title": "Corporates",
+      "subtitle": "Consulting <1>and</1> Advice"
+    }
   }
+
 }
+
