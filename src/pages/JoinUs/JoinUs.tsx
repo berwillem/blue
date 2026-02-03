@@ -1,10 +1,31 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "./JoinUs.module.css";
 
 import PartnerCard from "../../components/PartnerCard/PartnerCard";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import Navbar from "../../components/Navbar/Navbar";
-import { Link } from "react-router-dom";
+
+// Configuration de l'animation de base
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, ease: "easeIn" },
+  },
+};
+
+// Configuration pour l'apparition en cascade (stagger) des cartes
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const JoinUs: React.FC = () => {
   const partners = Array(7).fill(
@@ -16,14 +37,20 @@ const JoinUs: React.FC = () => {
     { name: "why_us", path: "#" },
     { name: "services", path: "#" },
   ];
+
   return (
     <div className={styles.pageWrapper}>
-      {/* Navigation */}
       <Navbar links={links} />
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
-        <header className={styles.hero}>
+        <motion.header
+          className={styles.hero}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInVariant}
+        >
           <SectionHeader overline="Join us as a partner" />
           <h1 className={styles.mainTitle}>
             Not everyone should join us. And that is intentional.
@@ -38,24 +65,41 @@ const JoinUs: React.FC = () => {
             If you are committed to verifiable results, long-term
             responsibility, and ethical practice, you may belong here.
           </p>
-        </header>
+        </motion.header>
 
-        {/* Grid Section */}
-        <section className={styles.gridSection}>
-          <SectionHeader
-            overline="Who We Partner With ?"
-            title="We collaborate with experienced professionals who want to expand their impact without compromising their standards:"
-          />
+        {/* Grid Section avec Stagger Effect */}
+        <motion.section
+          className={styles.gridSection}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariant}
+        >
+          <motion.div variants={fadeInVariant}>
+            <SectionHeader
+              overline="Who We Partner With ?"
+              title="We collaborate with experienced professionals who want to expand their impact without compromising their standards:"
+            />
+          </motion.div>
+
           <div className={styles.grid}>
             {partners.map((title, idx) => (
-              <PartnerCard key={idx} title={title} />
+              <motion.div key={idx} variants={fadeInVariant}>
+                <PartnerCard title={title} />
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Info Sections */}
         <section className={styles.details}>
-          <div className={styles.textBlock}>
+          <motion.div
+            className={styles.textBlock}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInVariant}
+          >
             <SectionHeader
               overline="Why Partner With Blu."
               title="This is not a referral scheme. It's a professional collaboration"
@@ -79,9 +123,15 @@ const JoinUs: React.FC = () => {
                 Long-term professional value, not transactional engagement
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.textBlock}>
+          <motion.div
+            className={styles.textBlock}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInVariant}
+          >
             <SectionHeader overline="Our Standards" />
             <p className={styles.listLabel}>
               We work only with professionals who:
@@ -100,23 +150,27 @@ const JoinUs: React.FC = () => {
             <p className={styles.italicNote}>
               If that resonates, we should talk.
             </p>
-          </div>
+          </motion.div>
         </section>
       </main>
 
       {/* Footer CTA */}
-      <footer className={styles.footer}>
+      <motion.footer
+        className={styles.footer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInVariant}
+      >
         <SectionHeader overline="Start the Conversation" />
         <p className={styles.ctaText}>
           If you believe your expertise belongs in a serious, disciplined, and
           purpose-driven alliance, we invite you to apply.
         </p>
-        <Link to="/partnerform">
-          <button className={styles.btnLarge}>
-            Apply to Become a Blu. Partner
-          </button>
-        </Link>
-      </footer>
+        <button className={styles.btnLarge}>
+          Apply to Become a Blu. Partner
+        </button>
+      </motion.footer>
     </div>
   );
 };

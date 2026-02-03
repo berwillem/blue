@@ -55,6 +55,7 @@
 .big-size {
   display: none;
 }
+
 /* Dans le CSS de ton composant Content */
 @media (max-width: 768px) {
   .content-scroll-wrapper {
@@ -115,7 +116,7 @@
 
   .rotating-text-box {
     position: relative;
-    height: 250px;
+ 
     display: flex;
     align-items: center;
   }
@@ -143,6 +144,7 @@
     height: 100%;
     padding: 5rem;
     padding-top: 8rem;
+    padding-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -153,11 +155,14 @@
     color: #333;
     line-height: 1.4;
     margin: 0 !important;
+
+    transition: 0.5s ease-in;
   }
 
   .image-wrapper-tiktok {
     width: 100%;
     height: 450px;
+    min-height: 450px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -181,5 +186,47 @@
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    position: relative;
+    z-index: 3;
   }
+  /* 1. Supprime TOUTES les transitions CSS sur cette classe */
+.right-description {
+  transition: none !important; /* TRÈS IMPORTANT : Framer Motion gère tout */
+  display: block; /* Pas de flex ici */
+  height: auto;
+  opacity: 1;
+}
+
+/* 2. Assure-toi que le parent ne bloque pas la hauteur */
+.tiktok-slide-content {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Ne mets pas 100% ou une valeur fixe ici */
+  min-height: min-content;
+}
+
+/* 3. L'image ne doit pas bouger */
+.image-wrapper-tiktok {
+  flex-shrink: 0; /* Empêche l'image de s'écraser quand le texte s'ouvre */
+  height: 300px; /* Force une hauteur fixe pour stabiliser le haut */
+}
+.rotating-text-box {
+  position: relative;
+  width: 100%;
+  /* Ne pas mettre de height fixe ici pour laisser le texte grandir */
+}
+
+/* On enlève l'absolute pour que le texte 2 se place SOUS le texte 1 */
+.rotating-text-box p {
+  position: relative !important; 
+  top: auto !important;
+  left: auto !important;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.description-text-secondary {
+ 
+  margin-top: 5px;
+}
 }

@@ -54,23 +54,18 @@ export default function Individuals() {
   return (
     <div className="mainWrapper">
       <div className="navbar-anim">
-        <Navbar links={links} />
+        <Navbar  links={links}/>
       </div>
+
       <Intro />
+
       <div className="snap-group-container">
-        <div className="snap-panel">
-          <Content DATA={DATA} />
-        </div>
-        <div className="snap-panel">
-          <Content DATA={DATA} />
-        </div>
-        <div className="snap-panel">
-          <Content DATA={DATA} />
-        </div>
+        <div className="snap-panel"><Content /></div>
+        <div className="snap-panel"><Content /></div>
+        <div className="snap-panel"><Content /></div>
+   
       </div>
-      <div>
-        <Last />
-      </div>
+     <div ><Last /></div>
       <Footer />
     </div>
   );
