@@ -83,16 +83,7 @@
   margin-right: 10px;
 }
 
-.btn-wrapper {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  bottom: 0;
-  height: min-content;
-  z-index: 5;
-}
+
 
 /* ======================= OVERLAY / PHILOSOPHY ======================= */
 .why-overlay,

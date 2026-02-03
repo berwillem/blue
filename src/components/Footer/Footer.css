@@ -4,14 +4,14 @@ footer {
   overflow: hidden;
   background-color: white;
   position: relative;
-  z-index: 2;
+  z-index: 4;
   transform-origin: center center;
   will-change: transform;
 }
 .footer-video-wrapper {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 3;
   overflow: hidden;
   pointer-events: none;
 }

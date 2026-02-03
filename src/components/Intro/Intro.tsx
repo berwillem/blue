@@ -64,7 +64,21 @@ export default function Intro() {
           anticipatePin: 1,
         },
       });
-
+     const entryTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      entryTl
+        .to(imageRef.current, { bottom: 0, opacity: 1, duration: 1.5 })
+        .from(
+          textRef.current.querySelectorAll(`.word`),
+          {
+            opacity: 0,
+            filter: "blur(15px)",
+            y: 30,
+            duration: 1,
+            stagger: 0.02,
+          },
+          "-=1.0",
+        )
+        .from(".navbar-anim", { y: -100, opacity: 0, duration: 1.2 }, "-=1.2");
       tl.to(textRef.current, {
         opacity: 0,
         y: -50,
