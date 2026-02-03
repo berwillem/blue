@@ -2,16 +2,22 @@ import "./Corporates.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Intro from "../../components/Intro/Intro";
 import Why from "../../components/Why/Why";
-import Last from "../../components/Last/Last";
+
 import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
 import IntroCorp from "../../components/IntroCorp/IntroCorp";
 import Modus from "../../components/Modus/Modus";
 
 export default function Corporates() {
+  const links = [
+    { name: "home", path: "/individuals" },
+    { name: "about", path: "/about" },
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+  ];
   return (
     <div className="corporates-container">
-      {/* <Navbar /> */}
+      <Navbar links={links} />
       <IntroCorp></IntroCorp>
 
       <div className="scroll-container">
@@ -24,9 +30,8 @@ export default function Corporates() {
           {/* <Content />
           <Content />
           <Content /> */}
-          <Last />
           <Modus></Modus>
-          {/* <Footer /> */}
+          <Footer />
         </section>
       </div>
     </div>
