@@ -13,6 +13,7 @@ import MultiStepTest from "./pages/MultiStepTest/MultiStepTest";
 import "./i18n";
 import JoinUs from "./pages/JoinUs/JoinUs";
 import PartnerForm from "./pages/PartnerForm/PartnerForm";
+import Results from "./pages/Results/Results";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { path: "/contact", element: <Contact /> },
   { path: "/tests/personal-capacity", element: <MultiStepTest /> },
   { path: "/tests/metabolic-health", element: <MultiStepTest /> },
+  { path: "/results", element: <Results></Results> },
   { path: "/joinus", element: <JoinUs /> },
   { path: "/partnerform", element: <PartnerForm /> },
   { path: "*", element: <NotFound /> },
