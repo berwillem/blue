@@ -14,6 +14,7 @@ import "./i18n";
 import JoinUs from "./pages/JoinUs/JoinUs";
 import PartnerForm from "./pages/PartnerForm/PartnerForm";
 import Results from "./pages/Results/Results";
+import ContactForm from "./pages/ContactForm/ContactForm";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   { path: "/corporates", element: <Corporates /> },
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
+  { path: "/contactb2b", element: <ContactForm /> },
   { path: "/tests/personal-capacity", element: <MultiStepTest /> },
   { path: "/tests/metabolic-health", element: <MultiStepTest /> },
   { path: "/results", element: <Results></Results> },

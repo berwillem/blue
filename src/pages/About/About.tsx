@@ -57,8 +57,9 @@ export default function About() {
   const links = [
     { name: "home", path: "/individuals" },
     { name: "about", path: "/about" },
-    { name: "why_us", path: "#" },
-    { name: "services", path: "#" }
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+    { name: "privacy", path: "/privacy.pdf", isExternal: true },
   ];
 
   return (
