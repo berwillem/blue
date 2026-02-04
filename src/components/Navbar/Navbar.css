@@ -370,7 +370,7 @@ nav .menu {
 
 /* Mobile responsive adjustments */
 @media (max-width: 1280px) {
-  .navLinks, .langBtnPC {
+  .navLinks {
     display: none;
   }
 }

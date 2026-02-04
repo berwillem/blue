@@ -78,7 +78,15 @@ transform: scaleY(0); /* Caché au départ */
   width: 350px;
   opacity: 0.3; /* État initial */
 }
-
+@media (max-width: 1280px)  {
+  .modus-texts {
+  position: absolute;
+  top: 2rem;
+  width: auto;
+  text-align: center !important;
+  opacity: 0.3; /* État initial */
+}
+}
 .modus-texts.right { left: 60%; text-align: left; }
 .modus-texts.left { right: 60%; text-align: left; }
 
