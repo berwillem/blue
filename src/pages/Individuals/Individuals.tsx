@@ -11,6 +11,7 @@ import placeholder2 from "../../assets/images/redcontent2.jpg";
 import placeholder3 from "../../assets/images/redacontent3.jpg";
 import { FiCalendar } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import FirstIntro from "../../components/FirstIntro/FirstIntro";
 
 export default function Individuals() {
   const { t } = useTranslation();
@@ -38,19 +39,19 @@ export default function Individuals() {
       <div className="navbar-anim">
         <Navbar links={links} />
       </div>
-
+      <FirstIntro />
       <Intro buttonText={t("individuals.button")} />
 
       <div className="snap-group-container">
         {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
         <div className="snap-panel">
-          <Content DATA={DATA} DATA2={DATA[0]}  />
+          <Content DATA={DATA} DATA2={DATA[0]} />
         </div>
         <div className="snap-panel">
-          <Content DATA={DATA} DATA2={DATA[1]}/>
+          <Content DATA={DATA} DATA2={DATA[1]} />
         </div>
         <div className="snap-panel">
-          <Content DATA={DATA} DATA2={DATA[2]}/>
+          <Content DATA={DATA} DATA2={DATA[2]} />
         </div>
       </div>
 
