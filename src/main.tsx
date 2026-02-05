@@ -15,6 +15,7 @@ import JoinUs from "./pages/JoinUs/JoinUs";
 import PartnerForm from "./pages/PartnerForm/PartnerForm";
 import Results from "./pages/Results/Results";
 import ContactForm from "./pages/ContactForm/ContactForm";
+import Disclaimer from "./pages/Disclaimer/Disclaimer";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   { path: "/results", element: <Results></Results> },
   { path: "/joinus", element: <JoinUs /> },
   { path: "/partnerform", element: <PartnerForm /> },
+  {path:"/disclaimer/:testId" ,element:<Disclaimer /> },
   { path: "*", element: <NotFound /> },
 ]);
 

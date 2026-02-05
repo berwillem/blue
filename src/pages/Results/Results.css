@@ -1,12 +1,98 @@
-.results-container {
-  background: linear-gradient(180deg, #00314d 0%, #002438 100%);
-  height: 100dvh;
-  color: #fff;
+.results-wrapper {
+   background: linear-gradient(180deg, #00314d 0%, #002438 100%); /* Fond sombre */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.results-content {
+  width: 100%;
+
+  height: 100%;
+  overflow-y: auto;
+  padding: 2rem;
+  /* Masque la scrollbar */
+  scrollbar-width: none; 
+ 
+}
+
+.results-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bloque le scroll utilisateur pendant l'anim */
+.lock-user-scroll {
+  pointer-events: none;
+}
+
+.spacer {
+  height: 25vh; /* Permet de centrer le premier et dernier paragraphe */
+}
+
+.result-paragraph {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 100px 0; /* Espace entre les textes */
+  line-height: 1.5;
+  text-align: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  /* Etat par défaut : semi-transparent */
+  opacity: 0.3; 
+  transform: scale(0.95);
+}
+
+/* Etat quand le paragraphe est au centre (focus) */
+.result-paragraph.focused {
+  opacity: 1;
+  transform: scale(1);
+}
+.button-footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 150px 0; /* Espace pour qu'il soit bien isolé des textes */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  pointer-events: none;
 }
-.results-container h1 {
-  width: 80%;
-  text-align: center;
+
+.button-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
+
+/* On s'assure que le dernier paragraphe n'est pas trop collé au bouton */
+.result-paragraph:last-of-type {
+  margin-bottom: 100px;
+}
+@media (min-width: 1024px) {
+.results-content {
+  width: 100%;
+
+  height: 100%;
+  overflow-y: auto;
+  padding: 4rem 10rem  !important;
+  /* Masque la scrollbar */
+  scrollbar-width: none; 
+}
+}
+.results-wrapper h1{
+  position: absolute;
+  top: 4rem ;
+  left: 4rem;
+  z-index: 20;
+  color: white;
+font-weight: 300;
+font-style: Medium;
+font-size: 2rem;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+/* Le reste du CSS (results-wrapper, result-paragraph, etc.) reste identique */

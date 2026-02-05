@@ -14,7 +14,7 @@ export default function Why() {
 useEffect(() => {
     const ctx = gsap.context(() => {
       // Split text logic
-      const paragraphs = sectionRef.current.querySelectorAll(".longText p");
+      const paragraphs = sectionRef?.current?.querySelectorAll(".longText2 p");
       paragraphs.forEach((p) => {
         const words = p.innerText.split(" ");
         p.innerHTML = words.map(w => `<span class="revealWord">${w} </span>`).join("");
@@ -35,10 +35,10 @@ useEffect(() => {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={sectionRef} className="philosophy-section">
+    <section ref={sectionRef} className="why-section">
       <div className="why-content-container">
           <span className="smallTitle">{t("individuals.why")}</span>
-          <div className="longText">
+          <div className="longText2">
             <p>{t("individuals.whyp1")}</p>
             <p>{t("individuals.whyp2")}</p>
             <p>{t("individuals.whyp3")}</p>

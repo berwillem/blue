@@ -182,6 +182,12 @@
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  .know-more:hover {
+  
+    gap: 1rem;
+
   }
 }
 .expanded-content{

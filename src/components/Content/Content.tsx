@@ -185,8 +185,8 @@ export default function Content({ DATA, DATA2 }) {
                     height: "100%",
                   }}
                 >
-                  <motion.div layout className="image-wrapper-tiktok"  initial={{  opacity: 0 }}
-                  animate={{  opacity: 1 }}   transition={{ duration: 2 }}>
+                  <motion.div layout className="image-wrapper-tiktok" initial={{ filter: "grayscale(100%)" }}
+                  animate={{ filter: "grayscale(0%)" }} transition={{ duration: 3 }}>
                     <img
                       src={DATA[currentIndex]?.img}
                       alt={DATA[currentIndex]?.title}
@@ -270,10 +270,11 @@ export default function Content({ DATA, DATA2 }) {
                     onClick={() => setShow(!show)}
                   >
                     <p className="know-more">
-                      {show ? "show less" : "know more"}{" "}
+                      <span>    {show ? "show less" : "know more"}{" "}</span>
+                  
                       <motion.span
                         animate={{ rotate: show ? 90 : 0 }}
-                        style={{ display: "inline-block" }}
+                        style={{ display: "flex" ,alignItems:"center" }}
                       >
                         <ArrowRight size={15} />
                       </motion.span>

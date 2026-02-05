@@ -6,6 +6,7 @@
     margin: 0 auto;
     padding: 8rem ;
     line-height: 1.5;
+    margin-top: 50px;
 }
 
 /* Header */
@@ -33,7 +34,7 @@
 }
 
 .form-section {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .section-title {
@@ -56,16 +57,24 @@
 }
 
 .input-group input, 
-.input-group select {
+.input-group select,
+.input-group textarea {
     width: 100%;
     padding: 14px;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box; /* Important pour le padding */
+    resize: none;
+}
+.input-group textarea{
+    height: 200px;
 }
 
 .input-group input::placeholder {
+    color: #cbd5e0;
+}
+.input-group textarea::placeholder {
     color: #cbd5e0;
 }
 
@@ -119,7 +128,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .contact-container{
-           padding: 2rem ;
+           padding: 3rem 2rem ;
     }
     .contact-title {
         font-size: 24px;

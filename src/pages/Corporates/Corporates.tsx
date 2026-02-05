@@ -43,9 +43,9 @@ export default function Corporates() {
   }));
   return (
     <div className="mainWrapper b2b">
-      <div className="navbar-anim">
+
         <Navbar links={links} />
-      </div>
+  
 
       <IntroCorp></IntroCorp>
       <Why />
