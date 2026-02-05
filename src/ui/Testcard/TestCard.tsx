@@ -18,7 +18,7 @@ export default function TestCard({ link, img, title, desc }: TestCardProps) {
       <img src={img} alt={title} />
       <h1>{title}</h1>
       <p>{desc}</p>
-      <Link to={`/tests/${link}`} className="start-test-btn">
+    <Link to={`/disclaimer/${link}`} className="start-test-btn">
         {t("last.button")}
       </Link>
     </div>
