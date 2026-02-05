@@ -1,93 +1,68 @@
 // @ts-nocheck
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
-import "./Disclaimer.css"; // Réutilise ou adapte le CSS précédent
-import Button from "../../ui/button/Button";
+import gsap from "gsap";
+import "./Disclaimer.css";
 
 const DISCLAIMER_TEXTS = [
   "Before you begin, please understand that this assessment is for informational purposes only.",
   "The results provided are based on your personal inputs and should not replace professional medical advice.",
   "Your data privacy is our priority; all responses are processed securely and anonymously.",
   "By proceeding, you acknowledge that you are in a fit mental and physical state to take this test.",
-  "Ready to discover your potential? Let's begin the evaluation."
+  "Ready to discover your potential? Let's begin the evaluation.",
 ];
 
 export default function Disclaimer() {
-  const { testId } = useParams(); // Récupère le nom du test (ex: 'metabolic')
+  const { testId } = useParams();
   const navigate = useNavigate();
   const containerRef = useRef(null);
-  const buttonRef = useRef(null);
-  
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const paragraphs = containerRef.current.querySelectorAll(".result-paragraph");
-    
-    const runSequence = async () => {
-      await new Promise(r => setTimeout(r, 200));
-      
-      for (let i = 0; i < paragraphs.length; i++) {
-        await new Promise((resolve) => {
+    const ctx = gsap.context(() => {
+      const paragraphs = containerRef.current.querySelectorAll(".disc-paragraph");
+
+      // Timeline qui gère l'apparition et la disparition de chaque phrase
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Quand tout est fini, on redirige vers le test
           setTimeout(() => {
-            paragraphs[i].scrollIntoView({ behavior: "smooth", block: "center" });
-            resolve();
-          }, 1000);
-        });
-      }
-      
-      setShowButton(true);
-      setTimeout(() => {
-        buttonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-        setIsAutoScrolling(false);
-      }, 800);
-    };
+            navigate(`/tests/${testId}`);
+          }, 1000); // Petit délai de confort après la dernière phrase
+        }
+      });
 
-    runSequence();
+      paragraphs.forEach((p, index) => {
+        // Pour chaque paragraphe, on l'affiche, on attend, puis on le cache
+        tl.to(p, {
+          opacity: 1,
+          filter: "blur(0px)",
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        })
+        .to(p, {
+          opacity: 0,
+          filter: "blur(15px)",
+          y: -20,
+          duration: 1,
+          ease: "power3.in",
+        }, "+=2"); // Temps de lecture (2 secondes par phrase)
+      });
+    }, containerRef);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => e.isIntersecting ? e.target.classList.add("focused") : e.target.classList.remove("focused"));
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
+    return () => ctx.revert();
+  }, [navigate, testId]);
 
-    paragraphs.forEach(p => observer.observe(p));
-    return () => observer.disconnect();
-  }, []);
-
-  const handleStart = () => {
-    // Envoie l'utilisateur vers le test spécifique
-    navigate(`/tests/${testId}`);
-  };
-
- 
   return (
-    <div className="results-wrapper">
-      <h1>Disclaimer</h1>
-      <div 
-        className={`results-content ${isAutoScrolling ? "lock-user-scroll" : ""}`} 
-        ref={containerRef}
-      >
-        <div className="spacer"></div>
-        
+    <div className="Disclaimer-container" ref={containerRef}>
+ 
+      
+      <div className="Disclaimer-content">
         {DISCLAIMER_TEXTS.map((text, index) => (
-          <p key={index} className="result-paragraph">
+          <p key={index} className="disc-paragraph">
             {text}
           </p>
         ))}
-
-        {/* Conteneur du bouton avec la ref */}
-        <div 
-          ref={buttonRef}
-          className={`button-footer ${showButton ? "visible" : ""}`}
-           onClick={handleStart}
-        >
-           <Button text="Download the results" width="250px" />
-        </div>
-
-        <div className="spacer"></div>
       </div>
     </div>
   );
