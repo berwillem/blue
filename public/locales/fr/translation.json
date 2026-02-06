@@ -12,6 +12,17 @@
     },
  
     "individuals": {
+      "diseases": {
+    "cardiovascular": "Maladies cardiovasculaires",
+    "depression_anxiety": "Dépression et Anxiété",
+    "infertility": "Infertilité",
+    "allergies": "Allergies",
+    "diabetes_type_2": "Diabète de type 2",
+    "male_dysfunction": "Dysfonction sexuelle masculine",
+    "skin_issues": "Problèmes de peau",
+    "autoimmune": "Maladies auto-immunes"
+  },
+        "main_title1": "Le monde moderne a apporté confort et progrès, mais aussi des menaces silencieuses qui érodent la santé physique et mentale. Que faites-vous aujourd'hui pour protéger la vôtre ?",
         "main_title": "Je dirige Blu pour aider les gens à se reconstruire — santé physique, force mentale et clarté — pour que la vie retrouve son sens.",
         "button": "À propos du fondateur",
            "why": "pourquoi",
@@ -113,75 +124,162 @@
     "button": "Prendre rendez-vous"
   },
 
-  "sections2": [
+"sections2": [
     {
       "id": 1,
       "title": "Gouvernance",
-      "leftText": "Nous concevons une architecture de gouvernance moderne qui améliore la responsabilité, la transparence et la prise de décision tout en soutenant la performance.",
-      "rightDesc": "Gouvernance d'Entreprise Moderne : Nous accompagnons les conseils d'administration et les directions dans la mise en place de systèmes équilibrant contrôle, rapidité et responsabilité. La gouvernance devient un levier de performance et non une contrainte bureaucratique.",
+      "leftText": "Nous concevons des architectures de gouvernance modernes qui améliorent la responsabilité, la transparence et la prise de décision tout en soutenant la performance.",
+      "rightDesc": "Gouvernance d'Entreprise Moderne : Nous accompagnons les conseils d'administration et les équipes de direction dans la mise en place de systèmes de gouvernance modernes équilibrant contrôle, rapidité et responsabilité. La gouvernance devient un levier de performance et non une contrainte bureaucratique.",
       "moreContent": {
-        "paragraphs": [],
+        "paragraphs": [
+          "La transparence comme outil de décision : Nous instaurons la transparence comme système de gestion. Des indicateurs clairs, des KPI puissants et un dialogue basé sur les faits améliorent la qualité des décisions et la confiance.",
+          "Architecture de décision et alignement : Nous veillons à ce que les politiques, codes de conduite et flux de communication interne soient cohérents, pratiques et alignés avec la vision et la stratégie de l'entreprise.",
+          "Nous aidons à définir comment les décisions sont prises en fonction de la direction de l'entreprise. Les droits de décision et les circuits d'approbation sont clarifiés pour favoriser la réactivité."
+        ],
         "lists": []
       }
     },
     {
       "id": 2,
-      "title": "Performance financière & création de valeur",
-      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer les moteurs de la performance financière. En connectant stratégie et discipline, nous permettons une croissance rentable durable.",
-      "rightDesc": "Croissance Rentable Durable : Nous soutenons les organisations dans une croissance rentable sur le long terme. Nous alignons les ambitions avec la génération de trésorerie et la gestion des risques pour une performance durable.",
+      "title": "Performance Financière et Création de Valeur",
+      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer les leviers réels de la performance financière en connectant stratégie, opérations et discipline du capital.",
+      "rightDesc": "Croissance Rentable Durable : Nous aidons les organisations à croître de manière rentable sur le long terme. Nous alignons les ambitions de croissance avec la génération de trésorerie et l'efficacité du capital.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Création de Valeur : Nous nous concentrons sur les moteurs de rendement pour les actionnaires ; l'exécution et l'allocation du capital sont alignées pour créer de la valeur réelle.",
+          "En clarifiant ce qui crée réellement de la valeur dans votre entreprise, nous connectons la stratégie aux résultats financiers pour concentrer les ressources sur l'essentiel.",
+          "Culture Financière pour Dirigeants : Nous aidons les leaders à comprendre comment les mécanismes financiers pilotent la performance."
+        ],
+        "lists": [
+          {
+            "title": "Indicateurs clés clarifiés :",
+            "items": [
+              "Dynamique du P&L et du Bilan",
+              "OVA vs EBIT",
+              "Coût du capital",
+              "ROCE (Rendement du capital investi)"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 3,
       "title": "Business",
-      "leftText": "Nous transformons la stratégie en exécution en améliorant l'efficacité, le positionnement, la tarification, l'efficacité commerciale et les capacités numériques.",
-      "rightDesc": "Stratégie & Vision : Nous aidons les dirigeants à définir une direction stratégique claire et à traduire la vision en priorités concrètes qui guident les décisions quotidiennes.",
+      "leftText": "Nous transformons la stratégie en exécution en améliorant l'efficacité, le positionnement, la tarification et les capacités numériques.",
+      "rightDesc": "Stratégie et Vision : Nous aidons les dirigeants à définir une direction stratégique claire et à traduire leur vision en priorités concrètes guidant les décisions quotidiennes.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Efficacité et Focus Opérationnel : Nous identifions les inefficacités qui érodent la marge. L'efficacité devient un levier de rentabilité et de résilience organisationnelle.",
+          "Positionnement et Pouvoir du Prix (Pricing) : Nous renforçons la logique de tarification pour garantir que l'organisation capture la valeur qu'elle crée.",
+          "Orientation Client : Nous affinons le positionnement de marché autour de la valeur réelle pour le client pour rivaliser plus efficacement."
+        ],
+        "lists": [
+          {
+            "title": "Leviers Business :",
+            "items": [
+              "Optimisation des canaux de vente",
+              "Discipline d'exécution et de suivi",
+              "Transformation numérique et CRM",
+              "Efficacité du marketing digital"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 4,
-      "title": "Leadership & Systèmes Humains",
-      "leftText": "Nous travaillons avec les leaders pour bâtir des organisations efficaces où les collaborateurs performent, apprennent et prennent leurs responsabilités. Le leadership et la culture sont des moteurs de performance clés.",
-      "rightDesc": "Ce qui fait un Leader : Nous aidons les leaders à développer clarté, responsabilité et cohérence. Le leadership devient visible dans les comportements et les décisions, et non dans les titres.",
+      "title": "Leadership et Systèmes Humains",
+      "leftText": "Nous bâtissons des organisations efficaces où les collaborateurs performent, apprennent et prennent leurs responsabilités. La culture et le leadership sont des moteurs de performance clés.",
+      "rightDesc": "Ce qui définit un leader : Nous aidons les dirigeants à développer clarté, responsabilité et cohérence. Le leadership devient visible dans les comportements et les décisions, pas dans les titres.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Organisations Efficaces : Nous concevons des organisations avec des rôles et des droits de décision clairs pour réduire les frictions et améliorer l'exécution.",
+          "Sécurité Psychologique : Nous aidons à créer des environnements où les collaborateurs s'expriment librement et signalent les problèmes tôt.",
+          "Culture Interne Forte : Nous traitons la culture comme un système de comportements quotidiens qui stimule l'exécution et l'innovation."
+        ],
+        "lists": [
+          {
+            "title": "Systèmes de performance humaine :",
+            "items": [
+              "Processus de recrutement et sélection",
+              "Développement des compétences et rétention",
+              "Mentalité de croissance (Growth Mindset)",
+              "Apprentissage continu"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 5,
-      "title": "Changement Organisationnel & Excellence Opérationnelle",
-      "leftText": "Nous aidons les organisations à évoluer dans des environnements complexes. En renforçant la résilience et la discipline d'exécution, nous permettons un changement qui améliore la performance sans la perturber.",
-      "rightDesc": "Le changement comme transformation cognitive : Nous abordons le changement avant tout comme une évolution de la pensée. Le changement durable survient lorsque les individus internalisent de nouveaux modèles mentaux.",
+      "title": "Changement Organisationnel et Excellence Opérationnelle",
+      "leftText": "Nous aidons les organisations à évoluer dans des environnements complexes en renforçant la résilience, l'apprentissage rapide et la discipline d'exécution.",
+      "rightDesc": "Le changement organisationnel comme changement cognitif : Nous abordons le changement comme une évolution de la pensée plutôt que de la structure. Le changement durable survient quand les gens internalisent de nouveaux modèles mentaux.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Organisations Modernes (LEAN / Agile) : Nous implémentons le LEAN et l'Agile là où ils créent de la valeur, améliorant la vitesse et la qualité.",
+          "Apprentissage Rapide : Nous aidons les organisations à apprendre plus vite que leur environnement grâce à l'expérimentation et à l'exécution disciplinée.",
+          "Essai et Erreur comme Système : Nous concevons des systèmes d'expérimentation contrôlée permettant d'améliorer sans augmenter les risques."
+        ],
+        "lists": [
+          {
+            "title": "Cœur Opérationnel :",
+            "items": [
+              "Résilience et Excellence opérationnelle",
+              "L'innovation comme système structuré",
+              "Capacité d'absorption du changement"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 6,
       "title": "Formation Organisationnelle",
-      "leftText": "Nous proposons un développement ciblé des compétences pour les cadres afin de renforcer la prise de décision, la résilience et la création de valeur dans des environnements complexes.",
-      "rightDesc": "Nous fournissons une formation exécutive sur mesure et des connaissances pratiques aux dirigeants confrontés à des décisions à enjeux élevés et à la transformation.",
+      "leftText": "Nous proposons un développement ciblé des compétences pour renforcer la prise de décision, la résilience et la création de valeur dans des contextes complexes.",
+      "rightDesc": "Nous fournissons une éducation exécutive sur mesure et des connaissances pratiques aux hauts dirigeants confrontés à des décisions à enjeux élevés.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Nous renforçons votre capacité à planifier et à exécuter en soutenant l'excellence des processus et une livraison disciplinée.",
+          "Nous aidons les dirigeants à mieux évaluer le potentiel commercial et à identifier des moyens innovants de créer de la valeur durable.",
+          "Grâce à des solutions personnalisées, nous permettons à vos équipes de maîtriser ce qui compte réellement."
+        ],
+        "lists": [
+          {
+            "title": "Principaux modules de formation :",
+            "items": [
+              "Sens aigu des finances (P&L, Bilan, OVA, ROCE)",
+              "Business : Vente de valeur et efficacité commerciale",
+              "Leadership : Culture interne et responsabilité",
+              "Gestion de projet (LEAN/Agile)",
+              "Contrôle des coûts et infrastructure IA"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 7,
-      "title": "Programmes de Coaching & Mentorat pour Cadres",
-      "leftText": "Basé sur la Méthode Métabolique Exécutive, ce programme soutient les cadres sous pression pour restaurer l'énergie, la concentration et la qualité des décisions tout en renforçant la présence et la discipline.",
-      "rightDesc": "Basé sur la Méthode Métabolique Exécutive, ce programme soutient les cadres sous pression constante en restaurant l'énergie, la concentration et la qualité décisionnelle tout en renforçant la discipline d'exécution.",
+      "title": "Programmes de Coaching et Mentorat pour Dirigeants",
+      "leftText": "Basé sur la Méthode Métabolique Exécutive, ce programme aide les dirigeants sous pression à restaurer leur énergie et leur clarté de décision.",
+      "rightDesc": "Notre approche intègre la performance métabolique, l'état d'esprit et le leadership pour offrir clarté et résilience au niveau personnel et professionnel.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Ce programme soutient les cadres soumis à une pression soutenue en restaurant l'énergie, la concentration et la qualité des décisions.",
+          "Tout le travail est effectué lors de sessions privées en face à face. La confidentialité et le respect de la vie privée sont fondamentaux."
+        ],
+        "lists": [
+          {
+            "title": "Piliers du programme :",
+            "items": [
+              "Performance métabolique",
+              "Résilience et État d'esprit",
+              "Présence de leadership",
+              "Discipline d'exécution personnelle"
+            ]
+          }
+        ]
       }
     }
   ],

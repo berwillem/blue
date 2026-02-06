@@ -16,7 +16,7 @@ export default function Content({ DATA, DATA2 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPC, setIsPC] = useState(false);
   const [show, setShow] = useState(false);
-  console.log(DATA2);
+  console.log(DATA);
 
   useEffect(() => {
     const checkDevice = () => setIsPC(window.innerWidth >= 1280);

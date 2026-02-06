@@ -1,83 +1,95 @@
 // @ts-nocheck
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
+import { motion } from 'framer-motion';
 import "./FirstIntro.css"
+
+// Tes imports d'images restent les mêmes
 import card1 from "../../assets/images/card1.png"
+import card2 from "../../assets/images/card2.png"
+import card3 from "../../assets/images/card3.png"
+import card4 from "../../assets/images/card4.png"
+import card5 from "../../assets/images/card5.png"
+import card6 from "../../assets/images/card6.png"
+import card7 from "../../assets/images/card7.png"
+import card8 from "../../assets/images/card8.png"
+
+const Cards = [
+  { titleKey: "individuals.diseases.cardiovascular", image: card1 },
+  { titleKey: "individuals.diseases.depression_anxiety", image: card2 },
+  { titleKey: "individuals.diseases.infertility", image: card4 },
+  { titleKey: "individuals.diseases.allergies", image: card3 },
+  { titleKey: "individuals.diseases.diabetes_type_2", image: card6 },
+  { titleKey: "individuals.diseases.male_dysfunction", image: card8 },
+  { titleKey: "individuals.diseases.skin_issues", image: card7 },
+  { titleKey: "individuals.diseases.autoimmune", image: card5 }
+];
+
+// 1. Définition des variantes d'animation
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Délai entre chaque mot et chaque carte
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20, 
+    filter: "blur(10px)" 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+
 export default function FirstIntro() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLHeadingElement | null>(null);
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!textRef.current) return;
-
-      // On récupère tous les spans avec la classe .word
-      const words = textRef.current.querySelectorAll('.word');
-
-      // L'animation "entryTl" exacte de ton exemple
-      gsap.from(words, {
-        opacity: 0,
-        filter: "blur(15px)",
-        y: 30,
-        duration: 1.2,
-        stagger: 0.02, // Effet de cascade rapide
-        ease: "power4.out",
-        delay: 0.3, // Petit délai au chargement
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <div ref={containerRef} className="intro-full-wrapper ">
-      <div className="intro-section first-intro">
-        <h1 ref={textRef} className="headline">
-          {t("individuals.main_title")
+    <div className="intro-full-wrapper">
+      <motion.div 
+        className="intro-section first-intro"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible" // S'anime quand la section apparaît à l'écran
+        viewport={{ once: true, amount: 0.2 }} // Ne se joue qu'une fois
+      >
+        <h1 className="headline">
+          {t("individuals.main_title1")
             .split(" ")
             .map((word, i) => (
-              <span key={i} className="word">
+              <motion.span 
+                key={i} 
+                variants={itemVariants} 
+                style={{ display: "inline-block" }}
+              >
                 {word}&nbsp;
-              </span>
+              </motion.span>
             ))}
         </h1>
+        
         <div className="grid_intro">
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
-            <div className="card-intro">
-                <img src={card1} alt="card" />
-                <h2>Cardiovascular disease</h2>
-            </div>
+          {Cards.map((card, index) => (
+            <motion.div 
+              className="card-intro" 
+              key={index}
+              variants={itemVariants} // Utilise la même variante pour l'effet une par une
+            >
+              <img src={card.image} alt="card" />
+              <h2>{t(card.titleKey)}</h2>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

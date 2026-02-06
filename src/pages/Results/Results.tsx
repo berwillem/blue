@@ -32,7 +32,7 @@ export default function Results() {
               block: "center",
             });
             resolve();
-          }, 1800); 
+          }, 7000); 
         });
       }
       
@@ -56,6 +56,7 @@ export default function Results() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("focused");
+            entry.target.classList.add("passed");
           } else {
             entry.target.classList.remove("focused");
           }

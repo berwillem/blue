@@ -45,9 +45,23 @@
   font-weight: 400;
   opacity: 0.85;
 }
-
+.home_logo{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  height: min-content;
+  z-index: 1;
+}
 /* Mobile / Tablet - stack vertically */
 @media (max-width: 1023px) {
+  .home_logo{
+  position: absolute;
+  top: 20px;
+  bottom: auto;
+  left: 20px;
+  height: min-content;
+  z-index: 1;
+}
   .splitContainer {
     flex-direction: column;
   }

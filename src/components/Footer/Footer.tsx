@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import "./Footer.css";
 import ocean from "../../assets/videos/ocean.mp4";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -99,6 +101,8 @@ export default function Footer() {
       if (ctx) ctx.revert();
     };
   }, [isMobile]);
+    const userType = useUserTypeStore((state) => state.userType);
+  const contactPath = userType === "individuals" ? "/contact" : "/contactb2b";
 
   return (
     <>
@@ -117,10 +121,13 @@ export default function Footer() {
               <h2 dangerouslySetInnerHTML={{ __html: t("footer.headline") }} />
             </div>
             <div className="right">
-              <button>
+              <Link to={contactPath}>
+                      <button>
                 <span />
                 <span>{t("footer.cta")}</span>
               </button>
+              </Link>
+      
             </div>
           </div>
 

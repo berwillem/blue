@@ -51,11 +51,20 @@ footer .right button {
   padding: 10px;
   border-radius: 8px;
   gap: 5px;
+  cursor: pointer;
 }
 footer .right button span:first-child {
   height: 1rem;
   width: 1rem;
   background-color: grey;
+  border-radius: 2px;
+  transition: 0.5s ease-in;
+
+}
+footer .right button:hover span:first-child {
+  height: 1rem;
+  width: 1rem;
+  background-color:   #ffcc00;
   border-radius: 2px;
 }
 footer .left h2 {
@@ -78,8 +87,16 @@ footer .down {
   height: auto;
   flex-direction: column;
 }
+footer .down li:hover {
+  color: #0e3a4a;
+  cursor: pointer;
+}
 footer .down li {
   color: black;
+}
+footer .down li:first-child {
+  color: black;
+  cursor:initial;
 }
 footer .down ul {
   border: 1px solid rgba(228, 228, 228, 1);

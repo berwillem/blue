@@ -1,15 +1,16 @@
-//@ts-nocheck
+// @ts-nocheck
 import { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Modus.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Modus() {
   const { t } = useTranslation();
   const containerRef = useRef(null);
 
-  // Construction dynamique du tableau à partir des traductions
   const steps = [
     { title: t("modus.steps.step1.title"), description: t("modus.steps.step1.desc") },
     { title: t("modus.steps.step2.title"), description: t("modus.steps.step2.desc") },
@@ -17,54 +18,49 @@ export default function Modus() {
   ];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const stepElements = gsap.utils.toArray(".modus-step");
 
-      stepElements.forEach((step) => {
+      // Création de la timeline qui bloque l'écran
+      const mainTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",      // Bloque quand le haut de la section touche le haut de l'écran
+          end: "+=300%",         // Durée du blocage (300% de la hauteur de l'écran)
+          pin: true,             // BLOQUE LA PAGE
+          pinSpacing: true,      // Garde l'espace pour la suite
+          scrub: 1,              // L'animation suit la molette
+        },
+      });
+
+      // On ajoute chaque étape à la timeline principale
+      stepElements.forEach((step, index) => {
         const fillLine = step.querySelector(".step-line-fill");
         const text = step.querySelector(".modus-texts");
         const badge = step.querySelector(".modus-step-circle");
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: step,
-            start: "top 75%",
-            end: "top 35%",
-            scrub: 0.5,
-          }
+        // Apparition du texte et du badge
+        mainTl.to([badge, text], {
+          opacity: 1,
+          duration: 0.5,
         });
 
-        tl.fromTo([badge, text], 
-          { opacity: 0.3 }, 
-          { 
-            opacity: 1, 
-            duration: 0.8, 
-            ease: "none" 
-          }
-        );
-
+        // Animation de la ligne de remplissage
         if (fillLine) {
-          tl.fromTo(fillLine, 
-            { scaleY: 0 }, 
-            { 
-              scaleY: 1, 
-              duration: 1.2, 
-              ease: "none" 
-            }, 
-            "-=0.4"
-          );
+          mainTl.to(fillLine, {
+            scaleY: 1,
+            duration: 1,
+            ease: "none",
+          });
         }
       });
     }, containerRef);
 
     return () => ctx.revert();
-  }, [t]); // On rajoute t en dépendance pour recalculer si la langue change
+  }, [t]);
 
   return (
-    <div className="modus-container" ref={containerRef}>
-      {/* Utilisation de white-space: pre-line dans le CSS pour le \n */}
+    <section className="modus-container" ref={containerRef}>
       <h1>{t("modus.title")}</h1>
       
       <div className="modus-steps">
@@ -73,12 +69,10 @@ export default function Modus() {
             <div className="modus-guide">
               <div className="modus-step-circle">step 0{index + 1}</div>
               
-              {index < steps.length - 1 && (
-                <div className="step-line-container">
-                  <div className="step-line-bg"></div>
-                  <div className="step-line-fill"></div>
-                </div>
-              )}
+              <div className="step-line-container">
+                <div className="step-line-bg"></div>
+                <div className="step-line-fill"></div>
+              </div>
             </div>
 
             <div className={`modus-texts ${index % 2 === 1 ? "left" : "right"}`}>
@@ -88,6 +82,6 @@ export default function Modus() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

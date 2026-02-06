@@ -2,14 +2,18 @@ import React from 'react';
 import './ContactForm.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { useUserTypeStore } from '../../store/useUserTypeStore';
+
+ 
+const ContactForm = () => {
+    const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/individuals" },
+    { name: "home", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true },
+   { name: "privacy", path: "/privacy" },
   ];
-const ContactForm = () => {
   return (
     <div className="contact-container">
         <Navbar links={links}/>

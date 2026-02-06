@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
+// 1. Import du store
+import { useUserTypeStore } from "../../store/useUserTypeStore"; 
 
 interface NavLink {
   name: string;
@@ -18,13 +20,18 @@ export default function Navbar({ links }: { links: NavLink[] }) {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
+  // 2. Récupération du type d'utilisateur
+  const userType = useUserTypeStore((state) => state.userType);
+
+  // 3. Définition du chemin dynamique
+  const contactPath = userType === "individuals" ? "/contact" : "/contactb2b";
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
 
   const isPdf = (path: string) => path.endsWith(".pdf");
 
-  // Liste des services pour le sous-menu
   const serviceItems = [
     { name: "Metabolic Health", path: "#" },
     { name: "Corporate Wellness", path: "#" },
@@ -50,7 +57,6 @@ export default function Navbar({ links }: { links: NavLink[] }) {
         <ul className="navLinks">
           {links.map((link) => {
             const isServices = link.name === "services";
-            
             return (
               <li
                 key={link.path}
@@ -76,7 +82,6 @@ export default function Navbar({ links }: { links: NavLink[] }) {
                   )}
                 </div>
 
-                {/* Dropdown Menu PC */}
                 {isServices && (
                   <AnimatePresence>
                     {isServicesHovered && (
@@ -84,7 +89,6 @@ export default function Navbar({ links }: { links: NavLink[] }) {
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
                         className="dropdownMenu"
                       >
                         {serviceItems.map((item, idx) => (
@@ -107,9 +111,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
         <ul className={open ? "open mobile-nav-links" : "mobile-nav-links"}>
           <div className="top-nav">
             <Link to="/" onClick={() => setOpen(false)}>
-              <div className="logo">
-                Blu<span>.</span>
-              </div>
+              <div className="logo">Blu<span>.</span></div>
             </Link>
             <div className="CLOSE">
               <IoClose onClick={() => setOpen(false)} />
@@ -119,9 +121,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           {links.map((link, index) => (
             <li key={index} onClick={() => setOpen(false)}>
               {isPdf(link.path) ? (
-                <a href={link.path} target="_blank" rel="noopener noreferrer">
-                  {t(`navbar.${link.name}`)}
-                </a>
+                <a href={link.path} target="_blank">{t(`navbar.${link.name}`)}</a>
               ) : (
                 <Link to={link.path}>{t(`navbar.${link.name}`)}</Link>
               )}
@@ -130,20 +130,11 @@ export default function Navbar({ links }: { links: NavLink[] }) {
 
           <div className="nav-infos2">
             <div className="languages">
-              <span
-                onClick={() => changeLanguage("en")}
-                className={currentLanguage === "en" ? "selected-language" : ""}
-              >
-                EN
-              </span>
-              <span
-                onClick={() => changeLanguage("fr")}
-                className={currentLanguage === "fr" ? "selected-language" : ""}
-              >
-                FR
-              </span>
+              <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
+              <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
             </div>
-            <Link to="/contact" className="contact-btn" onClick={() => setOpen(false)}>
+            {/* 4. Mise à jour du lien Mobile */}
+            <Link to={contactPath} className="contact-btn" onClick={() => setOpen(false)}>
               {t("navbar.contact")}
             </Link>
           </div>
@@ -152,20 +143,11 @@ export default function Navbar({ links }: { links: NavLink[] }) {
         {/* Right: Actions */}
         <div className="navActions">
           <div className="langBtnPC">
-            <span
-              onClick={() => changeLanguage("en")}
-              className={currentLanguage === "en" ? "selected-language" : ""}
-            >
-              EN
-            </span>
-            <span
-              onClick={() => changeLanguage("fr")}
-              className={currentLanguage === "fr" ? "selected-language" : ""}
-            >
-              FR
-            </span>
+            <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
+            <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
           </div>
-          <Link to={"/contact"}>
+          {/* 5. Mise à jour du lien Desktop */}
+          <Link to={contactPath}>
             <button className="ctaBtn">{t("navbar.contact")}</button>
           </Link>
           <Menu className="menu" onClick={() => setOpen(!open)} />
