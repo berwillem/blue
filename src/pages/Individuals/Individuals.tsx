@@ -27,11 +27,11 @@ export default function Individuals() {
   }));
 
   const links = [
-    { name: "home", path: "/individuals" },
+    { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true },
+  { name: "privacy", path: "/privacy" },
   ];
 
   return (

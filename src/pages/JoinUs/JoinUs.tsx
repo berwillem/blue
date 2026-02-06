@@ -6,6 +6,9 @@ import styles from "./JoinUs.module.css";
 import PartnerCard from "../../components/PartnerCard/PartnerCard";
 import { SectionHeader } from "../../components/SectionHeader/SectionHeader";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
+import { FiCalendar } from "react-icons/fi";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 const fadeInVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -32,13 +35,13 @@ const JoinUs: React.FC = () => {
   const standardsList = t("join.standards.list", { returnObjects: true }) as string[];
 
   const partners = Array(7).fill(t("join.partners_section.card_label"));
-
+  const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/individuals" },
+    { name: "home", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true },
+    { name: "privacy", path: "/privacy" },
   ];
 
   return (
@@ -133,6 +136,9 @@ const JoinUs: React.FC = () => {
           {t("join.cta.button")}
         </button>
       </motion.footer>
+       <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
+              <FiCalendar />
+            </Link>
     </div>
   );
 };

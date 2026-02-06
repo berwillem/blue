@@ -7,6 +7,9 @@ import "./About.css";
 import redaabout from "../../assets/images/redaabout.png";
 import Button from "../../ui/button/Button";
 import { useTranslation } from "react-i18next";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
+import { Link } from "react-router-dom";
+import { FiCalendar } from "react-icons/fi";
 
 interface AnimatedTextProps {
   text: string;
@@ -53,13 +56,13 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset }) => {
 
 export default function About() {
   const { t, i18n } = useTranslation();
-
+  const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/individuals" },
+    { name: "home", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true },
+    { name: "privacy", path: "/privacy" },
   ];
 
   return (
@@ -92,6 +95,10 @@ export default function About() {
           </motion.div>
         </div>
       </div>
+      
+      <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
+        <FiCalendar />
+      </Link>
     </div>
   );
 }

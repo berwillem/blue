@@ -24,7 +24,7 @@
 
 .headline {
   position: absolute;
-  top: 20%;
+  top: 15%;
   text-align: center;
   width: 85vw;
   color: #0e3a4a;
@@ -262,4 +262,27 @@
     scroll-snap-align: none;
   }
   
+}
+.buble{
+  position: fixed;
+width: 50px;
+height: 50px;
+bottom: 3rem;
+right:4rem;
+z-index: 20;
+opacity: 1;
+border-width: 1.41px;
+border: 1.41px solid #E4E4E4;
+
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: white;
+  color:#202020;
+  transition: ease-in 0.2s;
+}
+.buble:hover{
+border: 1.41px solid #ffcc00;
+color: #ffcc00;
 }

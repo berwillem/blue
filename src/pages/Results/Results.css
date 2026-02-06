@@ -31,9 +31,14 @@
 .spacer {
   height: 25vh; /* Permet de centrer le premier et dernier paragraphe */
 }
-
+.result-paragraph{
+ opacity: 0;
+}
+.result-paragraph.passed{
+opacity: 0.3;
+}
 .result-paragraph {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #ffffff;
   margin: 100px 0; /* Espace entre les textes */
   line-height: 1.5;
@@ -41,7 +46,7 @@
   transition: opacity 0.6s ease, transform 0.6s ease;
   
   /* Etat par défaut : semi-transparent */
-  opacity: 0.3; 
+  opacity: 0; 
   transform: scale(0.95);
 }
 
@@ -72,6 +77,9 @@
   margin-bottom: 100px;
 }
 @media (min-width: 1024px) {
+    .result-paragraph {
+  font-size: 2rem;
+  }
 .results-content {
   width: 100%;
 
@@ -90,7 +98,7 @@
   color: white;
 font-weight: 300;
 font-style: Medium;
-font-size: 2rem;
+font-size: 1.5rem;
 line-height: 100%;
 letter-spacing: 0%;
 

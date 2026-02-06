@@ -1,14 +1,18 @@
 import React from 'react';
 import styles from './PartnerForm.module.css';
 import Navbar from '../../components/Navbar/Navbar';
+import { useUserTypeStore } from '../../store/useUserTypeStore';
+import { Link } from 'react-router-dom';
+import { FiCalendar } from 'react-icons/fi';
 
 const PartnerForm: React.FC = () => {
+  const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/individuals" },
+    { name: "home", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true },
+    { name: "privacy", path: "/privacy" },
   ];
   return (
     <div className={styles.formPage}>
@@ -127,6 +131,9 @@ const PartnerForm: React.FC = () => {
           </p>
         </div>
       </form>
+       <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
+        <FiCalendar />
+      </Link>
     </div>
   );
 };

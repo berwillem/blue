@@ -14,15 +14,17 @@ import Footer from "../../components/Footer/Footer";
 import IntroCorp from "../../components/IntroCorp/IntroCorp";
 import Modus from "../../components/Modus/Modus";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { FiCalendar } from "react-icons/fi";
 
 export default function Corporates() {
   const { t } = useTranslation();
   const links = [
-    { name: "home", path: "/corporates" },
+    { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy.pdf", isExternal: true }, // Ajout ici
+  { name: "privacy", path: "/privacy" },
   ];
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("sections2", { returnObjects: true });
@@ -35,6 +37,7 @@ export default function Corporates() {
     placeholder6,
     placeholder7,
   ];
+
 
   // On combine les textes traduits avec les images locales
   const DATA = sectionsData.map((item, idx) => ({
@@ -75,6 +78,10 @@ export default function Corporates() {
       </div>
       <Modus></Modus>
       <Footer />
+      
+      <Link to="/contactb2b" className="buble">
+        <FiCalendar />
+      </Link>
     </div>
   );
 }

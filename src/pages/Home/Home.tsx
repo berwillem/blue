@@ -1,15 +1,21 @@
 // @ts-nocheck
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import gsap from "gsap";
 import Splitting from "splitting";
 import styles from "./Home.module.css";
 import TransitionOverlay from "../../components/TransitionOverlay/TransitionOverlay";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
+// Import du store
+ // Ajuste le chemin selon ton projet
 
 export default function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  
+  // Récupération de la fonction de mise à jour du store
+  const setUserType = useUserTypeStore((state) => state.setUserType);
 
   const [transition, setTransition] = useState({
     active: false,
@@ -19,7 +25,6 @@ export default function Home() {
   });
 
   useEffect(() => {
-    // On attend que le texte soit rendu pour Splitting
     Splitting({
       target: [
         ".quote",
@@ -32,26 +37,18 @@ export default function Home() {
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // 1️⃣ QUOTES IN
     tl.fromTo(
       ".quote",
       { opacity: 0, filter: "blur(12px)", y: 10 },
       { opacity: 1, filter: "blur(0px)", y: 0, duration: 1.2 },
     );
 
-    // 2️⃣ QUOTES OUT
     tl.to(
       ".quote",
-      {
-        opacity: 0,
-        filter: "blur(12px)",
-        y: -10,
-        duration: 0.8,
-      },
+      { opacity: 0, filter: "blur(12px)", y: -10, duration: 0.8 },
       "+=0.8",
     );
 
-    // 3️⃣ MAIN TEXTS
     tl.fromTo(
       ".individuals-title .char, .individuals-subtitle .char, .corporate-title .char, .corporate-subtitle .char",
       { opacity: 0, filter: "blur(12px)", y: 12 },
@@ -63,11 +60,16 @@ export default function Home() {
         stagger: 0.035,
       },
     );
-  }, [i18n.language]); // Relance l'animation si la langue change
+  }, [i18n.language]);
 
   const handleClick = (e, path) => {
     const x = e.clientX;
     const y = e.clientY;
+
+    // --- MISE À JOUR DU STORE ---
+    // On déduit le type du path (ex: "/individuals" -> "individuals")
+    const selectedType = path.replace("/", ""); 
+    setUserType(selectedType);
 
     setTransition({
       active: true,
@@ -84,6 +86,12 @@ export default function Home() {
   return (
     <>
       <div className={styles.splitContainer}>
+        <Link to="/" className={`${styles.home_logo}`}>
+          <div className="logo">
+            Blu<span>.</span>
+          </div>
+        </Link>
+
         {/* Gauche: Individuals */}
         <div
           className={styles.side}
@@ -94,7 +102,6 @@ export default function Home() {
             <p className={`${styles.quote} ${styles.corporateQuote} quote`}>
               {t("home.individuals.quote")}
             </p>
-
             <h1 className={`${styles.title} individuals-title`}>
               {t("home.individuals.title")}
             </h1>
@@ -116,7 +123,6 @@ export default function Home() {
             <p className={`${styles.quote} ${styles.individualsQuote} quote`}>
               {t("home.corporates.quote")}
             </p>
-
             <h1 className={`${styles.title} corporate-title`}>
               {t("home.corporates.title")}
             </h1>

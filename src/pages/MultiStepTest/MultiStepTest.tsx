@@ -1,7 +1,9 @@
 // @ts-nocheck
 import { useState, useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Ajout de useNavigate
 import { useTranslation } from "react-i18next";
+import { toast, ToastContainer } from "react-toastify"; // Import Toastify
+import "react-toastify/dist/ReactToastify.css"; // Import CSS
 import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import "./MultiStepTest.css";
@@ -14,7 +16,6 @@ const TESTS_MAP = {
 
 const questionsPerStep = 5;
 
-// Fisher-Yates shuffle
 const shuffleArray = (array) => {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
@@ -26,12 +27,12 @@ const shuffleArray = (array) => {
 
 export default function MultiStepTest() {
   const { pathname } = useLocation();
-  const { i18n } = useTranslation();
+  const navigate = useNavigate(); // Pour rediriger à la fin
+  const { i18n, t } = useTranslation();
   const lang = i18n.language.startsWith("fr") ? "fr" : "en";
 
   const testId = pathname.split("/").pop();
   const testConfig = TESTS_MAP[testId];
-
   const { saveResults } = useTestResultsStore();
 
   if (!testConfig) return <p>Test not found</p>;
@@ -39,14 +40,13 @@ export default function MultiStepTest() {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
 
-  // Only metabolic test allows skip
   const allowSkip = testId === "metabolic-health";
 
   const allQuestions = useMemo(() => {
     const flat = testConfig.steps.flatMap((s) =>
       s.questions.map((q) => ({
         ...q,
-        category: s.title, // keep category stable
+        category: s.title,
       })),
     );
     return shuffleArray(flat);
@@ -65,6 +65,43 @@ export default function MultiStepTest() {
 
   const step = steps[currentStep];
 
+  // --- LOGIQUE DE VALIDATION ---
+  const isStepComplete = () => {
+    // Vérifie si chaque question de l'étape actuelle a une réponse
+    return step.questions.every((q) => answers[q.id] !== undefined);
+  };
+
+  const handleNext = () => {
+    if (isStepComplete()) {
+      setCurrentStep((s) => s + 1);
+      window.scrollTo(0, 0); // Reset scroll pour le confort
+    } else {
+      toast.error(t("test.please_answer_all"), {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "dark",
+      });
+    }
+  };
+
+  const handleFinish = (e) => {
+    if (!isStepComplete()) {
+      e.preventDefault(); // Empêche le Link de fonctionner
+      toast.error(t("test.please_answer_all"), {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "dark",
+      });
+      return;
+    }
+    
+    saveResults(testId, {
+      answers,
+      categoryScores,
+    });
+    navigate("/results");
+  };
+
   const handleAnswer = (questionId, value) => {
     setAnswers((prev) => ({
       ...prev,
@@ -82,15 +119,11 @@ export default function MultiStepTest() {
     return scores;
   }, [answers, allQuestions]);
 
-  const handleFinish = () => {
-    saveResults(testId, {
-      answers,
-      categoryScores,
-    });
-  };
-
   return (
     <div className="test-container">
+      {/* Container pour afficher les toasts */}
+      <ToastContainer />
+
       <div className="steps-progress">
         {steps.map((_, index) => (
           <div
@@ -104,7 +137,7 @@ export default function MultiStepTest() {
         {step.questions.map((q, index) => (
           <div key={q.id} className="question-block">
             <p className="question-text">
-              <span>{index + 1}. </span>
+              <span>{index + 1 + currentStep * questionsPerStep}. </span>
               {q.text[lang]}
             </p>
 
@@ -138,27 +171,19 @@ export default function MultiStepTest() {
 
       <div className="navigation">
         {currentStep > 0 && (
-          <button
-            className="nav-btn"
-            onClick={() => setCurrentStep((s) => s - 1)}
-          >
+          <button className="nav-btn" onClick={() => setCurrentStep((s) => s - 1)}>
             Previous
           </button>
         )}
 
         {currentStep < steps.length - 1 ? (
-          <button
-            className="nav-btn"
-            onClick={() => setCurrentStep((s) => s + 1)}
-          >
+          <button className="nav-btn" onClick={handleNext}>
             Next
           </button>
         ) : (
-          <Link to="/results">
-            <button className="nav-btn primary" onClick={handleFinish}>
-              Finish
-            </button>
-          </Link>
+          <button className="nav-btn primary" onClick={handleFinish}>
+            Finish
+          </button>
         )}
       </div>
     </div>

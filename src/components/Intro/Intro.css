@@ -17,17 +17,8 @@
   justify-content: center;
   position: relative;
 }
-.headline {
-  position: absolute;
-  top: 20%;
-  text-align: center;
-  z-index: 15;
-  width: 85vw;
-  color: #0e3a4a;
-  font-size: clamp(1.2rem, 2.2vw, 2rem);
-  font-weight: 500;
 
-}
+
 
 .word {
   display: inline-block;

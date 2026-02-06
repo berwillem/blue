@@ -7,10 +7,21 @@
     "contact": "Book a call",
     "services": "Services",
     "why_us": "Why Us",
-    "joinus": "Join US",
+    "joinus": "Join us",
     "privacy": "Privacy"
   },
   "individuals": {
+    "diseases": {
+      "cardiovascular": "Cardiovascular disease",
+      "depression_anxiety": "Depression & Anxiety",
+      "infertility": "Infertility",
+      "allergies": "Allergies",
+      "diabetes_type_2": "Type 2 diabetes",
+      "male_dysfunction": "Male sexual dysfunction",
+      "skin_issues": "Skin issues",
+      "autoimmune": "Autoimmune disease"
+    },
+    "main_title1": "The modern world has brought comfort and progress—but also silent threats that erode physical and mental health. What are you doing today to protect yours?",
     "main_title": "I lead Blu to help people rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
     "button": "About the founder",
     "why": "Why",
@@ -76,7 +87,6 @@
       }
     ]
   },
-  
   "last": {
     "title": "Discover Your Starting Point",
     "description": "Take a few minutes to explore either your personal capacity or your metabolic balance — and gain immediate personal insight.",
@@ -95,24 +105,38 @@
     "cta": "Contact us",
     "col1": {
       "title": "For individuals",
-      "links": ["Home page", "What we do", "Start personal capacity test", "Start metabolic health test", "Contact us", "Useful links"]
+      "links": [
+        "Home page",
+        "What we do",
+        "Start personal capacity test",
+        "Start metabolic health test",
+        "Contact us",
+        "Useful links"
+      ]
     },
     "col2": {
       "title": "For corporates",
-      "links": ["Home page", "What we do", "Contact us", "Useful links"]
+      "links": [
+        "Home page",
+        "What we do",
+        "Contact us",
+        "Useful links"
+      ]
     },
     "col3": {
       "title": "For partnership",
-      "links": ["Home page", "What we do", "Become a partner"]
+      "links": [
+        "Home page",
+        "What we do",
+        "Become a partner"
+      ]
     }
   },
-  
   "about": {
     "paragraph1": "With over 21 years of experience in demanding environments — including 15 years in leadership positions — Redha evolved at a high level while facing real personal challenges: being overweight, low energy, concentration issues, and multiple metabolic imbalances.",
     "paragraph2": "Through his own journey of transformation, he gradually regained sustainable energy, profound mental clarity, and a more stable, aligned discipline.",
     "button": "Book a meet"
-  
-},
+  },
 
   "sections2": [
     {
@@ -121,18 +145,36 @@
       "leftText": "We design modern governance architecture that improve accountability, transparency, and decision-making while supporting performance.",
       "rightDesc": "Modern Corporate Governance: We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
       "moreContent": {
-        "paragraphs": [],
+        "paragraphs": [
+          "Transparency as a Decision-Making Tool: We implement transparency as a management system. Clear metrics, powerful KPI’s, shared financial understanding, and fact-based dialogue that improve decision quality, trust, and execution speed across the organization.",
+          "Alignment & Decision Architecture: We ensure that policies, codes of conduct, processes, procedures, approval mechanisms, and internal communication flows are coherent, practical, and fully aligned with the company’s vision, mission, and strategy.",
+          "We help define how decisions are made with where the company is going. Decision rights, escalation paths, and approval mechanisms are clarified so governance enables speed, accountability, and strategic focus instead of friction."
+        ],
         "lists": []
       }
     },
     {
       "id": 2,
-      "title": "Financial performance & value creation",
+      "title": "Financial Performance & Value Creation",
       "leftText": "We help leaders understand, measure, and improve what truly drives financial performance. By connecting strategy, operations, and capital discipline, we enable sustainable profitable growth and value creation for shareholders.",
       "rightDesc": "Sustainable Profitable Growth: We support organizations in growing profitably over time, not just fast. We align growth ambitions with cash generation, capital efficiency, and risk management to ensure performance is durable and scalable.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Value Creation: We focus on what drives returns to shareholders; execution and capital allocation are aligned to create value.",
+          "By clarifying what truly creates value in your business, we connect strategy, operations, and financial outcomes so leaders focus resources on activities that really matter.",
+          "Financial Literacy for Executives: We help leaders truly understand how financial mechanics drive performance."
+        ],
+        "lists": [
+          {
+            "title": "Key Financial Metrics we clarify:",
+            "items": [
+              "P&L and Balance Sheet dynamics",
+              "OVA vs EBIT",
+              "Cost of capital",
+              "ROCE (Return on Capital Employed)"
+            ]
+          }
+        ]
       }
     },
     {
@@ -141,8 +183,22 @@
       "leftText": "We turn strategy into execution by improving efficiency, positioning, pricing, sales effectiveness, and digital capabilities.",
       "rightDesc": "Strategy & Vision: We help leaders define a clear strategic direction and translate vision into concrete priorities that guide daily decisions.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Efficiency & Operational Focus: We identify inefficiencies that erode margin and energy. Efficiency becomes a lever for both profitability and organizational resilience.",
+          "Positioning & Power of Pricing: We strengthen pricing logic to ensure organizations capture the value they create, reduce unnecessary discounting, and improve margin sustainability.",
+          "Customer Focus: We sharpen market positioning around real customer value. A customer-focused organization makes clearer decisions and competes more effectively."
+        ],
+        "lists": [
+          {
+            "title": "Business Drivers:",
+            "items": [
+              "Sales Channels optimization",
+              "Execution & Business Follow-Up Discipline",
+              "Digital Transformation & CRM",
+              "Digital Marketing Effectiveness"
+            ]
+          }
+        ]
       }
     },
     {
@@ -151,8 +207,22 @@
       "leftText": "We work with leaders to build effective organizations where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
       "rightDesc": "What Makes a Leader: We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Effective Organizations: We design organizations with clear roles, decision rights, and accountability to reduce friction and improve execution.",
+          "Psychological Safety: We help leaders create environments where people speak up, learn fast, and address problems early—without lowering standards.",
+          "Strong Internal Culture: We treat culture as a system of daily behaviors. A strong internal culture drives execution, innovation, and resilience."
+        ],
+        "lists": [
+          {
+            "title": "Human Performance Systems:",
+            "items": [
+              "Recruitment & Selection Processes",
+              "Competence development",
+              "Employee retention",
+              "Growth Mindset & Continuous Learning"
+            ]
+          }
+        ]
       }
     },
     {
@@ -161,8 +231,21 @@
       "leftText": "We help organizations evolve continuously in complex environments. By strengthening resilience, fast learning, and execution discipline, we enable change that improves performance rather than disrupting it.",
       "rightDesc": "Organizational Change as Cognitive Change: We approach change primarily as a shift in thinking, not structure. Sustainable change happens when people understand and internalize new mental models.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "Modern Organizations (LEAN / Agile): We implement LEAN and Agile where they create value, improving speed, quality, and learning without dogmatism.",
+          "Fast Learning Organizations: We help organizations learn faster than their environment through feedback loops, experimentation, and disciplined execution.",
+          "Trial and Error as a System: We design controlled experimentation systems that allow teams to test, learn, and improve without increasing risk."
+        ],
+        "lists": [
+          {
+            "title": "Operational Core:",
+            "items": [
+              "Resilience & Operational Excellence",
+              "Innovation as a System",
+              "Organizational Capacity for Change"
+            ]
+          }
+        ]
       }
     },
     {
@@ -171,112 +254,138 @@
       "leftText": "We deliver targeted competence development for executives and managers to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
       "rightDesc": "We provide tailored executive education and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "We strengthen your ability to plan, adapt, and execute by supporting process excellence and disciplined delivery—on time, on budget, and on target.",
+          "We help leaders better assess business potential and identify innovative, efficient ways to create value.",
+          "Through customized solutions and interactive training programs, we enable your people to master what truly matters."
+        ],
+        "lists": [
+          {
+            "title": "Main Training Courses:",
+            "items": [
+              "Financial acumen (P&L, Balance Sheet, OVA, ROCE)",
+              "Business strategy & Value selling",
+              "Leadership & Internal culture",
+              "Project management (LEAN/Agile)",
+              "Cost control & AI infrastructure"
+            ]
+          }
+        ]
       }
     },
     {
       "id": 7,
       "title": "Coaching & Mentoring Programs for Executives",
       "leftText": "Powered by the Executive Metabolic Method, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
-      "rightDesc": "Powered by the Executive Metabolic Method, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "rightDesc": "Our approach integrates metabolic performance, mindset, and leadership to deliver clarity and resilience where it matters most—at the personal and professional level.",
       "moreContent": {
-        "paragraphs": [],
-        "lists": []
+        "paragraphs": [
+          "This program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence.",
+          "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental."
+        ],
+        "lists": [
+          {
+            "title": "Program Pillars:",
+            "items": [
+              "Metabolic performance",
+              "Mindset & Resilience",
+              "Leadership presence",
+              "Executive focus"
+            ]
+          }
+        ]
       }
     }
   ],
-  
-"intro": {
-    "subtitle": "Where performance meets balance.",
-    "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
-    "button": "About the Founder"
-  },
-  "modus": {
-    "title": "Discover our modus \n operandi",
-    "steps": {
-      "step1": {
-        "title": "Design",
-        "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection."
+
+    "intro": {
+      "subtitle": "Where performance meets balance.",
+      "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
+      "button": "About the Founder"
+    },
+    "modus": {
+      "title": "Discover our modus \n operandi",
+      "steps": {
+        "step1": {
+          "title": "Design",
+          "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection."
+        },
+        "step2": {
+          "title": "Train",
+          "desc": "We align vision, mission, and strategy while defining clear targets and objectives."
+        },
+        "step3": {
+          "title": "Execute",
+          "desc": "We ensure continuous follow-up through reflection and corrective measures."
+        }
+      }
+    },
+    "contact": {
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message"
+      }
+    },
+    "form": {
+      "submit": "Book a call",
+      "success": "Message sent successfully!",
+      "error_send": "Failed to send message. Try again.",
+      "error_empty": "Please fill in the {{field}} field.",
+      "error_email": "Please enter a valid email address."
+    },
+    "join": {
+      "hero": {
+        "overline": "Join us as a partner",
+        "title": "Not everyone should join us. And that is intentional.",
+        "p1": "Blu partners with experienced professionals who understand that sustained health, performance, and decision-making require structure, discipline, and professional accountability — not trends or shortcuts.",
+        "p2": "If you are committed to verifiable results, long-term responsibility, and ethical practice, you may belong here."
       },
-      "step2": {
-        "title": "Train",
-        "desc": "We align vision, mission, and strategy while defining clear targets and objectives."
+      "partners_section": {
+        "overline": "Who We Partner With?",
+        "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
+        "card_label": "Medical Doctors & Licensed Health Practitioners"
       },
-      "step3": {
-        "title": "Execute",
-        "desc": "We ensure continuous follow-up through reflection and corrective measures."
+      "why_blu": {
+        "overline": "Why Partner With Blu.",
+        "title": "This is not a referral scheme. It's a professional collaboration.",
+        "label": "As a partner, you gain:",
+        "list": [
+          "A structured working environment aligned with professional standards",
+          "Access to cross-disciplinary peers operating under clear boundaries",
+          "Professional alignment with a serious, selective platform",
+          "The ability to contribute meaningfully in complex, high-responsibility cases",
+          "Long-term professional value, not transactional engagement"
+        ]
+      },
+      "standards": {
+        "overline": "Our Standards",
+        "label": "We work only with professionals who:",
+        "list": [
+          "Accept personal accountability for their role and decisions",
+          "Respect competence boundaries and scope of practice",
+          "Operate with confidentiality, discretion, and ethical rigor",
+          "Prefer accuracy over convenience",
+          "Are willing to be evaluated and held to high standards"
+        ],
+        "footer": "If that resonates, we should talk."
+      },
+      "cta": {
+        "overline": "Start the Conversation",
+        "text": "If you believe your expertise belongs in a serious, disciplined, and purpose-driven alliance, we invite you to apply.",
+        "button": "Apply to Become a Blu. Partner"
+      }
+    },
+    "home": {
+      "individuals": {
+        "quote": "“Love yourself.”",
+        "title": "Individuals",
+        "subtitle": "Coaching <1>and</1> Mentoring"
+      },
+      "corporates": {
+        "quote": "“You can do it.”",
+        "title": "Corporates",
+        "subtitle": "Consulting <1>and</1> Advice"
       }
     }
-  },
-  "contact": {
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message"
-    }
-  },
-  "form": {
-    "submit": "Book a call",
-    "success": "Message sent successfully!",
-    "error_send": "Failed to send message. Try again.",
-    "error_empty": "Please fill in the {{field}} field.",
-    "error_email": "Please enter a valid email address."
-  },
-  "join": {
-    "hero": {
-      "overline": "Join us as a partner",
-      "title": "Not everyone should join us. And that is intentional.",
-      "p1": "Blu partners with experienced professionals who understand that sustained health, performance, and decision-making require structure, discipline, and professional accountability — not trends or shortcuts.",
-      "p2": "If you are committed to verifiable results, long-term responsibility, and ethical practice, you may belong here."
-    },
-    "partners_section": {
-      "overline": "Who We Partner With?",
-      "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
-      "card_label": "Medical Doctors & Licensed Health Practitioners"
-    },
-    "why_blu": {
-      "overline": "Why Partner With Blu.",
-      "title": "This is not a referral scheme. It's a professional collaboration.",
-      "label": "As a partner, you gain:",
-      "list": [
-        "A structured working environment aligned with professional standards",
-        "Access to cross-disciplinary peers operating under clear boundaries",
-        "Professional alignment with a serious, selective platform",
-        "The ability to contribute meaningfully in complex, high-responsibility cases",
-        "Long-term professional value, not transactional engagement"
-      ]
-    },
-    "standards": {
-      "overline": "Our Standards",
-      "label": "We work only with professionals who:",
-      "list": [
-        "Accept personal accountability for their role and decisions",
-        "Respect competence boundaries and scope of practice",
-        "Operate with confidentiality, discretion, and ethical rigor",
-        "Prefer accuracy over convenience",
-        "Are willing to be evaluated and held to high standards"
-      ],
-      "footer": "If that resonates, we should talk."
-    },
-    "cta": {
-      "overline": "Start the Conversation",
-      "text": "If you believe your expertise belongs in a serious, disciplined, and purpose-driven alliance, we invite you to apply.",
-      "button": "Apply to Become a Blu. Partner"
-    }
-  },
-  "home": {
-    "individuals": {
-      "quote": "“Love yourself.”",
-      "title": "Individuals",
-      "subtitle": "Coaching <1>and</1> Mentoring"
-    },
-    "corporates": {
-      "quote": "“You can do it.”",
-      "title": "Corporates",
-      "subtitle": "Consulting <1>and</1> Advice"
-    }
   }
-
-}
-
