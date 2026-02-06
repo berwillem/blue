@@ -27,6 +27,7 @@
     "react-router": "^7.13.0",
     "react-router-dom": "6",
     "react-toastify": "^11.0.5",
+    "recharts": "^3.7.0",
     "splitting": "^1.1.0",
     "zustand": "^5.0.10"
   },

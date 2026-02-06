@@ -17,6 +17,7 @@ import Results from "./pages/Results/Results";
 import ContactForm from "./pages/ContactForm/ContactForm";
 import Disclaimer from "./pages/Disclaimer/Disclaimer";
 import Privacy from "./pages/Privacy/Privacy";
+import Stat from "./pages/Stat/Stat";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
   { path: "/joinus", element: <JoinUs /> },
   { path: "/partnerform", element: <PartnerForm /> },
   { path: "/privacy", element: <Privacy /> },
+  { path: "/stats", element: <Stat /> },
   {path:"/disclaimer/:testId" ,element:<Disclaimer /> },
   { path: "*", element: <NotFound /> },
 ]);
