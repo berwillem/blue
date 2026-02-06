@@ -86,6 +86,7 @@ transform: scaleY(0); /* Caché au départ */
 .modus-container h1 { width: 100%; font-size: 1.8rem; color: #002b49; text-align: center; margin-bottom: 40px;}
 .modus-texts p { color: #666; line-height: 1.5;font-size: 0.8rem; }
 @media (max-width: 1280px)  {
+  .modus-texts p { color: #666; line-height: 1;font-size: 0.7rem; }
   .modus-texts {
   position: absolute;
 

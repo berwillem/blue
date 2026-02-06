@@ -45,6 +45,11 @@ export default function IntroCorp() {
 
   return (
     <div className="intro-corp">
+      <div className="lines">
+        <div className="line"></div>
+        <div className="line"></div>
+
+      </div>
       <div className="intro-content">
         <div className="intro-text">
           <h3 ref={h3Ref}>{t("intro.subtitle")}</h3>

@@ -8,12 +8,17 @@
 .last-container .texts {
   text-align: center;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .last-container .texts h1 {
   color: black;
   font-size: 6vw;
   font-weight: 700;
+
+  
 }
 
 .last-container .texts p {
@@ -21,6 +26,7 @@
   margin-top: 1rem;
   font-size: 1.2rem;
   line-height: 1.6;
+   
 }
 
 
@@ -44,6 +50,7 @@
   .last-container .texts p {
     font-size: 1.3rem;
     line-height: 1.8;
+     max-width: 50%;
   }
 
   .last-container .cards {
@@ -54,6 +61,6 @@
 
   .last-container .cards > * {
     flex: 1;              
-    max-width: 400px;     
+    max-width: 500px;     
   }
 }

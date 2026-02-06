@@ -51,28 +51,28 @@ export default function Corporates() {
   
 
       <IntroCorp></IntroCorp>
-      <Why />
+
       <div className="snap-group-container">
         {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
-        <div className="snap-panel">
-          <Content DATA={DATA} DATA2={DATA[0]} />
+        <div className="snap-panel" id="content1">
+          <Content  DATA={DATA} DATA2={DATA[0]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content2">
           <Content DATA={DATA} DATA2={DATA[1]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content3">
           <Content DATA={DATA} DATA2={DATA[2]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content4">
           <Content DATA={DATA} DATA2={DATA[3]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content5">
           <Content DATA={DATA} DATA2={DATA[4]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content6">
           <Content DATA={DATA} DATA2={DATA[5]} />
         </div>
-        <div className="snap-panel">
+        <div className="snap-panel" id="content7">
           <Content DATA={DATA} DATA2={DATA[6]} />
         </div>
       </div>

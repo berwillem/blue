@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 
 import "./Results.css";
 import Button from "../../ui/button/Button";
-
+import {  ArrowLeft } from "lucide-react";
+import { Link, } from 'react-router-dom';
 const FAKE_DATA = [
   "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation. Our approach blends strategic clarity with human depth, guiding you through a journey of transformation.",
   "We analyze your unique metabolic markers to create a roadmap tailored specifically to your biology. Our approach blends strategic clarity with human depth, guiding you through a journey of transformation.",
@@ -69,13 +70,14 @@ export default function Results() {
       }
     );
 
-    paragraphs.forEach((p) => observer.observe(p));
-    return () => observer.disconnect();
-  }, []);
+  paragraphs.forEach((p) => observer.observe(p));
+  return () => observer.disconnect();
+}, []);
 
-  return (
+return (
     <div className="results-wrapper">
       <h1>Result</h1>
+      <Link to="/" className="back" ><ArrowLeft /><span>Go back</span></Link>
       <div 
         className={`results-content ${isAutoScrolling ? "lock-user-scroll" : ""}`} 
         ref={containerRef}

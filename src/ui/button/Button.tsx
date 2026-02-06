@@ -1,3 +1,5 @@
+
+import { useTranslation } from "react-i18next";
 import "./Button.css";
 export default function Button({
   text,
@@ -6,10 +8,11 @@ export default function Button({
   text: string;
   width: string;
 }) {
+    const { t } = useTranslation();
   return (
     <button className="action-button" style={{ width: width }}>
       <p className="dot"></p>
-      {text}
+      {t(text)}
     </button>
   );
 }

@@ -47,10 +47,23 @@
 }
 .home_logo{
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 30px;
+  left: 40px;
   height: min-content;
   z-index: 1;
+}
+.home_logo .logo{
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00296f;
+  cursor: pointer;
+
+}
+
+
+.logo span {
+  color: #ffcc00;
 }
 /* Mobile / Tablet - stack vertically */
 @media (max-width: 1023px) {
