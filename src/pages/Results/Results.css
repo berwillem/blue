@@ -103,4 +103,24 @@ line-height: 100%;
 letter-spacing: 0%;
 
 }
+.results-wrapper .back{
+  position: absolute;
+  top: 1rem ;
+  left: 4rem;
+  z-index: 20;
+  color: white;
+font-weight: 300;
+font-style: Medium;
+
+line-height: 100%;
+letter-spacing: 0%;
+background-color: white;
+color: #002438;
+padding: 5px;
+border-radius: 16px;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 5px;
+}
 /* Le reste du CSS (results-wrapper, result-paragraph, etc.) reste identique */

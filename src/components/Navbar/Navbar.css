@@ -370,6 +370,19 @@ nav .menu {
 
 /* Mobile responsive adjustments */
 @media (max-width: 1280px) {
+  .mainLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mainLink:hover {
+  color: black;
+}
   .navLinks {
     display: none;
   }

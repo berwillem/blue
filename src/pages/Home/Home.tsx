@@ -87,7 +87,7 @@ export default function Home() {
     <>
       <div className={styles.splitContainer}>
         <Link to="/" className={`${styles.home_logo}`}>
-          <div className="logo">
+          <div className={`${styles.logo}`}>
             Blu<span>.</span>
           </div>
         </Link>

@@ -32,6 +32,7 @@
       {
         "id": 1,
         "title": "Why we do what we do?",
+        "button": "Start a metabolic test",
         "leftText": "Executive Metabolic Method for high performers and achievers. Performance, Discipline, and Purpose — The New Elite Code.",
         "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
         "moreContent": {
@@ -62,6 +63,7 @@
       {
         "id": 2,
         "title": "what we do?",
+        "button": "Personal Capacity test",
         "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health",
         "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
         "moreContent": {
@@ -73,6 +75,7 @@
       {
         "id": 3,
         "title": "How we do?",
+        "button": "Book a call",
         "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
@@ -137,7 +140,6 @@
     "paragraph2": "Through his own journey of transformation, he gradually regained sustainable energy, profound mental clarity, and a more stable, aligned discipline.",
     "button": "Book a meet"
   },
-
   "sections2": [
     {
       "id": 1,
@@ -297,95 +299,94 @@
       }
     }
   ],
-
-    "intro": {
-      "subtitle": "Where performance meets balance.",
-      "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
-      "button": "About the Founder"
-    },
-    "modus": {
-      "title": "Discover our modus \n operandi",
-      "steps": {
-        "step1": {
-          "title": "Design",
-          "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection."
-        },
-        "step2": {
-          "title": "Train",
-          "desc": "We align vision, mission, and strategy while defining clear targets and objectives."
-        },
-        "step3": {
-          "title": "Execute",
-          "desc": "We ensure continuous follow-up through reflection and corrective measures."
-        }
-      }
-    },
-    "contact": {
-      "form": {
-        "name": "Name",
-        "email": "Email",
-        "message": "Message"
-      }
-    },
-    "form": {
-      "submit": "Book a call",
-      "success": "Message sent successfully!",
-      "error_send": "Failed to send message. Try again.",
-      "error_empty": "Please fill in the {{field}} field.",
-      "error_email": "Please enter a valid email address."
-    },
-    "join": {
-      "hero": {
-        "overline": "Join us as a partner",
-        "title": "Not everyone should join us. And that is intentional.",
-        "p1": "Blu partners with experienced professionals who understand that sustained health, performance, and decision-making require structure, discipline, and professional accountability — not trends or shortcuts.",
-        "p2": "If you are committed to verifiable results, long-term responsibility, and ethical practice, you may belong here."
+  "intro": {
+    "subtitle": "Where performance meets balance.",
+    "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
+    "button": "About the Founder"
+  },
+  "modus": {
+    "title": "Discover our modus \n operandi",
+    "steps": {
+      "step1": {
+        "title": "Design",
+        "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection. This collaborative approach allows us to clearly define objectives, align on targets, and set strategic directions that guide the project forward with clarity and purpose. "
       },
-      "partners_section": {
-        "overline": "Who We Partner With?",
-        "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
-        "card_label": "Medical Doctors & Licensed Health Practitioners"
+      "step2": {
+        "title": "Train",
+        "desc": "We align vision, mission, and strategy while defining clear targets and objectives. Through cognitive tools, systems architecture, and change management, we encourage reflection, feedback, and long-term commitment."
       },
-      "why_blu": {
-        "overline": "Why Partner With Blu.",
-        "title": "This is not a referral scheme. It's a professional collaboration.",
-        "label": "As a partner, you gain:",
-        "list": [
-          "A structured working environment aligned with professional standards",
-          "Access to cross-disciplinary peers operating under clear boundaries",
-          "Professional alignment with a serious, selective platform",
-          "The ability to contribute meaningfully in complex, high-responsibility cases",
-          "Long-term professional value, not transactional engagement"
-        ]
-      },
-      "standards": {
-        "overline": "Our Standards",
-        "label": "We work only with professionals who:",
-        "list": [
-          "Accept personal accountability for their role and decisions",
-          "Respect competence boundaries and scope of practice",
-          "Operate with confidentiality, discretion, and ethical rigor",
-          "Prefer accuracy over convenience",
-          "Are willing to be evaluated and held to high standards"
-        ],
-        "footer": "If that resonates, we should talk."
-      },
-      "cta": {
-        "overline": "Start the Conversation",
-        "text": "If you believe your expertise belongs in a serious, disciplined, and purpose-driven alliance, we invite you to apply.",
-        "button": "Apply to Become a Blu. Partner"
-      }
-    },
-    "home": {
-      "individuals": {
-        "quote": "“Love yourself.”",
-        "title": "Individuals",
-        "subtitle": "Coaching <1>and</1> Mentoring"
-      },
-      "corporates": {
-        "quote": "“You can do it.”",
-        "title": "Corporates",
-        "subtitle": "Consulting <1>and</1> Advice"
+      "step3": {
+        "title": "Execute",
+        "desc": "We ensure continuous follow-up through reflection and corrective measures, identifying next steps and driving future improvements."
       }
     }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    }
+  },
+  "form": {
+    "submit": "Book a call",
+    "success": "Message sent successfully!",
+    "error_send": "Failed to send message. Try again.",
+    "error_empty": "Please fill in the {{field}} field.",
+    "error_email": "Please enter a valid email address."
+  },
+  "join": {
+    "hero": {
+      "overline": "Join us as a partner",
+      "title": "Not everyone should join us. And that is intentional.",
+      "p1": "Blu partners with experienced professionals who understand that sustained health, performance, and decision-making require structure, discipline, and professional accountability — not trends or shortcuts.",
+      "p2": "If you are committed to verifiable results, long-term responsibility, and ethical practice, you may belong here."
+    },
+    "partners_section": {
+      "overline": "Who We Partner With?",
+      "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
+      "card_label": "Medical Doctors & Licensed Health Practitioners"
+    },
+    "why_blu": {
+      "overline": "Why Partner With Blu.",
+      "title": "This is not a referral scheme. It's a professional collaboration.",
+      "label": "As a partner, you gain:",
+      "list": [
+        "A structured working environment aligned with professional standards",
+        "Access to cross-disciplinary peers operating under clear boundaries",
+        "Professional alignment with a serious, selective platform",
+        "The ability to contribute meaningfully in complex, high-responsibility cases",
+        "Long-term professional value, not transactional engagement"
+      ]
+    },
+    "standards": {
+      "overline": "Our Standards",
+      "label": "We work only with professionals who:",
+      "list": [
+        "Accept personal accountability for their role and decisions",
+        "Respect competence boundaries and scope of practice",
+        "Operate with confidentiality, discretion, and ethical rigor",
+        "Prefer accuracy over convenience",
+        "Are willing to be evaluated and held to high standards"
+      ],
+      "footer": "If that resonates, we should talk."
+    },
+    "cta": {
+      "overline": "Start the Conversation",
+      "text": "If you believe your expertise belongs in a serious, disciplined, and purpose-driven alliance, we invite you to apply.",
+      "button": "Apply to Become a Blu. Partner"
+    }
+  },
+  "home": {
+    "individuals": {
+      "quote": "“Love yourself.”",
+      "title": "Individuals",
+      "subtitle": "Coaching <1>and</1> Mentoring"
+    },
+    "corporates": {
+      "quote": "“You can do it.”",
+      "title": "Corporates",
+      "subtitle": "Consulting <1>and</1> Advice"
+    }
   }
+}

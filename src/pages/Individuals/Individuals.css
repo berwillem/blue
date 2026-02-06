@@ -233,10 +233,37 @@
   margin-top: -100vh; /* chevauchement du pinSpacing */
   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
 }
+.buble{
+  position: fixed;
+width: 50px;
+height: 50px;
+bottom: 3rem;
+right:4rem;
+z-index: 20;
+opacity: 1;
+border-width: 1.41px;
+border: 1.41px solid #E4E4E4;
+
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: white;
+  color:#202020;
+  transition: ease-in 0.2s;
+}
+.buble:hover{
+border: 1.41px solid #ffcc00;
+color: #ffcc00;
+}
 
 /* --- MOBILE UNIQUEMENT --- */
 /* --- MOBILE --- */
 @media (max-width: 768px) {
+  .buble{
+  position: fixed;
+bottom: 1rem;
+right:1rem;}
   
   /* 1. On applique le type de snap sur le parent global sans bloquer la hauteur */
   .mainWrapper {
@@ -262,27 +289,4 @@
     scroll-snap-align: none;
   }
   
-}
-.buble{
-  position: fixed;
-width: 50px;
-height: 50px;
-bottom: 3rem;
-right:4rem;
-z-index: 20;
-opacity: 1;
-border-width: 1.41px;
-border: 1.41px solid #E4E4E4;
-
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: white;
-  color:#202020;
-  transition: ease-in 0.2s;
-}
-.buble:hover{
-border: 1.41px solid #ffcc00;
-color: #ffcc00;
 }
