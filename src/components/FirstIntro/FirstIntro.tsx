@@ -31,8 +31,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Délai entre chaque mot et chaque carte
-      delayChildren: 0.3
+      staggerChildren: 0.05, // Délai entre chaque mot et chaque carte
+      delayChildren: 0.2
     }
   }
 };

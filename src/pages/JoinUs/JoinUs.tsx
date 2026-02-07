@@ -34,7 +34,11 @@ const JoinUs: React.FC = () => {
   const whyList = t("join.why_blu.list", { returnObjects: true }) as string[];
   const standardsList = t("join.standards.list", { returnObjects: true }) as string[];
 
-  const partners = Array(7).fill(t("join.partners_section.card_label"));
+const partners = Array.from({ length: 7 }, (_, i) => 
+  t(`join.partners_section.card_label${i + 1}`)
+);
+const partners1 = partners.slice(0, 4); 
+const partners2 = partners.slice(4);
   const userType = useUserTypeStore((state) => state.userType);
   const links = [
     { name: "home", path:"/" },
@@ -78,12 +82,21 @@ const JoinUs: React.FC = () => {
             />
           </motion.div>
 
-          <div className={styles.grid}>
-            {partners.map((title, idx) => (
-              <motion.div key={idx} variants={fadeInVariant}>
-                <PartnerCard title={title} />
-              </motion.div>
+          <div style={{display:"flex",flexDirection:userType=="individuals" ? "column": "column-reverse"}}>
+                 <motion.ul  variants={fadeInVariant} className={styles.list}>
+            {partners1.map((title, idx) => (
+         
+                <li key={idx}>{title}</li>
+         
             ))}
+                 </motion.ul>
+                 <motion.ul  variants={fadeInVariant} className={styles.list}>
+            {partners2.map((title, idx) => (
+         
+                <li key={idx}>{title}</li>
+         
+            ))}
+                 </motion.ul>
           </div>
         </motion.section>
 
@@ -132,9 +145,12 @@ const JoinUs: React.FC = () => {
       >
         <SectionHeader overline={t("join.cta.overline")} />
         <p className={styles.ctaText}>{t("join.cta.text")}</p>
-        <button className={styles.btnLarge}>
+        <Link to="/partnerform">
+          <button className={styles.btnLarge}>
           {t("join.cta.button")}
         </button>
+        </Link>
+      
       </motion.footer>
        <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
               <FiCalendar />

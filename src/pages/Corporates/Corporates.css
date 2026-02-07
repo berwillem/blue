@@ -44,7 +44,11 @@
   height: auto;
   scroll-snap-align: end;
 }
+.b2b .content-container .button-container{
 
+display: none
+;
+}
 @media (min-width: 1280px) {
   .sections-container,
   .scroll-container {
@@ -83,11 +87,11 @@ font-size: 1.5rem !important
 font-size: 2rem
 ;
 }
-.b2b .content-container .button-container{
 
-display: none
-;
 }
+.b2b .content-container .left{
+background: linear-gradient(180deg, #00286D 0%, #001D4F 100%);
+;
 }
 .b2b .content-container .left{
 background: linear-gradient(180deg, #00286D 0%, #001D4F 100%);
