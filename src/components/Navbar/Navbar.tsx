@@ -4,9 +4,9 @@ import "./Navbar.css";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Ajout de useNavigate
 import { IoClose } from "react-icons/io5";
-import { useUserTypeStore } from "../../store/useUserTypeStore"; 
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 interface NavLink {
   name: string;
@@ -16,14 +16,15 @@ interface NavLink {
 export default function Navbar({ links }: { links: NavLink[] }) {
   const [open, setOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // État pour le clic mobile
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate(); // Hook pour changer l'URL manuellement
   const currentLanguage = i18n.language;
 
   const userType = useUserTypeStore((state) => state.userType);
   const contactPath = userType === "individuals" ? "/contact" : "/contactb2b";
-
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -31,30 +32,36 @@ export default function Navbar({ links }: { links: NavLink[] }) {
 
   const isPdf = (path: string) => path.endsWith(".pdf");
 
- const scrollToSection = (e: React.MouseEvent, id: string) => {
-  e.preventDefault();
-  setOpen(false); // Ferme d'abord le menu pour libérer le scroll du body
-  setMobileServicesOpen(false);
+  // Fonction de scroll améliorée qui met à jour l'URL
+  const scrollToSection = (e: React.MouseEvent, id: string, path: string) => {
+    e.preventDefault();
+    
+    // 1. Mettre à jour l'URL (pour que le # apparaissent dans la barre d'adresse)
+    navigate(`${path}#${id}`);
 
-  // Un petit timeout pour laisser le temps au menu de se fermer
-  setTimeout(() => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Hauteur de ta navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    // 2. Fermer les menus
+    setOpen(false);
+    setMobileServicesOpen(false);
+    setIsServicesHovered(false);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  }, 300);
-};
+    // 3. Exécuter le scroll
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80; 
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-  // Logic Hover Desktop
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 300);
+  };
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsServicesHovered(true);
@@ -67,20 +74,23 @@ export default function Navbar({ links }: { links: NavLink[] }) {
   };
 
   const serviceItems = [
-    { name: "Why we do what we do?", target: "section-0" ,target2:"content1" },
-    { name: "what we do?", target: "section-1" ,target2:"content2"},
-    { name: "How we do?", target: "section-2" ,target2:"content3"},
+    { name: "Why we do what we do?", path: "/individuals", target: "section-0", target2: "content1" },
+    { name: "what we do?", path: "/individuals", target: "section-1", target2: "content2" },
+    { name: "How we do?", path: "/individuals", target: "section-2", target2: "content3" },
   ];
+
   const serviceItems2 = [
-    { name: "Governance", target: "section-0" ,target2:"content1" },
-    { name: "Financial Performance & Value Creation", target: "section-1" ,target2:"content2"},
-    { name: "Business", target: "section-2" ,target2:"content3"},
-    { name: "Leadership & Human Systems", target: "section-2" ,target2:"content4"},
-    { name: "Organizational Change & Operational Excellence", target: "section-2" ,target2:"content5"},
-    { name: "Organizational Training", target: "section-2" ,target2:"content6"},
-    { name: "Coaching & Mentoring Programs for Executives", target: "section-2" ,target2:"content7"},
+    { name: "Governance", path: "/corporates", target: "section-0", target2: "content1" },
+    { name: "Financial Performance & Value Creation", path: "/corporates", target: "section-1", target2: "content2" },
+    { name: "Business", path: "/corporates", target: "section-2", target2: "content3" },
+    { name: "Leadership & Human Systems", path: "/corporates", target: "section-3", target2: "content4" },
+    { name: "Organizational Change & Operational Excellence", path: "/corporates", target: "section-4", target2: "content5" },
+    { name: "Organizational Training", path: "/corporates", target: "section-5", target2: "content6" },
+    { name: "Coaching & Mentoring Programs for Executives", path: "/corporates", target: "section-6", target2: "content7" },
   ];
-  const serviceItemsAll = userType === "individuals" ? serviceItems :serviceItems2;
+
+  const serviceItemsAll = userType === "individuals" ? serviceItems : serviceItems2;
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -124,7 +134,12 @@ export default function Navbar({ links }: { links: NavLink[] }) {
                       >
                         {serviceItemsAll.map((item, idx) => (
                           <li key={idx}>
-                            <a href={`#${item.target}`} onClick={(e) => scrollToSection(e, item.target)}>{item.name}</a>
+                            <Link 
+                              to={`${item.path}#${item.target}`} 
+                              onClick={(e) => scrollToSection(e, item.target, item.path)}
+                            >
+                              {item.name}
+                            </Link>
                           </li>
                         ))}
                       </motion.ul>
@@ -146,36 +161,38 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           {links.map((link, index) => (
             <li key={index}>
               {link.name === "services" ? (
-            <div className="mobile-services-wrapper">
-        <div 
-          className="mainLink mobile-trigger" 
-          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", cursor: "pointer" }}
-        >
-          {t(`navbar.${link.name}`)}
-          <ChevronDown size={20} style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0)", transition: "0.3s" }} />
-        </div>
-        
-        <AnimatePresence>
-          {mobileServicesOpen && (
-            <motion.ul
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              style={{ overflow: "hidden", paddingLeft: "20px", listStyle: "none" }}
-            >
-              {serviceItemsAll.map((item, idx) => (
-                <li key={idx} style={{ padding: "10px 0" }}>
-                  {/* CORRECTION ICI : On utilise item.target2 pour le mobile */}
-                  <a href={`#${item.target2}`} onClick={(e) => scrollToSection(e, item.target2)}>
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </motion.ul>
-          )}
-        </AnimatePresence>
-      </div>
+                <div className="mobile-services-wrapper">
+                  <div 
+                    className="mainLink mobile-trigger" 
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}
+                  >
+                    {t(`navbar.${link.name}`)}
+                    <ChevronDown size={20} style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0)", transition: "0.3s" }} />
+                  </div>
+                  
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        style={{ overflow: "hidden", paddingLeft: "20px", listStyle: "none" }}
+                      >
+                        {serviceItemsAll.map((item, idx) => (
+                          <li key={idx} style={{ padding: "10px 0" }}>
+                            <Link 
+                              to={`${item.path}#${item.target2}`} 
+                              onClick={(e) => scrollToSection(e, item.target2, item.path)}
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
               ) : (
                 isPdf(link.path) ? (
                   <a href={link.path} target="_blank" onClick={() => setOpen(false)}>{t(`navbar.${link.name}`)}</a>
@@ -191,12 +208,11 @@ export default function Navbar({ links }: { links: NavLink[] }) {
               <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
               <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
             </div>
-            <Link to={contactPath} className="contact-btn" onClick={() => setOpen(false)}>
-              {t("navbar.contact")}
-            </Link>
+            <Link to={contactPath} className="contact-btn" onClick={() => setOpen(false)}>{t("navbar.contact")}</Link>
           </div>
         </ul>
 
+        {/* Desktop Actions */}
         <div className="navActions">
           <div className="langBtnPC">
             <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>

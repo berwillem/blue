@@ -77,7 +77,7 @@ export default function Results() {
 return (
     <div className="results-wrapper">
       <h1>Result</h1>
-      <Link to="/" className="back" ><ArrowLeft /><span>Go back</span></Link>
+      <Link to="/" className="back" ><ArrowLeft /></Link>
       <div 
         className={`results-content ${isAutoScrolling ? "lock-user-scroll" : ""}`} 
         ref={containerRef}

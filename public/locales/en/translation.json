@@ -4,7 +4,7 @@
     "individuals": "Individuals",
     "corporates": "Corporates",
     "about": "About",
-    "contact": "Book a call",
+    "contact": "Book a meeting",
     "services": "Services",
     "why_us": "Why Us",
     "joinus": "Join us",
@@ -345,7 +345,13 @@
     "partners_section": {
       "overline": "Who We Partner With?",
       "title": "We collaborate with experienced professionals who want to expand their impact without compromising their standards:",
-      "card_label": "Medical Doctors & Licensed Health Practitioners"
+      "card_label1": "Medical Doctors & Licensed Health Practitioners",
+      "card_label2": "Physical Therapists & Rehabilitation Specialists",
+      "card_label3": "Certified Sports Coaches, Physical & Performance Trainers",
+      "card_label4": "Nutrition, Metabolic & Lifestyle Professionals",
+      "card_label5": "Business, Strategy & Management Consultants ",
+      "card_label6": "Finance & Risk Management Specialists",
+      "card_label7": "Educators, Researchers & Subject-Matter Experts"
     },
     "why_blu": {
       "overline": "Why Partner With Blu.",
@@ -379,12 +385,12 @@
   },
   "home": {
     "individuals": {
-      "quote": "“Love yourself.”",
+      "quote": "“To suffer terribly and to know yourself as the cause: that is Hell.”",
       "title": "Individuals",
       "subtitle": "Coaching <1>and</1> Mentoring"
     },
     "corporates": {
-      "quote": "“You can do it.”",
+      "quote": "“Good leaders share the credit when things go well and take responsibility when things go badly.”",
       "title": "Corporates",
       "subtitle": "Consulting <1>and</1> Advice"
     }

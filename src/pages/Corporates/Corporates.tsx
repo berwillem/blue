@@ -14,8 +14,9 @@ import Footer from "../../components/Footer/Footer";
 import IntroCorp from "../../components/IntroCorp/IntroCorp";
 import Modus from "../../components/Modus/Modus";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
+import { useEffect } from "react";
 
 export default function Corporates() {
   const { t } = useTranslation();
@@ -44,6 +45,20 @@ export default function Corporates() {
     ...item,
     img: images[idx],
   }));
+  const { hash } = useLocation();
+
+useEffect(() => {
+  if (hash) {
+    // On attend un tout petit peu que React finisse de rendre le contenu
+    setTimeout(() => {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 500); // 500ms pour être sûr que le contenu est chargé
+  }
+}, [hash]);
   return (
     <div className="mainWrapper b2b">
 

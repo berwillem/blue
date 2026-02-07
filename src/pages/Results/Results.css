@@ -71,7 +71,40 @@ opacity: 0.3;
   transform: translateY(0);
   pointer-events: auto;
 }
+.results-wrapper .back{
+  position: absolute;
+  top: 1rem ;
+  left: 2rem;
+  z-index: 20;
+  color: white;
+font-weight: 300;
+font-style: Medium;
 
+line-height: 100%;
+letter-spacing: 0%;
+background-color: white;
+color: #002438;
+padding: 5px;
+border-radius: 16px;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+/* Le reste du CSS (results-wrapper, result-paragraph, etc.) reste identique */
+.results-wrapper h1{
+  position: absolute;
+  top: 4rem ;
+  left: 2rem;
+  z-index: 20;
+  color: white;
+font-weight: 300;
+font-style: Medium;
+font-size: 1.5rem;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
 /* On s'assure que le dernier paragraphe n'est pas trop collé au bouton */
 .result-paragraph:last-of-type {
   margin-bottom: 100px;
@@ -88,20 +121,6 @@ opacity: 0.3;
   padding: 4rem 10rem  !important;
   /* Masque la scrollbar */
   scrollbar-width: none; 
-}
-}
-.results-wrapper h1{
-  position: absolute;
-  top: 4rem ;
-  left: 4rem;
-  z-index: 20;
-  color: white;
-font-weight: 300;
-font-style: Medium;
-font-size: 1.5rem;
-line-height: 100%;
-letter-spacing: 0%;
-
 }
 .results-wrapper .back{
   position: absolute;
@@ -123,4 +142,19 @@ display: flex;
 align-items: center;
 gap: 5px;
 }
+.results-wrapper h1{
+  position: absolute;
+  top: 4rem ;
+  left: 4rem;
+  z-index: 20;
+  color: white;
+font-weight: 300;
+font-style: Medium;
+font-size: 1.5rem;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
 /* Le reste du CSS (results-wrapper, result-paragraph, etc.) reste identique */
+}
+

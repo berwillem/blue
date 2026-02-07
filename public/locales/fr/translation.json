@@ -4,7 +4,7 @@
     "individuals": "Particuliers",
     "corporates": "Entreprises",
     "about": "À Propos",
-    "contact": "Réserver un appel",
+    "contact": "Réserver une réunion",
     "services": "Services",
     "why_us": "Pourquoi Nous",
     "joinus": "Nous Rejoindre",
@@ -345,7 +345,13 @@
     "partners_section": {
       "overline": "Avec qui nous associons-nous ?",
       "title": "Nous collaborons avec des professionnels expérimentés qui souhaitent accroître leur impact sans compromettre leurs standards :",
-      "card_label": "Médecins et praticiens de santé agréés"
+      "card_label1": "Médecins et praticiens de santé agréés",
+      "card_label2": "Kinésithérapeutes et spécialistes de la rééducation",
+      "card_label3": "Coachs sportifs certifiés, préparateurs physiques et entraîneurs de performanc",
+      "card_label4": "Professionnels de la nutrition, du métabolisme et du mode de vie",
+      "card_label5": "Consultants en stratégie, management et organisation",
+      "card_label6": "Spécialistes en finance et gestion des risques ",
+      "card_label7": "Enseignants, chercheurs et experts dans les domaines ci-dessus"
     },
     "why_blu": {
       "overline": "Pourquoi s'associer à Blu.",
@@ -379,12 +385,12 @@
   },
   "home": {
     "individuals": {
-      "quote": "“Aimez-vous vous-même.”",
+      "quote": "“To suffer terribly and to know yourself as the cause: that is Hell.”",
       "title": "Particuliers",
       "subtitle": "Coaching <1>et</1> Mentorat"
     },
     "corporates": {
-      "quote": "“Vous pouvez le faire.”",
+      "quote": "“Good leaders share the credit when things go well and take responsibility when things go badly..”",
       "title": "Entreprises",
       "subtitle": "Consulting <1>et</1> Conseil"
     }
