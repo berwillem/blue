@@ -52,14 +52,14 @@
 
 .navLinks a {
   text-decoration: none;
-  color: #0e3a4a;
+  color: black;
   font-weight: 500;
   font-size: 0.95rem;
   transition: opacity 0.3s ease;
 }
 
 .navLinks a:hover {
-  color: #0076a1;
+  color: #00296f;
 }
 
 .navActions {
@@ -71,14 +71,14 @@
 .langBtn {
   background: none;
   border: none;
-  color: #0e3a4a;
+  color: black;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
 .ctaBtn {
-  background: #0e3a4a;
+  background: rgba(0, 41, 111, 1);
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -344,13 +344,13 @@ nav .menu {
 
 .langBtnPC span {
   cursor: pointer;
-  opacity: 0.5;
+  color: black;
   transition: opacity 0.3s;
 }
 
 .langBtnPC span.selected-language {
   opacity: 1;
-  color: #00296f;
+  color: black;
   text-decoration: underline;
 }
 

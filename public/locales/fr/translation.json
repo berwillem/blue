@@ -22,7 +22,7 @@
       "autoimmune": "Maladies auto-immunes"
     },
     "main_title1": "Le monde moderne a apporté confort et progrès, mais aussi des menaces silencieuses qui érodent la santé physique et mentale. Que faites-vous aujourd'hui pour protéger la vôtre ?",
-    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire — santé physique, solidité mentale et clarté — afin que la vie retrouve du sens.",
+    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire  santé physique, solidité mentale et clarté  afin que la vie retrouve du sens.",
     "button": "À propos du fondateur",
     "why": "pourquoi",
     "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour elles-mêmes et pour les autres",
@@ -385,14 +385,138 @@
   },
   "home": {
     "individuals": {
-      "quote": "“To suffer terribly and to know yourself as the cause: that is Hell.”",
+       "quote": "« Reprenez le contrôle de votre santé, de votre clarté, de votre discipline et de votre direction. »",
       "title": "Particuliers",
       "subtitle": "Coaching <1>et</1> Mentorat"
     },
     "corporates": {
-      "quote": "“Good leaders share the credit when things go well and take responsibility when things go badly..”",
+      "quote": "« Renforcer la gouvernance, le leadership et l'exécution pour stimuler une croissance rentable et durable dans des environnements complexes. »",
       "title": "Entreprises",
       "subtitle": "Consulting <1>et</1> Conseil"
     }
+  },
+  
+  "test": {
+    "please_answer_all": "Veuillez répondre à toutes les questions avant de continuer."
+  },
+  "disclaimer": {
+    "test1": [
+      "Ce test ne porte pas sur votre potentiel — il s'agit de la façon dont votre esprit fonctionne en ce moment.",
+      "Vous allez évaluer les aspects fondamentaux de votre fonctionnement mental actuel.",
+      "Répondez en fonction de votre comportement réel, pas de vos intentions. Cela ne devrait vous prendre que 5 minutes.",
+      "Avis de confidentialité : Ce test est anonyme.",
+      "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+    ],
+    "test2": [
+      "Rien ne s'effondre soudainement. Tout s'érode.",
+      "Ce test révèle ce qui est déjà en mouvement.",
+      "Cela ne devrait vous prendre que 5 minutes.",
+      "Avis de confidentialité : Ce test est anonyme.",
+      "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+    ]
   }
+  ,
+  "privacy": {
+    "hero_title": "Politique de Confidentialité",
+    "last_updated": "Dernière mise à jour",
+    "contact_text": "Pour toute question concernant la vie privée ou la protection des données :",
+    "sections": {
+      "1": {
+        "title": "1. Engagement de confidentialité",
+        "content": "Blu. accorde la plus haute importance à la protection de la vie privée et à la confidentialité des informations qui lui sont confiées. Toutes les données personnelles sont traitées avec soin et discrétion. Blu. ne procède à aucune vente ou divulgation abusive de données."
+      },
+      "2": {
+        "title": "2. Nature des services et limitation",
+        "content": "Blu. fournit des services de coaching et d'évaluation visant à soutenir le fonctionnement personnel et le mode de vie. Ces évaluations sont des outils de coaching et ne constituent pas un avis médical, un diagnostic ou un traitement clinique."
+      },
+      "3": {
+        "title": "3. Confidentialité des évaluations",
+        "list": [
+          "Toutes les évaluations sont anonymes",
+          "Aucune donnée personnelle n'est stockée",
+          "Les réponses individuelles ne peuvent être liées à une personne identifiable",
+          "Seules les données statistiques agrégées sont utilisées pour l'amélioration des services"
+        ]
+      },
+      "4": {
+        "title": "4. Collecte de données (hors évaluations)",
+        "content": "Lorsqu'un individu contacte volontairement Blu. (ex: demande de rendez-vous), nous pouvons collecter :",
+        "list": [
+          "Prénom ou pseudonyme",
+          "Numéro de téléphone et/ou email",
+          "Brève description de la demande"
+        ],
+        "footer": "Il est demandé de ne pas fournir d'informations médicales détaillées."
+      },
+      "9": {
+        "title": "9. Base légale et conformité",
+        "content": "Les données sont traitées conformément au RGPD (UE) 2016/679 et à la loi algérienne n° 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel."
+      }
+    }
+  },
+    "know_more": "en savoir plus",
+  "show_less": "voir moins",
+  
+  "partner_form": {
+    "overline": "Devenir partenaire",
+    "main_title": "Ce formulaire est utilisé exclusivement pour évaluer l'éligibilité professionnelle et l'alignement pour un partenariat potentiel avec Blu. Le fait de remplir ce formulaire ne constitue pas une acceptation, une approbation ou un engagement contractuel.",
+    "sections": {
+      "id": {
+        "title": "Identification professionnelle",
+        "name": "Nom complet",
+        "profession": "Profession principale",
+        "profession_placeholder": "ex: Médecin Généraliste, Coach...",
+        "exp": "Années de pratique professionnelle",
+        "years": ["3–5 ans", "6–10 ans", "11–15 ans", "15 ans +"]
+      },
+      "credentials": {
+        "title": "Titres et champ de pratique",
+        "status": "Statut professionnel actuel",
+        "status_list": {
+          "independent": "Praticien indépendant",
+          "associate": "Associé / Partenaire",
+          "consultant": "Consultant / Conseiller",
+          "academic": "Académique / Recherche",
+          "other": "Autre"
+        },
+        "expertise": "Principal domaine d'expertise",
+        "expertise_placeholder": "Brève description – max 2 lignes"
+      },
+      "intent": {
+        "title": "Intention professionnelle",
+        "reason": "Raison de votre intérêt pour un partenariat avec Blu",
+        "reason_placeholder": "(Max 150 mots. N'incluez aucune information identifiable de patients ou de clients).",
+        "contribution": "Type de contribution professionnelle envisagée",
+        "contribution_placeholder": "Clinique, conseil, éducatif, stratégique, autre — description courte"
+      },
+      "compliance": {
+        "title": "Confidentialité et conformité éthique",
+        "confirm": "En soumettant ce formulaire, vous confirmez que :",
+        "checks": [
+          "Vous opérez dans le cadre de votre champ de pratique autorisé et de vos compétences professionnelles",
+          "Vous ne divulguerez aucune donnée relative à des patients ou clients dans cette candidature",
+          "Vous respectez la confidentialité, le secret professionnel et les obligations éthiques",
+          "Vous comprenez que toute collaboration future est soumise à un examen formel et à un accord"
+        ]
+      },
+      "gdpr": {
+        "title": "Protection des données et RGPD",
+        "controller": "Responsable du traitement :",
+        "purpose": "Finalité du traitement :",
+        "purpose_val": "Évaluation de l'éligibilité au partenariat professionnel",
+        "basis": "Base légale :",
+        "basis_val": "Intérêt légitime (RGPD Art. 6(1)(f))",
+        "retention": "Conservation des données :",
+        "retention_val": "Les données seront conservées uniquement le temps nécessaire à l'évaluation de la candidature.",
+        "consent": "Consentement",
+        "check_accurate": "Je confirme que les informations fournies sont exactes et professionnelles",
+        "check_consent": "Je consens au traitement de mes données"
+      }
+    },
+    "submit": "Soumettre la candidature",
+    "final_note": "Les candidatures sont examinées individuellement."
+  }
+
+
+
 }

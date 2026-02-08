@@ -29,7 +29,7 @@
 }
 
 .spacer {
-  height: 25vh; /* Permet de centrer le premier et dernier paragraphe */
+  height: 30vh; /* Permet de centrer le premier et dernier paragraphe */
 }
 .result-paragraph{
  opacity: 0;
@@ -59,11 +59,12 @@ opacity: 0.3;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 150px 0; /* Espace pour qu'il soit bien isolé des textes */
+  margin: 0px 0; /* Espace pour qu'il soit bien isolé des textes */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s ease, transform 1.2s ease;
   pointer-events: none;
+  gap: 10px;
 }
 
 .button-footer.visible {
@@ -110,6 +111,9 @@ letter-spacing: 0%;
   margin-bottom: 100px;
 }
 @media (min-width: 1024px) {
+  .spacer {
+  height: 15vh; /* Permet de centrer le premier et dernier paragraphe */
+}
     .result-paragraph {
   font-size: 2rem;
   }

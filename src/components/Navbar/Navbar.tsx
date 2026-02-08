@@ -77,6 +77,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
     { name: "Why we do what we do?", path: "/individuals", target: "section-0", target2: "content1" },
     { name: "what we do?", path: "/individuals", target: "section-1", target2: "content2" },
     { name: "How we do?", path: "/individuals", target: "section-2", target2: "content3" },
+    { name: "Take the test", path: "/individuals", target: "last", target2: "last" },
   ];
 
   const serviceItems2 = [

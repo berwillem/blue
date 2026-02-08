@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration } from "react-router-dom";
 import "./index.css";
 
 import Home from "./pages/Home/Home";
@@ -19,22 +19,38 @@ import Disclaimer from "./pages/Disclaimer/Disclaimer";
 import Privacy from "./pages/Privacy/Privacy";
 import Stat from "./pages/Stat/Stat";
 
+
+
+// 1. Créer un composant Layout qui inclut le ScrollRestoration
+const RootLayout = () => (
+  <>
+    <ScrollRestoration />
+    <Outlet />
+  </>
+);
+
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/individuals", element: <Individuals /> },
-  { path: "/corporates", element: <Corporates /> },
-  { path: "/about", element: <About /> },
-  { path: "/contact", element: <Contact /> },
-  { path: "/contactb2b", element: <ContactForm /> },
-  { path: "/tests/personal-capacity", element: <MultiStepTest /> },
-  { path: "/tests/metabolic-health", element: <MultiStepTest /> },
-  { path: "/results", element: <Results></Results> },
-  { path: "/joinus", element: <JoinUs /> },
-  { path: "/partnerform", element: <PartnerForm /> },
-  { path: "/privacy", element: <Privacy /> },
-  { path: "/stats", element: <Stat /> },
-  {path:"/disclaimer/:testId" ,element:<Disclaimer /> },
-  { path: "*", element: <NotFound /> },
+  {
+    path: "/",
+    element: <RootLayout />, // On utilise le layout ici
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/individuals", element: <Individuals /> },
+      { path: "/corporates", element: <Corporates /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/contactb2b", element: <ContactForm /> },
+      { path: "/tests/personal-capacity", element: <MultiStepTest /> },
+      { path: "/tests/metabolic-health", element: <MultiStepTest /> },
+      { path: "/results", element: <Results /> },
+      { path: "/joinus", element: <JoinUs /> },
+      { path: "/partnerform", element: <PartnerForm /> },
+      { path: "/privacy", element: <Privacy /> },
+      { path: "/stats", element: <Stat /> },
+      { path: "/disclaimer/:testId", element: <Disclaimer /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
