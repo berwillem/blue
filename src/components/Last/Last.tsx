@@ -18,16 +18,16 @@ const containerVariants = {
 
 // 2. Définition des variantes pour chaque carte (l'enfant)
 const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30, 
-    filter: "blur(10px)" 
+  hidden: {
+    opacity: 0,
+    y: 30,
+    filter: "blur(10px)",
   },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
@@ -42,7 +42,7 @@ export default function Last() {
       </div>
 
       {/* 3. On transforme la div en motion.div et on applique les variants */}
-      <motion.div 
+      <motion.div
         className="cards"
         variants={containerVariants}
         initial="hidden"
@@ -50,20 +50,19 @@ export default function Last() {
         viewport={{ once: true, amount: 0.2 }} // Se joue une seule fois
       >
         <motion.div variants={cardVariants}>
-          <TestCard 
-            link="personal-capacity" 
-            img={psyimg} 
-            title={t("last.card1.title")} 
-            desc={t("last.card1.desc")} 
+          <TestCard
+            link="metabolic-health"
+            img={psyimg}
+            title={t("last.card2.title")}
+            desc={t("last.card2.desc")}
           />
         </motion.div>
-
         <motion.div variants={cardVariants}>
-          <TestCard 
-            link="metabolic-health" 
-            img={psyimg} 
-            title={t("last.card2.title")} 
-            desc={t("last.card2.desc")} 
+          <TestCard
+            link="personal-capacity"
+            img={psyimg}
+            title={t("last.card1.title")}
+            desc={t("last.card1.desc")}
           />
         </motion.div>
       </motion.div>

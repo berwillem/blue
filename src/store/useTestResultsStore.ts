@@ -1,17 +1,33 @@
+// @ts-nocheck
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const useTestResultsStore = create(
   persist(
     (set) => ({
-      results: {}, // { [testId]: { categoryScores, answers, completedAt } }
+      results: {},
+      /*
+        results structure:
+        {
+          [testId]: {
+            answers: { [questionId]: number | null },
+            meta: {
+              skippedCount: number,
+              answeredCount: number,
+              totalQuestions: number,
+            },
+            completedAt: number
+          }
+        }
+      */
 
-      saveResults: (testId, payload) =>
+      saveResults: (testId, { answers, meta }) =>
         set((state) => ({
           results: {
             ...state.results,
             [testId]: {
-              ...payload,
+              answers,
+              meta,
               completedAt: Date.now(),
             },
           },
@@ -23,6 +39,10 @@ export const useTestResultsStore = create(
           delete next[testId];
           return { results: next };
         }),
+
+      clearAllResults: () => ({
+        results: {},
+      }),
     }),
     {
       name: "test-results-storage",

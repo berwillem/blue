@@ -1,13 +1,15 @@
 // @ts-nocheck
 import { useState, useMemo } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom"; // Ajout de useNavigate
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { toast, ToastContainer } from "react-toastify"; // Import Toastify
-import "react-toastify/dist/ReactToastify.css"; // Import CSS
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
-import "./MultiStepTest.css";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
+
+import "./MultiStepTest.css";
 
 const TESTS_MAP = {
   "personal-capacity": personalCapacityTest,
@@ -27,8 +29,9 @@ const shuffleArray = (array) => {
 
 export default function MultiStepTest() {
   const { pathname } = useLocation();
-  const navigate = useNavigate(); // Pour rediriger à la fin
+  const navigate = useNavigate();
   const { i18n, t } = useTranslation();
+
   const lang = i18n.language.startsWith("fr") ? "fr" : "en";
 
   const testId = pathname.split("/").pop();
@@ -43,10 +46,10 @@ export default function MultiStepTest() {
   const allowSkip = testId === "metabolic-health";
 
   const allQuestions = useMemo(() => {
-    const flat = testConfig.steps.flatMap((s) =>
-      s.questions.map((q) => ({
+    const flat = testConfig.steps.flatMap((step) =>
+      step.questions.map((q) => ({
         ...q,
-        category: s.title,
+        category: step.title,
       })),
     );
     return shuffleArray(flat);
@@ -65,28 +68,12 @@ export default function MultiStepTest() {
 
   const step = steps[currentStep];
 
-  // --- LOGIQUE DE VALIDATION ---
-  const isStepComplete = () => {
-    // Vérifie si chaque question de l'étape actuelle a une réponse
-    return step.questions.every((q) => answers[q.id] !== undefined);
-  };
+  // --- VALIDATION ---
+  const isStepComplete = () =>
+    step.questions.every((q) => answers[q.id] !== undefined);
 
   const handleNext = () => {
-    if (isStepComplete()) {
-      setCurrentStep((s) => s + 1);
-      window.scrollTo(0, 0); // Reset scroll pour le confort
-    } else {
-      toast.error(t("test.please_answer_all"), {
-        position: "top-right",
-        autoClose: 3000,
-        theme: "dark",
-      });
-    }
-  };
-
-  const handleFinish = (e) => {
     if (!isStepComplete()) {
-      e.preventDefault(); // Empêche le Link de fonctionner
       toast.error(t("test.please_answer_all"), {
         position: "top-right",
         autoClose: 3000,
@@ -94,12 +81,42 @@ export default function MultiStepTest() {
       });
       return;
     }
-    
-    saveResults(testId, {
+
+    setCurrentStep((s) => s + 1);
+    window.scrollTo(0, 0);
+  };
+
+  const handleFinish = () => {
+    const allQuestionsFlat = testConfig.steps.flatMap((step) => step.questions);
+
+    const skippedCount = allQuestionsFlat.filter(
+      (q) => answers[q.id] === null,
+    ).length;
+    const answeredCount = allQuestionsFlat.filter(
+      (q) => typeof answers[q.id] === "number",
+    ).length;
+    const totalQuestions = allQuestionsFlat.length;
+
+    const newResult = {
+      testId,
       answers,
-      categoryScores,
-    });
-    navigate("/results");
+      meta: {
+        skippedCount,
+        answeredCount,
+        totalQuestions,
+      },
+      completedAt: Date.now(),
+    };
+
+    console.log("DEBUG SAVE META ->", newResult.meta);
+    console.log("Current answers ->", answers);
+
+    // Save results to Zustand
+    saveResults(testId, newResult);
+
+    console.log("STORE AFTER SAVE ->", newResult);
+
+    navigate("/results", { state: { testId } });
   };
 
   const handleAnswer = (questionId, value) => {
@@ -109,19 +126,8 @@ export default function MultiStepTest() {
     }));
   };
 
-  const categoryScores = useMemo(() => {
-    const scores = {};
-    allQuestions.forEach((q) => {
-      if (!scores[q.category]) scores[q.category] = 0;
-      const val = answers[q.id];
-      if (typeof val === "number") scores[q.category] += val;
-    });
-    return scores;
-  }, [answers, allQuestions]);
-
   return (
     <div className="test-container">
-      {/* Container pour afficher les toasts */}
       <ToastContainer />
 
       <div className="steps-progress">
@@ -142,12 +148,14 @@ export default function MultiStepTest() {
             </p>
 
             <div className="answers-row">
-              {[1, 2, 3, 4, 5].map((value) => (
+              {/* --- Metabolic test uses 0–4, Personal uses 1–5 --- */}
+              {(testId === "metabolic-health"
+                ? [0, 1, 2, 3, 4]
+                : [1, 2, 3, 4, 5]
+              ).map((value) => (
                 <button
                   key={value}
-                  className={`answer-btn ${
-                    answers[q.id] === value ? "active" : ""
-                  }`}
+                  className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
                   onClick={() => handleAnswer(q.id, value)}
                 >
                   {value}
@@ -156,9 +164,7 @@ export default function MultiStepTest() {
 
               {allowSkip && (
                 <button
-                  className={`answer-btn skip-btn ${
-                    answers[q.id] === null ? "active" : ""
-                  }`}
+                  className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
                   onClick={() => handleAnswer(q.id, null)}
                 >
                   Skip
@@ -171,7 +177,10 @@ export default function MultiStepTest() {
 
       <div className="navigation">
         {currentStep > 0 && (
-          <button className="nav-btn" onClick={() => setCurrentStep((s) => s - 1)}>
+          <button
+            className="nav-btn"
+            onClick={() => setCurrentStep((s) => s - 1)}
+          >
             Previous
           </button>
         )}
