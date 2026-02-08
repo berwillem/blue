@@ -1,10 +1,12 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Import de motion
+import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useUserTypeStore } from '../../store/useUserTypeStore';
+import { useTranslation } from 'react-i18next'; // Import de useTranslation
 
 const Contact = () => {
+  const { t } = useTranslation(); // Initialisation de la traduction
   const userType = useUserTypeStore((state) => state.userType);
   
   const links = [
@@ -15,7 +17,6 @@ const Contact = () => {
     { name: "privacy", path: "/privacy" },
   ];
 
-  // Configuration de l'animation
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -29,32 +30,31 @@ const Contact = () => {
     <div className="contact-container">
       <Navbar links={links}/>
       
-      {/* Conteneur animé */}
       <motion.main 
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
       >
         <header className="contact-header">
-          <span className="contact-label">Book an appointment</span>
+          <span className="contact-label">{t("contact.header.label")}</span>
           <h1 className="contact-title">
-            Share the details below and our team will contact you to arrange a tailored discussion at your convenience.
+            {t("contact.header.title")}
           </h1>
         </header>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
           <section className="form-section">
             <div className="input-group">
-              <label>First name, nickname, or pseudonym</label>
-              <input type="text" placeholder="First name, nickname, or pseudonym" />
+              <label>{t("contact.form.name_label")}</label>
+              <input type="text" placeholder={t("contact.form.name_placeholder")} />
             </div>
             <div className="input-group">
-              <label>Phone number</label>
-              <input type="text" placeholder="Phone number" />
+              <label>{t("contact.form.phone_label")}</label>
+              <input type="text" placeholder={t("contact.form.phone_placeholder")} />
             </div>
             <div className="input-group">
-              <label>Briefly describe your concerns</label>
-              <textarea placeholder="Please avoid sharing detailed medical information. A brief description is sufficient." />
+              <label>{t("contact.form.concerns_label")}</label>
+              <textarea placeholder={t("contact.form.concerns_placeholder")} />
             </div>
           </section>
 
@@ -62,15 +62,17 @@ const Contact = () => {
             <div className="consent-group">
               <input type="checkbox" id="consent" />
               <label htmlFor="consent" className="consent-text">
-                I consent to being contacted by Blu regarding my request.
+                {t("contact.form.consent")}
               </label>
             </div>
           </section>
 
-          <button type="submit" className="submit-button">Submit Application</button>
+          <button type="submit" className="submit-button">
+            {t("contact.form.submit_button")}
+          </button>
           
           <p className="disclaimer">
-            We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : xxxxxxx. For more information, please consult our Privacy & Confidentiality Policy.
+            {t("contact.form.disclaimer")}
           </p>
         </form>
       </motion.main>

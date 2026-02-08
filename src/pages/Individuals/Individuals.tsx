@@ -12,6 +12,7 @@ import placeholder3 from "../../assets/images/redacontent3.jpg";
 import { FiCalendar } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import FirstIntro from "../../components/FirstIntro/FirstIntro";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 export default function Individuals() {
   const { t } = useTranslation();
@@ -25,10 +26,10 @@ export default function Individuals() {
     ...item,
     img: images[idx],
   }));
-
+  const userType = useUserTypeStore((state) => state.userType);
   const links = [
     { name: "home", path: "/" },
-    { name: "about", path: "/about" },
+    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
   { name: "privacy", path: "/privacy" },

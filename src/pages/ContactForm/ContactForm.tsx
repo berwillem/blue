@@ -3,9 +3,11 @@ import './ContactForm.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useUserTypeStore } from '../../store/useUserTypeStore';
-import { motion } from 'framer-motion'; // Import de Framer Motion
+import { useTranslation } from 'react-i18next'; // Import i18n
+import { motion } from 'framer-motion';
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const userType = useUserTypeStore((state) => state.userType);
   
   const links = [
@@ -16,7 +18,6 @@ const ContactForm = () => {
     { name: "privacy", path: "/privacy" },
   ];
 
-  // Configuration de l'animation Fade In
   const pageVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -30,81 +31,83 @@ const ContactForm = () => {
     <div className="contact-container">
       <Navbar links={links} />
 
-      {/* Wrapper animé pour le contenu de la page */}
       <motion.main 
         initial="hidden"
         animate="visible"
         variants={pageVariants}
       >
         <header className="contact-header">
-          <span className="contact-label">Contact</span>
+          <span className="contact-label">{t("contactForm.header.label")}</span>
           <h1 className="contact-title">
-            Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises.
+            {t("contactForm.header.title")}
           </h1>
         </header>
 
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          {/* Section 1: Organization */}
           <section className="form-section">
-            <h2 className="section-title">Organization details</h2>
+            <h2 className="section-title">{t("contactForm.sections.org_details")}</h2>
             <div className="input-group">
-              <label>Company name</label>
-              <input type="text" placeholder="Company name" />
+              <label>{t("contactForm.form.company_name")}</label>
+              <input type="text" placeholder={t("contactForm.form.company_name")} />
             </div>
             <div className="input-group">
-              <label>Industry / Sector</label>
-              <input type="text" placeholder="Industry / Sector" />
+              <label>{t("contactForm.form.industry")}</label>
+              <input type="text" placeholder={t("contactForm.form.industry")} />
             </div>
             <div className="input-group">
-              <label>Company size</label>
-              <input type="text" placeholder="Company size" />
+              <label>{t("contactForm.form.size")}</label>
+              <input type="text" placeholder={t("contactForm.form.size")} />
             </div>
           </section>
 
+          {/* Section 2: Contact */}
           <section className="form-section">
-            <h2 className="section-title">Primary contact</h2>
+            <h2 className="section-title">{t("contactForm.sections.primary_contact")}</h2>
             <div className="input-group">
-              <label>Full name</label>
-              <input type="text" placeholder="Full name" />
+              <label>{t("contactForm.form.full_name")}</label>
+              <input type="text" placeholder={t("contactForm.form.full_name")} />
             </div>
             <div className="input-group">
-              <label>Role / Position</label>
-              <input type="text" placeholder="Role / Position" />
+              <label>{t("contactForm.form.role")}</label>
+              <input type="text" placeholder={t("contactForm.form.role")} />
             </div>
             <div className="input-group">
-              <label>Professional email address</label>
-              <input type="email" placeholder="Professional email address" />
+              <label>{t("contactForm.form.email")}</label>
+              <input type="email" placeholder={t("contactForm.form.email")} />
             </div>
             <div className="input-group">
-              <label>Professional phone number</label>
-              <input type="tel" placeholder="Professional phone number" />
+              <label>{t("contactForm.form.phone")}</label>
+              <input type="tel" placeholder={t("contactForm.form.phone")} />
             </div>
           </section>
 
+          {/* Section 3: Objectives */}
           <section className="form-section">
-            <h2 className="section-title">Your objectives</h2>
+            <h2 className="section-title">{t("contactForm.sections.objectives")}</h2>
             <div className="input-group">
-              <label>Which services are you interested in?</label>
+              <label>{t("contactForm.form.services_interest")}</label>
               <select>
-                <option>Select a service</option>
-                <option>Governance</option>
-                <option>Financial Performance</option>
-                <option>Business Strategy</option>
-                <option>Leadership & Human Systems</option>
+                <option>{t("contactForm.form.select_service")}</option>
+                <option>{t("contactForm.form.options.governance")}</option>
+                <option>{t("contactForm.form.options.financial")}</option>
+                <option>{t("contactForm.form.options.strategy")}</option>
+                <option>{t("contactForm.form.options.leadership")}</option>
               </select>
             </div>
             
             <div className="consent-group">
               <input type="checkbox" id="consent" />
               <label htmlFor="consent" className="consent-text">
-                I consent to being contacted by Blu regarding my request.
+                {t("contactForm.form.consent")}
               </label>
             </div>
           </section>
 
-          <button type="submit" className="submit-button">Submit Application</button>
+          <button type="submit" className="submit-button">{t("contactForm.form.submit")}</button>
           
           <p className="disclaimer">
-            We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : xxxxxxx. For more information, please consult our Privacy & Confidentiality Policy.
+            {t("contactForm.form.disclaimer")}
           </p>
         </form>
       </motion.main>

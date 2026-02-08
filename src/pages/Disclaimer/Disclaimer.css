@@ -44,11 +44,14 @@
   filter: blur(20px);
   transform: translateY(20px);
 }
-.circle {
+.circle-wrapper {
   position: absolute;
   top: 3rem;
-  left: 7rem;
-  transform: translateX(-50%);
+  right: 7rem;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 @media (max-width: 768px) {
   .disc-paragraph {
@@ -63,11 +66,12 @@
     filter: blur(20px);
     transform: translateY(20px);
   }
-  .circle {
+  .circle-wrapper {
   position: absolute;
   top: 3rem;
-  left: 3rem;
-  transform: translateX(-50%);
+  right: 1rem;
+
 }
 }
+
 
