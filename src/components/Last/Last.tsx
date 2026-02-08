@@ -4,6 +4,7 @@ import { motion } from "framer-motion"; // On importe motion
 import TestCard from "../../ui/Testcard/TestCard";
 import "./Last.css";
 import psyimg from "../../assets/images/testpsy.jpg";
+import psyimg2 from "../../assets/images/img.jpg";
 
 // 1. Définition des variantes pour le container (le parent)
 const containerVariants = {
@@ -35,7 +36,7 @@ export default function Last() {
   const { t } = useTranslation();
 
   return (
-    <div className="last-container">
+    <div className="last-container" id="last">
       <div className="texts">
         <h1>{t("last.title")}</h1>
         <p>{t("last.description")}</p>
@@ -60,7 +61,7 @@ export default function Last() {
         <motion.div variants={cardVariants}>
           <TestCard
             link="personal-capacity"
-            img={psyimg}
+            img={psyimg2}
             title={t("last.card1.title")}
             desc={t("last.card1.desc")}
           />

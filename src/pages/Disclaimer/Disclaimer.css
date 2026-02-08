@@ -1,6 +1,9 @@
 .Disclaimer-container {
- 
-   background: linear-gradient(180deg, #00314d 0%, #002438 100%); /* Fond sombre */
+  background: linear-gradient(
+    180deg,
+    #00314d 0%,
+    #002438 100%
+  ); /* Fond sombre */
   height: 100vh;
   width: 100%;
   display: flex;
@@ -35,23 +38,36 @@
   text-align: center;
   line-height: 1.4;
   max-width: 800px;
-  
+
   /* État initial : caché et flou */
   opacity: 0;
   filter: blur(20px);
   transform: translateY(20px);
 }
-@media (max-width: 768px){
-.disc-paragraph {
-  position: absolute; /* Les phrases s'affichent au même endroit */
-  font-size: 1.5rem;
-  text-align: center;
-  line-height: 1.4;
-  max-width: 400px;
-  
-  /* État initial : caché et flou */
-  opacity: 0;
-  filter: blur(20px);
-  transform: translateY(20px);
+.circle {
+  position: absolute;
+  top: 3rem;
+  left: 7rem;
+  transform: translateX(-50%);
+}
+@media (max-width: 768px) {
+  .disc-paragraph {
+    position: absolute; /* Les phrases s'affichent au même endroit */
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 400px;
+
+    /* État initial : caché et flou */
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(20px);
+  }
+  .circle {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  transform: translateX(-50%);
 }
 }
+

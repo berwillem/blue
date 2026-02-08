@@ -385,14 +385,143 @@
   },
   "home": {
     "individuals": {
-      "quote": "“To suffer terribly and to know yourself as the cause: that is Hell.”",
+      "quote": "“ Regain control of your health, clarity,discipline, and direction.”",
       "title": "Individuals",
       "subtitle": "Coaching <1>and</1> Mentoring"
     },
     "corporates": {
-      "quote": "“Good leaders share the credit when things go well and take responsibility when things go badly.”",
+      "quote": "“ Strengthening governance, leadership, and execution to drive profitable,sustainable growth in complex environments”",
       "title": "Corporates",
       "subtitle": "Consulting <1>and</1> Advice"
     }
+    
+
+
+  },
+    "test": {
+    "please_answer_all": "Please answer all questions before proceeding."
+  },
+  "disclaimer": {
+    "test1": [
+      "This test is not about your potential — it’s about how your mind is functioning right now.",
+      "You’ll assess the core aspects of your current mental functioning.",
+      "Answer based on your current behavior, not your intentions. This should only take about 5 minutes of your time.",
+      "Privacy Notice: This test is anonymous.",
+      "No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
+    ],
+    "test2": [
+      "Nothing fails suddenly. It erodes.",
+      "This test reveals what’s already in motion.",
+      "This should only take about 5 minutes of your time.",
+      "Privacy Notice: This test is anonymous.",
+      "No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
+    ]
+  },
+  
+  "privacy": {
+    "hero_title": "Privacy & Confidentiality Policy",
+    "last_updated": "Last updated",
+    "contact_text": "For any questions regarding privacy, confidentiality, or data protection:",
+    "sections": {
+      "1": {
+        "title": "1. Privacy and confidentiality commitment",
+        "content": "Blu. places the highest importance on the protection of privacy and the confidentiality of information entrusted to it. All personal data is handled with care, discretion, and strict confidentiality. Blu. does not engage in the sale or disclosure of personal data."
+      },
+      "2": {
+        "title": "2. Nature of services and limitation of scope",
+        "content": "Blu. provides coaching and assessment services. These are coaching tools. They do not constitute medical advice, medical diagnosis, or clinical treatment."
+      },
+      "3": {
+        "title": "3. Assessment privacy and anonymity",
+        "list": [
+          "All assessments are anonymous",
+          "No personal data is stored",
+          "Individual responses cannot be linked to an identifiable person",
+          "Only aggregated and anonymized statistical data may be used"
+        ]
+      },
+      "4": {
+        "title": "4. Personal data collection (outside assessments)",
+        "content": "When an individual voluntarily contacts Blu., the following data may be collected:",
+        "list": [
+          "First name, nickname, or pseudonym",
+          "Phone number and/or email address",
+          "A brief description of the request"
+        ],
+        "footer": "Individuals are requested not to provide detailed medical information."
+      },
+      "9": {
+        "title": "9. Legal basis and regulatory compliance",
+        "content": "Data is processed in accordance with Regulation (EU) 2016/679 (GDPR) and Algerian Law No. 18-07 of 10 June 2018."
+      }
+    }
+  },
+  
+
+
+  "know_more": "know more",
+  "show_less": "show less",
+  "partner_form": {
+    "overline": "Become a partner",
+    "main_title": "This form is used solely to assess professional eligibility and alignment for a potential partnership with Blu. Completion of this form does not constitute acceptance, endorsement, or contractual commitment.",
+    "sections": {
+      "id": {
+        "title": "Professional Identification",
+        "name": "Full name",
+        "profession": "Primary Profession",
+        "profession_placeholder": "e.g. Medical Doctor – General Practice...",
+        "exp": "Years of Professional Practice",
+        "years": ["3–5 years", "6–10 years", "11–15 years", "15+ years"]
+      },
+      "credentials": {
+        "title": "Credentials & Scope of Practice",
+        "status": "Current Professional Status",
+        "status_list": {
+          "independent": "Independent practitioner",
+          "associate": "Associate / Partner",
+          "consultant": "Consultant / Advisor",
+          "academic": "Academic / Research",
+          "other": "Other"
+        },
+        "expertise": "Primary Area of Expertise",
+        "expertise_placeholder": "Short description – max 2 lines"
+      },
+      "intent": {
+        "title": "Professional Intent",
+        "reason": "Reason for Interest in Partnering with Blu",
+        "reason_placeholder": "(Max 150 words. Do not include patient, client, or identifiable third-party information).",
+        "contribution": "Type of Professional Contribution Considered",
+        "contribution_placeholder": "Clinical, advisory, educational, strategic, other — short description"
+      },
+      "compliance": {
+        "title": "Confidentiality & Ethical Compliance",
+        "confirm": "By submitting this form, you confirm that:",
+        "checks": [
+          "You operate within your licensed scope of practice and professional competence",
+          "You will not disclose patient, client, or sensitive third-party data in this application",
+          "You respect confidentiality, professional secrecy, and ethical obligations",
+          "You understand that any future collaboration is subject to formal review and agreement"
+        ]
+      },
+      "gdpr": {
+        "title": "Data Protection & GDPR Information",
+        "controller": "Data Controller:",
+        "purpose": "Purpose of Processing:",
+        "purpose_val": "Assessment of professional partnership eligibility",
+        "basis": "Legal Basis:",
+        "basis_val": "Legitimate interest (GDPR Art. 6(1)(f))",
+        "retention": "Data Retention:",
+        "retention_val": "Personal data will be retained only for the duration necessary to evaluate the application.",
+        "consent": "Consent",
+        "check_accurate": "I confirm that the information provided is accurate and professional",
+        "check_consent": "I consent to the processing of my data"
+      }
+    },
+    "submit": "Submit Application",
+    "final_note": "Applications are reviewed individually."
   }
+
+
+
+
 }

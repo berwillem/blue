@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContainer } from "react-toastify";
+import { motion, AnimatePresence } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
 import { personalCapacityTest } from "../../data/personalCapacity.config";
@@ -33,7 +34,6 @@ export default function MultiStepTest() {
   const { i18n, t } = useTranslation();
 
   const lang = i18n.language.startsWith("fr") ? "fr" : "en";
-
   const testId = pathname.split("/").pop();
   const testConfig = TESTS_MAP[testId];
   const { saveResults } = useTestResultsStore();
@@ -42,6 +42,7 @@ export default function MultiStepTest() {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [highlightErrors, setHighlightErrors] = useState(false); // <-- NOUVEAU : État pour l'erreur
 
   const allowSkip = testId === "metabolic-health";
 
@@ -68,12 +69,12 @@ export default function MultiStepTest() {
 
   const step = steps[currentStep];
 
-  // --- VALIDATION ---
   const isStepComplete = () =>
     step.questions.every((q) => answers[q.id] !== undefined);
 
   const handleNext = () => {
     if (!isStepComplete()) {
+      setHighlightErrors(true); // Active le rouge sur les manquants
       toast.error(t("test.please_answer_all"), {
         position: "top-right",
         autoClose: 3000,
@@ -82,48 +83,34 @@ export default function MultiStepTest() {
       return;
     }
 
+    setHighlightErrors(false); // Reset l'erreur pour la prochaine étape
     setCurrentStep((s) => s + 1);
     window.scrollTo(0, 0);
   };
 
   const handleFinish = () => {
+    if (!isStepComplete()) {
+      setHighlightErrors(true);
+      return;
+    }
     const allQuestionsFlat = testConfig.steps.flatMap((step) => step.questions);
-
-    const skippedCount = allQuestionsFlat.filter(
-      (q) => answers[q.id] === null,
-    ).length;
-    const answeredCount = allQuestionsFlat.filter(
-      (q) => typeof answers[q.id] === "number",
-    ).length;
+    const skippedCount = allQuestionsFlat.filter((q) => answers[q.id] === null).length;
+    const answeredCount = allQuestionsFlat.filter((q) => typeof answers[q.id] === "number").length;
     const totalQuestions = allQuestionsFlat.length;
 
     const newResult = {
       testId,
       answers,
-      meta: {
-        skippedCount,
-        answeredCount,
-        totalQuestions,
-      },
+      meta: { skippedCount, answeredCount, totalQuestions },
       completedAt: Date.now(),
     };
 
-    console.log("DEBUG SAVE META ->", newResult.meta);
-    console.log("Current answers ->", answers);
-
-    // Save results to Zustand
     saveResults(testId, newResult);
-
-    console.log("STORE AFTER SAVE ->", newResult);
-
     navigate("/results", { state: { testId } });
   };
 
   const handleAnswer = (questionId, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: value,
-    }));
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
   };
 
   return (
@@ -132,67 +119,70 @@ export default function MultiStepTest() {
 
       <div className="steps-progress">
         {steps.map((_, index) => (
-          <div
-            key={index}
-            className={`step-bar ${index <= currentStep ? "active" : ""}`}
-          />
+          <div key={index} className={`step-bar ${index <= currentStep ? "active" : ""}`} />
         ))}
       </div>
 
-      <div className="test-content">
-        {step.questions.map((q, index) => (
-          <div key={q.id} className="question-block">
-            <p className="question-text">
-              <span>{index + 1 + currentStep * questionsPerStep}. </span>
-              {q.text[lang]}
-            </p>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="test-content"
+        >
+          {step.questions.map((q, index) => {
+            const isMissing = highlightErrors && answers[q.id] === undefined; // Vérifie si vide
 
-            <div className="answers-row">
-              {/* --- Metabolic test uses 0–4, Personal uses 1–5 --- */}
-              {(testId === "metabolic-health"
-                ? [0, 1, 2, 3, 4]
-                : [1, 2, 3, 4, 5]
-              ).map((value) => (
-                <button
-                  key={value}
-                  className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
-                  onClick={() => handleAnswer(q.id, value)}
-                >
-                  {value}
-                </button>
-              ))}
+            return (
+              <div 
+                key={q.id} 
+                className={`question-block ${isMissing ? "error-highlight" : ""}`}
+                style={isMissing ? { borderLeft: "4px solid #ff4d4d", paddingLeft: "15px", transition: "all 0.3s" } : {}}
+              >
+                <p className="question-text" style={isMissing ? { color: "#ff4d4d" } : {}}>
+                  <span>{index + 1 + currentStep * questionsPerStep}. </span>
+                  {q.text[lang]}
+                </p>
 
-              {allowSkip && (
-                <button
-                  className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
-                  onClick={() => handleAnswer(q.id, null)}
-                >
-                  Skip
-                </button>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+                <div className="answers-row">
+                  {(testId === "metabolic-health" ? [0, 1, 2, 3, 4] : [1, 2, 3, 4, 5]).map((value) => (
+                    <button
+                      key={value}
+                      className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
+                      onClick={() => handleAnswer(q.id, value)}
+                    >
+                      {value}
+                    </button>
+                  ))}
+
+                  {allowSkip && (
+                    <button
+                      className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
+                      onClick={() => handleAnswer(q.id, null)}
+                    >
+                      Skip
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+      </AnimatePresence>
 
       <div className="navigation">
         {currentStep > 0 && (
-          <button
-            className="nav-btn"
-            onClick={() => setCurrentStep((s) => s - 1)}
-          >
+          <button className="nav-btn" onClick={() => { setHighlightErrors(false); setCurrentStep((s) => s - 1); }}>
             Previous
           </button>
         )}
 
         {currentStep < steps.length - 1 ? (
-          <button className="nav-btn" onClick={handleNext}>
-            Next
-          </button>
+          <button className="nav-btn" onClick={handleNext}>Next</button>
         ) : (
-          <button className="nav-btn primary" onClick={handleFinish}>
-            Finish
-          </button>
+          <button className="nav-btn primary" onClick={handleFinish}>Finish</button>
         )}
       </div>
     </div>
