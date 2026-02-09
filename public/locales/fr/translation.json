@@ -321,13 +321,7 @@
       }
     }
   },
-  "contact": {
-    "form": {
-      "name": "Nom",
-      "email": "E-mail",
-      "message": "Message"
-    }
-  },
+
   "form": {
     "submit": "Réserver un appel",
     "success": "Message envoyé avec succès !",
@@ -515,8 +509,76 @@
     },
     "submit": "Soumettre la candidature",
     "final_note": "Les candidatures sont examinées individuellement."
+  },
+  "contact": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "joinus": "Nous rejoindre",
+      "privacy": "Confidentialité"
+    },
+    "header": {
+      "label": "Prendre rendez-vous",
+      "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
+    },
+    "form": {
+      "name_label": "Prénom, surnom ou pseudonyme",
+      "name_placeholder": "Prénom, surnom ou pseudonyme",
+      "phone_label": "Numéro de téléphone",
+      "phone_placeholder": "Numéro de téléphone",
+      "concerns_label": "Décrivez brièvement vos préoccupations",
+      "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description suffit.",
+      "consent": "Je consens à être contacté par Blu concernant ma demande.",
+      "submit_button": "Envoyer la demande",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : xxxxxxx. Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
+    }
+  },
+  "contactForm": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "joinus": "Nous rejoindre",
+      "privacy": "Confidentialité"
+    },
+    "header": {
+      "label": "Contact",
+      "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
+    },
+    "sections": {
+      "org_details": "Détails de l'organisation",
+      "primary_contact": "Contact principal",
+      "objectives": "Vos objectifs"
+    },
+    "form": {
+      "company_name": "Nom de l'entreprise",
+      "industry": "Industrie / Secteur",
+      "size": "Taille de l'entreprise",
+      "full_name": "Nom complet",
+      "role": "Rôle / Poste",
+      "email": "Adresse e-mail professionnelle",
+      "phone": "Numéro de téléphone professionnel",
+      "services_interest": "Quels services vous intéressent ?",
+      "select_service": "Sélectionnez un service",
+      "options": {
+        "governance": "Gouvernance",
+        "financial": "Performance Financière",
+        "strategy": "Stratégie Commerciale",
+        "leadership": "Leadership & Systèmes Humains"
+      },
+      "consent": "Je consens à être contacté par Blu concernant ma demande.",
+      "submit": "Envoyer la demande",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par e-mail : xxxxxxx. Pour plus d'informations, veuillez consulter notre Politique de Confidentialité."
+    }
   }
 
+
+ , "disclaimer1": {
+    "starts_in": "Le test commence dans :",
+    "test1": ["...", "..."],
+    "test2": ["...", "..."]
+  }
 
 
 }

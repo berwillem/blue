@@ -17,12 +17,14 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
 import { useEffect } from "react";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 export default function Corporates() {
   const { t } = useTranslation();
+    const userType = useUserTypeStore((state) => state.userType);
   const links = [
     { name: "home", path: "/" },
-    { name: "about", path: "/about" },
+    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
     { name: "joinus", path: "/joinus" },
   { name: "privacy", path: "/privacy" },

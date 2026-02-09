@@ -321,13 +321,7 @@
       }
     }
   },
-  "contact": {
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message"
-    }
-  },
+
   "form": {
     "submit": "Book a call",
     "success": "Message sent successfully!",
@@ -519,6 +513,75 @@
     },
     "submit": "Submit Application",
     "final_note": "Applications are reviewed individually."
+  },
+  "contact": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "joinus": "Join Us",
+      "privacy": "Privacy"
+    },
+    "header": {
+      "label": "Book an appointment",
+      "title": "Share the details below and our team will contact you to arrange a tailored discussion at your convenience."
+    },
+    "form": {
+      "name_label": "First name, nickname, or pseudonym",
+      "name_placeholder": "First name, nickname, or pseudonym",
+      "phone_label": "Phone number",
+      "phone_placeholder": "Phone number",
+      "concerns_label": "Briefly describe your concerns",
+      "concerns_placeholder": "Please avoid sharing detailed medical information. A brief description is sufficient.",
+      "consent": "I consent to being contacted by Blu regarding my request.",
+      "submit_button": "Submit Application",
+      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : xxxxxxx. For more information, please consult our Privacy & Confidentiality Policy."
+    }
+  },
+  "contactForm": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "joinus": "Join Us",
+      "privacy": "Privacy"
+    },
+    "header": {
+      "label": "Contact",
+      "title": "Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises."
+    },
+    "sections": {
+      "org_details": "Organization details",
+      "primary_contact": "Primary contact",
+      "objectives": "Your objectives"
+    },
+    "form": {
+      "company_name": "Company name",
+      "industry": "Industry / Sector",
+      "size": "Company size",
+      "full_name": "Full name",
+      "role": "Role / Position",
+      "email": "Professional email address",
+      "phone": "Professional phone number",
+      "services_interest": "Which services are you interested in?",
+      "select_service": "Select a service",
+      "options": {
+        "governance": "Governance",
+        "financial": "Financial Performance",
+        "strategy": "Business Strategy",
+        "leadership": "Leadership & Human Systems"
+      },
+      "consent": "I consent to being contacted by Blu regarding my request.",
+      "submit": "Submit Application",
+      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : xxxxxxx. For more information, please consult our Privacy & Confidentiality Policy."
+    }
+  }
+,
+
+  "disclaimer1": {
+    "starts_in": "The test starts in:",
+    "test1": ["...", "..."],
+    "test2": ["...", "..."]
   }
 
 
