@@ -26,19 +26,19 @@ export default function Disclaimer() {
       const radius = 20;
       const circumference = 2 * Math.PI * radius;
 
+      // État initial : TOUT caché pour éviter le "flash" ou le "depop"
+      gsap.set(paragraphs, { 
+        opacity: 0, 
+        y: 30, 
+        filter: "blur(10px)",
+        willChange: "transform, opacity, filter" 
+      });
+
       gsap.set(circle, {
         strokeDasharray: circumference,
         strokeDashoffset: circumference,
         rotate: -90,
         transformOrigin: "center",
-      });
-
-      // Optimisation : On prépare le GPU pour les paragraphes
-      gsap.set(paragraphs, { 
-        willChange: "transform, opacity", 
-        force3D: true, // Force le rendu matériel
-        y: 20,
-        opacity: 0
       });
 
       // Timer Décompte
@@ -50,10 +50,10 @@ export default function Disclaimer() {
         onUpdate: () => setSeconds(Math.ceil(timerObj.value)),
       });
 
-      // Cercle
+      // Animation du Cercle
       gsap.to(circle, {
         strokeDashoffset: 0,
-        duration: totalDuration - 0.5,
+        duration: totalDuration,
         ease: "none",
       });
 
@@ -62,35 +62,33 @@ export default function Disclaimer() {
         onComplete: () => {
           gsap.to(containerRef.current, {
             opacity: 0,
-            duration: 0.5,
+            duration: 0.8,
             onComplete: () => navigate(`/tests/${testId}`),
           });
         },
       });
 
-      paragraphs.forEach((p) => {
-        tlTexts
-          .to(p, {
-            opacity: 1,
-            // Réduction du blur ou suppression si ça shake encore trop
-            filter: "blur(0px)", 
-            y: 0,
-            duration: 1.2,
-            ease: "power2.out",
-          })
-          .to(
-            p,
-            {
-              opacity: 0,
-              filter: "blur(10px)", // Un peu moins de blur pour soulager le CPU
-              y: -15,
-              duration: 1,
-              ease: "power2.in",
-            },
-            `+=${durationPerText - 2.2}` // Calcul plus précis du timing
-          );
-      });
-    }, containerRef);
+paragraphs.forEach((p, index) => {
+  // On crée une position de départ absolue pour chaque bloc de texte
+  // Texte 0 commence à 0s, Texte 1 commence à 4.2s, etc.
+  const startTime = index * durationPerText;
+
+  tlTexts
+    .to(p, {
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+      duration: 1.2,
+      ease: "power2.out",
+    }, startTime) // <--- Force le début exact
+    .to(p, {
+      opacity: 0,
+      filter: "blur(10px)",
+      y: -30,
+      duration: 1,
+      ease: "power2.in",
+    }, startTime + (durationPerText - 1)); // <--- Sortie 1s avant la fin du créneau
+});
 
     return () => ctx.revert();
   }, [navigate, testId, totalDuration]);
@@ -107,7 +105,7 @@ export default function Disclaimer() {
           <circle
             ref={circleRef}
             cx="50" cy="50" r="20"
-            stroke="rgba(255, 204, 0, 1)"
+            stroke="#ffcc00"
             strokeWidth="7" fill="none"
             strokeLinecap="round"
           />
