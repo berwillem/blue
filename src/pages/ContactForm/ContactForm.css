@@ -134,3 +134,125 @@
         font-size: 24px;
     }
 }
+/* --- CONTAINER DU MULTI-SELECT --- */
+.custom-multiselect {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* --- BARRE DE DÉPART (TRIGGER) --- */
+.select-trigger {
+  padding: 12px 15px;
+  border: 1px solid #E4E4E4;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  min-height: 48px;
+}
+
+.select-trigger:hover {
+  border-color: #002b49;
+}
+
+.select-trigger.active {
+  border-color: #002b49;
+  box-shadow: 0 0 0 3px rgba(0, 43, 73, 0.1);
+}
+
+.contact-container .placeholder {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* --- FLÈCHE (ANIMATION) --- */
+.arrow {
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* --- LISTE DÉROULANTE (OPTIONS) --- */
+.select-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #E4E4E4;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 8px 0;
+  /* Empêche le débordement si trop d'options */
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* --- ITEM INDIVIDUEL --- */
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  user-select: none; /* Empêche la sélection du texte au double-clic */
+}
+
+.checkbox-item:hover {
+  background-color: #f4f7f9;
+}
+
+/* --- LA CHECKBOX (INPUT) --- */
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  cursor: pointer;
+  /* Couleur Blu */
+  accent-color: #002b49;
+}
+
+/* --- TEXTE DE L'OPTION --- */
+.label-text {
+  font-size: 0.9rem;
+  color: #444;
+  pointer-events: none; /* Laisse le clic traverser vers le parent label */
+}
+
+/* --- SCROLLBAR PERSONNALISÉE (Optionnel) --- */
+.select-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.select-options::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.select-options::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+}
+
+.select-options::-webkit-scrollbar-thumb:hover {
+  background: #002b49;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .select-trigger {
+    padding: 10px 12px;
+  }
+  
+  .label-text {
+    font-size: 0.85rem;
+  }
+}

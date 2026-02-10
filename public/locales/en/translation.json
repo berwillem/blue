@@ -5,6 +5,7 @@
     "corporates": "Corporates",
     "about": "About",
     "contact": "Book a meeting",
+    "contact2": "Book a Conversation",
     "services": "Services",
     "why_us": "Why Us",
     "joinus": "Join us",
@@ -96,11 +97,11 @@
     "button": "Start the test",
     "card1": {
       "title": "Personal Capacity Assessment",
-      "desc": "Measures your energy, focus, and daily performance."
+      "desc": "Privacy Notice: This test is anonymous No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     },
     "card2": {
       "title": "Metabolic Health Test",
-      "desc": "Evaluates how your body manages energy and recovery."
+      "desc": "Privacy Notice: This test is anonymous No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations. "
     }
   },
   "footer": {
@@ -508,7 +509,9 @@
         "retention_val": "Personal data will be retained only for the duration necessary to evaluate the application.",
         "consent": "Consent",
         "check_accurate": "I confirm that the information provided is accurate and professional",
-        "check_consent": "I consent to the processing of my data"
+        "check_consent": "I consent to the processing of my data",
+        "check_privacy": "I have read and agree to the Privacy Policy. I consent to having my data processed to respond to my inquiry.",
+        "check_privacy_link": "The privacy Policy"
       }
     },
     "submit": "Submit Application",
@@ -538,51 +541,70 @@
       "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy."
     }
   },
-  "contactForm": {
-    "nav": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "joinus": "Join Us",
-      "privacy": "Privacy"
+"contactForm": {
+  "header": {
+    "label": "Contact",
+    "title": "Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises."
+  },
+  "sections": {
+    "org_details": "Organization details",
+    "primary_contact": "Primary contact",
+    "objectives": "Your objectives"
+  },
+  "form": {
+    "company_name": "Company name",
+    "industry": "Industry / Sector",
+    "industry_other": "If Other, please specify",
+    "industry_other_placeholder": "Enter your industry",
+    "select_option": "Select an option",
+    "size": "Company size",
+    "full_name": "Full name",
+    "role": "Role / Position",
+    "email": "Professional email address",
+    "phone": "Professional phone number",
+    "services_interest": "Which services are you interested in?",
+  "select_service": "Choose services...",
+    "options": {
+      "governance": "Governance",
+      "financial": "Financial Performance",
+      "strategy": "Business Strategy",
+      "leadership": "Leadership & Human Systems"
     },
-    "header": {
-      "label": "Contact",
-      "title": "Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises."
+    "industries": {
+      "manufacturing": "Manufacturing & Industrial",
+      "construction": "Construction & Infrastructure",
+      "energy": "Energy & Utilities",
+      "healthcare": "Healthcare & Life Sciences",
+      "financial": "Financial Services",
+      "technology": "Technology & Software",
+      "professional": "Professional Services & Consulting",
+      "retail": "Retail, Consumer Goods & Distribution",
+      "logistics": "Logistics & Transportation",
+      "education": "Education & Training",
+      "hospitality": "Hospitality & Tourism",
+      "public": "Public Sector & Government",
+      "nonprofit": "Non-profit & Foundations",
+      "media": "Media & Creative Industries",
+      "other": "Other"
     },
-    "sections": {
-      "org_details": "Organization details",
-      "primary_contact": "Primary contact",
-      "objectives": "Your objectives"
-    },
-    "form": {
-      "company_name": "Company name",
-      "industry": "Industry / Sector",
-      "size": "Company size",
-      "full_name": "Full name",
-      "role": "Role / Position",
-      "email": "Professional email address",
-      "phone": "Professional phone number",
-      "services_interest": "Which services are you interested in?",
-      "select_service": "Select a service",
-      "options": {
-        "governance": "Governance",
-        "financial": "Financial Performance",
-        "strategy": "Business Strategy",
-        "leadership": "Leadership & Human Systems"
-      },
-      "consent": "I consent to being contacted by Blu regarding my request.",
-      "submit": "Submit Application",
-      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy."
-    }
+    "consent": "I consent to being contacted by Blu regarding my request.",
+    "submit": "Submit Application",
+    "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request..."
   }
+}
 ,
 
   "disclaimer1": {
     "starts_in": "The test starts in:",
     "test1": ["...", "..."],
     "test2": ["...", "..."]
-  }
+  },
+"test1": [
+      "What this means",
+        "What to focus on",
+      "Direction"
+    
+    ]
 
 
 

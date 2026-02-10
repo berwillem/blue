@@ -5,6 +5,7 @@
     "corporates": "Entreprises",
     "about": "À Propos",
     "contact": "Réserver une réunion",
+    "contact2": "Réserver une conversation",
     "services": "Services",
     "why_us": "Pourquoi Nous",
     "joinus": "Nous Rejoindre",
@@ -96,11 +97,11 @@
     "button": "Commencer le test",
     "card1": {
       "title": "Évaluation des capacités personnelles",
-      "desc": "Mesure votre énergie, votre concentration et vos performances quotidiennes."
+      "desc": "Avis de confidentialité : Ce test est anonyme. Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
     },
     "card2": {
       "title": "Test de santé métabolique",
-      "desc": "Évalue la façon dont votre corps gère l'énergie et la récupération."
+      "desc": "Avis de confidentialité : Ce test est anonyme. Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
     }
   },
   "footer": {
@@ -504,7 +505,9 @@
         "retention_val": "Les données seront conservées uniquement le temps nécessaire à l'évaluation de la candidature.",
         "consent": "Consentement",
         "check_accurate": "Je confirme que les informations fournies sont exactes et professionnelles",
-        "check_consent": "Je consens au traitement de mes données"
+        "check_consent": "Je consens au traitement de mes données",
+ "check_privacy":"J'ai lu et j'accepte la Politique de confidentialité. Je consens à ce que mes données soient traitées pour répondre à ma demande.",
+    "check_privacy_link": "La Politique de confidentialité"
       }
     },
     "submit": "Soumettre la candidature",
@@ -534,51 +537,69 @@
       "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
     }
   },
-  "contactForm": {
-    "nav": {
-      "home": "Accueil",
-      "about": "À propos",
-      "services": "Services",
-      "joinus": "Nous rejoindre",
-      "privacy": "Confidentialité"
+"contactForm": {
+  "header": {
+    "label": "Contact",
+    "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
+  },
+  "sections": {
+    "org_details": "Détails de l'organisation",
+    "primary_contact": "Contact principal",
+    "objectives": "Vos objectifs"
+  },
+  "form": {
+    "company_name": "Nom de l'entreprise",
+    "industry": "Industrie / Secteur",
+    "industry_other": "Si autre, veuillez préciser",
+    "industry_other_placeholder": "Saisissez votre secteur",
+    "select_option": "Sélectionnez une option",
+    "size": "Taille de l'entreprise",
+    "full_name": "Nom complet",
+    "role": "Rôle / Poste",
+    "email": "Adresse e-mail professionnelle",
+    "phone": "Numéro de téléphone professionnel",
+    "services_interest": "Quels services vous intéressent ?",
+  "select_service": "Choisir les services...",
+    "options": {
+      "governance": "Gouvernance",
+      "financial": "Performance Financière",
+      "strategy": "Stratégie Commerciale",
+      "leadership": "Leadership & Systèmes Humains"
     },
-    "header": {
-      "label": "Contact",
-      "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
+    "industries": {
+      "manufacturing": "Industrie et Fabrication",
+      "construction": "Construction et Infrastructure",
+      "energy": "Énergie et Services Publics",
+      "healthcare": "Santé et Sciences de la Vie",
+      "financial": "Services Financiers",
+      "technology": "Technologie et Logiciels",
+      "professional": "Services Professionnels et Conseil",
+      "retail": "Vente au détail et Distribution",
+      "logistics": "Logistique et Transport",
+      "education": "Éducation et Formation",
+      "hospitality": "Hôtellerie et Tourisme",
+      "public": "Secteur Public et Gouvernement",
+      "nonprofit": "Associations et Fondations",
+      "media": "Médias et Industries Créatives",
+      "other": "Autre"
     },
-    "sections": {
-      "org_details": "Détails de l'organisation",
-      "primary_contact": "Contact principal",
-      "objectives": "Vos objectifs"
-    },
-    "form": {
-      "company_name": "Nom de l'entreprise",
-      "industry": "Industrie / Secteur",
-      "size": "Taille de l'entreprise",
-      "full_name": "Nom complet",
-      "role": "Rôle / Poste",
-      "email": "Adresse e-mail professionnelle",
-      "phone": "Numéro de téléphone professionnel",
-      "services_interest": "Quels services vous intéressent ?",
-      "select_service": "Sélectionnez un service",
-      "options": {
-        "governance": "Gouvernance",
-        "financial": "Performance Financière",
-        "strategy": "Stratégie Commerciale",
-        "leadership": "Leadership & Systèmes Humains"
-      },
-      "consent": "Je consens à être contacté par Blu concernant ma demande.",
-      "submit": "Envoyer la demande",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par e-mail : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité."
-    }
+    "consent": "Je consens à être contacté par Blu concernant ma demande.",
+    "submit": "Envoyer la demande",
+    "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande..."
   }
+}
 
 
  , "disclaimer1": {
     "starts_in": "Le test commence dans :",
     "test1": ["...", "..."],
     "test2": ["...", "..."]
-  }
+  },
+  "test1": [
+      "Ce que cela signifie",
+      "Sur quoi se concentrer",
+      "Direction"
+    ]
 
 
 }

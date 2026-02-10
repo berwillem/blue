@@ -109,6 +109,10 @@
   border-top: 1px solid #eee;
   padding-top: 30px;
 }
+.consentBox a{
+color: black;
+text-decoration: underline;
+}
 
 .consentTitle {
   font-size: 2rem;

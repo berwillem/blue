@@ -16,9 +16,10 @@ const PartnerForm: React.FC = () => {
     { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
   ];
+
 
 
   // On compare avec la clé "Other" du JSON
@@ -60,6 +61,10 @@ const PartnerForm: React.FC = () => {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{t('partner_form.sections.credentials.title')}</h2>
           <div className={styles.field}>
+               <div className={styles.field}>
+              <label>{t('partner_form.sections.credentials.expertise')}</label>
+              <input type="text" placeholder={t('partner_form.sections.credentials.expertise_placeholder')} />
+            </div>
             <label>{t('partner_form.sections.credentials.status')}</label>
             <div className={styles.radioGroup}>
               {Object.entries(t('partner_form.sections.credentials.status_list', { returnObjects: true })).map(([key, label]) => (
@@ -76,8 +81,8 @@ const PartnerForm: React.FC = () => {
           </div>
           {professionalStatus === 'other' && ( // Logique basée sur la clé
             <div className={styles.field}>
-              <label>{t('partner_form.sections.credentials.expertise')}</label>
-              <input type="text" placeholder={t('partner_form.sections.credentials.expertise_placeholder')} />
+              
+              <input type="text" placeholder={"..."} />
             </div>
           )}
         </section>
@@ -125,6 +130,12 @@ const PartnerForm: React.FC = () => {
             <label className={styles.checkboxLabel}>
               <input type="checkbox" required /> {t('partner_form.sections.gdpr.check_consent')}
             </label>
+            <label className={styles.checkboxLabel}>
+              <input type="checkbox" required /> {t('partner_form.sections.gdpr.check_privacy')}
+            </label>
+            <Link to="/privacy">
+            {t('partner_form.sections.gdpr.check_privacy_link')}
+            </Link>
           </div>
         </section>
 

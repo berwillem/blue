@@ -82,3 +82,45 @@
 
 }
 }
+.skip-button {
+  position: absolute;
+  bottom: 10dvh; /* Bien visible sur mobile */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.skip-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.skip-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.skip-button:hover .skip-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .skip-button {
+    bottom: 5dvh; /* Un peu plus bas sur petit écran */
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}

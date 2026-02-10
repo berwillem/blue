@@ -33,9 +33,10 @@ export default function Individuals() {
     { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
   ];
+
 
 
   return (

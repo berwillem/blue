@@ -16,9 +16,10 @@ export default function Privacy() {
     { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
   ];
+
 
 
   // Génère dynamiquement les items de la navigation latérale à partir du JSON

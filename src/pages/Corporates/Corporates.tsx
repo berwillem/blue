@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Intro from "../../components/Intro/Intro";
 import Why from "../../components/Why/Why";
 import placeholder1 from "../../assets/images/corporates1.jpg";
-import placeholder2 from "../../assets/images/corporates2.jpg";
+import placeholder2 from "../../assets/images/corporates2.png";
 import placeholder3 from "../../assets/images/corporates3.jpg";
 import placeholder4 from "../../assets/images/corporates4.png";
 import placeholder5 from "../../assets/images/corporates5.jpg";
@@ -27,9 +27,10 @@ export default function Corporates() {
     { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
   ];
+
 
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("sections2", { returnObjects: true });

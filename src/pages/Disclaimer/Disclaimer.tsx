@@ -19,20 +19,32 @@ export default function Disclaimer() {
   const totalDuration = TextSelection.length * durationPerText;
   const [seconds, setSeconds] = useState(Math.ceil(totalDuration));
 
+  // Fonction pour passer l'intro
+  const handleSkip = () => {
+    gsap.to(containerRef.current, {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => navigate(`/tests/${testId}`),
+    });
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const paragraphs = containerRef.current.querySelectorAll(".disc-paragraph");
       const circle = circleRef.current;
+      const skipBtn = containerRef.current.querySelector(".skip-button");
       const radius = 20;
       const circumference = 2 * Math.PI * radius;
 
-      // État initial : TOUT caché pour éviter le "flash" ou le "depop"
       gsap.set(paragraphs, { 
         opacity: 0, 
         y: 30, 
         filter: "blur(10px)",
         willChange: "transform, opacity, filter" 
       });
+
+      // On fait apparaître le bouton skip en douceur
+      gsap.fromTo(skipBtn, { opacity: 0 }, { opacity: 1, duration: 1, delay: 1 });
 
       gsap.set(circle, {
         strokeDasharray: circumference,
@@ -41,7 +53,6 @@ export default function Disclaimer() {
         transformOrigin: "center",
       });
 
-      // Timer Décompte
       const timerObj = { value: totalDuration };
       gsap.to(timerObj, {
         value: 0,
@@ -50,45 +61,34 @@ export default function Disclaimer() {
         onUpdate: () => setSeconds(Math.ceil(timerObj.value)),
       });
 
-      // Animation du Cercle
       gsap.to(circle, {
         strokeDashoffset: 0,
         duration: totalDuration,
         ease: "none",
       });
 
-      // Timeline des Textes
       const tlTexts = gsap.timeline({
-        onComplete: () => {
-          gsap.to(containerRef.current, {
-            opacity: 0,
-            duration: 0.8,
-            onComplete: () => navigate(`/tests/${testId}`),
-          });
-        },
+        onComplete: handleSkip, // Utilise la même fonction à la fin
       });
 
-paragraphs.forEach((p, index) => {
-  // On crée une position de départ absolue pour chaque bloc de texte
-  // Texte 0 commence à 0s, Texte 1 commence à 4.2s, etc.
-  const startTime = index * durationPerText;
-
-  tlTexts
-    .to(p, {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      duration: 1.2,
-      ease: "power2.out",
-    }, startTime) // <--- Force le début exact
-    .to(p, {
-      opacity: 0,
-      filter: "blur(10px)",
-      y: -30,
-      duration: 1,
-      ease: "power2.in",
-    }, startTime + (durationPerText - 1)); // <--- Sortie 1s avant la fin du créneau
-});
+      paragraphs.forEach((p, index) => {
+        const startTime = index * durationPerText;
+        tlTexts
+          .to(p, {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+            duration: 1.2,
+            ease: "power2.out",
+          }, startTime)
+          .to(p, {
+            opacity: 0,
+            filter: "blur(10px)",
+            y: -30,
+            duration: 1,
+            ease: "power2.in",
+          }, startTime + (durationPerText - 1));
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -120,6 +120,11 @@ paragraphs.forEach((p, index) => {
           </p>
         ))}
       </div>
+
+      {/* BOUTON SKIP */}
+      <button className="skip-button" onClick={handleSkip}>
+        {t("disclaimer.skip")} <span className="skip-arrow">→</span>
+      </button>
     </div>
   );
 }

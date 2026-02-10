@@ -94,29 +94,58 @@ export default function Results() {
         sentence: getPersonalSentence(category, catData.score, lang),
       }));
     }
-    const sentences = getMetabolicSentences(computedScores, lang);
-    return sentences.map((text, index) => ({ category: `Metabolic-${index}`, sentence: text }));
+  const sentences = getMetabolicSentences(computedScores, lang);
+    
+    // On définit les titres selon la langue
+    const titles = lang === "fr" 
+      ? ["Ce que cela signifie", "Sur quoi se concentrer", "Direction"] 
+      : ["What this means", "What to focus on", "Direction"];
+
+    return sentences.map((text, index) => ({ 
+      category: titles[index] || "", // Utilise le titre correspondant à l'index
+      sentence: text 
+    }));
+
   }, [computedScores, testId, lang]);
 
   // ---------------- PDF GENERATION ----------------
-const handleDownloadPDF = (e) => {
-    if(e) e.preventDefault();
+// ---------------- PDF GENERATION ----------------
+// ---------------- PDF GENERATION ----------------
+  const handleDownloadPDF = (e) => {
+    if (e) e.preventDefault();
     const doc = new jsPDF();
+    const pageHeight = doc.internal.pageSize.height;
 
-    // --- DESSIN DU LOGO ---
-    // 1. Configurer la police pour le logo (gras)
+    // --- LOGIQUE DU FOOTER ---
+    const addFooter = (pageDoc) => {
+      const totalPages = pageDoc.internal.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        pageDoc.setPage(i);
+        pageDoc.setDrawColor(200, 200, 200);
+        pageDoc.setLineWidth(0.1);
+        pageDoc.line(20, pageHeight - 20, 190, pageHeight - 20);
+
+        pageDoc.setFont("helvetica", "normal");
+        pageDoc.setFontSize(9);
+        pageDoc.setTextColor(120, 120, 120);
+        
+        const footerText = "Blu - contact@blu-path.com";
+        const pageNum = `Page ${i} / ${totalPages}`;
+        
+        pageDoc.text(footerText, 20, pageHeight - 13);
+        const pageNumWidth = pageDoc.getTextWidth(pageNum);
+        pageDoc.text(pageNum, 190 - pageNumWidth, pageHeight - 13);
+      }
+    };
+
+    // --- LOGO ---
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
-
-    // 2. Écrire "Blu" en bleu foncé (#0e3a4a)
-    // RGB pour #0e3a4a est (14, 58, 74)
-    doc.setTextColor(14, 58, 74);
+    doc.setTextColor(14, 58, 74); // Bleu foncé
     doc.text("Blu", 20, 25);
 
-    // 3. Écrire le "." en jaune (#ffcc00)
-    // On calcule la largeur de "Blu" pour coller le point juste après
     const bluWidth = doc.getTextWidth("Blu");
-    doc.setTextColor(255, 204, 0); // RGB pour #ffcc00
+    doc.setTextColor(255, 204, 0); // Jaune point
     doc.text(".", 20 + bluWidth, 25);
 
     // --- TRAIT DE SÉPARATION ---
@@ -124,31 +153,47 @@ const handleDownloadPDF = (e) => {
     doc.setLineWidth(0.5);
     doc.line(20, 30, 190, 30);
 
-    // --- TITRE ET CONTENU ---
-    doc.setTextColor(40, 40, 40); // Gris foncé pour le texte
+    // --- TITRE PRINCIPAL ---
+    doc.setTextColor(14, 58, 74);
     doc.setFontSize(18);
     doc.text(lang === "fr" ? "Vos Résultats" : "Your Results", 20, 45);
 
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(11);
     let y = 60;
 
-    mappedResults.forEach((item, index) => {
-      const text = `${index + 1}. ${item.sentence}`;
-      const lines = doc.splitTextToSize(text, 170);
+    // --- BOUCLE SUR LES RÉSULTATS (AVEC TITRES) ---
+    mappedResults.forEach((item) => {
+      // 1. Dessiner le TITRE de la catégorie (ex: What this means)
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(14, 58, 74);
       
-      if (y + (lines.length * 7) > 280) {
+      const categoryTitle = item.category.toUpperCase();
+      doc.text(categoryTitle, 20, y);
+      
+      y += 8; // Petit saut après le titre
+
+      // 2. Dessiner le TEXTE (sentence)
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+
+      const lines = doc.splitTextToSize(item.sentence, 170);
+
+      // Vérifier si ça passe sur la page (marge footer 30mm)
+      if (y + (lines.length * 7) > pageHeight - 30) {
         doc.addPage();
-        y = 20;
+        y = 30;
       }
 
       doc.text(lines, 20, y);
-      y += (lines.length * 7) + 10;
+      y += (lines.length * 7) + 15; // Espace plus large entre les blocs
     });
 
-    doc.save("Blu_Results.pdf");
-  };
+    // Finaliser avec le footer
+    addFooter(doc);
 
+    doc.save(`Blu_Results_${testId}.pdf`);
+  };
   // ---------------- AUTO SCROLL LOGIC FIXED ----------------
   useEffect(() => {
     if (!containerRef.current || mappedResults.length === 0) return;
@@ -193,7 +238,9 @@ const handleDownloadPDF = (e) => {
   }, [mappedResults]);
 
   if (!storedResult) return <p>{lang === "fr" ? "Aucun résultat." : "No results."}</p>;
-
+console.log('====================================');
+console.log(mappedResults);
+console.log('====================================');
   return (
     <div className="results-wrapper">
       <h1>{lang === "fr" ? "Résultat" : "Result"}</h1>
@@ -202,9 +249,14 @@ const handleDownloadPDF = (e) => {
         <div className="spacer"></div>
 
         {mappedResults.map((item, index) => (
+       <>
+         
           <p key={index} className="result-paragraph">
+            <span className="title-result-paragraph"> {item.category || "❌ NO SENTENCE FOUND"}</span>
+        
             {item.sentence || "❌ NO SENTENCE FOUND"}
           </p>
+       </>
         ))}
 
         <div ref={buttonRef} className={`button-footer ${showButton ? "visible" : ""}`}>

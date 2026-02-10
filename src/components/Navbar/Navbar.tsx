@@ -25,6 +25,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
 
   const userType = useUserTypeStore((state) => state.userType);
   const contactPath = userType === "individuals" ? "/contact" : "/contactb2b";
+  const contactButton = userType === "individuals" ? t("navbar.contact2") : t("navbar.contact");
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -219,7 +220,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
             <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
             <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
           </div>
-          <Link to={contactPath}><button className="ctaBtn">{t("navbar.contact")}</button></Link>
+          <Link to={contactPath}><button className="ctaBtn">{contactButton}</button></Link>
           <Menu className="menu" onClick={() => setOpen(!open)} />
         </div>
       </div>

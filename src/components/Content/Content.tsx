@@ -11,11 +11,37 @@ import "./Content.css";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 export default function Content({ DATA, DATA2 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {t}=useTranslation()
+  const { t } = useTranslation();
+  const userType = useUserTypeStore((state) => state.userType);
+  
+  // Fonction pour trouver le bon lien selon le texte du bouton
+  const getButtonLink = (buttonText) => {
+    if (!buttonText) return "/";
+
+    const text = buttonText.toLowerCase();
+
+    // 1. Metabolic Test
+    if (text.includes("metabolic") || text.includes("métabolique")) {
+      return "/disclaimer/metabolic-health";
+    }
+
+    // 2. Personal Capacity Test
+    if (text.includes("capacity") || text.includes("capacité")) {
+      return "/disclaimer/personal-capacity";
+    }
+
+    // 3. Contact / Book a call
+    if (text.includes("book") || text.includes("call") || text.includes("appel") || text.includes("contact")) {
+      return userType === "individuals" ? "/contact" : "/contactb2b";
+    }
+
+    return "/";
+  };
   const [isPC, setIsPC] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -134,7 +160,7 @@ export default function Content({ DATA, DATA2 }) {
           </p>
 
           <div className="button-container">
-            <Link to="/contact">
+            <Link to={getButtonLink(DATA[currentIndex]?.button)}>
               <Button text={DATA2?.button} width="auto" />
             </Link>
           </div>
@@ -164,7 +190,7 @@ export default function Content({ DATA, DATA2 }) {
               </div>
 
               <motion.div layout className="button-container">
-                <Link to="/contact">
+                <Link to={getButtonLink(DATA[currentIndex]?.button)}>
                   <Button text={DATA[currentIndex]?.button} width="auto" />
                 </Link>
               </motion.div>
