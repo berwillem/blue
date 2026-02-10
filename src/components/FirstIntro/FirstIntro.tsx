@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import "./FirstIntro.css"
 
 // Tes imports d'images restent les mêmes
-import card1 from "../../assets/images/card1.png"
-import card2 from "../../assets/images/card2.png"
-import card3 from "../../assets/images/card3.png"
-import card4 from "../../assets/images/card4.png"
-import card5 from "../../assets/images/card5.png"
-import card6 from "../../assets/images/card6.png"
-import card7 from "../../assets/images/card7.png"
-import card8 from "../../assets/images/card8.png"
+import card1 from "../../assets/images/Cardio.png"
+import card2 from "../../assets/images/Depression.png"
+import card3 from "../../assets/images/Allergies.png"
+import card4 from "../../assets/images/Infertility.png"
+import card5 from "../../assets/images/Autoimmune disease.png"
+import card6 from "../../assets/images/Type 2 diabetes.png"
+import card7 from "../../assets/images/Skin issues.png"
+import card8 from "../../assets/images/Male sexual dysfunction.png"
 
 const Cards = [
   { titleKey: "individuals.diseases.cardiovascular", image: card1 },
