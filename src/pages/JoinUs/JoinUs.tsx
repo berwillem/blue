@@ -40,17 +40,10 @@ const partners = Array.from({ length: 7 }, (_, i) =>
 const partners1 = partners.slice(0, 4); 
 const partners2 = partners.slice(4);
   const userType = useUserTypeStore((state) => state.userType);
-  const links = [
-    { name: "home", path:"/" },
-    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
-    { name: "services", path: "#" },
-    { name: "joinus", path: "/joinus" },
-    { name: "privacy", path: "/privacy" },
-  ];
 
   return (
-    <div className={styles.pageWrapper}>
-      <Navbar links={links} />
+    <div className={styles.pageWrapper} id="joinus">
+      
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
@@ -152,9 +145,7 @@ const partners2 = partners.slice(4);
         </Link>
       
       </motion.footer>
-       <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
-              <FiCalendar />
-            </Link>
+   
     </div>
   );
 };

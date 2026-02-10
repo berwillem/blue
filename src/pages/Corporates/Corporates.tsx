@@ -5,7 +5,7 @@ import Why from "../../components/Why/Why";
 import placeholder1 from "../../assets/images/corporates1.jpg";
 import placeholder2 from "../../assets/images/corporates2.jpg";
 import placeholder3 from "../../assets/images/corporates3.jpg";
-import placeholder4 from "../../assets/images/corporates4.jpg";
+import placeholder4 from "../../assets/images/corporates4.png";
 import placeholder5 from "../../assets/images/corporates5.jpg";
 import placeholder6 from "../../assets/images/corporates6.jpg";
 import placeholder7 from "../../assets/images/corporates7.jpg";
@@ -18,17 +18,19 @@ import { Link, useLocation } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
 import { useEffect } from "react";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
+import JoinUs from "../JoinUs/JoinUs";
 
 export default function Corporates() {
   const { t } = useTranslation();
     const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/" },
+    { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus", path: "/joinus" },
-  { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
+    { name: "privacy", path: "/privacy" },
   ];
+
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("sections2", { returnObjects: true });
   const images = [
@@ -94,6 +96,7 @@ useEffect(() => {
         </div>
       </div>
       <Modus></Modus>
+       <JoinUs/>
       <Footer />
       
       <Link to="/contactb2b" className="buble">

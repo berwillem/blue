@@ -13,12 +13,13 @@ const PartnerForm: React.FC = () => {
   const [professionalStatus, setProfessionalStatus] = useState('');
 
   const links = [
-    { name: "home", path: "/" },
-    { name: "about", path: userType == "individuals" ? "/individuals" : "/corporates" },
+    { name: "home", path:"/" },
+    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus", path: "/joinus" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
   ];
+
 
   // On compare avec la clé "Other" du JSON
   const showNextSections = professionalStatus === 'Other';
