@@ -10,7 +10,7 @@ import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
 
-import "./MultiStepTest.css";
+import "./MultistepTest.css";
 
 const TESTS_MAP = {
   "personal-capacity": personalCapacityTest,
