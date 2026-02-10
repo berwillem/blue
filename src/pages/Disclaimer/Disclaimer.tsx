@@ -89,6 +89,7 @@ paragraphs.forEach((p, index) => {
       ease: "power2.in",
     }, startTime + (durationPerText - 1)); // <--- Sortie 1s avant la fin du créneau
 });
+    }, containerRef);
 
     return () => ctx.revert();
   }, [navigate, testId, totalDuration]);
