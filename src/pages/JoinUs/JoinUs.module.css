@@ -18,6 +18,9 @@
 }
 .pageWrapper {
   padding: 7rem;
+  background-color: white;
+  position: relative;
+  z-index: 1;
 }
 /* Sections */
 .sectionHeader {

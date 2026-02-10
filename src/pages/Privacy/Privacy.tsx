@@ -13,12 +13,13 @@ export default function Privacy() {
   const userType = useUserTypeStore((state) => state.userType);
   
   const links = [
-    { name: "home", path: "/" },
-    { name: "about", path: userType === "individuals" ? "/individuals" : "/corporates" },
+    { name: "home", path:"/" },
+    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus", path: "/joinus" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
     { name: "privacy", path: "/privacy" },
   ];
+
 
   // Génère dynamiquement les items de la navigation latérale à partir du JSON
   const sections = t('privacy.sections', { returnObjects: true });

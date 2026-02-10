@@ -54,8 +54,8 @@ const JoinUs: React.FC = () => {
   ];
 
   return (
-    <div className={styles.pageWrapper}>
-      <Navbar links={links} />
+    <div className={styles.pageWrapper} id="joinus">
+      
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
@@ -160,6 +160,7 @@ const JoinUs: React.FC = () => {
           <button className={styles.btnLarge}>{t("join.cta.button")}</button>
         </Link>
       </motion.footer>
+   
       <Link
         to={userType == "individuals" ? "/contact" : "/contactb2b"}
         className="buble"

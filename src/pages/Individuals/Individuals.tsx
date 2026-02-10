@@ -13,6 +13,8 @@ import { FiCalendar } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import FirstIntro from "../../components/FirstIntro/FirstIntro";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
+import PrivacySection from "../../components/PrivacySection/PrivacySection";
+import JoinUs from "../JoinUs/JoinUs";
 
 export default function Individuals() {
   const { t } = useTranslation();
@@ -28,12 +30,13 @@ export default function Individuals() {
   }));
   const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path: "/" },
+    { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
-    { name: "joinus", path: "/joinus" },
-  { name: "privacy", path: "/privacy" },
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  },
+    { name: "privacy", path: "/privacy" },
   ];
+
 
   return (
     <div className="mainWrapper">
@@ -55,8 +58,9 @@ export default function Individuals() {
           <Content DATA={DATA} DATA2={DATA[2]} />
         </div>
       </div>
-
+<PrivacySection/>
       <Last />
+      <JoinUs/>
       <Footer />
 
       <Link to="/contact" className="buble">
