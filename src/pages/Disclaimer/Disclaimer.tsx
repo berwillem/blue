@@ -12,8 +12,7 @@ export default function Disclaimer() {
   const containerRef = useRef(null);
   const circleRef = useRef(null);
 
-  const textKey =
-    testId === "metabolic-health" ? "disclaimer.test1" : "disclaimer.test2";
+  const textKey = testId === "metabolic-health" ? "disclaimer.test1" : "disclaimer.test2";
   const TextSelection = t(textKey, { returnObjects: true }) || [];
 
   const durationPerText = 4.2;
@@ -22,8 +21,7 @@ export default function Disclaimer() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const paragraphs =
-        containerRef.current.querySelectorAll(".disc-paragraph");
+      const paragraphs = containerRef.current.querySelectorAll(".disc-paragraph");
       const circle = circleRef.current;
       const radius = 20;
       const circumference = 2 * Math.PI * radius;
@@ -33,6 +31,14 @@ export default function Disclaimer() {
         strokeDashoffset: circumference,
         rotate: -90,
         transformOrigin: "center",
+      });
+
+      // Optimisation : On prépare le GPU pour les paragraphes
+      gsap.set(paragraphs, { 
+        willChange: "transform, opacity", 
+        force3D: true, // Force le rendu matériel
+        y: 20,
+        opacity: 0
       });
 
       // Timer Décompte
@@ -51,7 +57,7 @@ export default function Disclaimer() {
         ease: "none",
       });
 
-      // Textes
+      // Timeline des Textes
       const tlTexts = gsap.timeline({
         onComplete: () => {
           gsap.to(containerRef.current, {
@@ -66,21 +72,22 @@ export default function Disclaimer() {
         tlTexts
           .to(p, {
             opacity: 1,
-            filter: "blur(0px)",
+            // Réduction du blur ou suppression si ça shake encore trop
+            filter: "blur(0px)", 
             y: 0,
             duration: 1.2,
-            ease: "power3.out",
+            ease: "power2.out",
           })
           .to(
             p,
             {
               opacity: 0,
-              filter: "blur(15px)",
-              y: -20,
+              filter: "blur(10px)", // Un peu moins de blur pour soulager le CPU
+              y: -15,
               duration: 1,
-              ease: "power3.in",
+              ease: "power2.in",
             },
-            "+=2",
+            `+=${durationPerText - 2.2}` // Calcul plus précis du timing
           );
       });
     }, containerRef);
@@ -96,22 +103,12 @@ export default function Disclaimer() {
           {seconds}
         </span>
         <svg width="60" height="60" viewBox="0 0 100 100">
-          <circle
-            cx="50"
-            cy="50"
-            r="20"
-            stroke="rgba(255, 255, 255, 0.1)"
-            strokeWidth="7"
-            fill="none"
-          />
+          <circle cx="50" cy="50" r="20" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="7" fill="none" />
           <circle
             ref={circleRef}
-            cx="50"
-            cy="50"
-            r="20"
+            cx="50" cy="50" r="20"
             stroke="rgba(255, 204, 0, 1)"
-            strokeWidth="7"
-            fill="none"
+            strokeWidth="7" fill="none"
             strokeLinecap="round"
           />
         </svg>
