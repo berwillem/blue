@@ -18,34 +18,37 @@ export default function Modus() {
   ];
 
   useEffect(() => {
+    // 1. Empêche le "shake" quand la barre d'adresse mobile bouge
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
     const ctx = gsap.context(() => {
       const stepElements = gsap.utils.toArray(".modus-step");
 
-      // Création de la timeline qui bloque l'écran
       const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top top",      // Bloque quand le haut de la section touche le haut de l'écran
-          end: "+=300%",         // Durée du blocage (300% de la hauteur de l'écran)
-          pin: true,             // BLOQUE LA PAGE
-          pinSpacing: true,      // Garde l'espace pour la suite
-          scrub: 1,              // L'animation suit la molette
+          start: "top top",
+          end: "+=300%",
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          // 2. Recalcule les positions si le mobile bug au chargement
+          invalidateOnRefresh: true,
+          // 3. Empêche la superposition sur la section précédente
+          anticipatePin: 1, 
         },
       });
 
-      // On ajoute chaque étape à la timeline principale
       stepElements.forEach((step, index) => {
         const fillLine = step.querySelector(".step-line-fill");
         const text = step.querySelector(".modus-texts");
         const badge = step.querySelector(".modus-step-circle");
 
-        // Apparition du texte et du badge
         mainTl.to([badge, text], {
           opacity: 1,
           duration: 0.5,
         });
 
-        // Animation de la ligne de remplissage
         if (fillLine) {
           mainTl.to(fillLine, {
             scaleY: 1,
@@ -56,19 +59,26 @@ export default function Modus() {
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    // 4. Le "Refresh" magique : attend 200ms que le téléphone ait fini de poser le layout
+    // pour supprimer l'espace blanc.
+    const refreshTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(refreshTimeout);
+    };
   }, [t]);
 
   return (
     <section className="modus-container" ref={containerRef}>
       <h1>{t("modus.title")}</h1>
-      
       <div className="modus-steps">
         {steps.map((step, index) => (
           <div key={index} className="modus-step">
             <div className="modus-guide">
               <div className="modus-step-circle">step 0{index + 1}</div>
-              
               <div className="step-line-container">
                 <div className="step-line-bg"></div>
                 <div className="step-line-fill"></div>
