@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Navbar from "../../components/Navbar/Navbar";
 import "./About.css";
-import redaabout from "../../assets/images/redaabout.png";
+import redaabout from "../../assets/images/redafounder.png";
 import Button from "../../ui/button/Button";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
