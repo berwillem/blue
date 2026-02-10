@@ -12,8 +12,7 @@ export default function Disclaimer() {
   const containerRef = useRef(null);
   const circleRef = useRef(null);
 
-  const textKey =
-    testId === "metabolic-health" ? "disclaimer.test1" : "disclaimer.test2";
+  const textKey = testId === "metabolic-health" ? "disclaimer.test1" : "disclaimer.test2";
   const TextSelection = t(textKey, { returnObjects: true }) || [];
 
   const durationPerText = 4.2;
@@ -22,11 +21,18 @@ export default function Disclaimer() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const paragraphs =
-        containerRef.current.querySelectorAll(".disc-paragraph");
+      const paragraphs = containerRef.current.querySelectorAll(".disc-paragraph");
       const circle = circleRef.current;
       const radius = 20;
       const circumference = 2 * Math.PI * radius;
+
+      // État initial : TOUT caché pour éviter le "flash" ou le "depop"
+      gsap.set(paragraphs, { 
+        opacity: 0, 
+        y: 30, 
+        filter: "blur(10px)",
+        willChange: "transform, opacity, filter" 
+      });
 
       gsap.set(circle, {
         strokeDasharray: circumference,
@@ -44,45 +50,45 @@ export default function Disclaimer() {
         onUpdate: () => setSeconds(Math.ceil(timerObj.value)),
       });
 
-      // Cercle
+      // Animation du Cercle
       gsap.to(circle, {
         strokeDashoffset: 0,
-        duration: totalDuration - 0.5,
+        duration: totalDuration,
         ease: "none",
       });
 
-      // Textes
+      // Timeline des Textes
       const tlTexts = gsap.timeline({
         onComplete: () => {
           gsap.to(containerRef.current, {
             opacity: 0,
-            duration: 0.5,
+            duration: 0.8,
             onComplete: () => navigate(`/tests/${testId}`),
           });
         },
       });
 
-      paragraphs.forEach((p) => {
-        tlTexts
-          .to(p, {
-            opacity: 1,
-            filter: "blur(0px)",
-            y: 0,
-            duration: 1.2,
-            ease: "power3.out",
-          })
-          .to(
-            p,
-            {
-              opacity: 0,
-              filter: "blur(15px)",
-              y: -20,
-              duration: 1,
-              ease: "power3.in",
-            },
-            "+=2",
-          );
-      });
+paragraphs.forEach((p, index) => {
+  // On crée une position de départ absolue pour chaque bloc de texte
+  // Texte 0 commence à 0s, Texte 1 commence à 4.2s, etc.
+  const startTime = index * durationPerText;
+
+  tlTexts
+    .to(p, {
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+      duration: 1.2,
+      ease: "power2.out",
+    }, startTime) // <--- Force le début exact
+    .to(p, {
+      opacity: 0,
+      filter: "blur(10px)",
+      y: -30,
+      duration: 1,
+      ease: "power2.in",
+    }, startTime + (durationPerText - 1)); // <--- Sortie 1s avant la fin du créneau
+});
     }, containerRef);
 
     return () => ctx.revert();
@@ -96,22 +102,12 @@ export default function Disclaimer() {
           {seconds}
         </span>
         <svg width="60" height="60" viewBox="0 0 100 100">
-          <circle
-            cx="50"
-            cy="50"
-            r="20"
-            stroke="rgba(255, 255, 255, 0.1)"
-            strokeWidth="7"
-            fill="none"
-          />
+          <circle cx="50" cy="50" r="20" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="7" fill="none" />
           <circle
             ref={circleRef}
-            cx="50"
-            cy="50"
-            r="20"
-            stroke="rgba(255, 204, 0, 1)"
-            strokeWidth="7"
-            fill="none"
+            cx="50" cy="50" r="20"
+            stroke="#ffcc00"
+            strokeWidth="7" fill="none"
             strokeLinecap="round"
           />
         </svg>

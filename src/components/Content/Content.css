@@ -59,7 +59,7 @@
 /* Dans le CSS de ton composant Content */
 @media (max-width: 768px) {
   .content-scroll-wrapper {
-    height: 100vh; 
+    height: 100dvh; 
     display: flex;
     flex-direction: column;
     justify-content: center;

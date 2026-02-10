@@ -1,16 +1,14 @@
 .Disclaimer-container {
-  background: linear-gradient(
-    180deg,
-    #00314d 0%,
-    #002438 100%
-  ); /* Fond sombre */
-  height: 100vh;
+  background: linear-gradient(180deg, #00314d 0%, #002438 100%);
+  height: 100dvh;
   width: 100%;
   display: flex;
   color: white;
   overflow: hidden;
+  position: relative; /* Important pour les éléments en absolute */
 }
 
+/* Sidebar masquée sur mobile pour gagner de la place si besoin */
 .Disclaimer-sidebar {
   width: 100px;
   display: flex;
@@ -21,6 +19,7 @@
   font-size: 0.8rem;
   letter-spacing: 2px;
   opacity: 0.5;
+  writing-mode: vertical-rl; /* Optionnel : pour le style */
 }
 
 .Disclaimer-content {
@@ -29,49 +28,57 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0 15%;
+  padding: 0 10%; /* Réduit pour mobile */
 }
 
 .disc-paragraph {
-  position: absolute; /* Les phrases s'affichent au même endroit */
+  position: absolute;
+  /* --- CENTRAGE PARFAIT --- */
+  top: 50%;
+  left: 50%;
+  /* Le transform sera géré par GSAP, mais on définit la base ici */
+  transform: translate(-50%, -50%); 
+  
+  width: 80%; /* Pour éviter de toucher les bords */
   font-size: 2rem;
   text-align: center;
   line-height: 1.4;
-  max-width: 800px;
+  margin: 0;
 
-  /* État initial : caché et flou */
-  opacity: 0;
-  filter: blur(20px);
-  transform: translateY(20px);
+  /* --- OPTIMISATION ANTI-SHAKE --- */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  will-change: opacity, transform, filter;
 }
+
 .circle-wrapper {
   position: absolute;
   top: 3rem;
-  right: 7rem;
-
+  right: 3rem; /* Ajusté */
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 10;
 }
-@media (max-width: 768px) {
-  .disc-paragraph {
-    position: absolute; /* Les phrases s'affichent au même endroit */
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 1.4;
-    max-width: 400px;
 
-    /* État initial : caché et flou */
-    opacity: 0;
-    filter: blur(20px);
-    transform: translateY(20px);
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .Disclaimer-sidebar {
+    display: none; /* On gagne de la place sur petit écran */
   }
-  .circle-wrapper {
+
+  .disc-paragraph {
+    font-size: 1.4rem; /* Un peu plus petit pour le confort */
+    width: 90%;
+    /* On s'assure que le centrage reste actif */
+    top: 55%; 
+    left: 50%;
+  }
+
+   .circle-wrapper {
   position: absolute;
   top: 3rem;
   right: 1rem;
 
 }
 }
-
-

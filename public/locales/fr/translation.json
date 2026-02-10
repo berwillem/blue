@@ -531,7 +531,7 @@
       "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description suffit.",
       "consent": "Je consens à être contacté par Blu concernant ma demande.",
       "submit_button": "Envoyer la demande",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : xxxxxxx. Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
     }
   },
   "contactForm": {
@@ -569,7 +569,7 @@
       },
       "consent": "Je consens à être contacté par Blu concernant ma demande.",
       "submit": "Envoyer la demande",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par e-mail : xxxxxxx. Pour plus d'informations, veuillez consulter notre Politique de Confidentialité."
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par e-mail : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité."
     }
   }
 

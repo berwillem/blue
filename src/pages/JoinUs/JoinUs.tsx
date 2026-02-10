@@ -32,14 +32,26 @@ const JoinUs: React.FC = () => {
 
   // On récupère les listes depuis le JSON
   const whyList = t("join.why_blu.list", { returnObjects: true }) as string[];
-  const standardsList = t("join.standards.list", { returnObjects: true }) as string[];
+  const standardsList = t("join.standards.list", {
+    returnObjects: true,
+  }) as string[];
 
-const partners = Array.from({ length: 7 }, (_, i) => 
-  t(`join.partners_section.card_label${i + 1}`)
-);
-const partners1 = partners.slice(0, 4); 
-const partners2 = partners.slice(4);
+  const partners = Array.from({ length: 7 }, (_, i) =>
+    t(`join.partners_section.card_label${i + 1}`),
+  );
+  const partners1 = partners.slice(0, 4);
+  const partners2 = partners.slice(4);
   const userType = useUserTypeStore((state) => state.userType);
+  const links = [
+    { name: "home", path: "/" },
+    {
+      name: "about",
+      path: userType == "individuals" ? "/individuals" : "/corporates",
+    },
+    { name: "services", path: "#" },
+    { name: "joinus", path: "/joinus" },
+    { name: "privacy", path: "/privacy" },
+  ];
 
   return (
     <div className={styles.pageWrapper} id="joinus">
@@ -75,21 +87,23 @@ const partners2 = partners.slice(4);
             />
           </motion.div>
 
-          <div style={{display:"flex",flexDirection:userType=="individuals" ? "column": "column-reverse"}}>
-                 <motion.ul  variants={fadeInVariant} className={styles.list}>
-            {partners1.map((title, idx) => (
-         
+          <div
+            style={{
+              display: "flex",
+              flexDirection:
+                userType == "individuals" ? "column" : "column-reverse",
+            }}
+          >
+            <motion.ul variants={fadeInVariant} className={styles.list}>
+              {partners1.map((title, idx) => (
                 <li key={idx}>{title}</li>
-         
-            ))}
-                 </motion.ul>
-                 <motion.ul  variants={fadeInVariant} className={styles.list}>
-            {partners2.map((title, idx) => (
-         
+              ))}
+            </motion.ul>
+            <motion.ul variants={fadeInVariant} className={styles.list}>
+              {partners2.map((title, idx) => (
                 <li key={idx}>{title}</li>
-         
-            ))}
-                 </motion.ul>
+              ))}
+            </motion.ul>
           </div>
         </motion.section>
 
@@ -108,7 +122,9 @@ const partners2 = partners.slice(4);
             />
             <p className={styles.listLabel}>{t("join.why_blu.label")}</p>
             <ul className={styles.list}>
-              {whyList.map((item, i) => <li key={i}>{item}</li>)}
+              {whyList.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </motion.div>
 
@@ -122,7 +138,9 @@ const partners2 = partners.slice(4);
             <SectionHeader overline={t("join.standards.overline")} />
             <p className={styles.listLabel}>{t("join.standards.label")}</p>
             <ul className={styles.list}>
-              {standardsList.map((item, i) => <li key={i}>{item}</li>)}
+              {standardsList.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
             <p className={styles.italicNote}>{t("join.standards.footer")}</p>
           </motion.div>
@@ -139,13 +157,16 @@ const partners2 = partners.slice(4);
         <SectionHeader overline={t("join.cta.overline")} />
         <p className={styles.ctaText}>{t("join.cta.text")}</p>
         <Link to="/partnerform">
-          <button className={styles.btnLarge}>
-          {t("join.cta.button")}
-        </button>
+          <button className={styles.btnLarge}>{t("join.cta.button")}</button>
         </Link>
-      
       </motion.footer>
    
+      <Link
+        to={userType == "individuals" ? "/contact" : "/contactb2b"}
+        className="buble"
+      >
+        <FiCalendar />  
+      </Link>
     </div>
   );
 };
