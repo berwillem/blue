@@ -56,6 +56,7 @@ const ContactForm = () => {
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.8 }}
+        style={{marginBottom:"100px"}}
       >
         <header className="contact-header">
           <span className="contact-label">{t("contactForm.header.label")}</span>

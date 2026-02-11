@@ -4,4 +4,5 @@
   flex-direction: column;
   min-height: 100dvh;
   justify-content: center;
+  padding-bottom: 50px;
 }

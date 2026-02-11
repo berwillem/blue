@@ -560,6 +560,7 @@
     "phone": "Numéro de téléphone professionnel",
     "services_interest": "Quels services vous intéressent ?",
   "select_service": "Choisir les services...",
+   "selected": "services Choisi",
     "options": {
       "governance": "Gouvernance",
       "financial": "Performance Financière",
@@ -593,7 +594,8 @@
  , "disclaimer1": {
     "starts_in": "Le test commence dans :",
     "test1": ["...", "..."],
-    "test2": ["...", "..."]
+    "test2": ["...", "..."],
+    "skip":"Passer"
   },
   "test1": [
       "Ce que cela signifie",

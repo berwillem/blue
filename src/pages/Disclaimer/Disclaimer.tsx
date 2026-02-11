@@ -123,7 +123,7 @@ export default function Disclaimer() {
 
       {/* BOUTON SKIP */}
       <button className="skip-button" onClick={handleSkip}>
-        {t("disclaimer.skip")} <span className="skip-arrow">→</span>
+        {t("disclaimer1.skip")} <span className="skip-arrow">→</span>
       </button>
     </div>
   );
