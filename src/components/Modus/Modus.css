@@ -1,9 +1,16 @@
 .modus-container {
-  padding: 100px 0 100px 0; 
-  display: flex;/* Plus de padding en bas pour finir le scroll */
+  padding: 80px 0; /* Un peu moins de padding sur mobile */
+  display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  background-color: white; /* Force le fond pour ne pas voir la section précédente par transparence */
+  position: relative;
+  z-index: 2; /* S'assure de passer au dessus des sections snap-panel */
 }
+
+/* Le reste du CSS ne change pas, mais assure-toi que .snap-panel n'a pas d'overflow caché 
+   qui pourrait perturber le calcul de GSAP. */
 
 
 

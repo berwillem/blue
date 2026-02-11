@@ -107,12 +107,14 @@ export default function Footer() {
   return (
     <>
       {!isMobile && (
-        <div className="footer-video-wrapper" ref={videoRef}>
+                    <>
+                        <div className="footer-video-wrapper" ref={videoRef}>
           <video src={ocean} autoPlay muted loop playsInline />
         </div>
+             <div className="footer-spacer" /> </>
       )}
 
-      <div className="footer-spacer" />
+ 
 
       <footer ref={footerRef}>
         <div className="footer-content">
