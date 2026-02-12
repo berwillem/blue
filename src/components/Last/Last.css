@@ -42,6 +42,7 @@
 @media (min-width: 1024px) {
   .last-container {
     padding: 7rem 3rem;
+    padding-bottom: 0;
     
   }
 

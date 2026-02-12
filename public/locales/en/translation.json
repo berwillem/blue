@@ -9,7 +9,22 @@
     "services": "Services",
     "why_us": "Why Us",
     "joinus": "Join us",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "services_indiv": {
+      "why": "Why we do what we do?",
+      "what": "What we do?",
+      "how": "How we do?",
+      "test": "Take the test"
+    },
+    "services_corp": {
+      "governance": "Governance",
+      "finance": "Financial Performance & Value Creation",
+      "business": "Business",
+      "leadership": "Leadership & Human Systems",
+      "excellence": "Organizational Change & Operational Excellence",
+      "training": "Organizational Training",
+      "coaching": "Coaching & Mentoring Programs for Executives"
+    }
   },
   "individuals": {
     "diseases": {
@@ -359,6 +374,7 @@
     {
       "id": 7,
       "title": "Coaching & Mentoring Programs for Executives",
+      "button": "Metabolic Method",
       "leftText": "Powered by the Executive Metabolic Method™, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
       "rightDesc": "Our approach integrates metabolic performance, mindset, and leadership to deliver clarity and resilience where it matters most—at the personal and professional level.",
       "moreContent": {
@@ -387,8 +403,9 @@
     }
   ],
   "intro": {
-    "subtitle": "Where performance meets balance.",
-    "title": "Aligning physical energy, mental clarity, and purposeful action to drive results at every level",
+    "subtitle": "What do we do at Blu.:.",
+    "title1": "Organizations engage Blu to restore alignment, decision clarity, and execution coherence.",
+    "title": "We help leaders and executive boards create sustainable, profitable growth by focusing on what truly drives value: clear strategy and vision, efficient organizations, psychological safety, and disciplined execution. We bring financial clarity, transparent decision-making, and a growth mindset to organizations seeking value creation, adaptability, and long-term performance in a changing world",
     "button": "About the Founder"
   },
   "modus": {

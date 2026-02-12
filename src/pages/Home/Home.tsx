@@ -35,20 +35,24 @@ export default function Home() {
       ],
     });
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+    // 1. Entrée de la citation
     tl.fromTo(
       ".quote",
       { opacity: 0, filter: "blur(12px)", y: 10 },
       { opacity: 1, filter: "blur(0px)", y: 0, duration: 1.2 },
     );
 
+    // 2. DISPARITION DE LA CITATION
+    // Change "+=0.8" par "+=2.5" (ou plus) pour qu'elle reste 2,5 secondes
     tl.to(
       ".quote",
       { opacity: 0, filter: "blur(12px)", y: -10, duration: 0.8 },
-      "+=0.8",
+      "+=2.5", 
     );
 
+    // 3. Apparition des titres
     tl.fromTo(
       ".individuals-title .char, .individuals-subtitle .char, .corporate-title .char, .corporate-subtitle .char",
       { opacity: 0, filter: "blur(12px)", y: 12 },
@@ -59,6 +63,7 @@ export default function Home() {
         duration: 1.3,
         stagger: 0.035,
       },
+      "-=0.4" // Optionnel : commence l'apparition des titres juste avant que la quote ait fini de disparaître
     );
   }, [i18n.language]);
 
@@ -116,7 +121,7 @@ export default function Home() {
         {/* Droite: Corporates */}
         <div
           className={styles.side}
-          style={{ background: "linear-gradient(to top, #00296F, #001D4F)" }}
+          style={{ background: "linear-gradient(to top, #0A1933 0%, #0A1935 100%)" }}
           onClick={(e) => handleClick(e, "/corporates")}
         >
           <div className={styles.content}>

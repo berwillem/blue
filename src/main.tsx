@@ -1,6 +1,6 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration, useLocation } from "react-router-dom";
 import "./index.css";
 
 import Home from "./pages/Home/Home";
@@ -18,16 +18,29 @@ import ContactForm from "./pages/ContactForm/ContactForm";
 import Disclaimer from "./pages/Disclaimer/Disclaimer";
 import Privacy from "./pages/Privacy/Privacy";
 import Stat from "./pages/Stat/Stat";
+import Method from "./pages/Method/Method";
 
 
 
 // 1. Créer un composant Layout qui inclut le ScrollRestoration
-const RootLayout = () => (
-  <>
-    <ScrollRestoration />
-    <Outlet />
-  </>
-);
+// Copie et remplace cette partie dans ton main.tsx
+const RootLayout = () => {
+  const { pathname } = useLocation(); // Tu dois importer useLocation de react-router-dom
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // <--- C'est ça qui enlève l'effet de scroll
+    });
+  }, [pathname]);
+
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+};
 
 const router = createBrowserRouter([
   {
@@ -48,6 +61,7 @@ const router = createBrowserRouter([
       { path: "/privacy", element: <Privacy /> },
       { path: "/stats", element: <Stat /> },
       { path: "/disclaimer/:testId", element: <Disclaimer /> },
+      { path: "/method", element: <Method /> },
       { path: "*", element: <NotFound /> },
     ],
   },
