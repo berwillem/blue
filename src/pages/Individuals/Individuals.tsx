@@ -30,14 +30,21 @@ export default function Individuals() {
   }));
   const userType = useUserTypeStore((state) => state.userType);
   const links = [
-    { name: "home", path:"/" },
-    { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
+    { name: "home", path: "/" },
+    {
+      name: "about",
+      path: userType == "individuals" ? "/individuals" : "/corporates",
+    },
     { name: "services", path: "#" },
     { name: "privacy", path: "/privacy" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
+    {
+      name: "joinus",
+      path:
+        userType == "individuals"
+          ? "/individuals#joinus"
+          : "/corporates#joinus",
+    },
   ];
-
-
 
   return (
     <div className="mainWrapper">
@@ -59,9 +66,9 @@ export default function Individuals() {
           <Content DATA={DATA} DATA2={DATA[2]} />
         </div>
       </div>
-<PrivacySection/>
+      <PrivacySection />
       <Last />
-      <JoinUs/>
+      <JoinUs />
       <Footer />
 
       <Link to="/contact" className="buble">

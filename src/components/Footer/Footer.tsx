@@ -75,19 +75,43 @@ export default function Footer() {
 
                 const tl = gsap.timeline();
                 tl.to(videoRef.current, { autoAlpha: 1, duration: 0 });
-                tl.fromTo(videoRef.current, { yPercent: 100 }, { yPercent: 0, duration: 2.5, ease: "power3.out" }, 0);
-                tl.fromTo(footerRef.current, { scale: 1 }, { scale: 0.85, duration: 2, ease: "power3.out" }, 0);
+                tl.fromTo(
+                  videoRef.current,
+                  { yPercent: 100 },
+                  { yPercent: 0, duration: 2.5, ease: "power3.out" },
+                  0,
+                );
+                tl.fromTo(
+                  footerRef.current,
+                  { scale: 1 },
+                  { scale: 0.85, duration: 2, ease: "power3.out" },
+                  0,
+                );
                 tl.fromTo(
                   footerRef.current.querySelector(".footer-content"),
                   { opacity: 0, y: 24 },
                   { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-                  0.2
+                  0.2,
                 );
               },
               onLeaveBack: () => {
-                gsap.to(videoRef.current, { yPercent: 100, autoAlpha: 0, duration: 0.6, ease: "power3.in" });
-                gsap.to(footerRef.current, { scale: 1, duration: 0.6, ease: "power3.in" });
-                gsap.to(footerRef.current.querySelector(".footer-content"), { opacity: 0, y: 24, duration: 0.4, ease: "power3.in" });
+                gsap.to(videoRef.current, {
+                  yPercent: 100,
+                  autoAlpha: 0,
+                  duration: 0.6,
+                  ease: "power3.in",
+                });
+                gsap.to(footerRef.current, {
+                  scale: 1,
+                  duration: 0.6,
+                  ease: "power3.in",
+                });
+                gsap.to(footerRef.current.querySelector(".footer-content"), {
+                  opacity: 0,
+                  y: 24,
+                  duration: 0.4,
+                  ease: "power3.in",
+                });
               },
             });
           }, 300);
@@ -101,20 +125,19 @@ export default function Footer() {
       if (ctx) ctx.revert();
     };
   }, [isMobile]);
-    const userType = useUserTypeStore((state) => state.userType);
+  const userType = useUserTypeStore((state) => state.userType);
   const contactPath = userType === "individuals" ? "/contact" : "/contactb2b";
 
   return (
     <>
       {!isMobile && (
-                    <>
-                        <div className="footer-video-wrapper" ref={videoRef}>
-          <video src={ocean} autoPlay muted loop playsInline />
-        </div>
-             <div className="footer-spacer" /> </>
+        <>
+          <div className="footer-video-wrapper" ref={videoRef}>
+            <video src={ocean} autoPlay muted loop playsInline preload/>
+          </div>
+          <div className="footer-spacer" />{" "}
+        </>
       )}
-
- 
 
       <footer ref={footerRef}>
         <div className="footer-content">
@@ -124,35 +147,40 @@ export default function Footer() {
             </div>
             <div className="right">
               <Link to={contactPath}>
-                      <button>
-                <span />
-                <span>{t("footer.cta")}</span>
-              </button>
+                <button>
+                  <span />
+                  <span>{t("footer.cta")}</span>
+                </button>
               </Link>
-      
             </div>
           </div>
 
           <div className="down">
             <ul>
               <li className="title">{t("footer.col1.title")}</li>
-              {t("footer.col1.links", { returnObjects: true }).map((link, i) => (
-                <li key={i}>{link}</li>
-              ))}
+              {t("footer.col1.links", { returnObjects: true }).map(
+                (link, i) => (
+                  <li key={i}>{link}</li>
+                ),
+              )}
             </ul>
 
             <ul>
               <li className="title">{t("footer.col2.title")}</li>
-              {t("footer.col2.links", { returnObjects: true }).map((link, i) => (
-                <li key={i}>{link}</li>
-              ))}
+              {t("footer.col2.links", { returnObjects: true }).map(
+                (link, i) => (
+                  <li key={i}>{link}</li>
+                ),
+              )}
             </ul>
 
             <ul>
               <li className="title">{t("footer.col3.title")}</li>
-              {t("footer.col3.links", { returnObjects: true }).map((link, i) => (
-                <li key={i}>{link}</li>
-              ))}
+              {t("footer.col3.links", { returnObjects: true }).map(
+                (link, i) => (
+                  <li key={i}>{link}</li>
+                ),
+              )}
             </ul>
           </div>
         </div>

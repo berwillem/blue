@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Button from "../../ui/button/Button";
 import gsap from "gsap";
 import "./IntroCorp.css";
+import { Link } from "react-router-dom";
 
 export default function IntroCorp() {
   const { t, i18n } = useTranslation();
@@ -18,7 +19,7 @@ export default function IntroCorp() {
       if (char === "\n") return "<br/>";
       return `<span class="char">${char}</span>`;
     });
-    
+
     h1Ref.current.innerHTML = h1Chars.join("");
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -48,7 +49,6 @@ export default function IntroCorp() {
       <div className="lines">
         <div className="line"></div>
         <div className="line"></div>
-
       </div>
       <div className="intro-content">
         <div className="intro-text">
@@ -59,7 +59,9 @@ export default function IntroCorp() {
         </div>
       </div>
       <div className="intro-bottom">
-        <Button text={t("intro.button")} width="100%" />
+        <Link to={"/about"} className="intro-corp-btn">
+          <Button text={t("intro.button")} width="100%" />
+        </Link>
         <div className="scroll-indicator">
           <span />
         </div>

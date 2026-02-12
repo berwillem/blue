@@ -19,14 +19,18 @@ export default function Intro() {
 
   // Helper pour splitter le texte proprement
   const renderSplitText = (textKey, className) => {
-    return t(textKey).split(" ").map((word, i) => (
-      <span key={i} className={className}>{word}&nbsp;</span>
-    ));
+    return t(textKey)
+      .split(" ")
+      .map((word, i) => (
+        <span key={i} className={className}>
+          {word}&nbsp;
+        </span>
+      ));
   };
 
   useLayoutEffect(() => {
     // Nettoyage complet pour le changement de langue
-    ScrollTrigger.getAll().forEach(st => st.kill());
+    ScrollTrigger.getAll().forEach((st) => st.kill());
 
     const ctx = gsap.context(() => {
       if (!containerRef.current) return;
@@ -62,20 +66,22 @@ export default function Intro() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%", // Se lance quand le haut de la section touche 80% de l'écran
-          once: true,       // Ne se joue qu'une seule fois
+          once: true, // Ne se joue qu'une seule fois
         },
-        defaults: { ease: "power4.out" }
+        defaults: { ease: "power4.out" },
       });
 
-      entryTl
-        .to(imageRef.current, { opacity: 1, duration: 1.2 })
-        .to(titleWords, {
+      entryTl.to(imageRef.current, { opacity: 1, duration: 1.2 }).to(
+        titleWords,
+        {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
           stagger: 0.02,
           duration: 1,
-        }, "-=0.8");
+        },
+        "-=0.8",
+      );
 
       // --- 3. TIMELINE PRINCIPALE (SCRUB) ---
       // C'est l'animation qui suit le mouvement du doigt/souris
@@ -91,18 +97,26 @@ export default function Intro() {
       });
 
       mainTl
-        .to(textRef.current, { opacity: 0, y: -50, filter: "blur(10px)", duration: 1 })
-        .to(imageRef.current, { 
-          width: "100vw", 
-          height: "100vh", 
-          borderRadius: 0, 
-          bottom: 0, 
-          duration: 1 
-        }, "<")
+        .to(textRef.current, {
+          opacity: 0,
+          y: -50,
+          filter: "blur(10px)",
+          duration: 1,
+        })
+        .to(
+          imageRef.current,
+          {
+            width: "100vw",
+            height: "100vh",
+            borderRadius: 0,
+            bottom: 0,
+            duration: 1,
+          },
+          "<",
+        )
         .to(buttonRef.current, { opacity: 1, y: 0, duration: 0.8 }, "<0.2")
         .to(whyRef.current, { y: "0%", duration: 1 }, "+=0.2")
         .to(revealWords, { opacity: 1, stagger: 0.02, duration: 0.5 }, "<0.5");
-
     }, containerRef);
 
     // Recalcule les positions après un court instant
@@ -119,6 +133,7 @@ export default function Intro() {
       <div className="intro-section">
         <h1 ref={textRef} className="headline" key={`h1-${i18n.language}`}>
           {renderSplitText("individuals.main_title", "word")}
+          <br />
         </h1>
 
         <div ref={imageRef} className="imageCard">
@@ -135,7 +150,11 @@ export default function Intro() {
         </div>
       </div>
 
-      <section ref={whyRef} className="why-overlay" key={`why-${i18n.language}`}>
+      <section
+        ref={whyRef}
+        className="why-overlay"
+        key={`why-${i18n.language}`}
+      >
         <span className="smallTitle">{t("individuals.why")}</span>
         <div className="longText">
           <p>{renderSplitText("individuals.whyp1", "revealWord")}</p>

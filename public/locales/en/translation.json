@@ -25,7 +25,7 @@
     "main_title1": "The modern world has brought comfort and progress—but also silent threats that erode physical and mental health. What are you doing today to protect yours?",
     "main_title": "I lead Blu to help people who are functional on the outside, but depleted underneath rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
     "button": "About the founder",
-    "why": "Why",
+    "why": "Why we do what we do :",
     "whyp1": "We help people who are suffering regain control of their body,mind, and life—so they can stand upright again and become reliablefor themselves and for others ",
     "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline,metabolic health, responsibility, and meaning",
     "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most:family, responsibility, and legacy.",
@@ -64,7 +64,7 @@
       {
         "id": 2,
         "title": "what we do?",
-        "button": "Personal Capacity test",
+        "button": "Start a metabolic test",
         "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health",
         "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
         "moreContent": {
@@ -76,7 +76,7 @@
       {
         "id": 3,
         "title": "How we do?",
-        "button": "Book a call",
+        "button": "Personal Capacity test",
         "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
@@ -387,7 +387,7 @@
     "corporates": {
       "quote": "“ Strengthening governance, leadership, and execution to drive profitable,sustainable growth in complex environments”",
       "title": "Corporates",
-      "subtitle": "Consulting <1>and</1> Advice"
+      "subtitle": "Consulting <1>and</1> Advisory"
     }
     
 

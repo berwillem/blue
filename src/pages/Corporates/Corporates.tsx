@@ -1,7 +1,5 @@
 import "./Corporates.css";
 import Navbar from "../../components/Navbar/Navbar";
-import Intro from "../../components/Intro/Intro";
-import Why from "../../components/Why/Why";
 import placeholder1 from "../../assets/images/corporates1.jpg";
 import placeholder2 from "../../assets/images/corporates2.png";
 import placeholder3 from "../../assets/images/corporates3.jpg";
