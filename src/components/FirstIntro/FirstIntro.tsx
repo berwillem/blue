@@ -63,20 +63,19 @@ export default function FirstIntro() {
         whileInView="visible" // S'anime quand la section apparaît à l'écran
         viewport={{ once: true, amount: 0.2 }} // Ne se joue qu'une fois
       >
-        <h1 className="headline">
-          {t("individuals.main_title1")
-            .split(" ")
-            .map((word, i) => (
-              <motion.span
-                key={i}
-                variants={itemVariants}
-                style={{ display: "inline-block" }}
-              >
-                {word}&nbsp;
-                <br />
-              </motion.span>
-            ))}
-        </h1>
+ <h1 className="headline">
+  {t("individuals.main_title1")
+    .split(" ")
+    .map((word, i) => (
+      <motion.span
+        key={i}
+        variants={itemVariants}
+        style={{ display: "inline-block", whiteSpace: "pre" }} // "pre" garde l'espace
+      >
+        {word}{" "}
+      </motion.span>
+    ))}
+</h1>
 
         <div className="grid_intro">
           {Cards.map((card, index) => (

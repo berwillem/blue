@@ -5,7 +5,9 @@
     width: 100%;
     justify-content: center;
     grid-template-columns: calc(50% - 2rem) calc(50% - 2rem) ;
-    padding-top: 230px;
+    padding-top: 200px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   
 
 }
@@ -90,4 +92,72 @@ font-size: 1.2rem;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 
 }
+}
+.grid_intro {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    /* Utilise repeat(2, 1fr) pour être propre sur mobile */
+    grid-template-columns: repeat(2, 1fr); 
+    /* Réduis le padding-top qui est énorme (230px) sur mobile */
+
+    box-sizing: border-box;
+}
+
+.card-intro {
+    /* Retire le max-height fixe qui cause le bug de texte qui dépasse */
+    height: auto; 
+    min-height: 120px; /* Utilise un min-height à la place */
+    border-radius: 10px;
+    border: 1px solid #E4E4E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-direction: column;
+    padding: 1rem;
+    background: white;
+}
+
+.card-intro img {
+    width: 100%;
+    height: 50px; /* Hauteur fixe pour l'image pour que le texte soit aligné */
+    object-fit: contain;
+}
+
+.card-intro h2 {
+    font-weight: 500;
+    font-size: 0.8rem; /* Un peu plus grand pour la lisibilité */
+    color: black;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+}
+
+/* --- RESPONSIVE TABLETTE --- */
+@media screen and (min-width: 768px) {
+    .grid_intro {
+        grid-template-columns: repeat(3, 1fr);
+          padding-left: 5rem;
+  padding-right: 5rem; /* 3 colonnes sur tablette */
+
+    }
+    .card-intro {
+        min-height: 160px;
+    }
+    .card-intro h2 {
+        font-size: 1rem;
+    }
+    
+}
+
+/* --- RESPONSIVE DESKTOP --- */
+@media screen and (min-width: 1280px) {
+    .grid_intro {
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur PC */
+        gap: 2rem;
+          padding-left: 8rem;
+  padding-right: 8rem;
+       
+    }
 }

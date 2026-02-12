@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +73,10 @@
     transform: translateY(0);
   }
 }
-
+.Link{
+  text-decoration: underline;
+  color: #002b49;
+}
 /* Délais pour l'effet de cascade */
 .delay1 { animation-delay: 0.1s; }
 .delay2 { animation-delay: 0.3s; }

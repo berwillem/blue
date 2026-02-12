@@ -14,7 +14,8 @@ import { Link } from "react-router-dom";
 import FirstIntro from "../../components/FirstIntro/FirstIntro";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
 import PrivacySection from "../../components/PrivacySection/PrivacySection";
-import JoinUs from "../JoinUs/JoinUs";
+
+import JoinUsCompo from "../../components/Content/JoinUsCompo/JoinUsCompo";
 
 export default function Individuals() {
   const { t } = useTranslation();
@@ -42,7 +43,7 @@ export default function Individuals() {
       path:
         userType == "individuals"
           ? "/individuals#joinus"
-          : "/corporates#joinus",
+          : "/joinus",
     },
   ];
 
@@ -68,7 +69,7 @@ export default function Individuals() {
       </div>
       <PrivacySection />
       <Last />
-      <JoinUs />
+      <JoinUsCompo />
       <Footer />
 
       <Link to="/contact" className="buble">

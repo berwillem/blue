@@ -94,15 +94,7 @@
   border-radius: 40px;
 }
 
-/* Responsive: Hide links on mobile */
-@media (max-width: 900px) {
-  .navLinks {
-    display: none;
-  }
-  .navBox {
-    width: 95%;
-  }
-}
+
 .selected-language{
   text-decoration: underline;
 }
@@ -228,17 +220,7 @@ nav .menu {
 .ctaBtn {
   display: none;
 }
-@media (min-width: 1024px) {
-  .menu{
-    display: none;
-  }
-  .mobile-nav-links {
-    display: none;
-  }
-  .ctaBtn {
-    display: flex;
-  }
-}
+
 
 
 .navBox {
@@ -370,7 +352,9 @@ nav .menu {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 1280px) {
+
+
+@media (max-width: 1024px) {
   .mainLink {
   display: flex;
   align-items: center;
@@ -386,5 +370,19 @@ nav .menu {
 }
   .navLinks {
     display: none;
+  }
+    .navBox {
+    width: 95%;
+  }
+}
+@media (min-width: 1300px) {
+  .menu{
+    display: none;
+  }
+  .mobile-nav-links {
+    display: none;
+  }
+  .ctaBtn {
+    display: flex;
   }
 }

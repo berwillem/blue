@@ -26,9 +26,9 @@
     "main_title": "I lead Blu to help people who are functional on the outside, but depleted underneath rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
     "button": "About the founder",
     "why": "Why we do what we do :",
-    "whyp1": "We help people who are suffering regain control of their body,mind, and life—so they can stand upright again and become reliablefor themselves and for others ",
-    "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline,metabolic health, responsibility, and meaning",
-    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most:family, responsibility, and legacy.",
+    "whyp1": "We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become reliable for themselves and for others.",
+    "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline, metabolic health, responsibility, and meaning.",
+    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most: family, responsibility, and legacy.",
     "sections": [
       {
         "id": 1,
@@ -38,7 +38,10 @@
         "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
         "moreContent": {
           "paragraphs": [
-            "If you’re a high achievers who feel exhausted behind success we would help you restore discipline, energy, and purpose. Our holistic, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — privately and permanently."
+            {
+              "title": "Restore Discipline & Purpose",
+              "text": "If you’re a high achiever who feels exhausted behind success, we help you restore discipline, energy, and purpose. Our holistic, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — privately and permanently."
+            }
           ],
           "lists": [
             {
@@ -46,8 +49,8 @@
               "items": [
                 "Metabolic Health & Energy",
                 "Habits & Discipline",
-                "Meaning, & Responsibility",
-                "Mindset & structure"
+                "Meaning & Responsibility",
+                "Mindset & Structure"
               ]
             },
             {
@@ -55,7 +58,7 @@
               "items": [
                 "Entrepreneurs, investors, and independent professionals seeking high performance and well-being.",
                 "Executives and corporate leaders in mid- to large-sized companies.",
-                "Professionals, elite performers and athletes open to science-backed mental and metabolic optimization"
+                "Professionals, elite performers and athletes open to science-backed mental and metabolic optimization."
               ]
             }
           ]
@@ -65,11 +68,14 @@
         "id": 2,
         "title": "what we do?",
         "button": "Start a metabolic test",
-        "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health",
+        "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health.",
         "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
         "moreContent": {
           "paragraphs": [
-            "Our Metabolic Method™ is designed to restore your energy, focus, and drive, helping you reconnect with yourself. We work closely with you to set clear priorities and targets, ensuring your growth is both measurable and meaningful. With the support of our trusted partners when needed, we help you embrace metabolic health and mindset as the new currency of leadership, empowering you to perform at your best in every area of life"
+            {
+              "title": "The Metabolic Method™",
+              "text": "Our Metabolic Method™ is designed to restore your energy, focus, and drive, helping you reconnect with yourself. We work closely with you to set clear priorities and targets, ensuring your growth is both measurable and meaningful. With the support of our trusted partners when needed, we help you embrace metabolic health and mindset as the new currency of leadership, empowering you to perform at your best in every area of life."
+            }
           ]
         }
       },
@@ -81,11 +87,26 @@
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
           "paragraphs": [
-            "We never disclose personal details, and your information is used only to support your wellness journey.",
-            "You can trust us to protect your personal life with the utmost care and discretion.",
-            "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services.",
-            "We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure.",
-            "Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law."
+            {
+              "title": "Confidentiality",
+              "text": "We never disclose personal details, and your information is used only to support your wellness journey."
+            },
+            {
+              "title": "Discretion",
+              "text": "You can trust us to protect your personal life with the utmost care and discretion."
+            },
+            {
+              "title": "Data Protection",
+              "text": "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services."
+            },
+            {
+              "title": "Security Measures",
+              "text": "We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure."
+            },
+            {
+              "title": "GDPR Compliance",
+              "text": "Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law."
+            }
           ]
         }
       }
@@ -97,11 +118,11 @@
     "button": "Start the test",
     "card1": {
       "title": "Personal Capacity Assessment",
-      "desc": "Privacy Notice: This test is anonymous No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
+      "desc": "Privacy Notice: This test is anonymous. No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     },
     "card2": {
       "title": "Metabolic Health Test",
-      "desc": "Privacy Notice: This test is anonymous No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations. "
+      "desc": "Privacy Notice: This test is anonymous. No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     }
   },
   "footer": {
@@ -146,12 +167,22 @@
       "id": 1,
       "title": "Governance",
       "leftText": "We design modern governance architecture that improve accountability, transparency, and decision-making while supporting performance.",
-      "rightDesc": "Modern Corporate Governance: We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
+      "title_rightDesc":"Modern Corporate Governance:",
+      "rightDesc": " We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
       "moreContent": {
         "paragraphs": [
-          "Transparency as a Decision-Making Tool: We implement transparency as a management system. Clear metrics, powerful KPI’s, shared financial understanding, and fact-based dialogue that improve decision quality, trust, and execution speed across the organization.",
-          "Alignment & Decision Architecture: We ensure that policies, codes of conduct, processes, procedures, approval mechanisms, and internal communication flows are coherent, practical, and fully aligned with the company’s vision, mission, and strategy.",
-          "We help define how decisions are made with where the company is going. Decision rights, escalation paths, and approval mechanisms are clarified so governance enables speed, accountability, and strategic focus instead of friction."
+          {
+            "title": "Transparency as a Decision-Making Tool",
+            "text": "We implement transparency as a management system. Clear metrics, powerful KPI’s, shared financial understanding, and fact-based dialogue that improve decision quality, trust, and execution speed across the organization."
+          },
+          {
+            "title": "Alignment & Decision Architecture",
+            "text": "We ensure that policies, codes of conduct, processes, procedures, approval mechanisms, and internal communication flows are coherent, practical, and fully aligned with the company’s vision, mission, and strategy."
+          },
+          {
+            "title": "",
+            "text": "We help define how decisions are made with where the company is going. Decision rights, escalation paths, and approval mechanisms are clarified so governance enables speed, accountability, and strategic focus instead of friction."
+          }
         ],
         "lists": []
       }
@@ -160,12 +191,22 @@
       "id": 2,
       "title": "Financial Performance & Value Creation",
       "leftText": "We help leaders understand, measure, and improve what truly drives financial performance. By connecting strategy, operations, and capital discipline, we enable sustainable profitable growth and value creation for shareholders.",
-      "rightDesc": "Sustainable Profitable Growth: We support organizations in growing profitably over time, not just fast. We align growth ambitions with cash generation, capital efficiency, and risk management to ensure performance is durable and scalable.",
+            "title_rightDesc":"Sustainable Profitable Growth:", 
+      "rightDesc": " We support organizations in growing profitably over time, not just fast. We align growth ambitions with cash generation, capital efficiency, and risk management to ensure performance is durable and scalable.",
       "moreContent": {
         "paragraphs": [
-          "Value Creation: We focus on what drives returns to shareholders; execution and capital allocation are aligned to create value.",
-          "By clarifying what truly creates value in your business, we connect strategy, operations, and financial outcomes so leaders focus resources on activities that really matter.",
-          "Financial Literacy for Executives: We help leaders truly understand how financial mechanics drive performance."
+          {
+            "title": "Value Creation",
+            "text": "We focus on what drives returns to shareholders; execution and capital allocation are aligned to create value."
+          },
+          {
+            "title": "",
+            "text": "By clarifying what truly creates value in your business, we connect strategy, operations, and financial outcomes so leaders focus resources on activities that really matter."
+          },
+          {
+            "title": "Financial Literacy for Executives",
+            "text": "We help leaders truly understand how financial mechanics drive performance."
+          }
         ],
         "lists": [
           {
@@ -184,12 +225,22 @@
       "id": 3,
       "title": "Business",
       "leftText": "We turn strategy into execution by improving efficiency, positioning, pricing, sales effectiveness, and digital capabilities.",
-      "rightDesc": "Strategy & Vision: We help leaders define a clear strategic direction and translate vision into concrete priorities that guide daily decisions.",
+       "title_rightDesc":"Strategy & Vision:", 
+      "rightDesc": " We help leaders define a clear strategic direction and translate vision into concrete priorities that guide daily decisions.",
       "moreContent": {
         "paragraphs": [
-          "Efficiency & Operational Focus: We identify inefficiencies that erode margin and energy. Efficiency becomes a lever for both profitability and organizational resilience.",
-          "Positioning & Power of Pricing: We strengthen pricing logic to ensure organizations capture the value they create, reduce unnecessary discounting, and improve margin sustainability.",
-          "Customer Focus: We sharpen market positioning around real customer value. A customer-focused organization makes clearer decisions and competes more effectively."
+          {
+            "title": "Efficiency & Operational Focus",
+            "text": "We identify inefficiencies that erode margin and energy. Efficiency becomes a lever for both profitability and organizational resilience."
+          },
+          {
+            "title": "Positioning & Power of Pricing",
+            "text": "We strengthen pricing logic to ensure organizations capture the value they create, reduce unnecessary discounting, and improve margin sustainability."
+          },
+          {
+            "title": "Customer Focus",
+            "text": "We sharpen market positioning around real customer value. A customer-focused organization makes clearer decisions and competes more effectively."
+          }
         ],
         "lists": [
           {
@@ -208,12 +259,22 @@
       "id": 4,
       "title": "Leadership & Human Systems",
       "leftText": "We work with leaders to build effective organizations where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
-      "rightDesc": "What Makes a Leader: We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
+         "title_rightDesc":"What Makes a Leader:", 
+      "rightDesc": " We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
       "moreContent": {
         "paragraphs": [
-          "Effective Organizations: We design organizations with clear roles, decision rights, and accountability to reduce friction and improve execution.",
-          "Psychological Safety: We help leaders create environments where people speak up, learn fast, and address problems early—without lowering standards.",
-          "Strong Internal Culture: We treat culture as a system of daily behaviors. A strong internal culture drives execution, innovation, and resilience."
+          {
+            "title": "Effective Organizations",
+            "text": "We design organizations with clear roles, decision rights, and accountability to reduce friction and improve execution."
+          },
+          {
+            "title": "Psychological Safety",
+            "text": "We help leaders create environments where people speak up, learn fast, and address problems early—without lowering standards."
+          },
+          {
+            "title": "Strong Internal Culture",
+            "text": "We treat culture as a system of daily behaviors. A strong internal culture drives execution, innovation, and resilience."
+          }
         ],
         "lists": [
           {
@@ -232,12 +293,22 @@
       "id": 5,
       "title": "Organizational Change & Operational Excellence",
       "leftText": "We help organizations evolve continuously in complex environments. By strengthening resilience, fast learning, and execution discipline, we enable change that improves performance rather than disrupting it.",
-      "rightDesc": "Organizational Change as Cognitive Change: We approach change primarily as a shift in thinking, not structure. Sustainable change happens when people understand and internalize new mental models.",
+         "title_rightDesc":"Organizational Change as Cognitive Change: ", 
+      "rightDesc": "We approach change primarily as a shift in thinking, not structure. Sustainable change happens when people understand and internalize new mental models.",
       "moreContent": {
         "paragraphs": [
-          "Modern Organizations (LEAN / Agile): We implement LEAN and Agile where they create value, improving speed, quality, and learning without dogmatism.",
-          "Fast Learning Organizations: We help organizations learn faster than their environment through feedback loops, experimentation, and disciplined execution.",
-          "Trial and Error as a System: We design controlled experimentation systems that allow teams to test, learn, and improve without increasing risk."
+          {
+            "title": "Modern Organizations (LEAN / Agile)",
+            "text": "We implement LEAN and Agile where they create value, improving speed, quality, and learning without dogmatism."
+          },
+          {
+            "title": "Fast Learning Organizations",
+            "text": "We help organizations learn faster than their environment through feedback loops, experimentation, and disciplined execution."
+          },
+          {
+            "title": "Trial and Error as a System",
+            "text": "We design controlled experimentation systems that allow teams to test, learn, and improve without increasing risk."
+          }
         ],
         "lists": [
           {
@@ -258,9 +329,18 @@
       "rightDesc": "We provide tailored executive education and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
       "moreContent": {
         "paragraphs": [
-          "We strengthen your ability to plan, adapt, and execute by supporting process excellence and disciplined delivery—on time, on budget, and on target.",
-          "We help leaders better assess business potential and identify innovative, efficient ways to create value.",
-          "Through customized solutions and interactive training programs, we enable your people to master what truly matters."
+          {
+            "title": "",
+            "text": "We strengthen your ability to plan, adapt, and execute by supporting process excellence and disciplined delivery—on time, on budget, and on target."
+          },
+          {
+            "title": "",
+            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value."
+          },
+          {
+            "title": "",
+            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters."
+          }
         ],
         "lists": [
           {
@@ -283,8 +363,14 @@
       "rightDesc": "Our approach integrates metabolic performance, mindset, and leadership to deliver clarity and resilience where it matters most—at the personal and professional level.",
       "moreContent": {
         "paragraphs": [
-          "This program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence.",
-          "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental."
+          {
+            "title": "",
+            "text": "This program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence."
+          },
+          {
+            "title": "",
+            "text": "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental."
+          }
         ],
         "lists": [
           {
@@ -302,7 +388,7 @@
   ],
   "intro": {
     "subtitle": "Where performance meets balance.",
-    "title": "Aligning physical energy, mental clarity, and\npurposeful action to drive results at every\nlevel",
+    "title": "Aligning physical energy, mental clarity, and purposeful action to drive results at every level",
     "button": "About the Founder"
   },
   "modus": {
@@ -310,7 +396,7 @@
     "steps": {
       "step1": {
         "title": "Design",
-        "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection. This collaborative approach allows us to clearly define objectives, align on targets, and set strategic directions that guide the project forward with clarity and purpose. "
+        "desc": "Our process begins with the design phase, where we focus on in-depth analysis and shared reflection. This collaborative approach allows us to clearly define objectives, align on targets, and set strategic directions that guide the project forward with clarity and purpose."
       },
       "step2": {
         "title": "Train",
@@ -322,7 +408,6 @@
       }
     }
   },
-
   "form": {
     "submit": "Book a call",
     "success": "Message sent successfully!",
@@ -344,7 +429,7 @@
       "card_label2": "Physical Therapists & Rehabilitation Specialists",
       "card_label3": "Certified Sports Coaches, Physical & Performance Trainers",
       "card_label4": "Nutrition, Metabolic & Lifestyle Professionals",
-      "card_label5": "Business, Strategy & Management Consultants ",
+      "card_label5": "Business, Strategy & Management Consultants",
       "card_label6": "Finance & Risk Management Specialists",
       "card_label7": "Educators, Researchers & Subject-Matter Experts"
     },
@@ -380,20 +465,17 @@
   },
   "home": {
     "individuals": {
-      "quote": "“ Regain control of your health, clarity,discipline, and direction.”",
+      "quote": "“ Regain control of your health, clarity, discipline, and direction.”",
       "title": "Individuals",
       "subtitle": "Coaching <1>and</1> Mentoring"
     },
     "corporates": {
-      "quote": "“ Strengthening governance, leadership, and execution to drive profitable,sustainable growth in complex environments”",
+      "quote": "“ Strengthening governance, leadership, and execution to drive profitable, sustainable growth in complex environments”",
       "title": "Corporates",
       "subtitle": "Consulting <1>and</1> Advisory"
     }
-    
-
-
   },
-    "test": {
+  "test": {
     "please_answer_all": "Please answer all questions before proceeding."
   },
   "disclaimer": {
@@ -412,8 +494,7 @@
       "No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     ]
   },
-  
-  "privacy": {
+  "privacy2": {
     "hero_title": "Privacy & Confidentiality Policy",
     "last_updated": "Last updated",
     "contact_text": "For any questions regarding privacy, confidentiality, or data protection:",
@@ -451,9 +532,6 @@
       }
     }
   },
-  
-
-
   "know_more": "know more",
   "show_less": "show less",
   "partner_form": {
@@ -541,74 +619,77 @@
       "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy."
     }
   },
-"contactForm": {
-  "header": {
-    "label": "Contact",
-    "title": "Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises."
-  },
-  "sections": {
-    "org_details": "Organization details",
-    "primary_contact": "Primary contact",
-    "objectives": "Your objectives"
-  },
-  "form": {
-    "company_name": "Company name",
-    "industry": "Industry / Sector",
-    "industry_other": "If Other, please specify",
-    "industry_other_placeholder": "Enter your industry",
-    "select_option": "Select an option",
-    "size": "Company size",
-    "full_name": "Full name",
-    "role": "Role / Position",
-    "email": "Professional email address",
-    "phone": "Professional phone number",
-    "services_interest": "Which services are you interested in?",
-  "select_service": "Choose services...",
-  "selected": "Selected services",
-    "options": {
-      "governance": "Governance",
-      "financial": "Financial Performance",
-      "strategy": "Business Strategy",
-      "leadership": "Leadership & Human Systems"
+  "contactForm": {
+    "header": {
+      "label": "Contact",
+      "title": "Request an on-site strategic meeting. Share the details below and our team will contact you to arrange a tailored discussion at your premises."
     },
-    "industries": {
-      "manufacturing": "Manufacturing & Industrial",
-      "construction": "Construction & Infrastructure",
-      "energy": "Energy & Utilities",
-      "healthcare": "Healthcare & Life Sciences",
-      "financial": "Financial Services",
-      "technology": "Technology & Software",
-      "professional": "Professional Services & Consulting",
-      "retail": "Retail, Consumer Goods & Distribution",
-      "logistics": "Logistics & Transportation",
-      "education": "Education & Training",
-      "hospitality": "Hospitality & Tourism",
-      "public": "Public Sector & Government",
-      "nonprofit": "Non-profit & Foundations",
-      "media": "Media & Creative Industries",
-      "other": "Other"
+    "sections": {
+      "org_details": "Organization details",
+      "primary_contact": "Primary contact",
+      "objectives": "Your objectives"
     },
-    "consent": "I consent to being contacted by Blu regarding my request.",
-    "submit": "Submit Application",
-    "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request..."
-  }
-}
-,
-
+    "form": {
+      "company_name": "Company name",
+      "industry": "Industry / Sector",
+      "industry_other": "If Other, please specify",
+      "industry_other_placeholder": "Enter your industry",
+      "select_option": "Select an option",
+      "size": "Company size",
+      "full_name": "Full name",
+      "role": "Role / Position",
+      "email": "Professional email address",
+      "phone": "Professional phone number",
+      "services_interest": "Which services are you interested in?",
+      "select_service": "Choose services...",
+      "selected": "Selected services",
+      "options": {
+        "governance": "Governance",
+        "financial": "Financial Performance",
+        "strategy": "Business Strategy",
+        "leadership": "Leadership & Human Systems"
+      },
+      "industries": {
+        "manufacturing": "Manufacturing & Industrial",
+        "construction": "Construction & Infrastructure",
+        "energy": "Energy & Utilities",
+        "healthcare": "Healthcare & Life Sciences",
+        "financial": "Financial Services",
+        "technology": "Technology & Software",
+        "professional": "Professional Services & Consulting",
+        "retail": "Retail, Consumer Goods & Distribution",
+        "logistics": "Logistics & Transportation",
+        "education": "Education & Training",
+        "hospitality": "Hospitality & Tourism",
+        "public": "Public Sector & Government",
+        "nonprofit": "Non-profit & Foundations",
+        "media": "Media & Creative Industries",
+        "other": "Other"
+      },
+      "consent": "I consent to being contacted by Blu regarding my request.",
+      "submit": "Submit Application",
+      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request..."
+    }
+  },
   "disclaimer1": {
     "starts_in": "The test starts in:",
     "test1": ["...", "..."],
     "test2": ["...", "..."],
-    "skip":"Skip"
+    "skip": "Skip"
   },
-"test1": [
-      "What this means",
-        "What to focus on",
-      "Direction"
-    
-    ]
-
-
-
-
+  "test1": [
+    "What this means",
+    "What to focus on",
+    "Direction"
+  ],
+  "privacy_section": {
+    "title": "Your Privacy is Our Priority",
+    "main_text": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential. We never disclose personal details, and your information is used only to support your wellness journey. You can trust us to protect your personal life with the utmost care and discretion.",
+    "paragraph1": "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services.",
+    "paragraph2": "We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure.",
+    "paragraph3": "Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law.",
+    "link_more": "Learn more about our Privacy & Confidentiality Policy",
+    "show_more": "Show More",
+    "show_less": "Show Less"
+  }
 }

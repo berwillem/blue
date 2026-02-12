@@ -6,12 +6,14 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-   
     fallbackLng: "en",
     debug: false,
     interpolation: { escapeValue: false },
     backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
     react: { useSuspense: true },
+    
+    // AJOUTE CETTE LIGNE ABSOLUMENT :
+    returnObjects: true 
   });
 
 export default i18n;
