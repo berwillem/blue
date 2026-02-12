@@ -36,6 +36,7 @@ const Contact = () => {
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
+        style={{marginBottom:"100px"}}
       >
         <header className="contact-header">
           <span className="contact-label">{t("contact.header.label")}</span>

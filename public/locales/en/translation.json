@@ -564,6 +564,7 @@
     "phone": "Professional phone number",
     "services_interest": "Which services are you interested in?",
   "select_service": "Choose services...",
+  "selected": "Selected services",
     "options": {
       "governance": "Governance",
       "financial": "Financial Performance",
@@ -597,7 +598,8 @@
   "disclaimer1": {
     "starts_in": "The test starts in:",
     "test1": ["...", "..."],
-    "test2": ["...", "..."]
+    "test2": ["...", "..."],
+    "skip":"Skip"
   },
 "test1": [
       "What this means",
