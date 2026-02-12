@@ -91,7 +91,7 @@ export default function Founder() {
         })
         .to(imageRef.current, {
           width: "100vw",
-          height: "100vh",
+          height: "100dvh",
           borderRadius: 0,
           bottom: 0,
           duration: 1,

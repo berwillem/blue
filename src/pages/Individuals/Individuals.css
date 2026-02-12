@@ -9,14 +9,14 @@
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   z-index: 1;
 }
 
 .intro-section {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +92,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: #ffffff;
   z-index: 20;
   display: flex;
@@ -141,7 +141,7 @@
 
 .leftSide {
   flex: 1;
-  height: 100vh;
+  height: 100dvh;
   position: sticky;
   top: 0;
   display: flex;
@@ -189,7 +189,7 @@
 }
 
 .scrollZone {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,9 +228,9 @@
   position: relative;
   z-index: 10;
   background-color: #ffffff;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
-  margin-top: -100vh; /* chevauchement du pinSpacing */
+  margin-top: -100dvh; /* chevauchement du pinSpacing */
   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
 }
 .buble{
@@ -266,7 +266,7 @@ right:1rem;}
   
   /* 1. On applique le type de snap sur le parent global sans bloquer la hauteur */
   .mainWrapper {
-    /* Supprime height: 100vh ici si présent */
+    /* Supprime height: 100dvh ici si présent */
     scroll-snap-type: y proximity; /* Proximity évite le blocage rigide */
     overflow-y: visible; 
   }

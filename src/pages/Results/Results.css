@@ -1,6 +1,6 @@
 .results-wrapper {
    background: linear-gradient(180deg, #00314d 0%, #002438 100%); /* Fond sombre */
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
