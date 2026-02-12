@@ -74,22 +74,26 @@ export default function Navbar({ links }: { links: NavLink[] }) {
     }, 300);
   };
 
+ // @ts-nocheck
+
   const serviceItems = [
-    { name: "Why we do what we do?", path: "/individuals", target: "section-0", target2: "content1" },
-    { name: "what we do?", path: "/individuals", target: "section-1", target2: "content2" },
-    { name: "How we do?", path: "/individuals", target: "section-2", target2: "content3" },
-    { name: "Take the test", path: "/individuals", target: "last", target2: "last" },
+    { name: t("navbar.services_indiv.why"), path: "/individuals", target: "section-0", target2: "content1" },
+    { name: t("navbar.services_indiv.what"), path: "/individuals", target: "section-1", target2: "content2" },
+    { name: t("navbar.services_indiv.how"), path: "/individuals", target: "section-2", target2: "content3" },
+    { name: t("navbar.services_indiv.test"), path: "/individuals", target: "last", target2: "last" },
   ];
 
   const serviceItems2 = [
-    { name: "Governance", path: "/corporates", target: "section-0", target2: "content1" },
-    { name: "Financial Performance & Value Creation", path: "/corporates", target: "section-1", target2: "content2" },
-    { name: "Business", path: "/corporates", target: "section-2", target2: "content3" },
-    { name: "Leadership & Human Systems", path: "/corporates", target: "section-3", target2: "content4" },
-    { name: "Organizational Change & Operational Excellence", path: "/corporates", target: "section-4", target2: "content5" },
-    { name: "Organizational Training", path: "/corporates", target: "section-5", target2: "content6" },
-    { name: "Coaching & Mentoring Programs for Executives", path: "/corporates", target: "section-6", target2: "content7" },
+    { name: t("navbar.services_corp.governance"), path: "/corporates", target: "section-0", target2: "content1" },
+    { name: t("navbar.services_corp.finance"), path: "/corporates", target: "section-1", target2: "content2" },
+    { name: t("navbar.services_corp.business"), path: "/corporates", target: "section-2", target2: "content3" },
+    { name: t("navbar.services_corp.leadership"), path: "/corporates", target: "section-3", target2: "content4" },
+    { name: t("navbar.services_corp.excellence"), path: "/corporates", target: "section-4", target2: "content5" },
+    { name: t("navbar.services_corp.training"), path: "/corporates", target: "section-5", target2: "content6" },
+    { name: t("navbar.services_corp.coaching"), path: "/corporates", target: "section-6", target2: "content7" },
   ];
+
+
 
   const serviceItemsAll = userType === "individuals" ? serviceItems : serviceItems2;
 

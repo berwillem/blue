@@ -14,6 +14,8 @@
   cursor: pointer;
   transition: all 1.2s ease;
   position: relative;
+  /* Ajout pour éviter tout débordement visuel pendant l'anime */
+  overflow: hidden; 
 }
 
 .side:hover {
@@ -23,81 +25,69 @@
 .content {
   text-align: center;
   padding: 2rem;
-  max-width: 90%;
+  /* Fixe la largeur sur l'écran pour stopper le "text break" au hover */
+  width: 45vw;
+  max-width: 600px;
+  z-index: 2;
+  /* Améliore la stabilité du rendu du texte */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .title {
   font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 600;
-  margin: 0 0 0rem 0;
+  margin: 0;
+  /* Force le titre à rester sur une ligne */
+  white-space: nowrap; 
+  scale: 1.2;
 }
 
 .subtitle {
   font-weight: 500;
   margin-top: 1rem;
   opacity: 0.9;
-}
-.title,
-.subtitle {
   scale: 1.2;
 }
+
 .and {
   font-weight: 400;
   opacity: 0.85;
 }
-.home_logo{
+
+.quote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  font-weight: 500;
+  text-align: center;
+  /* Largeur fixe par rapport à l'écran pour la citation */
+  width: 85vw;
+  max-width: 700px;
+  opacity: 0;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.home_logo {
   position: absolute;
   bottom: 30px;
   left: 40px;
   height: min-content;
-  z-index: 1;
+  z-index: 10;
 }
-.home_logo .logo{
 
+.home_logo .logo {
   font-size: 1.2rem;
   font-weight: 600;
   color: #00296f;
   cursor: pointer;
-
 }
-
 
 .logo span {
   color: #ffcc00;
-}
-/* Mobile / Tablet - stack vertically */
-@media (max-width: 1023px) {
-  .home_logo{
-  position: absolute;
-  top: 20px;
-  bottom: auto;
-  left: 20px;
-  height: min-content;
-  z-index: 1;
-}
-  .splitContainer {
-    flex-direction: column;
-  }
-
-  .side {
-    height: 50vh;
-  }
-
-  .side:hover {
-    flex: 1;
-  }
-
-  .title {
-    font-size: clamp(2.8rem, 10vw, 5rem);
-  }
-
-  .subtitle {
-    font-size: clamp(1.4rem, 5vw, 2.2rem);
-  }
-  .title,
-  .subtitle {
-    scale: 1.1;
-  }
 }
 
 /* Text colors */
@@ -111,24 +101,57 @@
   color: white;
 }
 
-.quote {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) !important;
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  font-weight: 500;
-  text-align: center;
-  width: 90%;
-
-  opacity: 0;
-  filter: blur(12px);
-}
-
 .individualsQuote {
   color: #ffff;
 }
 
 .corporateQuote {
   color: #00314d;
+}
+
+/* Mobile / Tablet - stack vertically */
+@media (max-width: 1024px) {
+  .home_logo {
+    position: absolute;
+    top: 20px;
+    bottom: auto;
+    left: 20px;
+    height: min-content;
+    z-index: 10;
+  }
+
+  .splitContainer {
+    flex-direction: column;
+  }
+
+  .side {
+    height: 50vh;
+  }
+
+  .side:hover {
+    flex: 1;
+  }
+
+  .content {
+    width: 90vw;
+    max-width: none;
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    white-space: normal;
+  }
+
+  .subtitle {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+  }
+
+  .title,
+  .subtitle {
+    scale: 1.1;
+  }
+
+  .quote {
+    width: 90vw;
+  }
 }

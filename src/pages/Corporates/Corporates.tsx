@@ -17,6 +17,7 @@ import { FiCalendar } from "react-icons/fi";
 import { useEffect } from "react";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
 import JoinUs from "../JoinUs/JoinUs";
+import Founder from "../../components/Founder/Founder";
 
 export default function Corporates() {
   const { t } = useTranslation();
@@ -69,7 +70,7 @@ useEffect(() => {
   
 
       <IntroCorp></IntroCorp>
-
+<Founder/>
       <div className="snap-group-container">
         {/* On crée 3 panneaux, mais chaque panneau connaît toute la DATA */}
         <div className="snap-panel" id="content1">

@@ -26,6 +26,9 @@ export default function Content({ DATA, DATA2 }) {
     const text = buttonText.toLowerCase();
 
     // 1. Metabolic Test
+    if (text.includes("méthode") || text.includes("method")) {
+      return "/method";
+    }
     if (text.includes("metabolic") || text.includes("métabolique")) {
       return "/disclaimer/metabolic-health";
     }
@@ -119,83 +122,75 @@ export default function Content({ DATA, DATA2 }) {
           <h4>{DATA2.title}</h4>
           <p>{DATA2.leftText}</p>
 
-          {DATA2?.moreContent?.paragraphs?.map((value, index) => (
-            <>
-              <motion.p
-                key={index}
-                className="right-description "
-                initial={false}
-                animate={{
-                  height: show ? "auto" : 0,
-                  opacity: show ? 1 : 0,
-                  marginBottom: show ? 15 : 0,
-                }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                style={{
-                  fontSize: "1.2rem",
-                  marginBottom: "8px",
-                  color: "#002b49",
-                  fontWeight: "bold",
-                }}
-              >
-                {" "}
-                {value.title}{" "}
-              </motion.p>
-              <motion.p
-                key={index}
-                className="right-description"
-                initial={false}
-                animate={{
-                  height: show ? "auto" : 0,
-                  opacity: show ? 1 : 0,
-                  marginBottom: show ? 15 : 0,
-                }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                style={{ overflow: "hidden" }}
-              >
-                {value.text}
-              </motion.p>
-            </>
-          ))}
+{DATA2?.moreContent?.paragraphs?.map((value, index) => (
+  <motion.div
+    key={index}
+    initial={false}
+    animate={{
+      height: show ? "auto" : 0,
+      opacity: show ? 1 : 0,
+      marginBottom: show ? 15 : 0,
+      display: show ? "block" : "none", // <--- C'est ça qui "supprime" l'élément du flex
+    }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+    style={{ overflow: "hidden" }}
+  >
+    <p
+      className="right-description"
+      style={{
+        fontSize: "1.2rem",
+        marginBottom: "8px",
+        color: "#002b49",
+        fontWeight: "bold",
+      }}
+    >
+      {value.title}
+    </p>
+    <p className="right-description">
+      {value.text}
+    </p>
+  </motion.div>
+))}
 
-          {DATA2?.moreContent?.lists?.map((list, idx) => (
-            <motion.div
-              key={idx}
-              className="dynamic-list-area"
-              initial={false}
-              animate={{
-                height: show ? "auto" : 0,
-                opacity: show ? 1 : 0,
-                marginBottom: show ? 20 : 0,
-              }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              style={{ overflow: "hidden" }}
-            >
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  marginBottom: "8px",
-                  color: "#002b49",
-                  fontWeight: "bold",
-                }}
-              >
-                {list.title}
-              </p>
-              <ul
-                style={{
-                  paddingLeft: "20px",
-                  fontSize: "0.85rem",
-                  listStyleType: "disc",
-                }}
-              >
-                {list.items.map((item, i) => (
-                  <li key={i} style={{ marginBottom: "5px" }}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+{DATA2?.moreContent?.lists?.map((list, idx) => (
+  <motion.div
+    key={idx}
+    className="dynamic-list-area"
+    initial={false}
+    animate={{
+      height: show ? "auto" : 0,
+      opacity: show ? 1 : 0,
+      marginBottom: show ? 20 : 0,
+      display: show ? "block" : "none", // <--- Idem ici pour les listes
+    }}
+    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+    style={{ overflow: "hidden" }}
+  >
+    <p
+      style={{
+        fontSize: "1.2rem",
+        marginBottom: "8px",
+        color: "#002b49",
+        fontWeight: "bold",
+      }}
+    >
+      {list.title}
+    </p>
+    <ul
+      style={{
+        paddingLeft: "20px",
+        fontSize: "0.85rem",
+        listStyleType: "disc",
+      }}
+    >
+      {list.items.map((item, i) => (
+        <li key={i} style={{ marginBottom: "5px" }}>
+          {item}
+        </li>
+      ))}
+    </ul>
+  </motion.div>
+))}
 
           <p
             className="know-more seeMore"
@@ -204,12 +199,12 @@ export default function Content({ DATA, DATA2 }) {
           >
             <span>{show ? t("show_less") : t("know_more")}</span>
           </p>
-
-          <div className="button-container">
+{DATA2?.button &&     <div className="button-container">
             <Link to={getButtonLink(DATA[currentIndex]?.button)}>
               <Button text={DATA2?.button} width="auto" />
             </Link>
-          </div>
+          </div>}
+      
         </motion.div>
 
         {/* --- DESKTOP --- */}
@@ -234,12 +229,12 @@ export default function Content({ DATA, DATA2 }) {
                   </motion.div>
                 </AnimatePresence>
               </div>
-
-              <motion.div layout className="button-container">
+{DATA[currentIndex]?.button &&    <motion.div layout className="button-container">
                 <Link to={getButtonLink(DATA[currentIndex]?.button)}>
                   <Button text={DATA[currentIndex]?.button} width="auto" />
                 </Link>
-              </motion.div>
+              </motion.div>}
+           
             </div>
 
             <div className="right">

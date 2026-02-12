@@ -85,13 +85,16 @@ transform: scaleY(0); /* Caché au départ */
   transform: translateY(-50%);
   width: 500px;
   opacity: 0.3; /* État initial */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .modus-texts.right { left: 60%; text-align: left; }
 .modus-texts.left { right: 60%; text-align: left; }
 
 .modus-texts h3 { margin: 0 0 10px 0; font-size: 1.5rem; color: #002b49; }
 .modus-container h1 { width: 100%; font-size: 1.8rem; color: #002b49; text-align: center; margin-bottom: 40px;}
-.modus-texts p { color: #666; line-height: 1.5;font-size: 0.8rem; }
+.modus-texts p { color: #666; line-height: 1.5;font-size: 0.8rem; width: 90%; }
 @media (max-width: 1280px)  {
   .modus-texts p { color: #666; line-height: 1;font-size: 0.7rem; }
   .modus-texts {
@@ -101,8 +104,8 @@ transform: scaleY(0); /* Caché au départ */
   text-align: center !important;
   opacity: 0.3; /* État initial */
 }
-.modus-texts.right { left: 55%; text-align: left; }
-.modus-texts.left { right: 55%; text-align: left; }
+.modus-texts.right { left: 50%; text-align: left; }
+.modus-texts.left { right: 50%; text-align: left; }
 }
 
 

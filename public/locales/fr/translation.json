@@ -9,7 +9,22 @@
     "services": "Services",
     "why_us": "Pourquoi Nous",
     "joinus": "Nous Rejoindre",
-    "privacy": "Confidentialité"
+    "privacy": "Confidentialité",
+    "services_indiv": {
+      "why": "Pourquoi faisons-nous ce que nous faisons ?",
+      "what": "Que faisons-nous ?",
+      "how": "Comment faisons-nous ?",
+      "test": "Passer le test"
+    },
+    "services_corp": {
+      "governance": "Gouvernance",
+      "finance": "Performance Financière & Création de Valeur",
+      "business": "Affaires",
+      "leadership": "Leadership & Systèmes Humains",
+      "excellence": "Changement Organisationnel & Excellence Opérationnelle",
+      "training": "Formation Organisationnelle",
+      "coaching": "Programmes de Coaching & Mentoring pour Cadres"
+    }
   },
   "individuals": {
     "diseases": {
@@ -359,6 +374,7 @@
     {
       "id": 7,
       "title": "Coaching et mentorat pour dirigeants",
+      "button": " Métabolique méthode",
       "leftText": "Propulsé par l'Executive Metabolic Method™, ce programme aide les dirigeants sous pression à restaurer leur énergie et leur clarté de décision.",
       "rightDesc": "Notre approche intègre performance métabolique et leadership pour offrir une résilience là où c'est le plus nécessaire.",
       "moreContent": {
@@ -387,8 +403,9 @@
     }
   ],
   "intro": {
-    "subtitle": "Quand la performance rencontre l'équilibre.",
-    "title": "Aligner l'énergie physique, la clarté mentale et\nl'action ciblée pour générer des résultats à\ntous les niveaux",
+    "subtitle": "Que faisons-nous chez Blu. :",
+      "title1": "Les organisations font appel à Blu pour restaurer l’alignement, la clarté décisionnelle et la cohérence dans l’exécution. ",
+    "title": "Nous accompagnons les cadres dirigeants et instances de gouvernance à bâtir une croissance rentable et durable, fondée sur la clarté stratégique et financière, l’efficacité et l’efficience organisationnelle, la sécurité psychologique et l’excellence dans l’exécution, et ce, dans un monde en constante évolution.",
     "button": "À propos du fondateur"
   },
   "modus": {
@@ -621,57 +638,6 @@
         "consent": "Je consens à être contacté par Blu concernant ma demande.",
         "submit_button": "Envoyer la demande",
         "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
-      }
-    },
-    "contactForm": {
-      "header": {
-        "label": "Contact",
-        "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
-      },
-      "sections": {
-        "org_details": "Détails de l'organisation",
-        "primary_contact": "Contact principal",
-        "objectives": "Vos objectifs"
-      },
-      "form": {
-        "company_name": "Nom de l'entreprise",
-        "industry": "Industrie / Secteur",
-        "industry_other": "Si autre, veuillez préciser",
-        "industry_other_placeholder": "Saisissez votre secteur",
-        "select_option": "Sélectionnez une option",
-        "size": "Taille de l'entreprise",
-        "full_name": "Nom complet",
-        "role": "Rôle / Poste",
-        "email": "Adresse e-mail professionnelle",
-        "phone": "Numéro de téléphone professionnel",
-        "services_interest": "Quels services vous intéressent ?",
-        "select_service": "Choisir les services...",
-        "options": {
-          "governance": "Gouvernance",
-          "financial": "Performance Financière",
-          "strategy": "Stratégie Commerciale",
-          "leadership": "Leadership & Systèmes Humains"
-        },
-        "industries": {
-          "manufacturing": "Industrie et Fabrication",
-          "construction": "Construction et Infrastructure",
-          "energy": "Énergie et Services Publics",
-          "healthcare": "Santé et Sciences de la Vie",
-          "financial": "Services Financiers",
-          "technology": "Technologie et Logiciels",
-          "professional": "Services Professionnels et Conseil",
-          "retail": "Vente au détail et Distribution",
-          "logistics": "Logistique et Transport",
-          "education": "Éducation et Formation",
-          "hospitality": "Hôtellerie et Tourisme",
-          "public": "Secteur Public et Gouvernement",
-          "nonprofit": "Associations et Fondations",
-          "media": "Médias et Industries Créatives",
-          "other": "Autre"
-        },
-        "consent": "Je consens à être contacté par Blu concernant ma demande.",
-        "submit": "Envoyer la demande",
-        "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande..."
       }
     },
     "disclaimer1": {
