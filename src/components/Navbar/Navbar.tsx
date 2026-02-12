@@ -210,7 +210,7 @@ export default function Navbar({ links }: { links: NavLink[] }) {
               <span onClick={() => changeLanguage("en")} className={currentLanguage === "en" ? "selected-language" : ""}>EN</span>
               <span onClick={() => changeLanguage("fr")} className={currentLanguage === "fr" ? "selected-language" : ""}>FR</span>
             </div>
-            <Link to={contactPath} className="contact-btn" onClick={() => setOpen(false)}>{t("navbar.contact")}</Link>
+            <Link to={contactPath} className="contact-btn" onClick={() => setOpen(false)}>{contactButton}</Link>
           </div>
         </ul>
 

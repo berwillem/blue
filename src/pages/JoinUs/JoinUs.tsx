@@ -9,6 +9,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { FiCalendar } from "react-icons/fi";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
+import Footer from "../../components/Footer/Footer";
 
 const fadeInVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -55,7 +56,7 @@ const JoinUs: React.FC = () => {
 
   return (
     <div className={styles.pageWrapper} id="joinus">
-      
+      <Navbar links={links}/>
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
@@ -167,6 +168,7 @@ const JoinUs: React.FC = () => {
       >
         <FiCalendar />  
       </Link>
+      <Footer/>
     </div>
   );
 };

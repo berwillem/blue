@@ -61,12 +61,11 @@ export default function Intro() {
       }
 
       // --- 2. ANIMATION D'ENTRÉE (Déclenchée AU SCROLL) ---
-      // Cette timeline ne se joue que quand on arrive à la section
       const entryTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%", // Se lance quand le haut de la section touche 80% de l'écran
-          once: true, // Ne se joue qu'une seule fois
+          start: "top 80%", 
+          once: true,       
         },
         defaults: { ease: "power4.out" },
       });
@@ -84,7 +83,6 @@ export default function Intro() {
       );
 
       // --- 3. TIMELINE PRINCIPALE (SCRUB) ---
-      // C'est l'animation qui suit le mouvement du doigt/souris
       const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -119,7 +117,6 @@ export default function Intro() {
         .to(revealWords, { opacity: 1, stagger: 0.02, duration: 0.5 }, "<0.5");
     }, containerRef);
 
-    // Recalcule les positions après un court instant
     const timer = setTimeout(() => ScrollTrigger.refresh(), 200);
 
     return () => {
@@ -133,7 +130,19 @@ export default function Intro() {
       <div className="intro-section">
         <h1 ref={textRef} className="headline" key={`h1-${i18n.language}`}>
           {renderSplitText("individuals.main_title", "word")}
-          <br />
+          
+          {/* Ajout de Radha ici */}
+          <span 
+            className="word" 
+            style={{ 
+              display: 'block', 
+              textAlign: 'right', 
+              fontSize: '0.5em', 
+              marginTop: '10px' 
+            }}
+          >
+            -Redha 
+          </span>
         </h1>
 
         <div ref={imageRef} className="imageCard">

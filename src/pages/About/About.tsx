@@ -62,7 +62,7 @@ export default function About() {
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
     { name: "services", path: "#" },
     { name: "privacy", path: "/privacy" },
-    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/corporates#joinus"  }
+    { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/joinus"  }
   ];
 
   return (

@@ -143,7 +143,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="up">
             <div className="left">
-              <h2 dangerouslySetInnerHTML={{ __html: t("footer.headline") }} />
+              <h2 dangerouslySetInnerHTML={{ __html: "Blu., the New Elite Code" }} />
             </div>
             <div className="right">
               <Link to={contactPath}>

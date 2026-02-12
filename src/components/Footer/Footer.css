@@ -31,6 +31,8 @@ footer .left {
   border-top: 0;
   border-right: 0;
   padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 footer .right {
   width: 40%;

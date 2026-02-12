@@ -101,25 +101,61 @@ export default function Content({ DATA, DATA2 }) {
           transition={{ duration: 0.8 }}
           className="mobile"
         >
-          <img src={DATA2.img} alt={DATA2.title} />
+          <motion.div
+            layout
+            initial={{ filter: "grayscale(100%)" }}
+            // CHANGEMENT ICI : On utilise whileInView pour déclencher au scroll
+            whileInView={{ filter: "grayscale(0%)" }}
+            // On s'assure que l'animation part quand 20% de l'image est visible
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 3,
+                      times: [0.3, 1],
+                      ease: "easeInOut",
+            }}
+          >
+            <img src={DATA2?.img} alt={DATA2?.title} />
+          </motion.div>
           <h4>{DATA2.title}</h4>
           <p>{DATA2.leftText}</p>
 
           {DATA2?.moreContent?.paragraphs?.map((value, index) => (
-            <motion.p
-              key={index}
-              className="right-description"
-              initial={false}
-              animate={{
-                height: show ? "auto" : 0,
-                opacity: show ? 1 : 0,
-                marginBottom: show ? 15 : 0,
-              }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              style={{ overflow: "hidden" }}
-            >
-              {value}
-            </motion.p>
+            <>
+              <motion.p
+                key={index}
+                className="right-description "
+                initial={false}
+                animate={{
+                  height: show ? "auto" : 0,
+                  opacity: show ? 1 : 0,
+                  marginBottom: show ? 15 : 0,
+                }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                style={{
+                  fontSize: "1.2rem",
+                  marginBottom: "8px",
+                  color: "#002b49",
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                {value.title}{" "}
+              </motion.p>
+              <motion.p
+                key={index}
+                className="right-description"
+                initial={false}
+                animate={{
+                  height: show ? "auto" : 0,
+                  opacity: show ? 1 : 0,
+                  marginBottom: show ? 15 : 0,
+                }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                style={{ overflow: "hidden" }}
+              >
+                {value.text}
+              </motion.p>
+            </>
           ))}
 
           {DATA2?.moreContent?.lists?.map((list, idx) => (
@@ -239,6 +275,20 @@ export default function Content({ DATA, DATA2 }) {
                       alt={DATA[currentIndex]?.title}
                     />
                   </motion.div>
+                  {DATA[currentIndex]?.title_rightDesc && (
+                    <motion.p
+                      layout
+                      className="right-description"
+                      style={{
+                        fontSize: "1.2rem",
+                        marginBottom: "8px",
+                        color: "#002b49",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {DATA[currentIndex]?.title_rightDesc}
+                    </motion.p>
+                  )}
 
                   <motion.p layout className="right-description">
                     {DATA[currentIndex]?.rightDesc}
@@ -256,16 +306,29 @@ export default function Content({ DATA, DATA2 }) {
                         >
                           {DATA[currentIndex]?.moreContent?.paragraphs?.map(
                             (p, i) => (
-                              <p
-                                key={i}
-                                className="right-description"
-                                style={{
-                                  fontSize: "0.9rem",
-                                  marginBottom: "15px",
-                                }}
-                              >
-                                {p}
-                              </p>
+                              <>
+                                <p
+                                  style={{
+                                    fontSize: "1.2rem",
+                                    marginBottom: "8px",
+                                    color: "#002b49",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  {" "}
+                                  {p.title}
+                                </p>
+                                <p
+                                  key={i}
+                                  className="right-description"
+                                  style={{
+                                    fontSize: "0.9rem",
+                                    marginBottom: "15px",
+                                  }}
+                                >
+                                  {p.text}
+                                </p>
+                              </>
                             ),
                           )}
                           {DATA[currentIndex]?.moreContent?.lists?.map(
