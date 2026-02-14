@@ -1,287 +1,185 @@
-footer {
+/* --- STRUCTURE DE BASE (Desktop) --- */
+.footer-main-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* S'assure de prendre l'écran */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  background-color: white;
-  position: relative;
-  z-index: 4;
-  transform-origin: center center;
-  will-change: transform;
+  justify-content: flex-end;
 }
-.footer-video-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  overflow: hidden;
-  pointer-events: none;
-}
-.footer-spacer {
-  height: 30vh;
-  background-color: var(--white-color);
-}
-.footer-video-wrapper video {
+
+.footer-video-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.footer-bg-video {
+  width: 100%;
+  height: 140%; /* Plus grande pour la parallaxe */
   object-fit: cover;
 }
-footer .left {
-  width: 60%;
-  border: 1px solid rgba(228, 228, 228, 1);
-  border-bottom: none;
-  border-top: 0;
-  border-right: 0;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-}
-footer .right {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0rem;
-}
-footer .right button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 0.8rem;
-  background-color: White;
-  border: 1px solid rgba(228, 228, 228, 1);
-  padding: 10px;
-  border-radius: 8px;
-  gap: 5px;
-  cursor: pointer;
-}
-footer .right button span:first-child {
-  height: 1rem;
-  width: 1rem;
-  background-color: grey;
-  border-radius: 2px;
-  transition: 0.5s ease-in;
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
 
 }
-footer .right button:hover span:first-child {
-  height: 1rem;
-  width: 1rem;
-  background-color:   #ffcc00;
-  border-radius: 2px;
-}
-footer .left h2 {
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 0.8rem;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: black;
+
+.footer-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: white;
+  transform: scale(0.85);
 }
 
-footer .up {
-  display: flex;
-  height: 10vh;
-}
-footer .down {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: auto;
-  flex-direction: column;
-}
-footer .down li:hover {
-  color: #0e3a4a;
-  cursor: pointer;
-}
-footer .down li {
-  color: black;
-}
-footer .down li:first-child {
-  color: black;
-  cursor:initial;
-}
-footer .down ul {
-  border: 1px solid rgba(228, 228, 228, 1);
-  border-bottom: none;
-  padding: 1rem;
-  flex: 1;
-  padding: 3rem;
-  height: 100% !important;
+.footer-content {
+  border-top: 1px solid rgba(228, 228, 228, 1);
   width: 100%;
 }
-footer .down ul:first-child {
+
+/* SECTION HAUTE (UP) */
+footer .up {
+  display: flex;
+  height: 120px;
+}
+
+footer .left {
+  width: 75%;
+  border-right: 1px solid rgba(228, 228, 228, 1);
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+}
+
+footer .right {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SECTION BASSE (DOWN) */
+footer .down {
+  display: flex;
+  width: 100%;
+}
+
+footer .footer-column {
+  flex: 1;
+  border: 1px solid rgba(228, 228, 228, 1);
+  border-bottom: none;
   border-left: none;
-  border-right: none;
+  padding: 3rem;
+  list-style: none;
 }
-footer .down ul:last-child {
-  border-right: none;
-  border-right: none;
-}
-footer .down .title {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-@media screen and (min-width: 768px) {
-  footer {
-    display: flex;
-    flex-direction: column;
-  }
-  footer .left {
-    width: 70%;
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-bottom: none;
-    border-right: none;
-    padding: 2rem;
-    border-right: 0;
-  }
-  footer .right {
-    width: 30%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  footer .right button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 1rem;
-    background-color: White;
-    border: 1px solid rgba(228, 228, 228, 1);
-    padding: 10px;
-    border-radius: 8px;
-    gap: 5px;
-  }
-  footer .right button span:first-child {
-    height: 1rem;
-    width: 1rem;
-    background-color: grey;
-    border-radius: 2px;
-  }
-  footer .left h2 {
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 1rem;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: black;
+footer .footer-column:last-child {
+  border-right: none;
+}
+
+/* TYPOGRAPHIE */
+footer .left h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+footer .title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+footer .link-item {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+footer .link-item:hover {
+  opacity: 1;
+  transform: translateX(5px);
+  color: #0e3a4a;
+}
+
+/* BOUTON CTA */
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid rgba(228, 228, 228, 1);
+  padding: 12px 24px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-button .dot {
+  width: 8px;
+  height: 8px;
+  background: #ffcc00;
+  border-radius: 50%;
+}
+
+.cta-button:hover {
+  background: #f9f9f9;
+  border-color: #bbb;
+}
+
+/* --- TABLETTE (max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+  footer .left { padding: 0 2rem; }
+  footer .footer-column { padding: 2rem; }
+  footer .title { font-size: 1.2rem; }
+}
+
+/* --- MOBILE (max-width: 767px) --- */
+@media screen and (max-width: 767px) {
+  .footer-main-container {
+    height: auto; /* Important : laisse le contenu respirer */
+    min-height: 100vh;
   }
 
   footer .up {
-    display: flex;
-    height: 10vh;
-  }
-  footer .down {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
     height: auto;
+    padding: 2rem 0;
   }
-  footer .down li {
-    color: black;
+
+  footer .left, footer .right {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    text-align: center;
+    justify-content: center;
   }
-  footer .down ul {
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-bottom: none;
-    padding: 1rem;
-    flex: 1;
-    padding: 3rem;
-    height: 100% !important;
-  }
-  footer .down ul:first-child {
-    border-left: none;
-    border-right: none;
-  }
-  footer .down ul:last-child {
-    border-right: none;
-    border-right: none;
-  }
-  footer .down .title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  footer {
-    display: flex;
+
+  footer .down {
     flex-direction: column;
   }
-  footer .left {
-    width: 80%;
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-bottom: none;
+
+  footer .footer-column {
+    width: 100%;
     border-right: none;
-    border-top: 0;
-    padding: 3rem;
-  }
-  footer .right {
-    width: 20%;
-
-    padding: 3rem;
-  }
-  footer .right button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 1.2rem;
-    background-color: White;
-    border: 1px solid rgba(228, 228, 228, 1);
-    padding: 10px;
-    border-radius: 8px;
-    gap: 5px;
-  }
-  footer .right button span:first-child {
-    height: 1rem;
-    width: 1rem;
-    background-color: grey;
-    border-radius: 2px;
-  }
-  footer .left h2 {
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 1.2rem;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: black;
-  }
-
-  footer .up {
-    display: flex;
-    height: 15vh;
-  }
-  footer .down {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 40vh;
-    flex-direction: row;
-  }
-  footer .down li {
-    color: black;
-  }
-  footer .down ul {
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-bottom: none;
-    padding: 1rem;
-    flex: 1;
-    padding: 3rem;
-    height: 100% !important;
-    width: auto;
-  }
-  footer .down ul:first-child {
     border-left: none;
-    border-right: none;
+    padding: 2rem 1.5rem;
   }
-  footer .down ul:last-child {
-    border-right: none;
-    border-right: none;
+
+  footer .footer-column:not(:last-child) {
+    border-bottom: 1px solid rgba(228, 228, 228, 1);
   }
-  footer .down .title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+  
+  .footer-bg-video {
+    height: 100%; /* Pas de parallaxe sur mobile pour éviter les saccades */
   }
 }
