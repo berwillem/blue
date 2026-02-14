@@ -4,7 +4,7 @@
     color: #002d40;
 
     margin: 0 auto;
-    padding: 8rem ;
+
     line-height: 1.5;
     margin-top: 50px;
 }
@@ -12,6 +12,8 @@
 /* Header */
 .contact-header {
     margin-bottom: 60px;
+    padding: 8rem;
+   
 }
 
 .contact-label {
@@ -127,7 +129,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .contact-container{
+   .contact-header,.contact-form{
            padding: 3rem 2rem ;
     }
     .contact-title {
