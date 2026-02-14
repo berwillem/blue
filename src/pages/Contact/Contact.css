@@ -6,3 +6,19 @@
   justify-content: center;
   padding-bottom: 50px;
 }
+.submit-button {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.submit-button.btn-loading {
+  background-color: #f4f4f4 !important;
+  color: #999 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Optionnel : un petit effet sur les inputs quand ils sont requis */
+input:invalid:focus {
+  border-bottom: 1px solid #ff4d4d;
+}

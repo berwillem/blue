@@ -553,6 +553,8 @@
   "show_less": "show less",
   "partner_form": {
     "overline": "Become a partner",
+    "success_msg": "Application sent successfully! Welcome to the ecosystem.",
+    "error_msg": "A technical error occurred. Please check your connection and try again.",
     "main_title": "This form is used solely to assess professional eligibility and alignment for a potential partnership with Blu. Completion of this form does not constitute acceptance, endorsement, or contractual commitment.",
     "sections": {
       "id": {
@@ -624,7 +626,7 @@
       "label": "Book an appointment",
       "title": "Share the details below and our team will contact you to arrange a tailored discussion at your convenience."
     },
-    "form": {
+"form": {
       "name_label": "First name, nickname, or pseudonym",
       "name_placeholder": "First name, nickname, or pseudonym",
       "phone_label": "Phone number",
@@ -633,7 +635,12 @@
       "concerns_placeholder": "Please avoid sharing detailed medical information. A brief description is sufficient.",
       "consent": "I consent to being contacted by Blu regarding my request.",
       "submit_button": "Submit Application",
-      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy."
+      "sending": "Submitting...",
+      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy.",
+      "success_msg": "Thank you! Your application has been successfully submitted.",
+      "error_msg": "An error occurred during submission. Please try again.",
+      "error_phone": "Please enter a valid phone number (at least 10 digits).",
+      "error_consent": "You must consent to being contacted to continue."
     }
   },
   "contactForm": {
@@ -646,7 +653,7 @@
       "primary_contact": "Primary contact",
       "objectives": "Your objectives"
     },
-    "form": {
+"form": {
       "company_name": "Company name",
       "industry": "Industry / Sector",
       "industry_other": "If Other, please specify",
@@ -685,7 +692,12 @@
       },
       "consent": "I consent to being contacted by Blu regarding my request.",
       "submit": "Submit Application",
-      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request..."
+      "sending": "Submitting...",
+      "disclaimer": "We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose. You may request access to, correction, or deletion of your data at any time thru email : contact@blu-path.com For more information, please consult our Privacy & Confidentiality Policy.",
+      "success_msg": "Application submitted successfully!",
+      "error_msg": "An error occurred. Please try again later.",
+      "error_phone": "Please enter a valid professional phone number.",
+      "error_consent": "Consent is required to submit the application."
     }
   },
   "disclaimer1": {

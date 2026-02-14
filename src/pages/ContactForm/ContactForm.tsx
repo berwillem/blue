@@ -7,15 +7,20 @@ import { useUserTypeStore } from '../../store/useUserTypeStore';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
   const { t } = useTranslation();
   const userType = useUserTypeStore((state) => state.userType);
   
-  // États pour le formulaire
   const [industry, setIndustry] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  const formRef = useRef();
   const dropdownRef = useRef(null);
 
   const links = [
@@ -33,7 +38,6 @@ const ContactForm = () => {
     { id: "leadership", label: t("contactForm.form.options.leadership") },
   ];
 
-  // Fermer le dropdown au clic extérieur
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
@@ -48,9 +52,61 @@ const ContactForm = () => {
     );
   };
 
+  // Validation du numéro de téléphone
+  const validatePhone = (phone) => {
+    const phoneRegex = /^\+?[0-9\s\-()]{10,20}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(formRef.current);
+    const phoneNumber = formData.get("user_phone");
+
+    // Validation Téléphone
+    if (!validatePhone(phoneNumber)) {
+      toast.error(t("contactForm.form.error_phone") || "Invalid phone number");
+      return;
+    }
+
+    setLoading(true);
+
+    // Identifiants EmailJS
+    const SERVICE_ID = "blu_path_service";
+    const TEMPLATE_ID = "template_vlwn1en";
+    const PUBLIC_KEY = "S2Yyu_AWtznhKDE3H";
+
+    // Préparation des services pour l'email (liste textuelle)
+    const servicesText = selectedServices.length > 0 
+      ? selectedServices.map(s => serviceOptions.find(opt => opt.id === s)?.label).join(", ")
+      : "Aucun service spécifié";
+
+    // On ajoute manuellement les services au formulaire pour EmailJS
+    const templateParams = {
+      ...Object.fromEntries(formData),
+      selected_services: servicesText,
+      page_type: "Corporate / B2B"
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        toast.success(t("contactForm.form.success_msg") || "Sent successfully!");
+        formRef.current.reset();
+        setSelectedServices([]);
+        setIndustry("");
+      })
+      .catch((err) => {
+        toast.error(t("contactForm.form.error_msg") || "An error occurred");
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <div className="contact-container">
       <Navbar links={links} />
+      <ToastContainer position="bottom-right" theme="dark" />
 
       <motion.main 
         initial={{ opacity: 0, y: 20 }} 
@@ -63,20 +119,19 @@ const ContactForm = () => {
           <h1 className="contact-title">{t("contactForm.header.title")}</h1>
         </header>
 
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
           
-          {/* SECTION 1: ORGANIZATION */}
           <section className="form-section">
             <h2 className="section-title">{t("contactForm.sections.org_details")}</h2>
             
             <div className="input-group">
               <label>{t("contactForm.form.company_name")}</label>
-              <input type="text" placeholder={t("contactForm.form.company_name")} />
+              <input type="text" name="company_name" placeholder={t("contactForm.form.company_name")} required />
             </div>
 
             <div className="input-group">
               <label>{t("contactForm.form.industry")}</label>
-              <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
+              <select name="industry" value={industry} onChange={(e) => setIndustry(e.target.value)} required>
                 <option value="">{t("contactForm.form.select_option")}</option>
                 <option value="manufacturing">{t("contactForm.form.industries.manufacturing")}</option>
                 <option value="construction">{t("contactForm.form.industries.construction")}</option>
@@ -84,14 +139,6 @@ const ContactForm = () => {
                 <option value="healthcare">{t("contactForm.form.industries.healthcare")}</option>
                 <option value="financial">{t("contactForm.form.industries.financial")}</option>
                 <option value="technology">{t("contactForm.form.industries.technology")}</option>
-                <option value="professional">{t("contactForm.form.industries.professional")}</option>
-                <option value="retail">{t("contactForm.form.industries.retail")}</option>
-                <option value="logistics">{t("contactForm.form.industries.logistics")}</option>
-                <option value="education">{t("contactForm.form.industries.education")}</option>
-                <option value="hospitality">{t("contactForm.form.industries.hospitality")}</option>
-                <option value="public">{t("contactForm.form.industries.public")}</option>
-                <option value="nonprofit">{t("contactForm.form.industries.nonprofit")}</option>
-                <option value="media">{t("contactForm.form.industries.media")}</option>
                 <option value="other">{t("contactForm.form.industries.other")}</option>
               </select>
             </div>
@@ -105,51 +152,47 @@ const ContactForm = () => {
                   className="input-group"
                 >
                   <label>{t("contactForm.form.industry_other")}</label>
-                  <input type="text" placeholder={t("contactForm.form.industry_other_placeholder")} />
+                  <input type="text" name="industry_custom" placeholder={t("contactForm.form.industry_other_placeholder")} required />
                 </motion.div>
               )}
             </AnimatePresence>
 
             <div className="input-group">
               <label>{t("contactForm.form.size")}</label>
-              <select>
+              <select name="company_size" required>
                 <option value="">{t("contactForm.form.select_option")}</option>
                 <option value="1-10">1–10</option>
                 <option value="11-50">11–50</option>
                 <option value="51-200">51–200</option>
-                <option value="201-500">201–500</option>
-                <option value="501-1000">501–1,000</option>
-                <option value="1000+">1,000+</option>
+                <option value="200+">200+</option>
               </select>
             </div>
           </section>
 
-          {/* SECTION 2: CONTACT */}
           <section className="form-section">
             <h2 className="section-title">{t("contactForm.sections.primary_contact")}</h2>
             <div className="input-row">
               <div className="input-group">
                 <label>{t("contactForm.form.full_name")}</label>
-                <input type="text" placeholder={t("contactForm.form.full_name")} />
+                <input type="text" name="user_name" placeholder={t("contactForm.form.full_name")} required />
               </div>
               <div className="input-group">
                 <label>{t("contactForm.form.role")}</label>
-                <input type="text" placeholder={t("contactForm.form.role")} />
+                <input type="text" name="user_role" placeholder={t("contactForm.form.role")} required />
               </div>
             </div>
             <div className="input-row">
               <div className="input-group">
                 <label>{t("contactForm.form.email")}</label>
-                <input type="email" placeholder={t("contactForm.form.email")} />
+                <input type="email" name="user_email" placeholder={t("contactForm.form.email")} required />
               </div>
               <div className="input-group">
                 <label>{t("contactForm.form.phone")}</label>
-                <input type="tel" placeholder={t("contactForm.form.phone")} />
+                <input type="tel" name="user_phone" placeholder={t("contactForm.form.phone")} required />
               </div>
             </div>
           </section>
 
-          {/* SECTION 3: OBJECTIVES (MULTISELECT) */}
           <section className="form-section">
             <h2 className="section-title">{t("contactForm.sections.objectives")}</h2>
             <div className="input-group">
@@ -192,14 +235,20 @@ const ContactForm = () => {
             </div>
             
             <div className="consent-group">
-              <input type="checkbox" id="consent" required />
+              <input type="checkbox" id="consent" name="consent" required />
               <label htmlFor="consent" className="consent-text">
                 {t("contactForm.form.consent")}
               </label>
             </div>
           </section>
 
-          <button type="submit" className="submit-button">{t("contactForm.form.submit")}</button>
+          <button 
+            type="submit" 
+            className={`submit-button ${loading ? "btn-loading" : ""}`}
+            disabled={loading}
+          >
+            {loading ? t("contactForm.form.sending") : t("contactForm.form.submit")}
+          </button>
           <p className="disclaimer">{t("contactForm.form.disclaimer")}</p>
         </form>
       </motion.main>

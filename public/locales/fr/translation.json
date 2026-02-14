@@ -552,6 +552,8 @@
     "show_less": "voir moins",
     "partner_form": {
       "overline": "Devenir partenaire",
+      "success_msg": "Candidature envoyée avec succès !",
+  "error_msg": "Une erreur est survenue lors de l'envoi.",
       "main_title": "Ce formulaire est utilisé exclusivement pour évaluer l'éligibilité professionnelle et l'alignement pour un partenariat potentiel avec Blu. Le fait de remplir ce formulaire ne constitue pas une acceptation, une approbation ou un engagement contractuel.",
       "sections": {
         "id": {
@@ -656,16 +658,21 @@
       "label": "Prendre rendez-vous",
       "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
     },
-    "form": {
-      "name_label": "Prénom, surnom ou pseudonyme",
-      "name_placeholder": "Prénom, surnom ou pseudonyme",
+"form": {
+      "name_label": "Prénom, nom ou pseudonyme",
+      "name_placeholder": "Prénom, nom ou pseudonyme",
       "phone_label": "Numéro de téléphone",
       "phone_placeholder": "Numéro de téléphone",
       "concerns_label": "Décrivez brièvement vos préoccupations",
-      "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description suffit.",
+      "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description est suffisante.",
       "consent": "Je consens à être contacté par Blu concernant ma demande.",
-      "submit_button": "Envoyer la demande",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
+      "submit_button": "Soumettre la candidature",
+      "sending": "Envoi en cours...",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
+      "success_msg": "Merci ! Votre message a été transmis avec succès.",
+      "error_msg": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+      "error_phone": "Veuillez entrer un numéro de téléphone valide (10 chiffres minimum).",
+      "error_consent": "Vous devez consentir à être contacté pour continuer."
     },
     "contactForm": {
       "header": {
@@ -677,47 +684,52 @@
         "primary_contact": "Contact principal",
         "objectives": "Vos objectifs"
       },
-      "form": {
-        "company_name": "Nom de l'entreprise",
-        "industry": "Industrie / Secteur",
-        "industry_other": "Si autre, veuillez préciser",
-        "industry_other_placeholder": "Saisissez votre secteur",
-        "select_option": "Sélectionnez une option",
-        "size": "Taille de l'entreprise",
-        "full_name": "Nom complet",
-        "role": "Rôle / Poste",
-        "email": "Adresse e-mail professionnelle",
-        "phone": "Numéro de téléphone professionnel",
-        "services_interest": "Quels services vous intéressent ?",
-        "select_service": "Choisir les services...",
-        "selected": "services Choisi",
-        "options": {
-          "governance": "Gouvernance",
-          "financial": "Performance Financière",
-          "strategy": "Stratégie Commerciale",
-          "leadership": "Leadership & Systèmes Humains"
-        },
-        "industries": {
-          "manufacturing": "Industrie et Fabrication",
-          "construction": "Construction et Infrastructure",
-          "energy": "Énergie et Services Publics",
-          "healthcare": "Santé et Sciences de la Vie",
-          "financial": "Services Financiers",
-          "technology": "Technologie et Logiciels",
-          "professional": "Services Professionnels et Conseil",
-          "retail": "Vente au détail et Distribution",
-          "logistics": "Logistique et Transport",
-          "education": "Éducation et Formation",
-          "hospitality": "Hôtellerie et Tourisme",
-          "public": "Secteur Public et Gouvernement",
-          "nonprofit": "Associations et Fondations",
-          "media": "Médias et Industries Créatives",
-          "other": "Autre"
-        },
-        "consent": "Je consens à être contacté par Blu concernant ma demande.",
-        "submit": "Envoyer la demande",
-        "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande..."
-      }
+ "form": {
+      "company_name": "Nom de l'entreprise",
+      "industry": "Secteur d'activité",
+      "industry_other": "Si autre, veuillez préciser",
+      "industry_other_placeholder": "Entrez votre secteur",
+      "select_option": "Sélectionnez une option",
+      "size": "Taille de l'entreprise",
+      "full_name": "Nom complet",
+      "role": "Rôle / Poste",
+      "email": "Adresse email professionnelle",
+      "phone": "Numéro de téléphone professionnel",
+      "services_interest": "Quels services vous intéressent ?",
+      "select_service": "Choisissez les services...",
+      "selected": "Services sélectionnés",
+      "options": {
+        "governance": "Gouvernance",
+        "financial": "Performance Financière",
+        "strategy": "Stratégie Commerciale",
+        "leadership": "Leadership & Systèmes Humains"
+      },
+      "industries": {
+        "manufacturing": "Industrie & Fabrication",
+        "construction": "Construction & Infrastructure",
+        "energy": "Énergie & Services Publics",
+        "healthcare": "Santé & Sciences de la vie",
+        "financial": "Services Financiers",
+        "technology": "Technologie & Logiciels",
+        "professional": "Services Professionnels & Conseil",
+        "retail": "Commerce, Biens de Consommation & Distribution",
+        "logistics": "Logistique & Transport",
+        "education": "Éducation & Formation",
+        "hospitality": "Hôtellerie & Tourisme",
+        "public": "Secteur Public & Gouvernement",
+        "nonprofit": "Association & Fondations",
+        "media": "Média & Industries Créatives",
+        "other": "Autre"
+      },
+      "consent": "Je consens à être contacté par Blu concernant ma demande.",
+      "submit": "Soumettre la candidature",
+      "sending": "Envoi en cours...",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
+      "success_msg": "Candidature soumise avec succès !",
+      "error_msg": "Une erreur est survenue. Veuillez réessayer plus tard.",
+      "error_phone": "Veuillez entrer un numéro de téléphone professionnel valide.",
+      "error_consent": "Le consentement est requis pour soumettre la candidature."
+    }
     },
     "test1": [
       "Ce que cela signifie",
