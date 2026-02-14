@@ -17,7 +17,7 @@
   color: #ccc;
 }
 .pageWrapper {
-  padding: 7rem;
+ 
   background-color: white;
   position: relative;
   z-index: 1;
@@ -25,6 +25,7 @@
 /* Sections */
 .sectionHeader {
   margin-bottom: 25px;
+  
 }
 .overline {
   font-size: 1.5rem;
@@ -44,6 +45,9 @@
 /* Hero */
 .hero {
   padding: 60px 0;
+}
+.mainContent{
+   padding: 7rem;
 }
 .details {
   padding: 60px 0 0 0;
@@ -127,6 +131,7 @@
   padding-top: 0;
   position: relative;
   z-index: 1;
+   padding: 7rem;
 }
 .ctaText {
   font-size: 1.5rem;
@@ -175,7 +180,7 @@
     display: none;
   }
 
-  .pageWrapper {
+  .mainContent,.footer {
     padding: 7rem 2rem;
   }
 
@@ -223,7 +228,7 @@
   .mainTitle {
     font-size: 1.5rem;
   }
-  .pageWrapper {
+  .mainContentm,.footer {
     padding: 7rem 2rem;
   }
 }

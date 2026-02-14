@@ -494,23 +494,76 @@
     "test": {
       "please_answer_all": "Veuillez répondre à toutes les questions avant de continuer."
     },
-    "disclaimer": {
-      "test1": [
-        "Ce test ne porte pas sur votre potentiel — il s'agit de la façon dont votre esprit fonctionne en ce moment.",
-        "Vous allez évaluer les aspects fondamentaux de votre fonctionnement mental actuel.",
-        "Répondez en fonction de votre comportement réel, pas de vos intentions. Cela ne devrait vous prendre que 5 minutes.",
-        "Avis de confidentialité : Ce test est anonyme.",
-        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
-      ],
-      "test2": [
-        "Rien ne s'effondre soudainement. Tout s'érode.",
-        "Ce test révèle ce qui est déjà en mouvement.",
-        "Cela ne devrait vous prendre que 5 minutes.",
-        "Avis de confidentialité : Ce test est anonyme.",
-        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
-      ]
+
+
+    "know_more": "en savoir plus",
+    "show_less": "voir moins",
+
+
+
+    "header": {
+      "label": "Prendre rendez-vous",
+      "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
     },
-    "privacy2": {
+"form": {
+      "name_label": "Prénom, nom ou pseudonyme",
+      "name_placeholder": "Prénom, nom ou pseudonyme",
+      "phone_label": "Numéro de téléphone",
+      "phone_placeholder": "Numéro de téléphone",
+      "concerns_label": "Décrivez brièvement vos préoccupations",
+      "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description est suffisante.",
+      "consent": "Je consens à être contacté par Blu concernant ma demande.",
+      "submit_button": "Soumettre la candidature",
+      "sending": "Envoi en cours...",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
+      "success_msg": "Merci ! Votre message a été transmis avec succès.",
+      "error_msg": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+      "error_phone": "Veuillez entrer un numéro de téléphone valide (10 chiffres minimum).",
+      "error_consent": "Vous devez consentir à être contacté pour continuer."
+    },
+
+    "test1": [
+      "Ce que cela signifie",
+      "Sur quoi se concentrer",
+      "Direction"
+    ]
+  },
+  
+  "privacy_section": {
+    "title": "Votre vie privée est notre priorité",
+    "main_text": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel. Nous ne divulguons jamais de détails personnels et vos informations sont utilisées uniquement pour accompagner votre parcours de bien-être. Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande discrétion.",
+    "paragraph1": "Nous prenons la protection de vos données personnelles au sérieux. Toute information que vous choisissez de partager avec nous est traitée avec soin, discrétion et confidentialité, et n'est traitée que pour des finalités légitimes et clairement définies liées à nos services professionnels.",
+    "paragraph2": "Nous ne divulguons pas de données personnelles à des tiers sans base juridique valable, et nous appliquons des mesures techniques et organisationnelles appropriées pour protéger vos informations contre tout accès non autorisé, utilisation abusive ou divulgation.",
+    "paragraph3": "Vos données personnelles sont traitées conformément au Règlement Général sur la Protection des Données (RGPD) de l'Union Européenne et aux obligations de confidentialité applicables. Vous pouvez exercer vos droits de protection des données à tout moment, conformément à la loi en vigueur.",
+    "link_more": "En savoir plus sur notre politique de confidentialité et de discrétion",
+    "show_more": "En savoir plus",
+    "show_less": "Afficher moins"
+  },
+      "contact": {
+      "nav": {
+        "home": "Accueil",
+        "about": "À propos",
+        "services": "Services",
+        "joinus": "Nous rejoindre",
+        "privacy": "Confidentialité"
+      },
+      "header": {
+        "label": "Prendre rendez-vous",
+        "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
+      },
+      "form": {
+        "name_label": "Prénom, surnom ou pseudonyme",
+        "name_placeholder": "Prénom, surnom ou pseudonyme",
+        "phone_label": "Numéro de téléphone",
+        "phone_placeholder": "Numéro de téléphone",
+        "concerns_label": "Décrivez brièvement vos préoccupations",
+        "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description suffit.",
+        "consent": "Je consens à être contacté par Blu concernant ma demande.",
+        "submit_button": "Envoyer la demande",
+        "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
+      }
+    },
+        "privacy2": {
       "hero_title": "Politique de Confidentialité",
       "last_updated": "Dernière mise à jour",
       "contact_text": "Pour toute question concernant la vie privée ou la protection des données :",
@@ -548,9 +601,64 @@
         }
       }
     },
-    "know_more": "en savoir plus",
-    "show_less": "voir moins",
-    "partner_form": {
+        "contactForm": {
+      "header": {
+        "label": "Contact",
+        "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
+      },
+      "sections": {
+        "org_details": "Détails de l'organisation",
+        "primary_contact": "Contact principal",
+        "objectives": "Vos objectifs"
+      },
+ "form": {
+      "company_name": "Nom de l'entreprise",
+      "industry": "Secteur d'activité",
+      "industry_other": "Si autre, veuillez préciser",
+      "industry_other_placeholder": "Entrez votre secteur",
+      "select_option": "Sélectionnez une option",
+      "size": "Taille de l'entreprise",
+      "full_name": "Nom complet",
+      "role": "Rôle / Poste",
+      "email": "Adresse email professionnelle",
+      "phone": "Numéro de téléphone professionnel",
+      "services_interest": "Quels services vous intéressent ?",
+      "select_service": "Choisissez les services...",
+      "selected": "Services sélectionnés",
+      "options": {
+        "governance": "Gouvernance",
+        "financial": "Performance Financière",
+        "strategy": "Stratégie Commerciale",
+        "leadership": "Leadership & Systèmes Humains"
+      },
+      "industries": {
+        "manufacturing": "Industrie & Fabrication",
+        "construction": "Construction & Infrastructure",
+        "energy": "Énergie & Services Publics",
+        "healthcare": "Santé & Sciences de la vie",
+        "financial": "Services Financiers",
+        "technology": "Technologie & Logiciels",
+        "professional": "Services Professionnels & Conseil",
+        "retail": "Commerce, Biens de Consommation & Distribution",
+        "logistics": "Logistique & Transport",
+        "education": "Éducation & Formation",
+        "hospitality": "Hôtellerie & Tourisme",
+        "public": "Secteur Public & Gouvernement",
+        "nonprofit": "Association & Fondations",
+        "media": "Média & Industries Créatives",
+        "other": "Autre"
+      },
+      "consent": "Je consens à être contacté par Blu concernant ma demande.",
+      "submit": "Soumettre la candidature",
+      "sending": "Envoi en cours...",
+      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
+      "success_msg": "Candidature soumise avec succès !",
+      "error_msg": "Une erreur est survenue. Veuillez réessayer plus tard.",
+      "error_phone": "Veuillez entrer un numéro de téléphone professionnel valide.",
+      "error_consent": "Le consentement est requis pour soumettre la candidature."
+    }
+    },
+        "partner_form": {
       "overline": "Devenir partenaire",
       "success_msg": "Candidature envoyée avec succès !",
   "error_msg": "Une erreur est survenue lors de l'envoi.",
@@ -618,31 +726,7 @@
       "submit": "Soumettre la candidature",
       "final_note": "Les candidatures sont examinées individuellement."
     },
-    "contact": {
-      "nav": {
-        "home": "Accueil",
-        "about": "À propos",
-        "services": "Services",
-        "joinus": "Nous rejoindre",
-        "privacy": "Confidentialité"
-      },
-      "header": {
-        "label": "Prendre rendez-vous",
-        "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
-      },
-      "form": {
-        "name_label": "Prénom, surnom ou pseudonyme",
-        "name_placeholder": "Prénom, surnom ou pseudonyme",
-        "phone_label": "Numéro de téléphone",
-        "phone_placeholder": "Numéro de téléphone",
-        "concerns_label": "Décrivez brièvement vos préoccupations",
-        "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description suffit.",
-        "consent": "Je consens à être contacté par Blu concernant ma demande.",
-        "submit_button": "Envoyer la demande",
-        "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
-      }
-    },
-    "disclaimer1": {
+        "disclaimer1": {
       "starts_in": "Le test commence dans :",
       "test1": [
         "...",
@@ -654,99 +738,20 @@
       ],
       "skip": "Passer"
     },
-    "header": {
-      "label": "Prendre rendez-vous",
-      "title": "Partagez vos coordonnées ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure à votre convenance."
-    },
-"form": {
-      "name_label": "Prénom, nom ou pseudonyme",
-      "name_placeholder": "Prénom, nom ou pseudonyme",
-      "phone_label": "Numéro de téléphone",
-      "phone_placeholder": "Numéro de téléphone",
-      "concerns_label": "Décrivez brièvement vos préoccupations",
-      "concerns_placeholder": "Veuillez éviter de partager des informations médicales détaillées. Une brève description est suffisante.",
-      "consent": "Je consens à être contacté par Blu concernant ma demande.",
-      "submit_button": "Soumettre la candidature",
-      "sending": "Envoi en cours...",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
-      "success_msg": "Merci ! Votre message a été transmis avec succès.",
-      "error_msg": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
-      "error_phone": "Veuillez entrer un numéro de téléphone valide (10 chiffres minimum).",
-      "error_consent": "Vous devez consentir à être contacté pour continuer."
-    },
-    "contactForm": {
-      "header": {
-        "label": "Contact",
-        "title": "Demander une réunion stratégique sur site. Partagez les détails ci-dessous et notre équipe vous contactera pour organiser une discussion sur mesure dans vos locaux."
-      },
-      "sections": {
-        "org_details": "Détails de l'organisation",
-        "primary_contact": "Contact principal",
-        "objectives": "Vos objectifs"
-      },
- "form": {
-      "company_name": "Nom de l'entreprise",
-      "industry": "Secteur d'activité",
-      "industry_other": "Si autre, veuillez préciser",
-      "industry_other_placeholder": "Entrez votre secteur",
-      "select_option": "Sélectionnez une option",
-      "size": "Taille de l'entreprise",
-      "full_name": "Nom complet",
-      "role": "Rôle / Poste",
-      "email": "Adresse email professionnelle",
-      "phone": "Numéro de téléphone professionnel",
-      "services_interest": "Quels services vous intéressent ?",
-      "select_service": "Choisissez les services...",
-      "selected": "Services sélectionnés",
-      "options": {
-        "governance": "Gouvernance",
-        "financial": "Performance Financière",
-        "strategy": "Stratégie Commerciale",
-        "leadership": "Leadership & Systèmes Humains"
-      },
-      "industries": {
-        "manufacturing": "Industrie & Fabrication",
-        "construction": "Construction & Infrastructure",
-        "energy": "Énergie & Services Publics",
-        "healthcare": "Santé & Sciences de la vie",
-        "financial": "Services Financiers",
-        "technology": "Technologie & Logiciels",
-        "professional": "Services Professionnels & Conseil",
-        "retail": "Commerce, Biens de Consommation & Distribution",
-        "logistics": "Logistique & Transport",
-        "education": "Éducation & Formation",
-        "hospitality": "Hôtellerie & Tourisme",
-        "public": "Secteur Public & Gouvernement",
-        "nonprofit": "Association & Fondations",
-        "media": "Média & Industries Créatives",
-        "other": "Autre"
-      },
-      "consent": "Je consens à être contacté par Blu concernant ma demande.",
-      "submit": "Soumettre la candidature",
-      "sending": "Envoi en cours...",
-      "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.",
-      "success_msg": "Candidature soumise avec succès !",
-      "error_msg": "Une erreur est survenue. Veuillez réessayer plus tard.",
-      "error_phone": "Veuillez entrer un numéro de téléphone professionnel valide.",
-      "error_consent": "Le consentement est requis pour soumettre la candidature."
+        "disclaimer": {
+      "test1": [
+        "Ce test ne porte pas sur votre potentiel — il s'agit de la façon dont votre esprit fonctionne en ce moment.",
+        "Vous allez évaluer les aspects fondamentaux de votre fonctionnement mental actuel.",
+        "Répondez en fonction de votre comportement réel, pas de vos intentions. Cela ne devrait vous prendre que 5 minutes.",
+        "Avis de confidentialité : Ce test est anonyme.",
+        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+      ],
+      "test2": [
+        "Rien ne s'effondre soudainement. Tout s'érode.",
+        "Ce test révèle ce qui est déjà en mouvement.",
+        "Cela ne devrait vous prendre que 5 minutes.",
+        "Avis de confidentialité : Ce test est anonyme.",
+        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+      ]
     }
-    },
-    "test1": [
-      "Ce que cela signifie",
-      "Sur quoi se concentrer",
-      "Direction"
-    ]
-  },
-  
-  "privacy_section": {
-    "title": "Votre vie privée est notre priorité",
-    "main_text": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel. Nous ne divulguons jamais de détails personnels et vos informations sont utilisées uniquement pour accompagner votre parcours de bien-être. Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande discrétion.",
-    "paragraph1": "Nous prenons la protection de vos données personnelles au sérieux. Toute information que vous choisissez de partager avec nous est traitée avec soin, discrétion et confidentialité, et n'est traitée que pour des finalités légitimes et clairement définies liées à nos services professionnels.",
-    "paragraph2": "Nous ne divulguons pas de données personnelles à des tiers sans base juridique valable, et nous appliquons des mesures techniques et organisationnelles appropriées pour protéger vos informations contre tout accès non autorisé, utilisation abusive ou divulgation.",
-    "paragraph3": "Vos données personnelles sont traitées conformément au Règlement Général sur la Protection des Données (RGPD) de l'Union Européenne et aux obligations de confidentialité applicables. Vous pouvez exercer vos droits de protection des données à tout moment, conformément à la loi en vigueur.",
-    "link_more": "En savoir plus sur notre politique de confidentialité et de discrétion",
-    "show_more": "En savoir plus",
-    "show_less": "Afficher moins"
-  }
-
 }
