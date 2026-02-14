@@ -122,6 +122,7 @@ nav .mobile-nav-links {
 
   z-index: 2;
   box-sizing: border-box;
+  overflow: auto;
 }
 nav .mobile-nav-links li {
   list-style: none;
