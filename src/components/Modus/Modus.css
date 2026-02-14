@@ -7,6 +7,9 @@
   background-color: white; /* Force le fond pour ne pas voir la section précédente par transparence */
   position: relative;
   z-index: 2; /* S'assure de passer au dessus des sections snap-panel */
+  height: 100dvh !important;
+  min-height: auto !important;
+    justify-content: center;
 }
 
 /* Le reste du CSS ne change pas, mais assure-toi que .snap-panel n'a pas d'overflow caché 
@@ -22,6 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 0; /* On gère l'espace via la hauteur de la ligne */
+
 }
 
 .modus-step {
