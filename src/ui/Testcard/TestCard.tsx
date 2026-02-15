@@ -14,7 +14,8 @@ export default function TestCard({ link, img, title, desc }: TestCardProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="testCard-container">
+    <Link  to={`/disclaimer/${link}`}>
+        <div className="testCard-container">
       <img src={img} alt={title} />
       <h1>{title}</h1>
       <p>{desc}</p>
@@ -22,5 +23,7 @@ export default function TestCard({ link, img, title, desc }: TestCardProps) {
         {t("last.button")}
       </Link>
     </div>
+    </Link>
+
   );
 }

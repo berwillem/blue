@@ -5,7 +5,7 @@
     "corporates": "Corporates",
     "about": "About",
     "contact": "Book a meeting",
-    "contact2": "Book a Conversation",
+    "contact2": "First Conversation",
     "services": "Services",
     "why_us": "Why Us",
     "joinus": "Join us",
@@ -14,6 +14,7 @@
       "why": "Why we do what we do?",
       "what": "What we do?",
       "how": "How we do?",
+      "privacy": "Your Privacy is Our Priority",
       "test": "Take the test"
     },
     "services_corp": {
@@ -47,7 +48,7 @@
     "sections": [
       {
         "id": 1,
-        "title": "Why we do what we do?",
+        "title": "what we do?",
         "button": "Start a metabolic test",
         "leftText": "Executive Metabolic Method™ for high performers and achievers. Performance, Discipline, and Purpose — The New Elite Code.",
         "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
@@ -81,8 +82,8 @@
       },
       {
         "id": 2,
-        "title": "what we do?",
-        "button": "Start a metabolic test",
+        "title": "How we do?",
+        "button": "Personal Capacity test",
         "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health.",
         "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
         "moreContent": {
@@ -96,8 +97,8 @@
       },
       {
         "id": 3,
-        "title": "How we do?",
-        "button": "Personal Capacity test",
+        "title": "Your Privacy is Our Priority",
+        "button": "Learn more about our Privacy & Confidentiality Policy",
         "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
@@ -500,15 +501,13 @@
       "This test is not about your potential — it’s about how your mind is functioning right now.",
       "You’ll assess the core aspects of your current mental functioning.",
       "Answer based on your current behavior, not your intentions. This should only take about 5 minutes of your time.",
-      "Privacy Notice: This test is anonymous.",
-      "No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
+      "Privacy Notice: This test is anonymous. No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     ],
     "test2": [
       "Nothing fails suddenly. It erodes.",
       "This test reveals what’s already in motion.",
       "This should only take about 5 minutes of your time.",
-      "Privacy Notice: This test is anonymous.",
-      "No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
+      "Privacy Notice: This test is anonymous. No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     ]
   },
   "privacy2": {

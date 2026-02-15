@@ -255,7 +255,14 @@ background-color:#0e3a4a;
 }
 
 
-/* --- MOBILE UNIQUEMENT --- */
+/* --- Tablette --- */
+@media (max-width: 1024px) {
+    .buble{
+    display: flex;
+  position: fixed;
+bottom: 1rem;
+right:1rem;}
+}
 /* --- MOBILE --- */
 @media (max-width: 768px) {
   .buble{

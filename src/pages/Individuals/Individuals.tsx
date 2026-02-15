@@ -67,7 +67,7 @@ export default function Individuals() {
           <Content DATA={DATA} DATA2={DATA[2]} />
         </div>
       </div>
-      <PrivacySection />
+
       <Last />
       <JoinUsCompo />
       <Footer />

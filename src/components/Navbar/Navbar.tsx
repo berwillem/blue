@@ -77,9 +77,10 @@ export default function Navbar({ links }: { links: NavLink[] }) {
  // @ts-nocheck
 
   const serviceItems = [
-    { name: t("navbar.services_indiv.why"), path: "/individuals", target: "section-0", target2: "content1" },
-    { name: t("navbar.services_indiv.what"), path: "/individuals", target: "section-1", target2: "content2" },
-    { name: t("navbar.services_indiv.how"), path: "/individuals", target: "section-2", target2: "content3" },
+    { name: t("navbar.services_indiv.why"), path: "/individuals", target: "why", target2: "why" },
+    { name: t("navbar.services_indiv.what"), path: "/individuals", target: "section-0", target2: "content1" },
+    { name: t("navbar.services_indiv.how"), path: "/individuals", target: "section-1", target2: "content2" },
+    { name: t("navbar.services_indiv.privacy"), path: "/individuals", target: "section-2", target2: "content3" },
     { name: t("navbar.services_indiv.test"), path: "/individuals", target: "last", target2: "last" },
   ];
 

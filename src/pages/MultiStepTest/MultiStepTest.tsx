@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useState, useMemo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContainer } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,6 +11,7 @@ import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
 
 import "./MultistepTest.css";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 const TESTS_MAP = {
   "personal-capacity": personalCapacityTest,
@@ -37,7 +38,7 @@ export default function MultiStepTest() {
   const testId = pathname.split("/").pop();
   const testConfig = TESTS_MAP[testId];
   const { saveResults } = useTestResultsStore();
-
+const userType = useUserTypeStore((state) => state.userType);
   if (!testConfig) return <p>Test not found</p>;
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -178,12 +179,18 @@ export default function MultiStepTest() {
             Previous
           </button>
         )}
+       
 
         {currentStep < steps.length - 1 ? (
           <button className="nav-btn" onClick={handleNext}>Next</button>
         ) : (
           <button className="nav-btn primary" onClick={handleFinish}>Finish</button>
         )}
+            <Link to={userType=="individuals" ? "/individuals": "/corporates"}>
+            <button className="nav-btn">
+            {lang === "fr" ? "Annuler" : "Cancel"}
+          </button>
+           </Link>
       </div>
     </div>
   );

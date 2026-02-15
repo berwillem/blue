@@ -129,6 +129,7 @@ footer .link-item:hover {
   height: 8px;
   background: #ffcc00;
   border-radius: 50%;
+  min-width: 8px;
 }
 
 .cta-button:hover {

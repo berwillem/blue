@@ -27,6 +27,7 @@ letter-spacing: 0%;
   border-radius: 50%;
   margin: 0;
       transition: 0.4s ease-in-out;
+        min-width: 8px;
  
 }
 .action-button:hover{
@@ -42,6 +43,7 @@ border: 1px solid rgba(255, 204, 0, 1);
   background-color: var(--primary-color);
   border-radius: 50%;
   margin: 0;
+    min-width: 8px;
  
 }
 

@@ -163,6 +163,7 @@ export default function Intro() {
         ref={whyRef}
         className="why-overlay"
         key={`why-${i18n.language}`}
+        id="why"
       >
         <span className="smallTitle">{t("individuals.why")}</span>
         <div className="longText">
