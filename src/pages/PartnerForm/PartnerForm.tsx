@@ -29,9 +29,9 @@ const PartnerForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
-    const SERVICE_ID = "blu_path_service";
-    const TEMPLATE_ID = "template_partner_join"; // Crée un nouveau template pour les partenaires
-    const PUBLIC_KEY = "S2Yyu_AWtznhKDE3H";
+    const SERVICE_ID = "blu_path_smtp";
+    const TEMPLATE_ID = "template_uyowadz"; // Crée un nouveau template pour les partenaires
+    const PUBLIC_KEY = "JgOBZ0eKJM4x52p3J";
 
     const formData = new FormData(formRef.current);
 
