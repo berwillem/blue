@@ -3,6 +3,9 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroImage from "../../assets/images/redaabout.png";
+import heroImage2 from "../../assets/images/bg2.png";
+import heroImage3 from "../../assets/images/bg4.png";
+
 import "./Intro.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -146,7 +149,8 @@ export default function Intro() {
         </h1>
 
         <div ref={imageRef} className="imageCard">
-          <img src={heroImage} alt="Intro" />
+          <img src={heroImage2} alt="Intro" className="background" />
+          <img src={heroImage3} alt="redah" className="redah" />
         </div>
 
         <div ref={buttonRef} className="btn-wrapper">

@@ -14,7 +14,13 @@
   align-items: center;
   gap: 1.5rem;
 }
-
+.sa{
+display: flex;
+align-items: center;
+font-size: 0.7rem;
+text-align: center;
+font-weight: 600;
+}
 .steps-progress {
   display: flex;
   gap: 8px;

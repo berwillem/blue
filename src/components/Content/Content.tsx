@@ -119,7 +119,12 @@ export default function Content({ DATA, DATA2 }) {
           >
             <img src={DATA2?.img} alt={DATA2?.title} />
           </motion.div>
-          <h4>{DATA2.title}</h4>
+<div className="content_text">
+        <div className="lines">
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
+            <h4>{DATA2.title}</h4>
           <p>{DATA2.leftText}</p>
 
 {DATA2?.moreContent?.paragraphs?.map((value, index) => (
@@ -130,7 +135,7 @@ export default function Content({ DATA, DATA2 }) {
       height: show ? "auto" : 0,
       opacity: show ? 1 : 0,
       marginBottom: show ? 15 : 0,
-      display: show ? "block" : "none", // <--- C'est ça qui "supprime" l'élément du flex
+      display: show ? "block" : "none", 
     }}
     transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
     style={{ overflow: "hidden" }}
@@ -193,18 +198,19 @@ export default function Content({ DATA, DATA2 }) {
 ))}
 
           <p
-            className="know-more seeMore"
+            className="know-more seeMore2"
             style={{ cursor: "pointer" }}
             onClick={() => setShow(!show)}
           >
             <span>{show ? t("show_less") : t("know_more")}</span>
           </p>
-{DATA2?.button &&     <div className="button-container">
+
+</div>
+      {DATA2?.button &&     <div className="button-container">
             <Link to={getButtonLink(DATA[currentIndex]?.button)}>
               <Button text={DATA2?.button} width="auto" />
             </Link>
           </div>}
-      
         </motion.div>
 
         {/* --- DESKTOP --- */}

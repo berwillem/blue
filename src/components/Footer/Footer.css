@@ -149,8 +149,12 @@ footer .link-item:hover {
   .footer-main-container {
     height: auto; /* Important : laisse le contenu respirer */
     min-height: 100vh;
+ 
   }
-
+.footer-content-wrapper{
+   transform: scale(0.7);
+   bottom: -100px;
+}
   footer .up {
     flex-direction: column;
     height: auto;

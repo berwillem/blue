@@ -38,7 +38,7 @@ export default function MultiStepTest() {
   const testId = pathname.split("/").pop();
   const testConfig = TESTS_MAP[testId];
   const { saveResults } = useTestResultsStore();
-const userType = useUserTypeStore((state) => state.userType);
+  const userType = useUserTypeStore((state) => state.userType);
   if (!testConfig) return <p>Test not found</p>;
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -95,8 +95,12 @@ const userType = useUserTypeStore((state) => state.userType);
       return;
     }
     const allQuestionsFlat = testConfig.steps.flatMap((step) => step.questions);
-    const skippedCount = allQuestionsFlat.filter((q) => answers[q.id] === null).length;
-    const answeredCount = allQuestionsFlat.filter((q) => typeof answers[q.id] === "number").length;
+    const skippedCount = allQuestionsFlat.filter(
+      (q) => answers[q.id] === null,
+    ).length;
+    const answeredCount = allQuestionsFlat.filter(
+      (q) => typeof answers[q.id] === "number",
+    ).length;
     const totalQuestions = allQuestionsFlat.length;
 
     const newResult = {
@@ -120,7 +124,10 @@ const userType = useUserTypeStore((state) => state.userType);
 
       <div className="steps-progress">
         {steps.map((_, index) => (
-          <div key={index} className={`step-bar ${index <= currentStep ? "active" : ""}`} />
+          <div
+            key={index}
+            className={`step-bar ${index <= currentStep ? "active" : ""}`}
+          />
         ))}
       </div>
 
@@ -137,18 +144,33 @@ const userType = useUserTypeStore((state) => state.userType);
             const isMissing = highlightErrors && answers[q.id] === undefined; // Vérifie si vide
 
             return (
-              <div 
-                key={q.id} 
+              <div
+                key={q.id}
                 className={`question-block ${isMissing ? "error-highlight" : ""}`}
-                style={isMissing ? { borderLeft: "4px solid #ff4d4d", paddingLeft: "15px", transition: "all 0.3s" } : {}}
+                style={
+                  isMissing
+                    ? {
+                        borderLeft: "4px solid #ff4d4d",
+                        paddingLeft: "15px",
+                        transition: "all 0.3s",
+                      }
+                    : {}
+                }
               >
-                <p className="question-text" style={isMissing ? { color: "#ff4d4d" } : {}}>
+                <p
+                  className="question-text"
+                  style={isMissing ? { color: "#ff4d4d" } : {}}
+                >
                   <span>{index + 1 + currentStep * questionsPerStep}. </span>
                   {q.text[lang]}
                 </p>
 
                 <div className="answers-row">
-                  {(testId === "metabolic-health" ? [0, 1, 2, 3, 4] : [1, 2, 3, 4, 5]).map((value) => (
+                  <span className="sa">Strongly disagree</span>
+                  {(testId === "metabolic-health"
+                    ? [0, 1, 2, 3, 4]
+                    : [1, 2, 3, 4, 5]
+                  ).map((value) => (
                     <button
                       key={value}
                       className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
@@ -157,7 +179,7 @@ const userType = useUserTypeStore((state) => state.userType);
                       {value}
                     </button>
                   ))}
-
+                  <span className="sa">Strongly agree</span>
                   {allowSkip && (
                     <button
                       className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
@@ -175,22 +197,31 @@ const userType = useUserTypeStore((state) => state.userType);
 
       <div className="navigation">
         {currentStep > 0 && (
-          <button className="nav-btn" onClick={() => { setHighlightErrors(false); setCurrentStep((s) => s - 1); }}>
+          <button
+            className="nav-btn"
+            onClick={() => {
+              setHighlightErrors(false);
+              setCurrentStep((s) => s - 1);
+            }}
+          >
             Previous
           </button>
         )}
-       
 
         {currentStep < steps.length - 1 ? (
-          <button className="nav-btn" onClick={handleNext}>Next</button>
+          <button className="nav-btn" onClick={handleNext}>
+            Next
+          </button>
         ) : (
-          <button className="nav-btn primary" onClick={handleFinish}>Finish</button>
+          <button className="nav-btn primary" onClick={handleFinish}>
+            Finish
+          </button>
         )}
-            <Link to={userType=="individuals" ? "/individuals": "/corporates"}>
-            <button className="nav-btn">
+        <Link to={userType == "individuals" ? "/individuals" : "/corporates"}>
+          <button className="nav-btn">
             {lang === "fr" ? "Annuler" : "Cancel"}
           </button>
-           </Link>
+        </Link>
       </div>
     </div>
   );

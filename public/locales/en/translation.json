@@ -703,7 +703,7 @@
     "starts_in": "The test starts in:",
     "test1": ["...", "..."],
     "test2": ["...", "..."],
-    "skip": "Skip"
+    "next": "Next"
   },
   "test1": [
     "What this means",
