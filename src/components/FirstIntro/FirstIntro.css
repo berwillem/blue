@@ -8,6 +8,7 @@
     padding-top: 230px;
   padding-left: 2rem;
   padding-right: 2rem;
+  margin-top: 100px;
   
 
 }
@@ -140,7 +141,7 @@ font-size: 1.2rem;
         grid-template-columns: repeat(3, 1fr);
           padding-left: 5rem;
   padding-right: 5rem; /* 3 colonnes sur tablette */
-
+  margin-top: 0px;
     }
     .card-intro {
         min-height: 160px;
@@ -158,6 +159,7 @@ font-size: 1.2rem;
         gap: 2rem;
           padding-left: 8rem;
   padding-right: 8rem;
+  
        
     }
 }
