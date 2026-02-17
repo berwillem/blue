@@ -20,7 +20,6 @@ export default function Intro() {
   const whyRef = useRef(null);
   const { t, i18n } = useTranslation();
 
-  // Helper pour splitter le texte proprement
   const renderSplitText = (textKey, className) => {
     return t(textKey)
       .split(" ")
@@ -32,7 +31,6 @@ export default function Intro() {
   };
 
   useLayoutEffect(() => {
-    // Nettoyage complet pour le changement de langue
     ScrollTrigger.getAll().forEach((st) => st.kill());
 
     const ctx = gsap.context(() => {
@@ -41,7 +39,6 @@ export default function Intro() {
       const titleWords = textRef.current?.querySelectorAll(".word");
       const revealWords = whyRef.current?.querySelectorAll(".revealWord");
 
-      // --- 1. ÉTATS INITIAUX (Tout est caché) ---
       gsap.set(imageRef.current, {
         position: "absolute",
         bottom: "0%",
@@ -56,14 +53,9 @@ export default function Intro() {
       gsap.set(buttonRef.current, { opacity: 0, y: 20 });
       gsap.set(whyRef.current, { y: "100%" });
 
-      if (titleWords) {
-        gsap.set(titleWords, { opacity: 0, y: 30, filter: "blur(15px)" });
-      }
-      if (revealWords) {
-        gsap.set(revealWords, { opacity: 0.15 });
-      }
+      if (titleWords) gsap.set(titleWords, { opacity: 0, y: 30, filter: "blur(15px)" });
+      if (revealWords) gsap.set(revealWords, { opacity: 0.15 });
 
-      // --- 2. ANIMATION D'ENTRÉE (Déclenchée AU SCROLL) ---
       const entryTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -75,17 +67,10 @@ export default function Intro() {
 
       entryTl.to(imageRef.current, { opacity: 1, duration: 1.2 }).to(
         titleWords,
-        {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          stagger: 0.02,
-          duration: 1,
-        },
+        { opacity: 1, y: 0, filter: "blur(0px)", stagger: 0.02, duration: 1 },
         "-=0.8",
       );
 
-      // --- 3. TIMELINE PRINCIPALE (SCRUB) ---
       const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -97,24 +82,12 @@ export default function Intro() {
         },
       });
 
+      // --- AJOUT CRUCIAL ICI ---
+      window.introTrigger = mainTl.scrollTrigger;
+
       mainTl
-        .to(textRef.current, {
-          opacity: 0,
-          y: -50,
-          filter: "blur(10px)",
-          duration: 1,
-        })
-        .to(
-          imageRef.current,
-          {
-            width: "100vw",
-            height: "100dvh",
-            borderRadius: 0,
-            bottom: 0,
-            duration: 1,
-          },
-          "<",
-        )
+        .to(textRef.current, { opacity: 0, y: -50, filter: "blur(10px)", duration: 1 })
+        .to(imageRef.current, { width: "100vw", height: "100dvh", borderRadius: 0, bottom: 0, duration: 1 }, "<")
         .to(buttonRef.current, { opacity: 1, y: 0, duration: 0.8 }, "<0.2")
         .to(whyRef.current, { y: "0%", duration: 1 }, "+=0.2")
         .to(revealWords, { opacity: 1, stagger: 0.02, duration: 0.5 }, "<0.5");
@@ -124,6 +97,7 @@ export default function Intro() {
 
     return () => {
       ctx.revert();
+      window.introTrigger = null;
       clearTimeout(timer);
     };
   }, [t, i18n.language]);
@@ -133,26 +107,12 @@ export default function Intro() {
       <div className="intro-section">
         <h1 ref={textRef} className="headline" key={`h1-${i18n.language}`}>
           {renderSplitText("individuals.main_title", "word")}
-          
-          {/* Ajout de Radha ici */}
-          <span 
-            className="word" 
-            style={{ 
-              display: 'block', 
-              textAlign: 'right', 
-              fontSize: '0.5em', 
-              marginTop: '10px' 
-            }}
-          >
-            -Redha 
-          </span>
+          <span className="word" style={{ display: 'block', textAlign: 'right', fontSize: '0.5em', marginTop: '10px' }}>-Redha</span>
         </h1>
-
         <div ref={imageRef} className="imageCard">
           <img src={heroImage2} alt="Intro" className="background" />
           <img src={heroImage3} alt="redah" className="redah" />
         </div>
-
         <div ref={buttonRef} className="btn-wrapper">
           <Link to="/about">
             <button className="founderBtn">
@@ -162,13 +122,7 @@ export default function Intro() {
           </Link>
         </div>
       </div>
-
-      <section
-        ref={whyRef}
-        className="why-overlay"
-        key={`why-${i18n.language}`}
-        id="why"
-      >
+      <section ref={whyRef} className="why-overlay" key={`why-${i18n.language}`} id="why">
         <span className="smallTitle">{t("individuals.why")}</span>
         <div className="longText">
           <p>{renderSplitText("individuals.whyp1", "revealWord")}</p>
