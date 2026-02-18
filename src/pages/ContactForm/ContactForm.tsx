@@ -1,34 +1,41 @@
 // @ts-nocheck
-import React, { useState, useRef, useEffect } from 'react';
-import './ContactForm.css';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import { useUserTypeStore } from '../../store/useUserTypeStore';
-import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useRef, useEffect } from "react";
+import "./ContactForm.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
+import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { incrementB2B } from "../../services/statsService";
 
 const ContactForm = () => {
   const { t } = useTranslation();
   const userType = useUserTypeStore((state) => state.userType);
-  
+
   const [industry, setIndustry] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   const formRef = useRef();
   const dropdownRef = useRef(null);
 
   const links = [
     { name: "home", path: "/" },
-    { name: "about", path: userType === "individuals" ? "/individuals" : "/corporates" },
+    {
+      name: "about",
+      path: userType === "individuals" ? "/individuals" : "/corporates",
+    },
     { name: "services", path: "#" },
     { name: "privacy", path: "/privacy" },
-    { name: "joinus", path: userType === "individuals" ? "/individuals#joinus" : "/joinus" }
+    {
+      name: "joinus",
+      path: userType === "individuals" ? "/individuals#joinus" : "/joinus",
+    },
   ];
 
   const serviceOptions = [
@@ -40,15 +47,16 @@ const ContactForm = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target))
+        setIsOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const toggleService = (id) => {
-    setSelectedServices(prev => 
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
+    setSelectedServices((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -58,13 +66,12 @@ const ContactForm = () => {
     return phoneRegex.test(phone);
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(formRef.current);
     const phoneNumber = formData.get("user_phone");
 
-    // Validation Téléphone
     if (!validatePhone(phoneNumber)) {
       toast.error(t("contactForm.form.error_phone") || "Invalid phone number");
       return;
@@ -72,35 +79,38 @@ const ContactForm = () => {
 
     setLoading(true);
 
-    // Identifiants EmailJS
     const SERVICE_ID = "blu_path_service";
     const TEMPLATE_ID = "template_vlwn1en";
     const PUBLIC_KEY = "S2Yyu_AWtznhKDE3H";
 
-    // Préparation des services pour l'email (liste textuelle)
-    const servicesText = selectedServices.length > 0 
-      ? selectedServices.map(s => serviceOptions.find(opt => opt.id === s)?.label).join(", ")
-      : "Aucun service spécifié";
+    const servicesText =
+      selectedServices.length > 0
+        ? selectedServices
+            .map((s) => serviceOptions.find((opt) => opt.id === s)?.label)
+            .join(", ")
+        : "Aucun service spécifié";
 
-    // On ajoute manuellement les services au formulaire pour EmailJS
     const templateParams = {
       ...Object.fromEntries(formData),
       selected_services: servicesText,
-      page_type: "Corporate / B2B"
+      page_type: "Corporate / B2B",
     };
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      .then(() => {
-        toast.success(t("contactForm.form.success_msg") || "Sent successfully!");
-        formRef.current.reset();
-        setSelectedServices([]);
-        setIndustry("");
-      })
-      .catch((err) => {
-        toast.error(t("contactForm.form.error_msg") || "An error occurred");
-        console.error(err);
-      })
-      .finally(() => setLoading(false));
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      incrementB2B().catch((err) => console.error("B2B stats error:", err));
+
+      toast.success(t("contactForm.form.success_msg") || "Sent successfully!");
+
+      formRef.current.reset();
+      setSelectedServices([]);
+      setIndustry("");
+    } catch (err) {
+      toast.error(t("contactForm.form.error_msg") || "An error occurred");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -108,11 +118,11 @@ const ContactForm = () => {
       <Navbar links={links} />
       <ToastContainer position="bottom-right" theme="dark" />
 
-      <motion.main 
-        initial={{ opacity: 0, y: 20 }} 
-        animate={{ opacity: 1, y: 0 }} 
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        style={{marginBottom:"100px"}}
+        style={{ marginBottom: "100px" }}
       >
         <header className="contact-header">
           <span className="contact-label">{t("contactForm.header.label")}</span>
@@ -120,39 +130,71 @@ const ContactForm = () => {
         </header>
 
         <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
-          
           <section className="form-section">
-            <h2 className="section-title">{t("contactForm.sections.org_details")}</h2>
-            
+            <h2 className="section-title">
+              {t("contactForm.sections.org_details")}
+            </h2>
+
             <div className="input-group">
               <label>{t("contactForm.form.company_name")}</label>
-              <input type="text" name="company_name" placeholder={t("contactForm.form.company_name")} required />
+              <input
+                type="text"
+                name="company_name"
+                placeholder={t("contactForm.form.company_name")}
+                required
+              />
             </div>
 
             <div className="input-group">
               <label>{t("contactForm.form.industry")}</label>
-              <select name="industry" value={industry} onChange={(e) => setIndustry(e.target.value)} required>
+              <select
+                name="industry"
+                value={industry}
+                onChange={(e) => setIndustry(e.target.value)}
+                required
+              >
                 <option value="">{t("contactForm.form.select_option")}</option>
-                <option value="manufacturing">{t("contactForm.form.industries.manufacturing")}</option>
-                <option value="construction">{t("contactForm.form.industries.construction")}</option>
-                <option value="energy">{t("contactForm.form.industries.energy")}</option>
-                <option value="healthcare">{t("contactForm.form.industries.healthcare")}</option>
-                <option value="financial">{t("contactForm.form.industries.financial")}</option>
-                <option value="technology">{t("contactForm.form.industries.technology")}</option>
-                <option value="other">{t("contactForm.form.industries.other")}</option>
+                <option value="manufacturing">
+                  {t("contactForm.form.industries.manufacturing")}
+                </option>
+                <option value="construction">
+                  {t("contactForm.form.industries.construction")}
+                </option>
+                <option value="energy">
+                  {t("contactForm.form.industries.energy")}
+                </option>
+                <option value="healthcare">
+                  {t("contactForm.form.industries.healthcare")}
+                </option>
+                <option value="financial">
+                  {t("contactForm.form.industries.financial")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.technology")}
+                </option>
+                <option value="other">
+                  {t("contactForm.form.industries.other")}
+                </option>
               </select>
             </div>
 
             <AnimatePresence>
               {industry === "other" && (
-                <motion.div 
+                <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   className="input-group"
                 >
                   <label>{t("contactForm.form.industry_other")}</label>
-                  <input type="text" name="industry_custom" placeholder={t("contactForm.form.industry_other_placeholder")} required />
+                  <input
+                    type="text"
+                    name="industry_custom"
+                    placeholder={t(
+                      "contactForm.form.industry_other_placeholder",
+                    )}
+                    required
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -170,49 +212,76 @@ const ContactForm = () => {
           </section>
 
           <section className="form-section">
-            <h2 className="section-title">{t("contactForm.sections.primary_contact")}</h2>
+            <h2 className="section-title">
+              {t("contactForm.sections.primary_contact")}
+            </h2>
             <div className="input-row">
               <div className="input-group">
                 <label>{t("contactForm.form.full_name")}</label>
-                <input type="text" name="user_name" placeholder={t("contactForm.form.full_name")} required />
+                <input
+                  type="text"
+                  name="user_name"
+                  placeholder={t("contactForm.form.full_name")}
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>{t("contactForm.form.role")}</label>
-                <input type="text" name="user_role" placeholder={t("contactForm.form.role")} required />
+                <input
+                  type="text"
+                  name="user_role"
+                  placeholder={t("contactForm.form.role")}
+                  required
+                />
               </div>
             </div>
             <div className="input-row">
               <div className="input-group">
                 <label>{t("contactForm.form.email")}</label>
-                <input type="email" name="user_email" placeholder={t("contactForm.form.email")} required />
+                <input
+                  type="email"
+                  name="user_email"
+                  placeholder={t("contactForm.form.email")}
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>{t("contactForm.form.phone")}</label>
-                <input type="tel" name="user_phone" placeholder={t("contactForm.form.phone")} required />
+                <input
+                  type="tel"
+                  name="user_phone"
+                  placeholder={t("contactForm.form.phone")}
+                  required
+                />
               </div>
             </div>
           </section>
 
           <section className="form-section">
-            <h2 className="section-title">{t("contactForm.sections.objectives")}</h2>
+            <h2 className="section-title">
+              {t("contactForm.sections.objectives")}
+            </h2>
             <div className="input-group">
               <label>{t("contactForm.form.services_interest")}</label>
               <div className="custom-multiselect" ref={dropdownRef}>
-                <div 
-                  className={`select-trigger ${isOpen ? "active" : ""}`} 
+                <div
+                  className={`select-trigger ${isOpen ? "active" : ""}`}
                   onClick={() => setIsOpen(!isOpen)}
                 >
                   <span className="placeholder">
-                    {selectedServices.length > 0 
+                    {selectedServices.length > 0
                       ? `${selectedServices.length} ${t("contactForm.form.selected")}`
                       : t("contactForm.form.select_service")}
                   </span>
-                  <ChevronDown size={18} className={`arrow ${isOpen ? "rotated" : ""}`} />
+                  <ChevronDown
+                    size={18}
+                    className={`arrow ${isOpen ? "rotated" : ""}`}
+                  />
                 </div>
 
                 <AnimatePresence>
                   {isOpen && (
-                    <motion.div 
+                    <motion.div
                       className="select-options"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -220,8 +289,8 @@ const ContactForm = () => {
                     >
                       {serviceOptions.map((opt) => (
                         <label key={opt.id} className="checkbox-item">
-                          <input 
-                            type="checkbox" 
+                          <input
+                            type="checkbox"
                             checked={selectedServices.includes(opt.id)}
                             onChange={() => toggleService(opt.id)}
                           />
@@ -233,7 +302,7 @@ const ContactForm = () => {
                 </AnimatePresence>
               </div>
             </div>
-            
+
             <div className="consent-group">
               <input type="checkbox" id="consent" name="consent" required />
               <label htmlFor="consent" className="consent-text">
@@ -242,12 +311,14 @@ const ContactForm = () => {
             </div>
           </section>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={`submit-button ${loading ? "btn-loading" : ""}`}
             disabled={loading}
           >
-            {loading ? t("contactForm.form.sending") : t("contactForm.form.submit")}
+            {loading
+              ? t("contactForm.form.sending")
+              : t("contactForm.form.submit")}
           </button>
           <p className="disclaimer">{t("contactForm.form.disclaimer")}</p>
         </form>
