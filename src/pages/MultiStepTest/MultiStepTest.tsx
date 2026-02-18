@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useState, useMemo } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContainer } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,9 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 import "./MultistepTest.css";
-import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 const TESTS_MAP = {
   "personal-capacity": personalCapacityTest,
@@ -39,11 +39,14 @@ export default function MultiStepTest() {
   const testConfig = TESTS_MAP[testId];
   const { saveResults } = useTestResultsStore();
   const userType = useUserTypeStore((state) => state.userType);
-  if (!testConfig) return <p>Test not found</p>;
 
+  // ÉTATS
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [highlightErrors, setHighlightErrors] = useState(false); // <-- NOUVEAU : État pour l'erreur
+  const [highlightErrors, setHighlightErrors] = useState(false);
+  const [showConfirmCancel, setShowConfirmCancel] = useState(false); // État Modale
+
+  if (!testConfig) return <p>Test not found</p>;
 
   const allowSkip = testId === "metabolic-health";
 
@@ -52,7 +55,7 @@ export default function MultiStepTest() {
       step.questions.map((q) => ({
         ...q,
         category: step.title,
-      })),
+      }))
     );
     return shuffleArray(flat);
   }, [testConfig.steps]);
@@ -75,7 +78,7 @@ export default function MultiStepTest() {
 
   const handleNext = () => {
     if (!isStepComplete()) {
-      setHighlightErrors(true); // Active le rouge sur les manquants
+      setHighlightErrors(true);
       toast.error(t("test.please_answer_all"), {
         position: "top-right",
         autoClose: 3000,
@@ -83,8 +86,7 @@ export default function MultiStepTest() {
       });
       return;
     }
-
-    setHighlightErrors(false); // Reset l'erreur pour la prochaine étape
+    setHighlightErrors(false);
     setCurrentStep((s) => s + 1);
     window.scrollTo(0, 0);
   };
@@ -95,12 +97,8 @@ export default function MultiStepTest() {
       return;
     }
     const allQuestionsFlat = testConfig.steps.flatMap((step) => step.questions);
-    const skippedCount = allQuestionsFlat.filter(
-      (q) => answers[q.id] === null,
-    ).length;
-    const answeredCount = allQuestionsFlat.filter(
-      (q) => typeof answers[q.id] === "number",
-    ).length;
+    const skippedCount = allQuestionsFlat.filter((q) => answers[q.id] === null).length;
+    const answeredCount = allQuestionsFlat.filter((q) => typeof answers[q.id] === "number").length;
     const totalQuestions = allQuestionsFlat.length;
 
     const newResult = {
@@ -118,9 +116,43 @@ export default function MultiStepTest() {
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
   };
 
+  const confirmCancelAction = () => {
+    const targetPath = userType === "individuals" ? "/individuals" : "/corporates";
+    navigate(targetPath);
+  };
+
   return (
     <div className="test-container">
       <ToastContainer />
+
+      {/* MODALE DE CONFIRMATION */}
+      <AnimatePresence>
+        {showConfirmCancel && (
+          <div className="modal-overlay">
+            <motion.div
+              className="confirm-modal"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+            >
+              <h3>{lang === "fr" ? "Abandonner le test ?" : "Quit the test?"}</h3>
+              <p>
+                {lang === "fr"
+                  ? "Votre progression actuelle sera perdue."
+                  : "Your current progress will be lost."}
+              </p>
+              <div className="modal-buttons">
+                <button className="nav-btn" onClick={() => setShowConfirmCancel(false)}>
+                  {lang === "fr" ? "Continuer" : "Resume"}
+                </button>
+                <button className="nav-btn danger" onClick={confirmCancelAction}>
+                  {lang === "fr" ? "Quitter" : "Quit"}
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <div className="steps-progress">
         {steps.map((_, index) => (
@@ -141,45 +173,32 @@ export default function MultiStepTest() {
           className="test-content"
         >
           {step.questions.map((q, index) => {
-            const isMissing = highlightErrors && answers[q.id] === undefined; // Vérifie si vide
-
+            const isMissing = highlightErrors && answers[q.id] === undefined;
             return (
               <div
                 key={q.id}
                 className={`question-block ${isMissing ? "error-highlight" : ""}`}
-                style={
-                  isMissing
-                    ? {
-                        borderLeft: "4px solid #ff4d4d",
-                        paddingLeft: "15px",
-                        transition: "all 0.3s",
-                      }
-                    : {}
-                }
+                style={isMissing ? { borderLeft: "4px solid #ff4d4d", paddingLeft: "15px" } : {}}
               >
-                <p
-                  className="question-text"
-                  style={isMissing ? { color: "#ff4d4d" } : {}}
-                >
+                <p className="question-text" style={isMissing ? { color: "#ff4d4d" } : {}}>
                   <span>{index + 1 + currentStep * questionsPerStep}. </span>
                   {q.text[lang]}
                 </p>
 
                 <div className="answers-row">
-                  <span className="sa">Strongly disagree</span>
-                  {(testId === "metabolic-health"
-                    ? [0, 1, 2, 3, 4]
-                    : [1, 2, 3, 4, 5]
-                  ).map((value) => (
-                    <button
-                      key={value}
-                      className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
-                      onClick={() => handleAnswer(q.id, value)}
-                    >
-                      {value}
-                    </button>
-                  ))}
-                  <span className="sa">Strongly agree</span>
+                  <span className="sa">{lang === "fr" ? "Pas d'accord" : "Disagree"}</span>
+                  {(testId === "metabolic-health" ? [0, 1, 2, 3, 4] : [1, 2, 3, 4, 5]).map(
+                    (value) => (
+                      <button
+                        key={value}
+                        className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
+                        onClick={() => handleAnswer(q.id, value)}
+                      >
+                        {value}
+                      </button>
+                    )
+                  )}
+                  <span className="sa">{lang === "fr" ? "Tout à fait d'accord" : "Agree"}</span>
                   {allowSkip && (
                     <button
                       className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
@@ -196,6 +215,10 @@ export default function MultiStepTest() {
       </AnimatePresence>
 
       <div className="navigation">
+        <button className="nav-btn" onClick={() => setShowConfirmCancel(true)}>
+          {lang === "fr" ? "Annuler" : "Cancel"}
+        </button>
+
         {currentStep > 0 && (
           <button
             className="nav-btn"
@@ -204,24 +227,19 @@ export default function MultiStepTest() {
               setCurrentStep((s) => s - 1);
             }}
           >
-            Previous
+            {lang === "fr" ? "Précédent" : "Previous"}
           </button>
         )}
 
         {currentStep < steps.length - 1 ? (
           <button className="nav-btn" onClick={handleNext}>
-            Next
+            {lang === "fr" ? "Suivant" : "Next"}
           </button>
         ) : (
           <button className="nav-btn primary" onClick={handleFinish}>
-            Finish
+            {lang === "fr" ? "Terminer" : "Finish"}
           </button>
         )}
-        <Link to={userType == "individuals" ? "/individuals" : "/corporates"}>
-          <button className="nav-btn">
-            {lang === "fr" ? "Annuler" : "Cancel"}
-          </button>
-        </Link>
       </div>
     </div>
   );
