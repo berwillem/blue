@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContainer } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
@@ -38,15 +38,21 @@ export default function MultiStepTest() {
   const lang = i18n.language.startsWith("fr") ? "fr" : "en";
   const testId = pathname.split("/").pop();
   const testConfig = TESTS_MAP[testId];
-
   const { saveResults } = useTestResultsStore();
   const userType = useUserTypeStore((state) => state.userType);
 
   if (!testConfig) return <p>Test not found</p>;
 
+  /* ============================= */
+  /* 🔥 TEST TYPE FOR BACKEND */
+  /* ============================= */
+
   const testType = testId === "personal-capacity" ? "personal" : "metabolic";
 
-  /* 🔥 Track test start once */
+  /* ============================= */
+  /* 🔥 TRACK START ONLY ONCE */
+  /* ============================= */
+
   const hasStartedTracked = useRef(false);
 
   useEffect(() => {
@@ -60,16 +66,14 @@ export default function MultiStepTest() {
     }
   }, [testType]);
 
-  /* ---------------- State ---------------- */
+  /* ============================= */
 
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [highlightErrors, setHighlightErrors] = useState(false);
-  const [showConfirmCancel, setShowConfirmCancel] = useState(false);
+  const [showConfirmCancel, setShowConfirmCancel] = useState(false); // ✅ ADD THIS
 
   const allowSkip = testId === "metabolic-health";
-
-  /* ---------------- Questions Shuffle ---------------- */
 
   const allQuestions = useMemo(() => {
     const flat = testConfig.steps.flatMap((step) =>
@@ -97,7 +101,9 @@ export default function MultiStepTest() {
   const isStepComplete = () =>
     step.questions.every((q) => answers[q.id] !== undefined);
 
-  /* 🔥 Category Score Calculation */
+  /* ============================= */
+  /* 🔥 CATEGORY CALCULATION */
+  /* ============================= */
 
   const calculateCategoryScores = (answers) => {
     const scores = {};
@@ -122,7 +128,7 @@ export default function MultiStepTest() {
     return scores;
   };
 
-  /* ---------------- Navigation ---------------- */
+  /* ============================= */
 
   const handleNext = () => {
     if (!isStepComplete()) {
@@ -139,6 +145,10 @@ export default function MultiStepTest() {
     setCurrentStep((s) => s + 1);
     window.scrollTo(0, 0);
   };
+
+  /* ============================= */
+  /* 🔥 FINISH + TRACK PASSED */
+  /* ============================= */
 
   const handleFinish = () => {
     if (!isStepComplete()) {
@@ -167,7 +177,7 @@ export default function MultiStepTest() {
 
     saveResults(testId, newResult);
 
-    // 🔥 Track passed
+    // 🔥 Send "passed" event (non-blocking)
     recordTest({
       testType,
       status: "passed",
@@ -192,7 +202,7 @@ export default function MultiStepTest() {
     <div className="test-container">
       <ToastContainer />
 
-      {/* Cancel Confirmation Modal */}
+      {/* MODALE DE CONFIRMATION */}
       <AnimatePresence>
         {showConfirmCancel && (
           <div className="modal-overlay">
@@ -229,7 +239,79 @@ export default function MultiStepTest() {
         )}
       </AnimatePresence>
 
-      {/* Navigation */}
+      <div className="steps-progress">
+        {steps.map((_, index) => (
+          <div
+            key={index}
+            className={`step-bar ${index <= currentStep ? "active" : ""}`}
+          />
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="test-content"
+        >
+          {step.questions.map((q, index) => {
+            const isMissing = highlightErrors && answers[q.id] === undefined;
+
+            return (
+              <div
+                key={q.id}
+                className={`question-block ${
+                  isMissing ? "error-highlight" : ""
+                }`}
+              >
+                <p
+                  className="question-text"
+                  style={isMissing ? { color: "#ff4d4d" } : {}}
+                >
+                  <span>{index + 1 + currentStep * questionsPerStep}. </span>
+                  {q.text[lang]}
+                </p>
+
+                <div className="answers-row">
+                  <span className="sa">Strongly disagree</span>
+
+                  {(testId === "metabolic-health"
+                    ? [0, 1, 2, 3, 4]
+                    : [1, 2, 3, 4, 5]
+                  ).map((value) => (
+                    <button
+                      key={value}
+                      className={`answer-btn ${
+                        answers[q.id] === value ? "active" : ""
+                      }`}
+                      onClick={() => handleAnswer(q.id, value)}
+                    >
+                      {value}
+                    </button>
+                  ))}
+
+                  <span className="sa">Strongly agree</span>
+
+                  {allowSkip && (
+                    <button
+                      className={`answer-btn skip-btn ${
+                        answers[q.id] === null ? "active" : ""
+                      }`}
+                      onClick={() => handleAnswer(q.id, null)}
+                    >
+                      Skip
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+      </AnimatePresence>
+
       <div className="navigation">
         <button className="nav-btn" onClick={() => setShowConfirmCancel(true)}>
           {lang === "fr" ? "Annuler" : "Cancel"}
