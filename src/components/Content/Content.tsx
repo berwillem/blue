@@ -37,6 +37,9 @@ export default function Content({ DATA, DATA2 }) {
     if (text.includes("capacity") || text.includes("capacité")) {
       return "/disclaimer/personal-capacity";
     }
+    if (text.includes("privacy") || text.includes("confidentialité")) {
+      return "/Privacy";
+    }
 
     return "/";
   };
@@ -79,6 +82,7 @@ export default function Content({ DATA, DATA2 }) {
     <div
       className="content-scroll-wrapper"
       ref={containerRef}
+      
       style={{ height: isPC ? `${numItems * 100}vh` : "auto" }}
     >
       {isPC &&
@@ -207,7 +211,7 @@ export default function Content({ DATA, DATA2 }) {
 
 </div>
       {DATA2?.button &&     <div className="button-container">
-            <Link to={getButtonLink(DATA[currentIndex]?.button)}>
+            <Link to={getButtonLink(DATA2?.button)}>
               <Button text={DATA2?.button} width="auto" />
             </Link>
           </div>}

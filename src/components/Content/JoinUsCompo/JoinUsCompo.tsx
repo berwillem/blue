@@ -38,7 +38,7 @@ const JoinUsCompo: React.FC = () => {
   const partners2 = partners.slice(4);
 
   return (
-    <div className={styles.pageWrapper} id="joinus">
+    <div className={styles.pageWrapper} id="joinus" style={{ scrollMarginTop: "100px" }}>
       <main className={styles.mainContent}>
         {/* Hero Section - TOUJOURS VISIBLE */}
         <motion.header

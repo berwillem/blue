@@ -60,7 +60,7 @@
 .step-line-container {
   position: relative;
   width: 2px;
-  height: 120px; /* Longueur du segment entre deux étapes */
+  height: 150px; /* Longueur du segment entre deux étapes */
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -94,9 +94,12 @@ transform: scaleY(0); /* Caché au départ */
 .modus-texts.right { left: 60%; text-align: left; }
 .modus-texts.left { right: 60%; text-align: left; }
 
-.modus-texts h3 { margin: 0 0 10px 0; font-size: 1.5rem; color: #002b49; }
+.modus-texts h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: #002b49; }
 .modus-container h1 { width: 100%; font-size: 1.8rem; color: #002b49; text-align: center; margin-bottom: 40px;}
 .modus-texts p { color: #666; line-height: 1.5;font-size: 0.8rem; width: 90%; }
+.modus-steps .modus-step:last-of-type .modus-texts{
+  margin-top: 20px;
+}
 @media (max-width: 1280px)  {
   .modus-texts p { color: #666; line-height: 1;font-size: 0.7rem; }
   .modus-texts {

@@ -104,6 +104,9 @@ footer .link-item {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+footer a {
+color: black;
+}
 
 footer .link-item:hover {
   opacity: 1;
@@ -158,7 +161,7 @@ footer .link-item:hover {
   footer .up {
     flex-direction: column;
     height: auto;
-    padding: 2rem 0;
+    padding: 0rem 0;
   }
 
   footer .left, footer .right {
@@ -177,7 +180,7 @@ footer .link-item:hover {
     width: 100%;
     border-right: none;
     border-left: none;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   footer .footer-column:not(:last-child) {

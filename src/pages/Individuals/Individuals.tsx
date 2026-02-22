@@ -10,16 +10,39 @@ import placeholder1 from "../../assets/images/redacontent1.jpg";
 import placeholder2 from "../../assets/images/redcontent2.jpg";
 import placeholder3 from "../../assets/images/redacontent3.jpg";
 import { FiCalendar } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import FirstIntro from "../../components/FirstIntro/FirstIntro";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
-import PrivacySection from "../../components/PrivacySection/PrivacySection";
 
 import JoinUsCompo from "../../components/Content/JoinUsCompo/JoinUsCompo";
+import { useEffect } from "react";
 
 export default function Individuals() {
   const { t } = useTranslation();
+const location = useLocation();
 
+// @ts-nocheck
+useEffect(() => {
+  const handleHashScroll = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.replace("#", "");
+      // On attend que React ait fini de rendre les composants
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          // On calcule la position réelle pour éviter les conflits de Snap Scroll
+          const yOffset = -90; // La hauteur de ta navbar
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 800); // Délai un peu plus long pour laisser le snap se stabiliser
+    }
+  };
+
+  handleHashScroll();
+}, [location.pathname, location.hash]); // On surveille le hash précisément
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("individuals.sections", { returnObjects: true });
   const images = [placeholder1, placeholder2, placeholder3];
