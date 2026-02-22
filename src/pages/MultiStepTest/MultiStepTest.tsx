@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast, ToastContainer } from "react-toastify";
@@ -9,9 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
+import { recordTest } from "../../services/statsService";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 import "./MultistepTest.css";
-import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 const TESTS_MAP = {
   "personal-capacity": personalCapacityTest,
@@ -39,11 +40,37 @@ export default function MultiStepTest() {
   const testConfig = TESTS_MAP[testId];
   const { saveResults } = useTestResultsStore();
   const userType = useUserTypeStore((state) => state.userType);
+
   if (!testConfig) return <p>Test not found</p>;
+
+  /* ============================= */
+  /* 🔥 TEST TYPE FOR BACKEND */
+  /* ============================= */
+
+  const testType = testId === "personal-capacity" ? "personal" : "metabolic";
+
+  /* ============================= */
+  /* 🔥 TRACK START ONLY ONCE */
+  /* ============================= */
+
+  const hasStartedTracked = useRef(false);
+
+  useEffect(() => {
+    if (!hasStartedTracked.current) {
+      recordTest({
+        testType,
+        status: "started",
+      }).catch((err) => console.error("Start tracking failed:", err));
+
+      hasStartedTracked.current = true;
+    }
+  }, [testType]);
+
+  /* ============================= */
 
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [highlightErrors, setHighlightErrors] = useState(false); // <-- NOUVEAU : État pour l'erreur
+  const [highlightErrors, setHighlightErrors] = useState(false);
 
   const allowSkip = testId === "metabolic-health";
 
@@ -73,9 +100,38 @@ export default function MultiStepTest() {
   const isStepComplete = () =>
     step.questions.every((q) => answers[q.id] !== undefined);
 
+  /* ============================= */
+  /* 🔥 CATEGORY CALCULATION */
+  /* ============================= */
+
+  const calculateCategoryScores = (answers) => {
+    const scores = {};
+
+    testConfig.steps.forEach((step) => {
+      let total = 0;
+      let count = 0;
+
+      step.questions.forEach((q) => {
+        const value = answers[q.id];
+        if (typeof value === "number") {
+          total += value;
+          count++;
+        }
+      });
+
+      if (count > 0) {
+        scores[step.title] = total / count;
+      }
+    });
+
+    return scores;
+  };
+
+  /* ============================= */
+
   const handleNext = () => {
     if (!isStepComplete()) {
-      setHighlightErrors(true); // Active le rouge sur les manquants
+      setHighlightErrors(true);
       toast.error(t("test.please_answer_all"), {
         position: "top-right",
         autoClose: 3000,
@@ -84,23 +140,31 @@ export default function MultiStepTest() {
       return;
     }
 
-    setHighlightErrors(false); // Reset l'erreur pour la prochaine étape
+    setHighlightErrors(false);
     setCurrentStep((s) => s + 1);
     window.scrollTo(0, 0);
   };
+
+  /* ============================= */
+  /* 🔥 FINISH + TRACK PASSED */
+  /* ============================= */
 
   const handleFinish = () => {
     if (!isStepComplete()) {
       setHighlightErrors(true);
       return;
     }
+
     const allQuestionsFlat = testConfig.steps.flatMap((step) => step.questions);
+
     const skippedCount = allQuestionsFlat.filter(
       (q) => answers[q.id] === null,
     ).length;
+
     const answeredCount = allQuestionsFlat.filter(
       (q) => typeof answers[q.id] === "number",
     ).length;
+
     const totalQuestions = allQuestionsFlat.length;
 
     const newResult = {
@@ -111,6 +175,15 @@ export default function MultiStepTest() {
     };
 
     saveResults(testId, newResult);
+
+    // 🔥 Send "passed" event (non-blocking)
+    recordTest({
+      testType,
+      status: "passed",
+      categories:
+        testType === "personal" ? calculateCategoryScores(answers) : undefined,
+    }).catch((err) => console.error("Pass tracking failed:", err));
+
     navigate("/results", { state: { testId } });
   };
 
@@ -141,21 +214,14 @@ export default function MultiStepTest() {
           className="test-content"
         >
           {step.questions.map((q, index) => {
-            const isMissing = highlightErrors && answers[q.id] === undefined; // Vérifie si vide
+            const isMissing = highlightErrors && answers[q.id] === undefined;
 
             return (
               <div
                 key={q.id}
-                className={`question-block ${isMissing ? "error-highlight" : ""}`}
-                style={
-                  isMissing
-                    ? {
-                        borderLeft: "4px solid #ff4d4d",
-                        paddingLeft: "15px",
-                        transition: "all 0.3s",
-                      }
-                    : {}
-                }
+                className={`question-block ${
+                  isMissing ? "error-highlight" : ""
+                }`}
               >
                 <p
                   className="question-text"
@@ -167,22 +233,29 @@ export default function MultiStepTest() {
 
                 <div className="answers-row">
                   <span className="sa">Strongly disagree</span>
+
                   {(testId === "metabolic-health"
                     ? [0, 1, 2, 3, 4]
                     : [1, 2, 3, 4, 5]
                   ).map((value) => (
                     <button
                       key={value}
-                      className={`answer-btn ${answers[q.id] === value ? "active" : ""}`}
+                      className={`answer-btn ${
+                        answers[q.id] === value ? "active" : ""
+                      }`}
                       onClick={() => handleAnswer(q.id, value)}
                     >
                       {value}
                     </button>
                   ))}
+
                   <span className="sa">Strongly agree</span>
+
                   {allowSkip && (
                     <button
-                      className={`answer-btn skip-btn ${answers[q.id] === null ? "active" : ""}`}
+                      className={`answer-btn skip-btn ${
+                        answers[q.id] === null ? "active" : ""
+                      }`}
                       onClick={() => handleAnswer(q.id, null)}
                     >
                       Skip
@@ -217,6 +290,7 @@ export default function MultiStepTest() {
             Finish
           </button>
         )}
+
         <Link to={userType == "individuals" ? "/individuals" : "/corporates"}>
           <button className="nav-btn">
             {lang === "fr" ? "Annuler" : "Cancel"}

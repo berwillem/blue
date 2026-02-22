@@ -179,6 +179,10 @@ export default function Stat() {
                   <span className="card-value">{data.completion_rate}%</span>
                   <span className="card-label">Formulaire B2C</span>
                 </div>
+                <div className="stat-card highlight">
+                  <span className="card-value">{data.completion_rate}%</span>
+                  <span className="card-label">Formulaire B2</span>
+                </div>
               </>
             ) : (
               <>

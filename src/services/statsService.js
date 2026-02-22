@@ -12,7 +12,10 @@ export const getFormStats = () => axiosInstance.get("/stats");
 
 /* ===== Tests ===== */
 
-export const recordTest = (data) => axiosInstance.post("/tests", data);
+export const recordTest = (data) => {
+  console.log("Recording test with data:", data);
+  return axiosInstance.post("/tests", data);
+};
 
 export const getTestStats = () => axiosInstance.get("/tests/stats");
 
