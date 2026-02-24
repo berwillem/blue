@@ -48,7 +48,7 @@ export default function Content({ DATA, DATA2 }) {
 
   useEffect(() => {
     // Correction 1: Utiliser matchMedia pour une détection plus stable sur mobile physique
-    const mediaQuery = window.matchMedia("(min-width: 1280px)");
+    const mediaQuery = window.matchMedia("(min-width: 720px)");
     const checkDevice = () => setIsPC(mediaQuery.matches);
 
     checkDevice();
