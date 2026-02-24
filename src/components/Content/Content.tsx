@@ -138,13 +138,12 @@ export default function Content({ DATA, DATA2 }) {
     animate={{
       height: show ? "auto" : 0,
       opacity: show ? 1 : 0,
-      marginBottom: show ? 15 : 0,
       display: show ? "block" : "none", 
     }}
     transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
     style={{ overflow: "hidden" }}
   >
-    <p
+       {value.title &&   <p
       className="right-description"
       style={{
         fontSize: "1.2rem",
@@ -154,7 +153,8 @@ export default function Content({ DATA, DATA2 }) {
       }}
     >
       {value.title}
-    </p>
+    </p>} 
+ 
     <p className="right-description">
       {value.text}
     </p>
@@ -212,7 +212,7 @@ export default function Content({ DATA, DATA2 }) {
 </div>
       {DATA2?.button &&     <div className="button-container">
             <Link to={getButtonLink(DATA2?.button)}>
-              <Button text={DATA2?.button} width="auto" />
+              <Button text={DATA2?.button} width="100%" />
             </Link>
           </div>}
         </motion.div>

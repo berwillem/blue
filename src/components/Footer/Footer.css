@@ -94,11 +94,11 @@ footer .left h2 {
 footer .title {
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 footer .link-item {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-size: 0.95rem;
   opacity: 0.8;
   cursor: pointer;
@@ -155,8 +155,8 @@ footer .link-item:hover {
  
   }
 .footer-content-wrapper{
-   transform: scale(0.7);
-   bottom: -100px;
+   transform: scale(0.65);
+   bottom: -80px;
 }
   footer .up {
     flex-direction: column;
@@ -167,7 +167,7 @@ footer .link-item:hover {
   footer .left, footer .right {
     width: 100%;
     border: none;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     justify-content: center;
   }

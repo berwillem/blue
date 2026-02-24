@@ -43,6 +43,10 @@ const ContactForm = () => {
     { id: "financial", label: t("contactForm.form.options.financial") },
     { id: "strategy", label: t("contactForm.form.options.strategy") },
     { id: "leadership", label: t("contactForm.form.options.leadership") },
+    { id: "Organizational", label: t("contactForm.form.options.Organizational") },
+    { id: "Training", label: t("contactForm.form.options.Training") },
+    { id: "Coaching", label: t("contactForm.form.options.Coaching") },
+    { id: "Programs", label: t("contactForm.form.options.Programs") },
   ];
 
   useEffect(() => {
@@ -172,6 +176,30 @@ const ContactForm = () => {
                 <option value="technology">
                   {t("contactForm.form.industries.technology")}
                 </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.professional")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.retail")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.logistics")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.education")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.hospitality")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.public")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.nonprofit")}
+                </option>
+                <option value="technology">
+                  {t("contactForm.form.industries.media")}
+                </option>
                 <option value="other">
                   {t("contactForm.form.industries.other")}
                 </option>
@@ -206,7 +234,9 @@ const ContactForm = () => {
                 <option value="1-10">1–10</option>
                 <option value="11-50">11–50</option>
                 <option value="51-200">51–200</option>
-                <option value="200+">200+</option>
+                <option value="51-200">201–500</option>
+                <option value="51-200">501-1000</option>
+                <option value="200+">1000+</option>
               </select>
             </div>
           </section>

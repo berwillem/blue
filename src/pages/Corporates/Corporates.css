@@ -90,6 +90,11 @@ background: linear-gradient(180deg, #0A1933 0%, #0A1935 100%);
 
 ;
 }
+.b2b .content_text{
+   background: rgba(0, 41, 111, 1);
+
+;
+}
 .b2b .content-container .left{
 background: linear-gradient(180deg, #0A1933 0%, #0A1935 100%);
 

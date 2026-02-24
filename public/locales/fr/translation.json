@@ -562,44 +562,74 @@
         "disclaimer": "Nous respectons votre vie privée. Vos informations seront utilisées uniquement pour répondre à votre demande et conservées seulement le temps nécessaire à cette fin. Vous pouvez demander l'accès, la correction ou la suppression de vos données à tout moment par email : contact@blu-path.com Pour plus d'informations, veuillez consulter notre Politique de Confidentialité & de Confidentialité."
       }
     },
-        "privacy2": {
-      "hero_title": "Politique de Confidentialité",
-      "last_updated": "Dernière mise à jour",
-      "contact_text": "Pour toute question concernant la vie privée ou la protection des données :",
-      "sections": {
-        "1": {
-          "title": "1. Engagement de confidentialité",
-          "content": "Blu. accorde la plus haute importance à la protection de la vie privée et à la confidentialité des informations qui lui sont confiées. Toutes les données personnelles sont traitées avec soin et discrétion. Blu. ne procède à aucune vente ou divulgation abusive de données."
-        },
-        "2": {
-          "title": "2. Nature des services et limitation",
-          "content": "Blu. fournit des services de coaching et d'évaluation visant à soutenir le fonctionnement personnel et le mode de vie. Ces évaluations sont des outils de coaching et ne constituent pas un avis médical, un diagnostic ou un traitement clinique."
-        },
-        "3": {
-          "title": "3. Confidentialité des évaluations",
-          "list": [
-            "Toutes les évaluations sont anonymes",
-            "Aucune donnée personnelle n'est stockée",
-            "Les réponses individuelles ne peuvent être liées à une personne identifiable",
-            "Seules les données statistiques agrégées sont utilisées pour l'amélioration des services"
-          ]
-        },
-        "4": {
-          "title": "4. Collecte de données (hors évaluations)",
-          "content": "Lorsqu'un individu contacte volontairement Blu. (ex: demande de rendez-vous), nous pouvons collecter :",
-          "list": [
-            "Prénom ou pseudonyme",
-            "Numéro de téléphone et/ou email",
-            "Brève description de la demande"
-          ],
-          "footer": "Il est demandé de ne pas fournir d'informations médicales détaillées."
-        },
-        "9": {
-          "title": "9. Base légale et conformité",
-          "content": "Les données sont traitées conformément au RGPD (UE) 2016/679 et à la loi algérienne n° 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel."
-        }
+
+  "privacy2": {
+    "hero_title": "Politique de Confidentialité et de Protection des Données",
+    "last_updated": "Dernière mise à jour",
+    "contact_text": "Pour toute question concernant la confidentialité, la protection des données ou la confidentialité des informations :",
+    "sections": {
+      "1": {
+        "title": "1. Engagement en matière de confidentialité et de protection des données",
+        "content": "Blu. accorde une importance capitale à la protection de la vie privée et à la confidentialité des informations qui lui sont confiées. Toutes les données personnelles sont traitées avec soin, discrétion et strictement en toute confidentialité. Blu. ne procède pas à la vente ni à la divulgation de données personnelles."
+      },
+      "2": {
+        "title": "2. Nature des services et limitations du champ d'application",
+        "content": "Blu. fournit des services de coaching et d'évaluation. Ce sont des outils de coaching. Ils ne constituent pas des conseils médicaux, des diagnostics médicaux ou des traitements cliniques."
+      },
+      "3": {
+        "title": "3. Confidentialité des évaluations et anonymat",
+        "list": [
+          "Toutes les évaluations sont anonymes",
+          "Aucune donnée personnelle n'est stockée",
+          "Les réponses individuelles ne peuvent pas être liées à une personne identifiable",
+          "Seules les données statistiques agrégées et anonymisées peuvent être utilisées"
+        ]
+      },
+      "4": {
+        "title": "4. Collecte de données personnelles (hors évaluations)",
+        "content": "Lorsqu'un individu contacte volontairement Blu., les données suivantes peuvent être collectées :",
+        "list": [
+          "Prénom, surnom ou pseudonyme",
+          "Numéro de téléphone et/ou adresse e-mail",
+          "Brève description de la demande"
+        ],
+        "footer": "Les individus sont invités à ne pas fournir d'informations médicales détaillées."
+      },
+      "5": {
+        "title": "5. Finalité du traitement des données",
+        "content": "Les données personnelles sont traitées exclusivement pour évaluer une demande, contacter l'individu pour des discussions professionnelles ou fournir les services de Blu. Les données ne sont pas utilisées à des fins publicitaires, de profilage ou de prise de décision automatisée."
+      },
+      "6": {
+        "title": "6. Conservation des données",
+        "content": "Les données personnelles sont conservées uniquement pendant la durée nécessaire à l'évaluation de la demande ou à l'initiation des discussions. Une fois l'objectif atteint, les données personnelles sont supprimées sans délai excessif. Les données statistiques anonymisées peuvent être conservées pour des analyses internes."
+      },
+      "7": {
+        "title": "7. Confidentialité et sessions privées",
+        "content": "Toutes les communications lors des sessions privées et en personne sont traitées de manière strictement confidentielle. L'accès est limité au personnel autorisé de Blu., et le contenu des sessions n'est pas divulgué à des tiers."
+      },
+      "8": {
+        "title": "8. Partage des données et tiers",
+        "content": "Les données personnelles ne sont pas partagées avec des tiers, sauf si la loi l'exige ou en vertu d'une obligation légale valable. Aucune donnée n'est transférée à des fins commerciales, publicitaires ou de marketing."
+      },
+      "9": {
+        "title": "9. Base légale et conformité réglementaire",
+        "content": "Les données sont traitées conformément au Règlement (UE) 2016/679 (RGPD) et à la loi algérienne n° 18-07 du 10 juin 2018. Le traitement est basé sur le consentement, l'intérêt légitime ou l'obligation légale, selon le cas."
+      },
+      "10": {
+        "title": "10. Sécurité des données",
+        "content": "Blu. met en place des mesures techniques et organisationnelles appropriées pour protéger les données personnelles contre : l'accès non autorisé, la perte accidentelle, l'utilisation abusive ou la divulgation illicite. Les mesures de sécurité sont proportionnelles à la nature et à la sensibilité des données traitées."
+      },
+      "11": {
+        "title": "11. Droits des personnes concernées",
+        "content": "Conformément à la législation en vigueur, les individus ont le droit d'accéder à leurs données personnelles, de demander leur rectification ou leur suppression, ou de retirer leur consentement à tout moment. Les demandes peuvent être soumises en contactant directement Blu. (voir le point 13 ci-dessous \"Contact\")."
+      },
+      "12": {
+        "title": "12. Mises à jour de la politique",
+        "content": "Cette politique peut être modifiée pour refléter des changements juridiques, réglementaires ou opérationnels. La version la plus récente sera toujours mise à disposition."
       }
-    },
+    }
+  },
+
         "contactForm": {
       "header": {
         "label": "Contact",
@@ -628,7 +658,11 @@
         "governance": "Gouvernance",
         "financial": "Performance Financière",
         "strategy": "Stratégie Commerciale",
-        "leadership": "Leadership & Systèmes Humains"
+        "leadership": "Leadership & Systèmes Humains",
+            "Organizational": "Changement Organisationnel et Excellence Opérationnelle",
+    "Training": "Formation",
+    "Coaching": "Coaching et Mentorat",
+    "Programs": "Programmes pour Dirigeants"
       },
       "industries": {
         "manufacturing": "Industrie & Fabrication",
