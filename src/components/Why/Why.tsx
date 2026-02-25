@@ -39,7 +39,7 @@ useEffect(() => {
       <div className="why-content-container">
           <span className="smallTitle">{t("individuals.why")}</span>
           <div className="longText2">
-            <p>{t("individuals.whyp1")}</p>
+            <p >{t("individuals.whyp1")}</p>
             <p>{t("individuals.whyp2")}</p>
             <p>{t("individuals.whyp3")}</p>
           </div>
