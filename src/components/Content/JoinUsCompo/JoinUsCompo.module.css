@@ -27,7 +27,7 @@
   margin-bottom: 25px;
 }
 .overline {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
@@ -36,26 +36,43 @@
   color: black;
 }
 .sectionTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.3;
 }
+.ctaButtonSimple{
+     display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
+   background: linear-gradient(180deg, #00314D 0%, #001A28 100%);
+    padding: 0.5rem 1.8rem;
+    border-radius: 50px;
+    width: fit-content;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    border: none;
+}
 /* Hero */
 .hero {
-  padding: 60px 0;
+  padding: 10px 0;
 }
 .details {
-  padding: 60px 0 0 0;
+  padding: 10px 0 0 0;
 }
 .mainTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 30px;
   font-weight: 400;
   width: 100%;
 }
 .leadText {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -98,7 +115,7 @@
 .listLabel {
   font-weight: 400;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .list {
   list-style: none;
@@ -108,7 +125,7 @@
   position: relative;
   padding-left: 20px;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .list li::before {
   content: "•";
@@ -118,7 +135,7 @@
 .italicNote {
   font-weight: 400;
   margin-top: 30px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* Footer */
@@ -127,7 +144,7 @@
   padding-top: 0;
 }
 .ctaText {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 40px;
 }
@@ -140,7 +157,7 @@
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.7rem;
   cursor: pointer;
 }
 .btnLarge {
@@ -150,7 +167,7 @@
   padding: 18px 30px;
   border-radius: 4px;
   font-weight: 700;
-  font-size:1rem;
+  font-size:0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
@@ -178,40 +195,40 @@
   }
 
   .sectionTitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.3;
   }
 
   /* Hero */
   .hero {
-    padding: 60px 0;
+    padding: 10px 0;
   }
   .mainTitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 30px;
     font-weight: 400;
     width: 100%;
   }
   .leadText {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
   }
 
   .listLabel {
-    font-size: 1.5rem;
-  }
-
-  .list li {
     font-size: 1rem;
   }
 
+  .list li {
+    font-size: 0.7rem;
+  }
+
   .italicNote {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .btnLarge,.btnSmall{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 @media (max-width: 640px) {
@@ -219,7 +236,7 @@
     grid-template-columns: 1fr;
   }
   .mainTitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .pageWrapper {
     padding: 7rem 2rem;

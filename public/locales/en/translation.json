@@ -508,6 +508,7 @@
       "Privacy Notice: This test is anonymous. No personal data is stored. Only aggregated, anonymized statistics may be used for analytical purposes, in compliance with data protection regulations."
     ]
   },
+
   "privacy2": {
     "hero_title": "Privacy & Confidentiality Policy",
     "last_updated": "Last updated",
@@ -540,12 +541,41 @@
         ],
         "footer": "Individuals are requested not to provide detailed medical information."
       },
+      "5": {
+        "title": "5. Purpose of data processing",
+        "content": "Personal data is processed exclusively to evaluate an application, contact the individual for professional discussions, or deliver Blu.’s services. Data is not used for advertising, profiling, or automated decision-making."
+      },
+      "6": {
+        "title": "6. Data retention",
+        "content": "Personal data is retained only for the duration necessary to evaluate the application or initiate discussions. Once the purpose is fulfilled, personal data is deleted without undue delay. Aggregated anonymized statistical data may be retained for internal analysis."
+      },
+      "7": {
+        "title": "7. Confidentiality and private sessions",
+        "content": "All exchanges during private, in-person sessions are treated as strictly confidential. Access is limited to authorized Blu. personnel and session content is not disclosed to third parties."
+      },
+      "8": {
+        "title": "8. Data sharing and third parties",
+        "content": "Personal data is not shared with third parties unless required by law or a valid legal obligation. No data is transferred for commercial, marketing, or advertising purposes."
+      },
       "9": {
         "title": "9. Legal basis and regulatory compliance",
-        "content": "Data is processed in accordance with Regulation (EU) 2016/679 (GDPR) and Algerian Law No. 18-07 of 10 June 2018."
+        "content": "Data is processed in accordance with Regulation (EU) 2016/679 (GDPR) and Algerian Law No. 18-07 of 10 June 2018. Processing is based on consent, legitimate interest, or legal obligation as applicable."
+      },
+      "10": {
+        "title": "10. Data security",
+        "content": "Blu. implements appropriate technical and organizational measures to protect personal data against unauthorized access, accidental loss, misuse, or unlawful disclosure. Security measures are proportionate to the nature and sensitivity of the data processed."
+      },
+      "11": {
+        "title": "11. Data subject rights",
+        "content": "Individuals have the right to access, correct, delete their personal data, or withdraw consent at any time. Requests may be submitted by contacting Blu. directly (see point 13 below 'Contact')."
+      },
+      "12": {
+        "title": "12. Policy updates",
+        "content": "This policy may be amended to reflect legal, regulatory, or operational changes. The most current version will always be made available."
       }
     }
   },
+
   "know_more": "know more",
   "show_less": "show less",
   "partner_form": {
@@ -668,7 +698,11 @@
         "governance": "Governance",
         "financial": "Financial Performance",
         "strategy": "Business Strategy",
-        "leadership": "Leadership & Human Systems"
+        "leadership": "Leadership & Human Systems",
+          "Organizational": "Organizational Change & Operational Excellence",
+    "Training": "Training",
+    "Coaching": "Coaching & Mentoring",
+    "Programs": "Programs for Executives"
       },
       "industries": {
         "manufacturing": "Manufacturing & Industrial",

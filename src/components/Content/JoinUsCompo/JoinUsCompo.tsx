@@ -120,15 +120,7 @@ const JoinUsCompo: React.FC = () => {
           <button 
             onClick={() => setShowMore(!showMore)} 
             className={styles.ctaButtonSimple}
-            style={{
-                background: "none",
-                border: "none",
-                  color: "#002b49",
-                fontWeight: "600",
-                cursor: "pointer",
-                textDecoration: "underline",
-                fontSize: "1rem"
-            }}
+        
           >
             {showMore ? t("privacy_section.show_less") : t("privacy_section.show_more")}
           </button>

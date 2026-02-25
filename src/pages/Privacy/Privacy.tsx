@@ -14,7 +14,7 @@ export default function Privacy() {
 
   // Au lieu de récupérer l'objet entier, on définit les IDs des sections
   // Cela force i18next à chercher la traduction pour chaque ligne
-  const sectionIds = ["1", "2", "3", "4", "9"]; 
+  const sectionIds = ["1", "2", "3", "4", "5","6","7","8","9","10","11","12"]; 
 
   const links = [
     { name: "home", path: "/" },

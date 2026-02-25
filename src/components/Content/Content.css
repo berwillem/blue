@@ -28,10 +28,13 @@
   flex-direction: column;
 
  gap: 1rem;
-   background-color: rgba(0, 41, 111, 1);
+
+    background: linear-gradient(180deg, #00314D 0%, #001A28 100%);
+
     border-radius: 16px;
-    padding: 1rem 1.5rem;
+    padding: 2rem 1.5rem;
     position: relative;
+    padding-bottom: 3.5rem;
 
 }
 .content_text h4 ,.content_text p,.content_text li{
@@ -72,9 +75,9 @@
 }
 
 .mobile h4 {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   color: #000;
-
+font-weight:500;
 }
 
 .mobile p {
@@ -90,6 +93,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.button-container a{
+  width: 100%;
 }
 .content_text .lines {
   display: flex;
@@ -112,9 +118,33 @@
 .big-size {
   display: none;
 }
-
+.expanded-content{
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+.expanded-content p{
+margin-bottom: 0.5rem !important;
+}
+.right p{
+margin-bottom: 0.5rem !important;
+}
+.expanded-content ul li{
+font-size: 1rem;
+font-weight: 400;
+}
 /* Dans le CSS de ton composant Content */
 @media (max-width: 768px) {
+  .big-size {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
+  .expanded-content ul li{
+font-size: 0.9rem;
+font-weight: 400;
+}
   .content-scroll-wrapper {
     height: 100dvh; 
     display: flex;
@@ -122,18 +152,10 @@
     justify-content: center;
   }
 }
-@media (min-width: 768px) {
-  .mobile img {
-  width: 100%;
-  height: 50vh;
-  object-fit:cover;
-  border-radius: 16px;
- object-position: center;
-}
-}
 
-/* --- VERSION PC (1280px+) --- */
-@media screen and (min-width: 1280px) {
+
+/* --- VERSION tablette (768px+) --- */
+@media screen and (min-width: 768px) {
   .snap-group-container .snap-panel:not(:first-of-type){
   display: none;
 
@@ -151,8 +173,146 @@
     display: flex !important;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+  }
+  .big-size .right,.big-size .left{
+    height: 50%;
+    width: 100%;
   }
 
+  .sticky-active {
+    position: sticky !important;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  /* CÔTÉ GAUCHE */
+  .content-container .left {
+
+    background: linear-gradient(180deg, #00314d 0%, #001a28 100%);
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+   padding-top: 8rem;
+    color: white;
+  }
+  .content-container .left .button-container{
+ margin-top: auto;
+  }
+
+  .content-container .left h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  }
+
+  .rotating-text-box {
+    position: relative;
+    height: 250px;
+
+ 
+  }
+
+  .rotating-text-box p {
+    font-size: 2rem !important;
+    line-height: 1.2;
+    font-weight: 300;
+    margin: 0 !important;
+    position: absolute;
+
+  }
+
+  /* CÔTÉ DROIT (TIKTOK SLIDE) */
+  .content-container .right {
+
+    position: relative;
+    background: white;
+  }
+
+  .tiktok-slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column-reverse !important;
+
+ 
+  }
+
+  .right-description {
+    font-size: 0.9rem !important;
+  
+    line-height: 1.4;
+    margin: 0 !important;
+  }
+
+
+  .image-wrapper-tiktok {
+    width: 100%;
+    height: 350px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    min-height: 350px;
+    margin-bottom: 2rem;
+  }
+
+  .image-wrapper-tiktok img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .know-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(90deg, #00314d 0%, #001a28 100%);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  .know-more:hover {
+  
+    gap: 1rem;
+
+  }
+}
+@media screen and (min-width: 1080px) {
+  .snap-group-container .snap-panel:not(:first-of-type){
+  display: none;
+
+}
+  .content-container {
+ height: 100dvh;
+    padding: 0;
+   
+  }
+  .mobile {
+    display: none;
+  }
+
+  .big-size {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+  }
+  .big-size .right,.big-size .left{
+    height: 100%;
+    width: 50%;
+  }
   .sticky-active {
     position: sticky !important;
     top: 0;
@@ -166,7 +326,7 @@
     background: linear-gradient(180deg, #00314d 0%, #001a28 100%);
     padding: 5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column ;
    padding-top: 8rem;
     color: white;
   }
@@ -213,7 +373,7 @@
     padding: 5rem;
     padding-top: 8rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
  
   }
 
@@ -259,19 +419,4 @@
     gap: 1rem;
 
   }
-}
-.expanded-content{
-  display: flex;
-  flex-direction: column;
-  gap: 0rem;
-}
-.expanded-content p{
-margin-bottom: 0.5rem !important;
-}
-.right p{
-margin-bottom: 0.5rem !important;
-}
-.expanded-content ul li{
-font-size: 1rem;
-font-weight: 400;
 }
