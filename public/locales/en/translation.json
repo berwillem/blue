@@ -180,7 +180,7 @@
     {
       "id": 1,
       "title": "Governance",
-      "leftText": "We design modern governance architecture that improve accountability, transparency, and decision-making while supporting performance.",
+      "leftText": "We design <strong>modern governance architecture</strong> that improve accountability, transparency, and decision-making while supporting performance.",
       "title_rightDesc":"Modern Corporate Governance:",
       "rightDesc": " We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
       "moreContent": {
@@ -272,7 +272,7 @@
     {
       "id": 4,
       "title": "Leadership & Human Systems",
-      "leftText": "We work with leaders to build effective organizations where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
+      "leftText": "We work with leaders to build <strong>effective organizations</strong> where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
          "title_rightDesc":"What Makes a Leader:", 
       "rightDesc": " We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
       "moreContent": {
@@ -339,21 +339,21 @@
     {
       "id": 6,
       "title": "Organizational Training",
-      "leftText": "We deliver targeted competence development for executives and managers to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
-      "rightDesc": "We provide tailored executive education and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
+      "leftText": "We deliver targeted competence development for <strong>executives and managers</strong> to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
+      "rightDesc": "We provide <strong>tailored executive education</strong> and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
       "moreContent": {
         "paragraphs": [
           {
             "title": "",
-            "text": "We strengthen your ability to plan, adapt, and execute by supporting process excellence and disciplined delivery—on time, on budget, and on target."
+            "text": "We strengthen your ability to <strong>plan, adapt, and execute</strong> by supporting process excellence and disciplined delivery—on time, on budget, and on target."
           },
           {
             "title": "",
-            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value."
+            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value. Organizations gain a deeper understanding of their <strong>value-creation drivers</strong> and the financial implications of decisions and actions"
           },
           {
             "title": "",
-            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters."
+            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters—creating sustainable value for customers, shareholders, and stakeholder"
           }
         ],
         "lists": [
@@ -374,8 +374,8 @@
       "id": 7,
       "title": "Coaching & Mentoring Programs for Executives",
       "button": "Metabolic Method",
-      "leftText": "Powered by the Executive Metabolic Method™, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
-      "rightDesc": "Our approach integrates metabolic performance, mindset, and leadership to deliver clarity and resilience where it matters most—at the personal and professional level.",
+      "leftText": "Powered by the <strong>Executive Metabolic Method™</strong>, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "rightDesc": "Our approach integrates <strong>metabolic performance, mindset, and leadership</strong> to deliver clarity and resilience where it matters most—at the personal and professional level.",
       "moreContent": {
         "paragraphs": [
           {
