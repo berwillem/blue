@@ -42,9 +42,9 @@
     "main_title": "I lead Blu to help people who are functional on the outside, but depleted underneath rebuild themselves—physical health, mental strength and clarity—so life regains purpose.",
     "button": "About the founder",
     "why": "Why we do what we do :",
-    "whyp1": "We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become reliable for themselves and for others.",
-    "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through discipline, metabolic health, responsibility, and meaning.",
-    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect what matters most: family, responsibility, and legacy.",
+    "whyp1": "We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become <strong>reliable for themselves and for others</strong>.",
+    "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through <strong>discipline, metabolic health, responsibility, and meaning</strong>.",
+    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect <strong>what matters most</strong>: family, responsibility, and legacy.",
     "sections": [
       {
         "id": 1,
@@ -56,17 +56,17 @@
           "paragraphs": [
             {
               "title": "Restore Discipline & Purpose",
-              "text": "If you’re a high achiever who feels exhausted behind success, we help you restore discipline, energy, and purpose. Our holistic, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — privately and permanently."
+              "text": "If you’re a high achiever who feels exhausted behind success, we help you restore discipline, energy, and purpose. Our <strong>holistic</strong>, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — <strong>privately and permanently.</strong>"
             }
           ],
           "lists": [
             {
               "title": "What we work on with you:",
               "items": [
-                "Metabolic Health & Energy",
-                "Habits & Discipline",
-                "Meaning & Responsibility",
-                "Mindset & Structure"
+                "<strong>Metabolic Health & Energy</strong>",
+                "<strong>Habits & Discipline</strong>",
+                "<strong>Meaning & Responsibility</strong>",
+                "<strong>Mindset & Structure</strong>"
               ]
             },
             {
@@ -85,12 +85,12 @@
         "title": "How we do?",
         "button": "Personal Capacity test",
         "leftText": "Our approach blends strategic clarity with human depth, guiding you through a journey of transformation built on self-discipline, inner strength, and optimal metabolic health.",
-        "rightDesc": "Through personalized, one-on-one sessions and ongoing follow-up, we guide you in creating sustainable habits and systems that support your nutrition, physical activity, and mindset.",
+        "rightDesc": "Through <strong>personalized, one-on-one sessions and ongoing follow-up</strong>, we guide you in creating sustainable habits and systems that support your <strong>nutrition, physical activity, and mindset.</strong>",
         "moreContent": {
           "paragraphs": [
             {
-              "title": "The Metabolic Method™",
-              "text": "Our Metabolic Method™ is designed to restore your energy, focus, and drive, helping you reconnect with yourself. We work closely with you to set clear priorities and targets, ensuring your growth is both measurable and meaningful. With the support of our trusted partners when needed, we help you embrace metabolic health and mindset as the new currency of leadership, empowering you to perform at your best in every area of life."
+              
+              "text": "Our Metabolic Method™ is designed to restore your energy, focus, and drive, helping you reconnect with yourself. We work closely with you to set clear priorities and targets, ensuring your growth is both measurable and meaningful. With the support of our trusted partners when needed, we help you embrace <strong>metabolic health and mindset as the new currency of leadership</strong>, empowering you to perform at your best in every area of life."
             }
           ]
         }
@@ -104,23 +104,23 @@
         "moreContent": {
           "paragraphs": [
             {
-              "title": "Confidentiality",
+          
               "text": "We never disclose personal details, and your information is used only to support your wellness journey."
             },
             {
-              "title": "Discretion",
-              "text": "You can trust us to protect your personal life with the utmost care and discretion."
+             
+              "text": "You can trust us to protect your personal life with the utmost care and <strong>discretion.</strong>"
             },
             {
-              "title": "Data Protection",
+          
               "text": "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services."
             },
             {
-              "title": "Security Measures",
+         
               "text": "We do not disclose personal data to third parties without a valid legal basis, and we apply appropriate technical and organizational measures to safeguard your information against unauthorized access, misuse, or disclosure."
             },
             {
-              "title": "GDPR Compliance",
+            
               "text": "Your personal data is processed in accordance with European Union data protection regulations (GDPR) and applicable confidentiality obligations. You may exercise your data protection rights at any time, in line with applicable law."
             }
           ]
@@ -180,7 +180,7 @@
     {
       "id": 1,
       "title": "Governance",
-      "leftText": "We design modern governance architecture that improve accountability, transparency, and decision-making while supporting performance.",
+      "leftText": "We design <strong>modern governance architecture</strong> that improve accountability, transparency, and decision-making while supporting performance.",
       "title_rightDesc":"Modern Corporate Governance:",
       "rightDesc": " We support boards and executive teams in building modern governance systems that balance control, speed, and accountability. Governance becomes a performance enabler, not a bureaucratic constraint.",
       "moreContent": {
@@ -272,7 +272,7 @@
     {
       "id": 4,
       "title": "Leadership & Human Systems",
-      "leftText": "We work with leaders to build effective organizations where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
+      "leftText": "We work with leaders to build <strong>effective organizations</strong> where people perform, learn, and take responsibility. Leadership, culture, and human systems are treated as core performance drivers, not soft topics.",
          "title_rightDesc":"What Makes a Leader:", 
       "rightDesc": " We help leaders develop clarity, responsibility, and consistency. Leadership becomes visible in behavior and decisions, not titles.",
       "moreContent": {
@@ -339,21 +339,21 @@
     {
       "id": 6,
       "title": "Organizational Training",
-      "leftText": "We deliver targeted competence development for executives and managers to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
-      "rightDesc": "We provide tailored executive education and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
+      "leftText": "We deliver targeted competence development for <strong>executives and managers</strong> to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
+      "rightDesc": "We provide <strong>tailored executive education</strong> and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
       "moreContent": {
         "paragraphs": [
           {
             "title": "",
-            "text": "We strengthen your ability to plan, adapt, and execute by supporting process excellence and disciplined delivery—on time, on budget, and on target."
+            "text": "We strengthen your ability to <strong>plan, adapt, and execute</strong> by supporting process excellence and disciplined delivery—on time, on budget, and on target."
           },
           {
             "title": "",
-            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value."
+            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value. Organizations gain a deeper understanding of their <strong>value-creation drivers</strong> and the financial implications of decisions and actions"
           },
           {
             "title": "",
-            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters."
+            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters—creating sustainable value for customers, shareholders, and stakeholder"
           }
         ],
         "lists": [
@@ -374,8 +374,8 @@
       "id": 7,
       "title": "Coaching & Mentoring Programs for Executives",
       "button": "Metabolic Method",
-      "leftText": "Powered by the Executive Metabolic Method™, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
-      "rightDesc": "Our approach integrates metabolic performance, mindset, and leadership to deliver clarity and resilience where it matters most—at the personal and professional level.",
+      "leftText": "Powered by the <strong>Executive Metabolic Method™</strong>, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "rightDesc": "Our approach integrates <strong>metabolic performance, mindset, and leadership</strong> to deliver clarity and resilience where it matters most—at the personal and professional level.",
       "moreContent": {
         "paragraphs": [
           {

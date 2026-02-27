@@ -42,9 +42,9 @@
     "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire  santé physique, solidité mentale et clarté  afin que la vie retrouve du sens.",
     "button": "À propos du fondateur",
     "why": "Pourquoi nous faisons ce que nous faisons :",
-    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour elles-mêmes et pour les autres",
-    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers la discipline, la santé métabolique, la responsabilité et le sens",
-    "whyp3": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui compte le plus : la famille, la responsabilité et l'héritage.",
+    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour <strong>elles-mêmes et pour les autres</strong>",
+    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline, la santé métabolique, la responsabilité et le sens</strong>",
+    "whyp3": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui <strong>compte le plus</strong> : la famille, la responsabilité et l'héritage.",
     "sections": [
       {
         "id": 1,
@@ -56,17 +56,17 @@
           "paragraphs": [
             {
               "title": "Restaurer la discipline et la mission",
-              "text": "Si vous êtes un performeur de haut niveau et que vous vous sentez épuisé malgré le succès, nous vous aidons à restaurer votre discipline, votre énergie et votre raison d'être. Notre approche holistique, basée sur des preuves, intègre la santé métabolique, le mindset et les principes de leadership — pour que performance et équilibre puissent coexister. Les leaders ne s'épuisent pas, ils se reconstruisent. Retrouvez votre énergie, votre confiance et votre clarté — de manière privée et durable."
+              "text": "Si vous êtes un performeur de haut niveau et que vous vous sentez épuisé malgré le succès, nous vous aidons à restaurer votre discipline, votre énergie et votre raison d'être. Notre approche <strong>holistique</strong>, basée sur des preuves, intègre la santé métabolique, le mindset et les principes de leadership — pour que performance et équilibre puissent coexister. Les leaders ne s'épuisent pas, ils se reconstruisent. Retrouvez votre énergie, votre confiance et votre clarté — de manière <strong>privée et durable.</strong>"
             }
           ],
           "lists": [
             {
               "title": "Ce sur quoi nous travaillons avec vous :",
               "items": [
-                "Santé métabolique et énergie",
-                "Habitudes et discipline",
-                "Sens et responsabilité",
-                "État d'esprit et structure"
+                "<strong>Santé métabolique et énergie</strong>",
+                "<strong>Habitudes et discipline</strong>",
+                "<strong>Sens et responsabilité</strong>",
+                "<strong>État d'esprit et structure</strong>"
               ]
             },
             {
@@ -85,12 +85,12 @@
         "title": "Comment faisons-nous ?",
         "button": "Test de capacité personnelle",
         "leftText": "Notre approche mêle clarté stratégique et profondeur humaine, vous guidant à travers un voyage de transformation fondé sur l'autodiscipline, la force intérieure et une santé métabolique optimale.",
-        "rightDesc": "À travers des séances individuelles personnalisées et un suivi régulier, nous vous accompagnons dans la création d'habitudes et de systèmes durables qui soutiennent votre nutrition, votre activité physique et votre état d'esprit.",
+        "rightDesc": "À travers des <strong>séances individuelles personnalisées et un suivi régulier</strong>, nous vous accompagnons dans la création d'habitudes et de systèmes durables qui soutiennent votre <strong>nutrition, votre activité physique et votre état d'esprit.</strong>",
         "moreContent": {
           "paragraphs": [
             {
-              "title": "La Méthode Métabolique™",
-              "text": "Notre Metabolic Method™ est conçue pour restaurer votre énergie, votre concentration et votre dynamisme, vous aidant à vous reconnecter avec vous-même. Nous travaillons en étroite collaboration avec vous pour définir des priorités et des objectifs clairs, garantissant que votre croissance soit à la fois mesurable et significative. Avec le soutien de nos partenaires de confiance si nécessaire, nous vous aidons à adopter la santé métabolique et le mindset comme la nouvelle monnaie du leadership."
+             
+              "text": "Notre Metabolic Method™ est conçue pour restaurer votre énergie, votre concentration et votre dynamisme, vous aidant à vous reconnecter avec vous-même. Nous travaillons en étroite collaboration avec vous pour définir des priorités et des objectifs clairs, garantissant que votre croissance soit à la fois mesurable et significative. Avec le soutien de nos partenaires de confiance si nécessaire, nous vous aidons à adopter <strong>la santé métabolique et le mindset comme la nouvelle monnaie du leadership.</strong>"
             }
           ]
         }
@@ -104,23 +104,23 @@
         "moreContent": {
           "paragraphs": [
             {
-              "title": "Confidentialité",
+            
               "text": "Nous ne divulguons jamais de détails personnels, et vos informations sont utilisées uniquement pour soutenir votre parcours de bien-être."
             },
             {
-              "title": "Discrétion",
-              "text": "Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande discrétion."
+       
+              "text": "Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande <strong>discrétion.</strong>"
             },
             {
-              "title": "Protection des données",
+              
               "text": "Nous prenons la protection de vos données personnelles au sérieux. Toute information que vous choisissez de partager est traitée avec soin, discrétion et confidentialité, uniquement à des fins professionnelles légitimes et clairement définies."
             },
             {
-              "title": "Mesures de sécurité",
+           
               "text": "Nous ne divulguons pas de données personnelles à des tiers sans base juridique valable, et nous appliquons les mesures techniques et organisationnelles appropriées pour protéger vos informations."
             },
             {
-              "title": "Conformité RGPD",
+           
               "text": "Vos données personnelles sont traitées conformément au Règlement Général sur la Protection des Données (RGPD) de l'Union européenne. Vous pouvez exercer vos droits à tout moment, conformément à la loi applicable."
             }
           ]
@@ -180,7 +180,7 @@
     {
       "id": 1,
       "title": "Gouvernance",
-      "leftText": "Nous concevons des architectures de gouvernance modernes qui améliorent la responsabilité, la transparence et la prise de décision tout en soutenant la performance.",
+      "leftText": "Nous concevons des <strong>architectures de gouvernance modernes</strong> qui améliorent la responsabilité, la transparence et la prise de décision tout en soutenant la performance.",
       "title_rightDesc":"Gouvernance d'entreprise moderne :",
       "rightDesc": " Nous accompagnons les conseils d'administration et les équipes de direction dans la mise en place de systèmes de gouvernance qui équilibrent contrôle, rapidité et responsabilité.",
       "moreContent": {
@@ -272,7 +272,7 @@
     {
       "id": 4,
       "title": "Leadership et systèmes humains",
-      "leftText": "Nous travaillons avec les leaders pour bâtir des organisations efficaces où les gens performent, apprennent et prennent leurs responsabilités.",
+      "leftText": "Nous travaillons avec les leaders pour bâtir des <strong>organisations efficaces</strong> où les gens performent, apprennent et prennent leurs responsabilités.",
           "title_rightDesc":"Ce qui fait un leader :",
       "rightDesc": " Nous aidons les leaders à développer clarté, responsabilité et cohérence. Le leadership se voit dans le comportement, pas dans les titres.",
       "moreContent": {
@@ -339,20 +339,20 @@
     {
       "id": 6,
       "title": "Formation organisationnelle",
-      "leftText": "Nous proposons un développement des compétences ciblé pour les cadres afin de renforcer la prise de décision et la création de valeur.",
-      "rightDesc": "Nous fournissons une éducation exécutive sur mesure et des connaissances pratiques aux dirigeants faisant face à des enjeux élevés.",
+      "leftText": "Nous proposons des dispositifs de développement des compétences ciblés à destination des <strong>cadres dirigeants et des managers</strong>, afin de renforcer la qualité de la prise de décision, la résilience, la discipline d’exécution et la création de valeur dans des environnements complexes.",
+      "rightDesc": "Nous proposons des <strong>programmes de formation sur mesure</strong> destinés aux cadres dirigeants et au management confrontés à des décisions critiques et à des transformations à forts enjeux.",
       "moreContent": {
         "paragraphs": [
           {
-            "title": "Excellence des Processus",
-            "text": "Nous renforçons votre capacité à planifier et exécuter en soutenant l'excellence des processus et une livraison disciplinée."
+            
+            "text": "Nous renforçons votre capacité à <strong>planifier et exécuter</strong> en soutenant l'excellence des processus et une livraison disciplinée."
           },
           {
-            "title": "Potentiel Business",
-            "text": "Nous aidons les dirigeants à mieux évaluer le potentiel business et à identifier des moyens innovants de créer de la valeur."
+           
+            "text": "Nous aidons les dirigeants à mieux évaluer le potentiel de leur activité et à identifier des leviers innovants et efficace dans la création de valeur. Les organisations développent ainsi une compréhension approfondie de leurs <strong>moteurs de création de valeur</strong> et des implications financières de leurs décisions et actions"
           },
           {
-            "title": "Solutions sur mesure",
+           
             "text": "Grâce à des solutions personnalisées, nous permettons à vos collaborateurs de maîtriser ce qui compte vraiment."
           }
         ],
@@ -374,8 +374,8 @@
       "id": 7,
       "title": "Coaching et mentorat pour dirigeants",
       "button": " Métabolique méthode",
-      "leftText": "Propulsé par l'Executive Metabolic Method™, ce programme aide les dirigeants sous pression à restaurer leur énergie et leur clarté de décision.",
-      "rightDesc": "Notre approche intègre performance métabolique et leadership pour offrir une résilience là où c'est le plus nécessaire.",
+      "leftText": "Propulsé par <strong>l'Executive Metabolic Method™</strong>, ce programme aide les dirigeants sous pression à restaurer leur énergie et leur clarté de décision.",
+      "rightDesc": "Notre approche intègre <strong>performance métabolique et leadership</strong> pour offrir une résilience là où c'est le plus nécessaire.",
       "moreContent": {
         "paragraphs": [
           {

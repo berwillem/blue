@@ -20,15 +20,31 @@ export default function Intro() {
   const whyRef = useRef(null);
   const { t, i18n } = useTranslation();
 
-  const renderSplitText = (textKey, className) => {
-    return t(textKey)
-      .split(" ")
-      .map((word, i) => (
-        <span key={i} className={className}>
-          {word}&nbsp;
-        </span>
-      ));
-  };
+const renderSplitText = (textKey, className) => {
+  const text = t(textKey); // Récupère le texte traduit
+
+  // Utilisation d'une expression régulière pour capturer les balises HTML <strong>...</strong>
+  const regex = /(<strong>.*?<\/strong>)/g;
+
+  // Séparation du texte en morceaux, y compris les balises HTML
+  const splitText = text.split(regex);
+
+  return splitText.map((part, i) => {
+    // Si la partie est une balise <strong>...</strong>, on l'affiche avec dangerouslySetInnerHTML
+    if (part.match(/<strong>/)) {
+      return (
+        <span key={i} className={className} dangerouslySetInnerHTML={{ __html: part }} />
+      );
+    }
+
+    // Sinon, chaque mot est affiché avec la classe et l'animation (ici l'animation reste inchangée)
+    return part.split(" ").map((word, index) => (
+      <span key={`${i}-${index}`} className={className}>
+        {word}&nbsp;
+      </span>
+    ));
+  });
+};
 
   useLayoutEffect(() => {
     ScrollTrigger.getAll().forEach((st) => st.kill());
