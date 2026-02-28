@@ -420,3 +420,6 @@ font-weight: 400;
 
   }
 }
+.ind .lines{
+  display: none !important; 
+}

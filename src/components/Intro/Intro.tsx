@@ -1,10 +1,10 @@
 // @ts-nocheck
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroImage from "../../assets/images/redaabout.png";
-import heroImage2 from "../../assets/images/bg2.png";
-import heroImage3 from "../../assets/images/bg4.png";
+import heroImage from "../../assets/images/version mehdi 2.jpg.jpeg";
+import heroImage2 from "../../assets/images/version mehdi milieu couleur.jpg.jpeg";
+
 
 import "./Intro.css";
 import { useTranslation } from "react-i18next";
@@ -18,6 +18,14 @@ export default function Intro() {
   const imageRef = useRef(null);
   const buttonRef = useRef(null);
   const whyRef = useRef(null);
+  const [isphone, setIsphone] = useState(false)
+    useEffect(() => {
+      const mediaQuery = window.matchMedia("(max-width: 720px)");
+      const checkDevice = () => setIsphone(mediaQuery.matches);
+      checkDevice();
+      mediaQuery.addEventListener("change", checkDevice);
+      return () => mediaQuery.removeEventListener("change", checkDevice);
+    }, []);
   const { t, i18n } = useTranslation();
 
 const renderSplitText = (textKey, className) => {
@@ -126,8 +134,9 @@ const renderSplitText = (textKey, className) => {
           <span className="word" style={{ display: 'block', textAlign: 'right', fontSize: '0.5em', marginTop: '10px' }}>-Redha</span>
         </h1>
         <div ref={imageRef} className="imageCard">
-          <img src={heroImage2} alt="Intro" className="background" />
-          <img src={heroImage3} alt="redah" className="redah" />
+          {isphone ? <img src={heroImage2} alt="Intro" className="background" /> : <img src={heroImage} alt="Intro" className="background" />
+}
+        
         </div>
         <div ref={buttonRef} className="btn-wrapper">
           <Link to="/about">

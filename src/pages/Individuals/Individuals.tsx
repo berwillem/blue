@@ -71,7 +71,7 @@ useEffect(() => {
   ];
 
   return (
-    <div className="mainWrapper">
+    <div className="mainWrapper ind">
       <div className="navbar-anim">
         <Navbar links={links} />
       </div>
