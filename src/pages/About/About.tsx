@@ -72,17 +72,18 @@ export default function About() {
         <img src={redaabout} alt="about" />
         <div className="left">
           {/* On utilise i18n.language dans la key pour forcer le re-mount et relancer l'anim au switch de langue */}
+          
           <AnimatedText 
             key={`p1-${i18n.language}`}
             delayOffset={0.1}
-            text={t("about.paragraph1")} 
+            text={userType=="individuals" ? t("about.paragraph11") : t("about.paragraph1")} 
           />
-          
-          <AnimatedText 
+          {userType=="individuals" &&  <AnimatedText 
             key={`p2-${i18n.language}`}
             delayOffset={4.0} 
             text={t("about.paragraph2")} 
-          />
+          />}
+         
 
           <motion.div 
             className="button-about"

@@ -83,8 +83,7 @@ font-weight:500;
 .mobile p {
   font-size: 1rem;
   font-weight: 500;
-  display: flex;
-  align-items: center;
+
   gap: 10px;
 
 }
@@ -379,7 +378,7 @@ font-weight: 400;
 
   .right-description {
     font-size: 1.2rem !important;
-  
+
     line-height: 1.4;
     margin: 0 !important;
   }

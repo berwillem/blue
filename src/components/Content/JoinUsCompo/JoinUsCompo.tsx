@@ -122,7 +122,7 @@ const JoinUsCompo: React.FC = () => {
             className={styles.ctaButtonSimple}
         
           >
-            {showMore ? t("privacy_section.show_less") : t("privacy_section.show_more")}
+            {t("navbar.joinus")}
           </button>
         </div>
       </main>

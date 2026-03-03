@@ -49,7 +49,7 @@
       {
         "id": 1,
         "title": "what we do?",
-        "button": "Start a metabolic test",
+        "button": "Start the metabolic test",
         "leftText": "Executive Metabolic Method™ for high performers and achievers. Performance, Discipline, and Purpose — The New Elite Code.",
         "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
         "moreContent": {
@@ -172,8 +172,10 @@
     }
   },
   "about": {
-    "paragraph1": "With over 21 years of experience in demanding environments — including 15 years in leadership positions — Redha evolved at a high level while facing real personal challenges: being overweight, low energy, concentration issues, and multiple metabolic imbalances.",
-    "paragraph2": "Through his own journey of transformation, he gradually regained sustainable energy, profound mental clarity, and a more stable, aligned discipline.",
+    "paragraph1": "With over 21 years of experience in multinational environments — including 15 years as a senior executive with regional responsibilities — Redha has built a solid track record in leadership, business development, finance, and human and organizational development. His career, shaped by several years of expatriation, has given him deep expertise in organizational transformation and a strong understanding of multiple industries. Trained at renowned institutions in Stockholm, Boston, Singapore, and Geneva, he now puts this experience at the service of individuals and organizations seeking growth, clarity, and lasting impact. ",
+    "paragraph11":"With over 21 years of experience in demanding multinational environments — including 15 years as an executive — Redha operated at a high level while also facing very real personal challenges: excess weight, low energy, reduced concentration, and multiple metabolic imbalances. ",
+    "paragraph2": "By walking his own path of transformation, he gradually regained sustainable energy, deep mental clarity, and a more stable, aligned discipline. Today, he puts this lived experience at the service of individuals who seek to reconnect with themselves, restore their vitality, strengthen their mindset, and move forward with greater meaning and coherence in their lives. ",
+   
     "button": "Book a meet"
   },
   "sections2": [
@@ -218,21 +220,11 @@
             "text": "By clarifying what truly creates value in your business, we connect strategy, operations, and financial outcomes so leaders focus resources on activities that really matter."
           },
           {
-            "title": "Financial Literacy for Executives",
-            "text": "We help leaders truly understand how financial mechanics drive performance."
-          }
-        ],
-        "lists": [
-          {
-            "title": "Key Financial Metrics we clarify:",
-            "items": [
-              "P&L and Balance Sheet dynamics",
-              "OVA vs EBIT",
-              "Cost of capital",
-              "ROCE (Return on Capital Employed)"
-            ]
+            "title": "Financial Literacy for Executives (P&L, Balance Sheet, OVA vs EBIT,Cost of capital, ROCE)",
+            "text": "We help leaders truly understand how financial mechanics drive performance. We translate P&L, balance sheet dynamics, OVA vs EBIT, cost of capital, and ROCE into clear operational decisions that improve capital allocation and accountability."
           }
         ]
+        
       }
     },
     {

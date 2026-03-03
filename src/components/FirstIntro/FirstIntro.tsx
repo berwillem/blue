@@ -15,14 +15,14 @@ import card7 from "../../assets/images/Skin issues.png";
 import card8 from "../../assets/images/Male sexual dysfunction.png";
 
 const Cards = [
+  { titleKey: "individuals.diseases.diabetes_type_2", image: card6 },
   { titleKey: "individuals.diseases.cardiovascular", image: card1 },
   { titleKey: "individuals.diseases.depression_anxiety", image: card2 },
-  { titleKey: "individuals.diseases.infertility", image: card4 },
-  { titleKey: "individuals.diseases.allergies", image: card3 },
-  { titleKey: "individuals.diseases.diabetes_type_2", image: card6 },
   { titleKey: "individuals.diseases.male_dysfunction", image: card8 },
+  { titleKey: "individuals.diseases.allergies", image: card3 },
   { titleKey: "individuals.diseases.skin_issues", image: card7 },
   { titleKey: "individuals.diseases.autoimmune", image: card5 },
+  { titleKey: "individuals.diseases.infertility", image: card4 },
 ];
 
 // 1. Définition des variantes d'animation
@@ -63,19 +63,19 @@ export default function FirstIntro() {
         whileInView="visible" // S'anime quand la section apparaît à l'écran
         viewport={{ once: true, amount: 0.2 }} // Ne se joue qu'une fois
       >
- <h1 className="headline">
-  {t("individuals.main_title1")
-    .split(" ")
-    .map((word, i) => (
-      <motion.span
-        key={i}
-        variants={itemVariants}
-        style={{ display: "inline-block", whiteSpace: "pre" }} // "pre" garde l'espace
-      >
-        {word}{" "}
-      </motion.span>
-    ))}
-</h1>
+        <h1 className="headline">
+          {t("individuals.main_title1")
+            .split(" ")
+            .map((word, i) => (
+              <motion.span
+                key={i}
+                variants={itemVariants}
+                style={{ display: "inline-block", whiteSpace: "pre" }} // "pre" garde l'espace
+              >
+                {word}{" "}
+              </motion.span>
+            ))}
+        </h1>
 
         <div className="grid_intro">
           {Cards.map((card, index) => (

@@ -131,7 +131,7 @@ const renderSplitText = (textKey, className) => {
       <div className="intro-section">
         <h1 ref={textRef} className="headline" key={`h1-${i18n.language}`}>
           {renderSplitText("individuals.main_title", "word")}
-          <span className="word" style={{ display: 'block', textAlign: 'right', fontSize: '0.5em', marginTop: '10px' }}>-Redha</span>
+          <span className="word" style={{ display: 'block', textAlign: 'right', fontSize: '0.7em', marginTop: '10px' }}>-Redha</span>
         </h1>
         <div ref={imageRef} className="imageCard">
           {isphone ? <img src={heroImage2} alt="Intro" className="background" /> : <img src={heroImage} alt="Intro" className="background" />

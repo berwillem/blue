@@ -12,9 +12,9 @@
     "privacy": "Confidentialité",
     "services_indiv": {
       "why": "Pourquoi faisons-nous ce que nous faisons ?",
-      "what": "Que faisons-nous ?",
-      "how": "Comment faisons-nous ?",
-      "privacy": "Votre vie privée est notre priorité",
+      "what": "Qu’est-ce que nous faisons ",
+      "how": "Comment nous le faisons",
+      "privacy": "Votre confidentialité est notre priorité",
       "test": "Passer le test"
     },
     "services_corp": {
@@ -49,7 +49,7 @@
       {
         "id": 1,
         "title": "Que faisons-nous ?",
-        "button": "Commencer un test métabolique",
+        "button": "Commencer le test métabolique",
         "leftText": "Executive Metabolic Method™ pour les performeurs et les bâtisseurs. Performance, discipline et raison d'être — Le nouveau code de l'élite.",
         "rightDesc": "L'excellence durable commence de l'intérieur — par un équilibre profond entre métabolisme, état d'esprit et bien-être global. Cette conviction nous a conduits à dédier notre travail à l'accompagnement d'individus qui ne cherchent pas seulement le succès, mais l'alignement entre le corps, l'esprit et leur mission.",
         "moreContent": {
@@ -98,7 +98,7 @@
       {
         "id": 3,
         "title": "Votre vie privée est notre priorité",
-        "button": "En savoir plus sur notre politique de confidentialité et de discrétion",
+        "button": "En savoir plus sur notre politique de confidentialité et de protection des données",
         "leftText": "Notre travail se déroule lors de séances privées en personne, où l'intimité et la confidentialité sont fondamentales.",
         "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel.",
         "moreContent": {
@@ -172,8 +172,10 @@
     }
   },
   "about": {
-    "paragraph1": "Avec plus de 21 ans d’expérience dans des environnements exigeants — dont 15 années à des postes de responsabilités — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples.",
-    "paragraph2": "En parcourant son propre chemin de transformation, il a progressivement retrouvé une énergie durable, une clarté d’esprit profonde et une discipline plus stable et alignée.",
+    "paragraph1": "Avec plus de 21 ans d’expérience dans des environnements multinationaux — dont 15 en tant que cadre dirigeant aux responsabilités régionales — Redha a bâti un parcours solide autour du leadership, du business développement, des finances et du développement humain et organisationnel. Son parcours, marqué par plusieurs années d’expatriation, lui a apporté une expertise approfondie en transformation organisationnelle ainsi qu’une compréhension pointue de nombreuses industries. Formé dans des institutions de renom à Stockholm,Boston, Singapour et Genève, il met aujourd’hui cette expérience au service despersonnes et des entreprises en quête d’évolution, de clarté et d’impact durable. ",
+    "paragraph11":"Avec plus de 21 ans d’expérience dans des environnements multinationaux exigeants — dont 15 années à des postes de cadre dirigeant — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples. ",
+    "paragraph2": "En parcourant son propre chemin de transformation, il a progressivement retrouvé une énergie durable, une clarté d’esprit profonde et une discipline plus stable et alignée. Aujourd’hui, il met cette expérience vécue au service des personnes qui souhaitent se reconnecter à elles-mêmes, retrouver leur vitalité, renforcer leur mental et avancer avec plus de sens et de cohérence dans leur vie. ",
+
     "button": "Prendre rendez-vous"
   },
   "sections2": [
@@ -218,21 +220,11 @@
             "text": "En clarifiant ce qui crée réellement de la valeur dans votre entreprise, nous connectons la stratégie, les opérations et les résultats financiers."
           },
           {
-            "title": "Culture financière pour dirigeants",
-            "text": "Nous aidons les leaders à comprendre comment les mécanismes financiers pilotent la performance de l'organisation."
-          }
-        ],
-        "lists": [
-          {
-            "title": "Indicateurs financiers clés que nous clarifions :",
-            "items": [
-              "Dynamique du P&L et du Bilan",
-              "OVA vs EBIT",
-              "Coût du capital",
-              "ROCE (Rendement des capitaux investis)"
-            ]
+            "title": "Culture financière des dirigeants (P&L, bilan, OVA vs EBIT, coût du capital, ROCE)",
+            "text": "Nous aidons les dirigeants à comprendre en profondeur les mécanismes financiers qui sous-tendent la performance. Nous traduisons les dynamiques du compte de résultat et du bilan, les nuances entre OVA et EBIT, le coût du capital et le le retour sur capital (ROCE) en décisions opérationnelles claires, améliorant l’allocation du capital, la discipline financière et la responsabilisation."
           }
         ]
+
       }
     },
     {
@@ -528,6 +520,8 @@
     ]
   },
   
+    "know_more": "en savoir plus",
+    "show_less": "voir moins",
   "privacy_section": {
     "title": "Votre vie privée est notre priorité",
     "main_text": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel. Nous ne divulguons jamais de détails personnels et vos informations sont utilisées uniquement pour accompagner votre parcours de bien-être. Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande discrétion.",
@@ -776,15 +770,15 @@
         "Ce test ne porte pas sur votre potentiel — il s'agit de la façon dont votre esprit fonctionne en ce moment.",
         "Vous allez évaluer les aspects fondamentaux de votre fonctionnement mental actuel.",
         "Répondez en fonction de votre comportement réel, pas de vos intentions. Cela ne devrait vous prendre que 5 minutes.",
-        "Avis de confidentialité : Ce test est anonyme.",
-        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+    
+        " Avis de confidentialité : Ce test est anonyme. Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
       ],
       "test2": [
         "Rien ne s'effondre soudainement. Tout s'érode.",
         "Ce test révèle ce qui est déjà en mouvement.",
         "Cela ne devrait vous prendre que 5 minutes.",
-        "Avis de confidentialité : Ce test est anonyme.",
-        "Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
+        
+        " Avis de confidentialité : Ce test est anonyme. Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
       ]
     }
 }
