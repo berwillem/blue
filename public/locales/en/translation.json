@@ -98,7 +98,7 @@
       {
         "id": 3,
         "title": "Your Privacy is Our Priority",
-        "button": "Learn more about our Privacy & Confidentiality Policy",
+        "button": "Our Privacy & Confidentiality Policy",
         "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
@@ -165,8 +165,6 @@
     "col3": {
       "title": "For partnership",
       "links": [
-        "Home page",
-        "What we do",
         "Become a partner"
       ]
     }

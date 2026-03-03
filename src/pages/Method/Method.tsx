@@ -15,6 +15,7 @@ interface AnimatedTextProps {
   delayOffset: number;
   className?: string;
   as?: any;
+  style?: React.CSSProperties;
 }
 
 const wordVariants: Variants = {
@@ -25,8 +26,7 @@ const wordVariants: Variants = {
   },
 };
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, className = "reveal-text-auto", as = "p" }) => {
-  const words = text.split(" ");
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, className = "reveal-text-auto", as = "p", style }) => {
   const Tag = motion[as];
 
   const containerVariants: Variants = {
@@ -38,20 +38,51 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, classNam
     },
   };
 
+  // --- LA LOGIQUE DE TON AUTRE PAGE ADAPTÉE ICI ---
+  const renderContent = () => {
+    if (!text) return null;
+
+    // Capture les balises strong
+    const regex = /(<strong>.*?<\/strong>)/g;
+    const splitText = text.split(regex);
+
+    return splitText.map((part, i) => {
+      // Si c'est un strong, on utilise dangerouslySetInnerHTML comme dans ton exemple
+      if (part.match(/<strong>/)) {
+        return (
+          <motion.span 
+            key={`strong-${i}`} 
+            variants={wordVariants}
+            className="word-wrapper"
+            dangerouslySetInnerHTML={{ __html: part }} 
+            style={{ display: "inline-block" }}
+          />
+        );
+      }
+
+      // Sinon on split par mot pour l'animation classique
+      return part.split(" ").map((word, index) => {
+        if (word === "") return null;
+        return (
+          <span key={`${i}-${index}`} className="word-wrapper">
+            <motion.span variants={wordVariants}>
+              {word}{" "}
+            </motion.span>
+          </span>
+        );
+      });
+    });
+  };
+
   return (
     <Tag 
       className={className}
+      style={style}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {words.map((word, i) => (
-        <span key={i} className="word-wrapper">
-          <motion.span variants={wordVariants}>
-            {word}{" "}
-          </motion.span>
-        </span>
-      ))}
+      {renderContent()}
     </Tag>
   );
 };
@@ -66,29 +97,23 @@ export default function Method() {
     { name: "privacy", path: "/privacy" },
     { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/joinus"  }
   ];
-const sectionsData = t("individuals.sections", { returnObjects: true }) || [];
 
+  const sectionsData = t("individuals.sections", { returnObjects: true }) || [];
+  const firstSection = sectionsData[0] || {};
 
-
-const firstSection = sectionsData[0];
-console.log('====================================');
-console.log(firstSection.button);
-console.log('====================================');
   return (
     <div className="about-container">
       <Navbar links={links} />
       <div className="about-content">
-
         <div className="left">
           
-          {/* Petit titre ajouté ici */}
           <AnimatedText 
             as="h3"
             key={`title-${i18n.language}`}
             delayOffset={0}
             className="small-title-about"
             text={firstSection.title} 
-            style={{ marginBottom: "1rem", color: "#ffcc00", fontWeight: "bold" }}
+            style={{ marginBottom: "1rem", fontWeight: "bold" }}
           />
          
           <AnimatedText 
@@ -96,17 +121,29 @@ console.log('====================================');
             delayOffset={0.5}
             text={firstSection.leftText} 
           />
-          
-        
+          <AnimatedText 
+            key={`p2-${i18n.language}`}
+            delayOffset={2}
+            text={firstSection.rightDesc} 
+          />
+          {firstSection.moreContent?.paragraphs?.map((para, idx) => (
+            <AnimatedText 
+              key={`p-extra-${i18n.language}-${idx}`}
+              delayOffset={5 + idx * 0.3}
+              text={para.text} 
+            />
+          ))}
 
           <motion.div 
             className="button-about"
             key={`btn-${i18n.language}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 6.0, duration: 0.8 }}
+            transition={{ delay: 3.0, duration: 0.8 }}
           >
-          <Link to="/disclaimer/metabolic-health">  <Button text={firstSection.button} width="100%" /></Link>
+            <Link to="/disclaimer/metabolic-health">
+              <Button text={firstSection.button} width="100%" />
+            </Link>
           </motion.div>
         </div>
       </div>

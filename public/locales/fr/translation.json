@@ -98,7 +98,7 @@
       {
         "id": 3,
         "title": "Votre vie privée est notre priorité",
-        "button": "En savoir plus sur notre politique de confidentialité et de protection des données",
+        "button": "Notre politique de confidentialité et de protection des données",
         "leftText": "Notre travail se déroule lors de séances privées en personne, où l'intimité et la confidentialité sont fondamentales.",
         "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel.",
         "moreContent": {
@@ -165,8 +165,7 @@
     "col3": {
       "title": "Partenariats",
       "links": [
-        "Accueil",
-        "Ce que nous faisons",
+    
         "Devenir partenaire"
       ]
     }

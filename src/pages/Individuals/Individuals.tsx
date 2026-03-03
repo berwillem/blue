@@ -6,7 +6,7 @@ import Content from "../../components/Content/Content";
 import Last from "../../components/Last/Last";
 import Footer from "../../components/Footer/Footer";
 import "./Individuals.css";
-import placeholder1 from "../../assets/images/redacontent1.jpg";
+import placeholder1 from "../../assets/images/redacontent1.png";
 import placeholder2 from "../../assets/images/redcontent2.jpg";
 import placeholder3 from "../../assets/images/redacontent3.jpg";
 import { FiCalendar } from "react-icons/fi";
