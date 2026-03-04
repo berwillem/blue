@@ -79,7 +79,7 @@
 .smallTitle {
   font-weight: bold;
   display: block;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: #0e3a4a;
 }
 .longText2 {
@@ -188,7 +188,7 @@
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   overflow: hidden;
 }
 
@@ -203,7 +203,7 @@
   font-size: 1rem;
   letter-spacing: 0.2rem;
   color: #0e3a4a;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   font-weight: 700;
   text-transform: uppercase;
 }

@@ -20,13 +20,33 @@ import Privacy from "./pages/Privacy/Privacy";
 import Stat from "./pages/Stat/Stat";
 import Method from "./pages/Method/Method";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 // 1. Créer un composant Layout qui inclut le ScrollRestoration
 // Copie et remplace cette partie dans ton main.tsx
 const RootLayout = () => {
   const { pathname } = useLocation(); // Tu dois importer useLocation de react-router-dom
+useEffect(() => {
+    let timer;
+    const resizeObserver = new ResizeObserver(() => {
+      // On annule le refresh précédent s'il y en a un
+      clearTimeout(timer);
+      // On attend 500ms (fin de l'anim Show More) pour rafraîchir
+      timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 500);
+    });
 
+    resizeObserver.observe(document.body);
+
+    return () => {
+      resizeObserver.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
   useEffect(() => {
     window.scrollTo({
       top: 0,

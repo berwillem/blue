@@ -64,18 +64,14 @@ opacity: 0.3;
   justify-content: center;
   align-items: center;
   margin: 0px 0; /* Espace pour qu'il soit bien isolé des textes */
-  opacity: 0;
-  transform: translateY(30px);
+  
+
   transition: opacity 1.2s ease, transform 1.2s ease;
-  pointer-events: none;
+
   gap: 10px;
 }
 
-.button-footer.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
+
 .button-footer button {
  font-size: 0.8rem;
 }

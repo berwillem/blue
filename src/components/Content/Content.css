@@ -22,6 +22,11 @@
   height: 100%;
  gap: 1rem;
  padding-top: 5rem;
+ position: relative;
+}
+.indicator-content{
+  height: 30px !important;
+  left: 15%;
 }
 .content_text {
   display: flex;
@@ -114,6 +119,9 @@ font-weight:500;
   border-left: 2px rgba(255, 255, 255, 0.04) solid;
   width: 1px;
 }
+.content_text .lines .line:first-child {
+opacity: 0;
+}
 .big-size {
   display: none;
 }
@@ -133,7 +141,7 @@ font-size: 1rem;
 font-weight: 400;
 }
 /* Dans le CSS de ton composant Content */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .big-size {
     display: flex !important;
     width: 100%;
@@ -154,7 +162,7 @@ font-weight: 400;
 
 
 /* --- VERSION tablette (768px+) --- */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .snap-group-container .snap-panel:not(:first-of-type){
   display: none;
 
@@ -288,7 +296,7 @@ font-weight: 400;
 
   }
 }
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1020px) {
   .snap-group-container .snap-panel:not(:first-of-type){
   display: none;
 
@@ -348,7 +356,7 @@ font-weight: 400;
   }
 
   .rotating-text-box p {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
     line-height: 1.2;
     font-weight: 300;
     margin: 0 !important;

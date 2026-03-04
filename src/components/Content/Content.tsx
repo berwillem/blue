@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
   AnimatePresence,
-} from "framer-motion";
+} from "framer-motion";// ou "framer-motion" selon ta config
 import Button from "../../ui/button/Button";
 import "./Content.css";
 import { ArrowRight } from "lucide-react";
@@ -16,6 +16,7 @@ import { useUserTypeStore } from "../../store/useUserTypeStore";
 export default function Content({ DATA, DATA2 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 pour bas, -1 pour haut
   const { t } = useTranslation();
   const userType = useUserTypeStore((state) => state.userType);
 
@@ -33,7 +34,7 @@ export default function Content({ DATA, DATA2 }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 720px)");
+    const mediaQuery = window.matchMedia("(min-width: 600px)");
     const checkDevice = () => setIsPC(mediaQuery.matches);
     checkDevice();
     mediaQuery.addEventListener("change", checkDevice);
@@ -54,7 +55,8 @@ export default function Content({ DATA, DATA2 }) {
     if (!isPC) return;
     return activeIndex.onChange((v) => {
       const val = Math.round(v);
-      if (val !== currentIndex && val < numItems) {
+      if (val !== currentIndex && val >= 0 && val < numItems) {
+        setDirection(val > currentIndex ? 1 : -1); // Détermine le sens
         setCurrentIndex(val);
         setShow(false);
       }
@@ -65,7 +67,7 @@ export default function Content({ DATA, DATA2 }) {
     <div
       className="content-scroll-wrapper"
       ref={containerRef}
-      style={{ height: isPC ? `${numItems * 100}vh` : "auto" }}
+      style={{ height: isPC ? `${numItems * 150}vh` : "auto" }}
     >
       {isPC &&
         DATA.map((_, i) => (
@@ -102,6 +104,7 @@ export default function Content({ DATA, DATA2 }) {
 
           <div className="content_text">
             <div className="lines">
+              <div className="line"></div>
               <div className="line"></div>
               <div className="line"></div>
             </div>
@@ -164,6 +167,9 @@ export default function Content({ DATA, DATA2 }) {
             <p className="know-more seeMore2" style={{ cursor: "pointer" }} onClick={() => setShow(!show)}>
               <span>{show ? t("show_less") : t("know_more")}</span>
             </p>
+                <div className="scroll-indicator indicator-content ">
+          <span />
+        </div>
           </div>
 
           {DATA2?.button && (
@@ -173,6 +179,7 @@ export default function Content({ DATA, DATA2 }) {
               </Link>
             </div>
           )}
+         
         </motion.div>
 
         {/* --- DESKTOP --- */}
@@ -184,9 +191,9 @@ export default function Content({ DATA, DATA2 }) {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, y: direction > 0 ? 20 : -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: direction > 0 ? -20 : 20 }}
                     transition={{ duration: 0.4 }}
                     style={{ display: "flex", flexDirection: "column" }}
                     layout
@@ -213,9 +220,9 @@ export default function Content({ DATA, DATA2 }) {
                 <motion.div
                   key={currentIndex}
                   className="tiktok-slide-content"
-                  initial={{ y: "100%", opacity: 0 }}
+                  initial={{ y: direction > 0 ? "100%" : "-100%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
+                  exit={{ y: direction > 0 ? "-100%" : "100%", opacity: 0 }}
                   transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
                   layout
                   style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}

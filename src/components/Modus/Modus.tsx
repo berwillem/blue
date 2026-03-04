@@ -31,13 +31,14 @@ export default function Modus() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top", // Se bloque quand le haut de la section touche le haut de l'écran
-          end: "+=250%",    // Ajusté légèrement pour la fluidité mobile
+          end: "+=400%",    // Ajusté légèrement pour la fluidité mobile
           pin: true,
           pinSpacing: true,
           scrub: 1,
           invalidateOnRefresh: true, 
           anticipatePin: 1, // Très important : prépare le "pin" avant d'arriver pour éviter le glitch
-          fastScrollEnd: true, // Aide à sortir proprement de la section si l'utilisateur scrolle vite
+          fastScrollEnd: true,
+           // Aide à sortir proprement de la section si l'utilisateur scrolle vite
         },
       });
 

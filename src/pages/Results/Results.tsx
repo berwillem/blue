@@ -3,7 +3,10 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { jsPDF } from "jspdf";
+import {
+  motion,
 
+} from "framer-motion";
 import "./Results.css";
 import Button from "../../ui/button/Button";
 import { useTestResultsStore } from "../../store/useTestResultsStore";
@@ -71,8 +74,7 @@ export default function Results() {
 
   const containerRef = useRef(null);
   const buttonRef = useRef(null);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const [showButton, setShowButton] = useState(false);
+
 
   const results = useTestResultsStore((s) => s.results);
   const location = useLocation();
@@ -199,29 +201,11 @@ export default function Results() {
     if (!containerRef.current || mappedResults.length === 0) return;
 
     const paragraphs = containerRef.current.querySelectorAll(".result-paragraph");
-    const SCROLL_DELAY = 5000;
 
-    const startAutoScroll = async () => {
-      paragraphs[0]?.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      for (let i = 1; i < paragraphs.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, SCROLL_DELAY));
-        paragraphs[i].scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
 
-      await new Promise((resolve) => setTimeout(resolve, SCROLL_DELAY));
-      setShowButton(true);
-      
-      setTimeout(() => {
-        buttonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-        setIsAutoScrolling(false);
-      }, 500);
-    };
 
-    startAutoScroll();
+
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -238,14 +222,12 @@ export default function Results() {
   }, [mappedResults]);
 
   if (!storedResult) return <p>{lang === "fr" ? "Aucun résultat." : "No results."}</p>;
-console.log('====================================');
-console.log(mappedResults);
-console.log('====================================');
+
   return (
     <div className="results-wrapper">
       <h1>{lang === "fr" ? "Résultat" : "Result"}</h1>
 
-      <div className={`results-content ${isAutoScrolling ? "lock-user-scroll" : ""}`} ref={containerRef}>
+      <div className={`results-content `} ref={containerRef}>
         <div className="spacer"></div>
 
         {mappedResults.map((item, index) => (
@@ -259,7 +241,11 @@ console.log('====================================');
        </>
         ))}
 
-        <div ref={buttonRef} className={`button-footer ${showButton ? "visible" : ""}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }} ref={buttonRef} className={`button-footer `}>
           <Button 
             onClick={handleDownloadPDF}
             text={lang === "fr" ? "Télécharger les résultats" : "Download results"} 
@@ -270,7 +256,7 @@ console.log('====================================');
             text={lang === "fr" ? "Retourner à l'accueil" : "Go Home"} 
             width="250px" 
           />
-        </div>
+        </motion.div>
 
         <div className="spacer"></div>
       </div>

@@ -20,7 +20,7 @@ overflow: hidden;
 
 .about-content p {
   margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
@@ -36,7 +36,7 @@ overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .about-content p {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     line-height: 1.8;
     margin-top: 0.7rem;
   }
@@ -71,11 +71,11 @@ overflow: hidden;
   }
 
   .about-content p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.8;
   }
   .about-content p:first-child {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.8;
     margin: 0;
   }

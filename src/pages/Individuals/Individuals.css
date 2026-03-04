@@ -110,7 +110,7 @@
 .smallTitle {
   font-weight: bold;
   display: block;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: #0e3a4a;
 }
 
@@ -264,7 +264,7 @@ bottom: 1rem;
 right:1rem;}
 }
 /* --- MOBILE --- */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .buble{
     display: flex;
   position: fixed;

@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Navbar from "../../components/Navbar/Navbar";
-
+import "./Method.css";
 import Button from "../../ui/button/Button";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
@@ -102,7 +102,7 @@ export default function Method() {
   const firstSection = sectionsData[0] || {};
 
   return (
-    <div className="about-container">
+    <div className="about-container method">
       <Navbar links={links} />
       <div className="about-content">
         <div className="left">
@@ -113,7 +113,7 @@ export default function Method() {
             delayOffset={0}
             className="small-title-about"
             text={firstSection.title} 
-            style={{ marginBottom: "1rem", fontWeight: "bold" }}
+            style={{ marginBottom: "0.5rem", fontWeight: "bold" }}
           />
          
           <AnimatedText 
@@ -139,7 +139,7 @@ export default function Method() {
             key={`btn-${i18n.language}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.0, duration: 0.8 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
           >
             <Link to="/disclaimer/metabolic-health">
               <Button text={firstSection.button} width="100%" />

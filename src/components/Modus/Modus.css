@@ -104,7 +104,7 @@ transform: scaleY(0); /* Caché au départ */
   .modus-texts p { color: #666; line-height: 1;font-size: 0.7rem; }
   .modus-texts {
   position: absolute;
-
+margin-top: 20px;
   width: auto;
   text-align: center !important;
   opacity: 0.3; /* État initial */

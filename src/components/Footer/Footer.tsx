@@ -47,26 +47,30 @@ export default function Footer() {
   };
 
   // MAPPING DES LIENS PAR TEXTE (IF/ELSE)
-  const getLinkData = (linkText) => {
+// MAPPING DES LIENS PAR TEXTE (Modifié pour ignorer le userType global)
+// MAPPING DES LIENS PAR COLONNE (Ignore le userType global)
+  const getLinkData = (linkText, col) => {
     const text = linkText.toLowerCase().trim();
+    
+    // On définit le chemin de base selon la colonne (1: Indiv, 2: Corpo)
+    const basePath = col === 1 ? "/individuals" : "/corporates";
 
     // 1. Accueil / Home
     if (text === "home page" || text === "accueil") {
-      return { path: userType === "individuals" ? "/individuals" : "/corporates" };
+      return { path: basePath };
     }
 
-    // 2. What we do / Ce que nous faisons (LOGIQUE DE SCROLL)
+    // 2. What we do (On force le scroll sur la page de la colonne correspondante)
     if (text === "what we do" || text === "ce que nous faisons") {
-      const path = userType === "individuals" ? "/individuals" : "/corporates";
       return { 
-        path: `${path}#section-0`, 
+        path: `${basePath}#section-0`, 
         isScroll: true, 
-        basePath: path, 
+        basePath: basePath, 
         target: "section-0" 
       };
     }
 
-    // 3. Tests
+    // 3. Tests (Destinations fixes)
     if (text === "start personal capacity test" || text === "test de capacité personnelle") {
       return { path: "/disclaimer/personal-capacity" };
     }
@@ -74,17 +78,17 @@ export default function Footer() {
       return { path: "/disclaimer/metabolic-health" };
     }
 
-    // 4. Contact
+    // 4. Contact (Individuels vs B2B selon la colonne)
     if (text === "contact us" || text === "contactez-nous") {
-      return { path: userType === "individuals" ? "/contact" : "/contactb2b" };
+      return { path: col === 1 ? "/contact" : "/contactb2b" };
     }
 
-    // 5. Partenariat
+    // 5. Partenariat (Colonne 3)
     if (text === "become a partner" || text === "devenir partenaire") {
       return { path: "/partnerform" };
     }
 
-    return { path: "/" }; // Par défaut
+    return { path: "/" }; 
   };
 
   // ANIMATION GSAP PARALLAXE
@@ -146,30 +150,33 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="down">
-            {[1, 2, 3].map((col) => (
-              <ul key={col} className="footer-column">
-                <li className="title">{t(`footer.col${col}.title`)}</li>
-                {t(`footer.col${col}.links`, { returnObjects: true }).map((link, i) => {
-                  const linkData = getLinkData(link);
-                  return (
-                    <li key={i} className="link-item">
-                      <Link 
-                        to={linkData.path}
-                        onClick={(e) => {
-                          if (linkData.isScroll) {
-                            handleScrollLink(e, linkData.basePath, linkData.target);
-                          }
-                        }}
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            ))}
-          </div>
+<div className="down">
+  {[1, 2, 3].map((col) => (
+    <ul key={col} className="footer-column">
+      <li className="title">{t(`footer.col${col}.title`)}</li>
+      {t(`footer.col${col}.links`, { returnObjects: true }).map((link, i) => {
+        
+        // ON PASSE 'col' ICI
+        const linkData = getLinkData(link, col); 
+
+        return (
+          <li key={i} className="link-item">
+            <Link 
+              to={linkData.path}
+              onClick={(e) => {
+                if (linkData.isScroll) {
+                  handleScrollLink(e, linkData.basePath, linkData.target);
+                }
+              }}
+            >
+              {link}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  ))}
+</div>
         </div>
       </footer>
     </div>
