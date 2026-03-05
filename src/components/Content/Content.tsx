@@ -12,7 +12,9 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 export default function Content({ DATA, DATA2 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,7 +34,18 @@ export default function Content({ DATA, DATA2 }) {
 
   const [isPC, setIsPC] = useState(false);
   const [show, setShow] = useState(false);
+// Dans Content.js
+useEffect(() => {
+  // On rafraîchit immédiatement
+  ScrollTrigger.refresh();
+  
+  // Et on rafraîchit une deuxième fois après le temps de l'animation Framer Motion (0.6s)
+  const timer = setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 650);
 
+  return () => clearTimeout(timer);
+}, [show]);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 600px)");
     const checkDevice = () => setIsPC(mediaQuery.matches);
