@@ -99,7 +99,7 @@
         "id": 3,
         "title": "Your Privacy is Our Priority",
         "button": "Our Privacy & Confidentiality Policy",
-        "leftText": "Our work takes place in private, in-person sessions, where privacy and confidentiality are fundamental.",
+        "leftText": "Our work takes place <strong>in private </strong>, in-person sessions, where <strong>privacy and confidentiality </strong>are fundamental.",
         "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
         "moreContent": {
           "paragraphs": [
@@ -109,7 +109,8 @@
             },
             {
              
-              "text": "You can trust us to protect your personal life with the utmost care and <strong>discretion.</strong>"
+              "text": "You can trust us to protect your personal life with the utmost care and <strong>discretion.</strong>",
+              "sig":"— Redha "
             },
             {
           

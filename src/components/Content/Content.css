@@ -140,8 +140,21 @@ margin-bottom: 0.5rem !important;
 font-size: 1rem;
 font-weight: 400;
 }
+.sig{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2px;
+
+}
 /* Dans le CSS de ton composant Content */
+@media (max-width: 450px) {
+    .sig{
+
+  color: white;
+}
+}
 @media (max-width: 600px) {
+
   .big-size {
     display: flex !important;
     width: 100%;

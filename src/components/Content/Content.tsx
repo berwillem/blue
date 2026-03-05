@@ -132,6 +132,7 @@ export default function Content({ DATA, DATA2 }) {
                   </p>
                 )}
                 <p className="right-description" dangerouslySetInnerHTML={{ __html: value.text }} />
+                <span className="sig">{value?.sig}</span>
               </motion.div>
             ))}
 
@@ -257,6 +258,7 @@ export default function Content({ DATA, DATA2 }) {
                             <div key={i}>
                               {p.title && <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{p.title}</p>}
                               <p className="right-description" style={{ fontSize: "0.9rem", marginBottom: "15px" }} dangerouslySetInnerHTML={{ __html: p.text }} />
+                                   <span className="sig">{p?.sig}</span>
                             </div>
                           ))}
                           {DATA[currentIndex]?.moreContent?.lists?.map((list, idx) => (

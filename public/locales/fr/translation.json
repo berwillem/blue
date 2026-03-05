@@ -97,32 +97,30 @@
       },
       {
         "id": 3,
-        "title": "Votre vie privée est notre priorité",
+        "title": "Votre confidentialité est notre priorité ",
         "button": "Notre politique de confidentialité et de protection des données",
-        "leftText": "Notre travail se déroule lors de séances privées en personne, où l'intimité et la confidentialité sont fondamentales.",
-        "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous reste strictement confidentiel.",
+        "leftText":"Notre travail s’effectue en séances individuelles, en présentiel, dans un cadre où la confidentialité et la <strong>protection de la vie privée</strong> sont essentielles.",
+        "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous demeure strctement confidentiel. Nous ne divulguons jamais d’informations personnelles, et vos données sont utilisées uniquement pour vous accompagner dans votre démarche de bien-être. ",
         "moreContent": {
           "paragraphs": [
             {
             
-              "text": "Nous ne divulguons jamais de détails personnels, et vos informations sont utilisées uniquement pour soutenir votre parcours de bien-être."
+              "text": "Vous pouvez nous faire confiance pour protéger votre vie personnelle avec le plus haut niveau de soin, de rigueur et de discrétion. ",
+              "sig":"— Redha "
             },
             {
        
-              "text": "Vous pouvez nous faire confiance pour protéger votre vie privée avec le plus grand soin et la plus grande <strong>discrétion.</strong>"
+              "text": "Nous accordons une importance particulière à la protection de vos données personnelles. Toute information que vous choisissez de nous communiquer est traitée avec soin, <strong>discrétion</strong> et confidentialité, et utilisée exclusivement à des fins légitimes et clairement définies, en lien avec nos services professionnels"
             },
             {
               
-              "text": "Nous prenons la protection de vos données personnelles au sérieux. Toute information que vous choisissez de partager est traitée avec soin, discrétion et confidentialité, uniquement à des fins professionnelles légitimes et clairement définies."
+              "text": "Nous ne communiquons aucune donnée personnelle à des tiers sans base légale valable, et mettons en œuvre des mesures techniques et organisationnelles appropriées afin de protéger vos informations contre tout accès non autorisé, usage abusif ou divulgation"
             },
             {
            
-              "text": "Nous ne divulguons pas de données personnelles à des tiers sans base juridique valable, et nous appliquons les mesures techniques et organisationnelles appropriées pour protéger vos informations."
-            },
-            {
-           
-              "text": "Vos données personnelles sont traitées conformément au Règlement Général sur la Protection des Données (RGPD) de l'Union européenne. Vous pouvez exercer vos droits à tout moment, conformément à la loi applicable."
+              "text": "Vos données personnelles sont traitées conformément au Règlement général sur la protection des données (RGPD) de l’Union européenne, ainsi qu’aux obligations applicables en matière de confidentialité. Vous pouvez exercer vos droits en matière de protection des données à tout moment, dans les conditions prévues par la réglementation en vigueur."
             }
+            
           ]
         }
       }
