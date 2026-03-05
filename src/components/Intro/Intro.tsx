@@ -2,8 +2,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroImage from "../../assets/images/version mehdi 2.jpg.jpeg";
-import heroImage2 from "../../assets/images/version mehdi milieu couleur.jpg.jpeg";
+import heroImage from "../../assets/images/Plan de travail 1.png";
+import heroImage2 from "../../assets/images/Plan de travail 2.jpg";
 
 
 import "./Intro.css";
