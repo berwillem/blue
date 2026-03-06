@@ -1,10 +1,11 @@
 //@ts-nocheck
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import heroImage from "../../assets/images/redaintro.jpg";
+import video from "../../assets/images/Comp.mp4"
 import "./Founder.css"
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,14 +112,35 @@ export default function Founder() {
       clearTimeout(timer);
     };
   }, [t, i18n.language]);
-
+   const [isPC, setIsPC] = useState(false);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 600px)");
+    const checkDevice = () => setIsPC(mediaQuery.matches);
+    checkDevice();
+    mediaQuery.addEventListener("change", checkDevice);
+    return () => mediaQuery.removeEventListener("change", checkDevice);
+  }, []);
   return (
     <section ref={containerRef} className="hero-container">
       <div className="intro-section">
    
 
         <div ref={imageRef} className="imageCard">
-          <img src={heroImage} alt="Founder" />
+        {isPC ? (
+    /* Rendu pour PC : Vidéo */
+    <video 
+      src={video} 
+      autoPlay 
+      muted 
+      loop 
+      playsInline 
+      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+    />
+  ) : (
+    /* Rendu pour Mobile : Image */
+    <img src={heroImage} alt="Founder" />
+  )}
+         
         </div>
 
         <div ref={buttonRef} className="btn-wrapper">
