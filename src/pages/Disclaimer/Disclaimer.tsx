@@ -14,7 +14,7 @@ export default function Disclaimer() {
   // On commence à 0 (le premier texte)
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const textKey = testId === "metabolic-health" ? "disclaimer.test1" : "disclaimer.test2";
+  const textKey = testId === "metabolic-health" ? "disclaimer.test2" : "disclaimer.test";
   const TextSelection = t(textKey, { returnObjects: true }) || [];
 
   const handleNext = () => {

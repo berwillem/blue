@@ -123,6 +123,7 @@ useEffect(() => {
             </div>
             <h4>{DATA2.title}</h4>
             <p dangerouslySetInnerHTML={{ __html: DATA2.leftText }}></p>
+            <p dangerouslySetInnerHTML={{ __html: DATA2.rightDesc }}></p>
 
             {DATA2?.moreContent?.paragraphs?.map((value, index) => (
               <motion.div
@@ -145,7 +146,7 @@ useEffect(() => {
                   </p>
                 )}
                 <p className="right-description" dangerouslySetInnerHTML={{ __html: value.text }} />
-                <span className="sig">{value?.sig}</span>
+                {value?.sig && <span className="sig">{value?.sig}</span>}
               </motion.div>
             ))}
 

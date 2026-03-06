@@ -111,9 +111,12 @@ background-color: #0e3a4a;
   color: #0e3a4a;
 }
 .longText {
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-size: clamp(1.1rem, 2.5vw, 2rem) !important;
   line-height: 1.6;
   color: #0e3a4a;
+}
+.headline:has(.word){
+  font-style: italic;
 }
 .revealWord {
   display: inline-block;
@@ -127,6 +130,9 @@ background-color: #0e3a4a;
 
 .longText p {
   margin-bottom: 2rem;
+}
+.longText p:has(strong) {
+  margin-bottom: 1rem;
 }
 
 /* SPLIT SECTION FIX */

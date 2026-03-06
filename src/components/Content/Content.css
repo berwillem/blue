@@ -146,6 +146,9 @@ font-weight: 400;
   padding-top: 2px;
 
 }
+.right-description:has(+ span.sig) {
+font-style: italic !important;
+}
 /* Dans le CSS de ton composant Content */
 @media (max-width: 450px) {
     .sig{

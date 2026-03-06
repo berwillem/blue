@@ -52,13 +52,14 @@ const itemVariants = {
 };
 
 export default function FirstIntro() {
-  const { t } = useTranslation();
+  const { t ,i18n} = useTranslation();
 
   return (
     <div className="intro-full-wrapper">
       <motion.div
         className="intro-section first-intro"
         variants={containerVariants}
+        key={i18n.language}
         initial="hidden"
         whileInView="visible" // S'anime quand la section apparaît à l'écran
         viewport={{ once: true, amount: 0.2 }} // Ne se joue qu'une fois

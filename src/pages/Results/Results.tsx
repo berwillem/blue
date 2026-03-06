@@ -233,7 +233,7 @@ export default function Results() {
         {mappedResults.map((item, index) => (
        <>
          
-          <p key={index} className="result-paragraph">
+          <p key={index} className="result-paragraph passed">
             <span className="title-result-paragraph"> {item.category || "❌ NO SENTENCE FOUND"}</span>
         
             {item.sentence || "❌ NO SENTENCE FOUND"}
