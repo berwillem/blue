@@ -64,7 +64,7 @@ export default function About() {
     { name: "privacy", path: "/privacy" },
     { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/joinus"  }
   ];
-
+  const contactButton = userType === "individuals" ? t("navbar.contact2") : t("navbar.contact");
   return (
     <div className="about-container">
       <Navbar links={links} />
@@ -92,7 +92,10 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 6.0, duration: 0.8 }}
           >
-            <Button text={t("about.button")} width="100%" />
+            <Link to={userType=="individuals" ? "/contact": "/contactb2b"}>
+              <Button text={contactButton} width="100%" />
+            </Link>
+           
           </motion.div>
         </div>
       </div>

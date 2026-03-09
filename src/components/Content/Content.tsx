@@ -123,32 +123,58 @@ useEffect(() => {
             </div>
             <h4>{DATA2.title}</h4>
             <p dangerouslySetInnerHTML={{ __html: DATA2.leftText }}></p>
-            <p dangerouslySetInnerHTML={{ __html: DATA2.rightDesc }}></p>
+         
 
-            {DATA2?.moreContent?.paragraphs?.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={false}
-                animate={{
-                  height: show ? "auto" : 0,
-                  opacity: show ? 1 : 0,
-                  display: show ? "block" : "none",
-                }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                style={{ overflow: "hidden" }}
-              >
-                {value.title && (
-                  <p
-                    className="right-description"
-                    style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}
-                  >
-                    {value.title}
-                  </p>
-                )}
-                <p className="right-description" dangerouslySetInnerHTML={{ __html: value.text }} />
-                {value?.sig && <span className="sig">{value?.sig}</span>}
-              </motion.div>
-            ))}
+          <motion.div
+  initial={false}
+  animate={{
+    height: show ? "auto" : 0,
+    opacity: show ? 1 : 0,
+  }}
+  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+  style={{ overflow: "hidden" }}
+>      <p
+          className="right-description"
+          style={{ 
+            fontSize: "1.2rem", 
+            marginBottom: "8px", 
+            color: "#002b49", 
+            fontWeight: "bold" 
+          }}
+        >
+          {DATA2.title_rightDesc}
+        </p>
+     <p    style={{ 
+         
+            marginBottom: "8px", 
+         
+          
+          }} dangerouslySetInnerHTML={{ __html: DATA2.rightDesc }}></p>
+  {DATA2?.moreContent?.paragraphs?.map((value, index) => (
+    <div key={index} style={{ marginBottom: "16px" }}>
+      {value.title && (
+        <p
+          className="right-description"
+          style={{ 
+            fontSize: "1.2rem", 
+            marginBottom: "8px", 
+            color: "#002b49", 
+            fontWeight: "bold" 
+          }}
+        >
+          {value.title}
+        </p>
+      )}
+      
+      <p 
+        className="right-description" 
+        dangerouslySetInnerHTML={{ __html: value.text }} 
+      />
+      
+      {value?.sig && <span className="sig">{value?.sig}</span>}
+    </div>
+  ))}
+</motion.div>
 
             {DATA2?.moreContent?.lists?.map((list, idx) => (
               <motion.div
