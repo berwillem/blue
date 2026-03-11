@@ -297,3 +297,40 @@ font-weight: 600;
   border-color: #00296f;
   color: white;
 }
+.test-legend-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+  padding-left: 20px; /* Aligner avec le début des questions */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.legend-number {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.legend-number.skip-label {
+    background-color: #888;
+    color: white;
+    font-size: 12px;
+    border: none;
+}
+
+.legend-text {
+  font-size: 16px;
+  font-weight: 500;
+}

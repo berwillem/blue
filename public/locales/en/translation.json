@@ -44,18 +44,19 @@
     "why": "Why we do what we do :",
     "whyp1": "We help people who are suffering regain control of their body, mind, and life—so they can stand upright again and become <strong>reliable for themselves and for others</strong>.",
     "whyp2": "Blu is not theoretical. It is built on lived experience: losing clarity and energy, then rebuilding them through <strong>discipline, metabolic health, responsibility, and meaning</strong>.",
-    "whyp3": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect <strong>what matters most</strong>: family, responsibility, and legacy.",
+    "whyp3": "We know that high performers don’t fail because they lack capability. They falter when biology, habits, and purpose drift out of alignment. Blu exists to <strong>realign</strong> those foundations. ",
+    "whyp4": "When a person collapses, their environment pays the price—spouse, children, teams, and friends. We help protect <strong>what matters most</strong>: family, responsibility, and legacy.",
     "sections": [
       {
         "id": 1,
         "title": "what we do?",
         "button": "Start the metabolic test",
-        "leftText": "Executive Metabolic Method™ for high performers and achievers. Performance, Discipline, and Purpose — The New Elite Code.",
+        "leftText": "<Strong>Executive Metabolic Method™</Strong> for high performers and achievers. Performance, Discipline, and Purpose <Strong>— The New Elite Code.</Strong>",
         "rightDesc": "Sustainable excellence begins within — through a profound balance of metabolism, mindset, and overall well-being. This understanding led us to dedicate our work to mentoring individuals who seek not just success, but alignment between body, mind, and purpose.",
         "moreContent": {
           "paragraphs": [
             {
-              "title": "Restore Discipline & Purpose",
+              
               "text": "If you’re a high achiever who feels exhausted behind success, we help you restore discipline, energy, and purpose. Our <strong>holistic</strong>, evidence-based approach integrates metabolic health, mindset, and leadership principles—so performance and balance can coexist. Leaders don’t burn out — they rebuild. Restore your energy, confidence, and clarity — <strong>privately and permanently.</strong>"
             }
           ],
@@ -100,21 +101,15 @@
         "title": "Your Privacy is Our Priority",
         "button": "Our Privacy & Confidentiality Policy",
         "leftText": "Our work takes place <strong>in private </strong>, in-person sessions, where <strong>privacy and confidentiality </strong>are fundamental.",
-        "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential.",
+        "rightDesc": "At Blu., we deeply respect your privacy. Everything you share with us stays strictly confidential. We never disclose personal details, and your information is used only to support your wellness journey. You can trust us to protect your personal life with the utmost care and discretion. ",
+                      "sig":"— Redha ",
         "moreContent": {
           "paragraphs": [
+          
+           
             {
           
-              "text": "We never disclose personal details, and your information is used only to support your wellness journey."
-            },
-            {
-             
-              "text": "You can trust us to protect your personal life with the utmost care and <strong>discretion.</strong>",
-              "sig":"— Redha "
-            },
-            {
-          
-              "text": "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, discretion, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services."
+              "text": "We take the protection of your personal data seriously. Any information you choose to share with us is handled with care, <strong>discretion</strong>, and confidentiality, and processed only for legitimate, clearly defined purposes related to our professional services."
             },
             {
          
@@ -205,7 +200,7 @@
     {
       "id": 2,
       "title": "Financial Performance & Value Creation",
-      "leftText": "We help leaders understand, measure, and improve what truly drives financial performance. By connecting strategy, operations, and capital discipline, we enable sustainable profitable growth and value creation for shareholders.",
+      "leftText": "We help leaders understand, measure, and improve what truly drives financial performance. By connecting strategy, operations, and capital discipline, we enable sustainable profitable growth and <Strong>value creationd </Strong> for shareholders.",
             "title_rightDesc":"Sustainable Profitable Growth", 
       "rightDesc": " We support organizations in growing profitably over time, not just fast. We align growth ambitions with cash generation, capital efficiency, and risk management to ensure performance is durable and scalable.",
       "moreContent": {
@@ -245,19 +240,25 @@
           {
             "title": "Customer Focus",
             "text": "We sharpen market positioning around real customer value. A customer-focused organization makes clearer decisions and competes more effectively."
-          }
-        ],
-        "lists": [
+          },
           {
-            "title": "Business Drivers:",
-            "items": [
-              "Sales Channels optimization",
-              "Execution & Business Follow-Up Discipline",
-              "Digital Transformation & CRM",
-              "Digital Marketing Effectiveness"
-            ]
+            "title": "Sales Channels",
+            "text": "We optimize sales channels to improve reach, conversion, and cost efficiency, fully aligned with strategy and positioning. "
+          },
+          {
+            "title": "Execution & Business Follow-Up Discipline",
+            "text": "We improve follow-up processes to increase conversion rates, forecast reliability, and execution discipline."
+          },
+          {
+            "title": "Digital Transformation & CRM ",
+            "text": "We turn digital tools and CRM into performance systems that support decision-making, execution, and accountability. "
+          },
+          {
+            "title": "Digital Marketing Effectiveness ",
+            "text": "We align digital marketing with business outcomes—growth, margin, and customer value—not vanity metrics."
           }
         ]
+    
       }
     },
     {
@@ -279,19 +280,13 @@
           {
             "title": "Strong Internal Culture",
             "text": "We treat culture as a system of daily behaviors. A strong internal culture drives execution, innovation, and resilience."
-          }
-        ],
-        "lists": [
+          },
           {
-            "title": "Human Performance Systems:",
-            "items": [
-              "Recruitment & Selection Processes",
-              "Competence development",
-              "Employee retention",
-              "Growth Mindset & Continuous Learning"
-            ]
+            "title": "Growth Mindset & Continuous Learning",
+            "text": "We embed learning and feedback loops so individuals and teams improve continuously."
           }
         ]
+
       }
     },
     {
@@ -313,16 +308,22 @@
           {
             "title": "Trial and Error as a System",
             "text": "We design controlled experimentation systems that allow teams to test, learn, and improve without increasing risk."
-          }
-        ],
-        "lists": [
+          },
           {
-            "title": "Operational Core:",
-            "items": [
-              "Resilience & Operational Excellence",
-              "Innovation as a System",
-              "Organizational Capacity for Change"
-            ]
+            "title": "Innovation as a System",
+            "text": "We treat innovation as a structured capability, not a slogan. Innovation directly depends on internal culture, incentives, and leadership behavior"
+          },
+          {
+            "title": "Organizational Capacity for Change ",
+            "text": "We assess and strengthen an organization’s ability to absorb continuous change without performance degradation. "
+          },
+          {
+            "title": "Resilience ",
+            "text": "We build resilient organizations that remain effective under stress, volatility, and uncertainty—without burning people or capital. "
+          },
+          {
+            "title": "Operational Excellence ",
+            "text": "We improve reliability, quality, and execution discipline so strategy consistently translates into results. "
           }
         ]
       }
@@ -349,13 +350,53 @@
         ],
         "lists": [
           {
-            "title": "Main Training Courses:",
+            "title": "Financial acumen:",
             "items": [
-              "Financial acumen (P&L, Balance Sheet, OVA, ROCE)",
-              "Business strategy & Value selling",
-              "Leadership & Internal culture",
+              "P&L",
+              "Balance Sheet",
+              "Operational Value Added vs EBIT",
+              "Cost of capital",
+              "Returns & Dividends",
+              "Valuation"
+            ]
+          },
+          {
+            "title": "Business & Sales Performance: ",
+            "items": [
+              "Value selling ",
+              "Sales efficiency & effectiveness ",
+              "Sales channels",
+              "Market potential analysis",
+              "Strategy, Mission, Organization",
+              "Digital marketing ",
+              "Follow-up, Business Control and Execution ",
+              "CRM & discipline "
+            ]
+          },
+          {
+            "title": "Leadership & Organization: ",
+            "items": [
+              " Internal culture ",
+              "Recruitment",
+              "Competence development & employee retention",
+              "Transparency, Mission, Accountability",
+              "Risk Assessment",
               "Project management (LEAN/Agile)",
-              "Cost control & AI infrastructure"
+              "Cost control (Operational excellence, Automation & AI, hubs and systems infrastructure, controlling)"
+     
+            ]
+          },
+          {
+            "title": "AI for leaders: from tool to competitive advantage",
+            "items": [
+              "Tasks management (returns: laziness vs efforts) ",
+              "Reasoning, thoughts and prompting ",
+              "Agents and automation ",
+              "Research and analysis ",
+              "Agents vs next generation of leaders",
+              " “Learn it alls” concept "
+             
+     
             ]
           }
         ]
@@ -375,18 +416,7 @@
           },
           {
             "title": "",
-            "text": "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental."
-          }
-        ],
-        "lists": [
-          {
-            "title": "Program Pillars:",
-            "items": [
-              "Metabolic performance",
-              "Mindset & Resilience",
-              "Leadership presence",
-              "Executive focus"
-            ]
+            "text": "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental to our engagement, ensuring a trusted space for honest reflection, recovery, and long-term performance."
           }
         ]
       }

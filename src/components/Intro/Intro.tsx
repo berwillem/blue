@@ -153,6 +153,7 @@ const renderSplitText = (textKey, className) => {
           <p>{renderSplitText("individuals.whyp1", "revealWord")}</p>
           <p>{renderSplitText("individuals.whyp2", "revealWord")}</p>
           <p>{renderSplitText("individuals.whyp3", "revealWord")}</p>
+          <p>{renderSplitText("individuals.whyp4", "revealWord")}</p>
         </div>
       </section>
     </section>

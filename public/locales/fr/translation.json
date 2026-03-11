@@ -44,18 +44,19 @@
     "why": "Pourquoi nous faisons ce que nous faisons :",
     "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour <strong>elles-mêmes et pour les autres</strong>",
     "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline, la santé métabolique, la responsabilité et le sens</strong>",
-    "whyp3": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui <strong>compte le plus</strong> : la famille, la responsabilité et l'héritage.",
+    "whyp3": "Nous savons que les personnes performantes n’échouent pas par manque de capacités. Elles vacillent lorsque la biologie, les rituel et le sens ne sont plus en ligne. Blu existe pour <strong>réaligner</strong> ces fondations",
+    "whyp4": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui <strong>compte le plus</strong> : la famille, la responsabilité et l'héritage.",
     "sections": [
       {
         "id": 1,
         "title": "Que faisons-nous ?",
         "button": "Commencer le test métabolique",
-        "leftText": "Executive Metabolic Method™ pour les performeurs et les bâtisseurs. Performance, discipline et raison d'être — Le nouveau code de l'élite.",
+        "leftText": "<Strong>Executive Metabolic Method™</Strong> pour les performeurs et les bâtisseurs. Performance, discipline et raison d'être <Strong>— Le nouveau code de l'élite.</Strong>",
         "rightDesc": "L'excellence durable commence de l'intérieur — par un équilibre profond entre métabolisme, état d'esprit et bien-être global. Cette conviction nous a conduits à dédier notre travail à l'accompagnement d'individus qui ne cherchent pas seulement le succès, mais l'alignement entre le corps, l'esprit et leur mission.",
         "moreContent": {
           "paragraphs": [
             {
-              "title": "Restaurer la discipline et la mission",
+              
               "text": "Si vous êtes un performeur de haut niveau et que vous vous sentez épuisé malgré le succès, nous vous aidons à restaurer votre discipline, votre énergie et votre raison d'être. Notre approche <strong>holistique</strong>, basée sur des preuves, intègre la santé métabolique, le mindset et les principes de leadership — pour que performance et équilibre puissent coexister. Les leaders ne s'épuisent pas, ils se reconstruisent. Retrouvez votre énergie, votre confiance et votre clarté — de manière <strong>privée et durable.</strong>"
             }
           ],
@@ -108,14 +109,11 @@
         "title": "Votre confidentialité est notre priorité ",
         "button": "Notre politique de confidentialité et de protection des données",
         "leftText":"Notre travail s’effectue en séances individuelles, en présentiel, dans un cadre où la confidentialité et la <strong>protection de la vie privée</strong> sont essentielles.",
-        "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous demeure strctement confidentiel. Nous ne divulguons jamais d’informations personnelles, et vos données sont utilisées uniquement pour vous accompagner dans votre démarche de bien-être. ",
+        "rightDesc": "Chez Blu., nous respectons profondément votre vie privée. Tout ce que vous partagez avec nous demeure strctement confidentiel. Nous ne divulguons jamais d’informations personnelles, et vos données sont utilisées uniquement pour vous accompagner dans votre démarche de bien-être. Vous pouvez nous faire confiance pour protéger votre vie personnelle avec le plus haut niveau de soin, de rigueur et de discrétion. ",
+         "sig":"— Redha ",
         "moreContent": {
           "paragraphs": [
-            {
-            
-              "text": "Vous pouvez nous faire confiance pour protéger votre vie personnelle avec le plus haut niveau de soin, de rigueur et de discrétion. ",
-              "sig":"— Redha "
-            },
+         
             {
        
               "text": "Nous accordons une importance particulière à la protection de vos données personnelles. Toute information que vous choisissez de nous communiquer est traitée avec soin, <strong>discrétion</strong> et confidentialité, et utilisée exclusivement à des fins légitimes et clairement définies, en lien avec nos services professionnels"
@@ -215,7 +213,7 @@
     {
       "id": 2,
       "title": "Performance financière et création de valeur",
-      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer ce qui génère réellement laperformance financière.En reliant stratégie, opérations et rigueur dans la gestion du capital, nous rendons possible une croissance rentable et durable ainsi qu’une création de valeur pérenne pour les actionnaires.",
+      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer ce qui génère réellement laperformance financière.En reliant stratégie, opérations et rigueur dans la gestion du capital, nous rendons possible une croissance rentable et durable ainsi qu’une <Strong>création de valeur</Strong> pérenne pour les actionnaires.",
        "title_rightDesc":"Croissance rentable durable ",
       "rightDesc": " Nous accompagnons les organisations dans une croissance rentable dans le temps — pas seulement rapide. Nous alignons les ambitions de croissance avec la génération de trésorerie, l’efficacité du capital et la gestion de risques afin de garantir une performance consistante et scalable.",
       "moreContent": {

@@ -247,6 +247,53 @@ export default function MultiStepTest() {
           />
         ))}
       </div>
+                      {/* --- AJOUT DE LA LÉGENDE AVANT LA PREMIÈRE QUESTION --- */}
+                {currentStep === 0 && (
+                  <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+                         <div className="test-legend-container">
+                    <div className="legend-item">
+                      <span className="legend-number">0</span>
+                      <span className="legend-text">
+                        {lang === "fr" ? "Pas du tout d'accord" : "Strongly disagree"}
+                      </span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-number">1</span>
+                          <span className="legend-text">
+                        {lang === "fr" ? "Pas d'accord" : "disagree"}
+                      </span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-number">2</span>
+                          <span className="legend-text">
+                        {lang === "fr" ? "Neutre" : "Neutral"}
+                      </span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-number">3</span>
+                          <span className="legend-text">
+                        {lang === "fr" ? "d'accord" : "Agree"}
+                      </span>
+                    </div>
+                    <div className="legend-item">
+                      <span className="legend-number">4</span>
+                      <span className="legend-text">
+                        {lang === "fr" ? "Tout à fait d'accord" : "Strongly Agree"}
+                      </span>
+                    </div>
+                    {allowSkip && (
+                      <div className="legend-item">
+                        <span className="legend-number skip-label">Skip</span>
+                        <span className="legend-text">
+                          {lang === "fr" ? "La question ne compte pas" : "Question doesn't count"}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  </div>
+             
+                )}
+                {/* ----------------------------------------------------- */}
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -259,52 +306,57 @@ export default function MultiStepTest() {
         >
           {step.questions.map((q, index) => {
             const isMissing = highlightErrors && answers[q.id] === undefined;
+            console.log(currentStep);
+            
 
             return (
-              <div
-                key={q.id}
-                className={`question-block ${
-                  isMissing ? "error-highlight" : ""
-                }`}
-              >
-                <p
-                  className="question-text"
-                  style={isMissing ? { color: "#ff4d4d" } : {}}
+              <div key={q.id} >
+
+
+                <div
+                  className={`question-block ${
+                    isMissing ? "error-highlight" : ""
+                  }`}
                 >
-                  <span>{index + 1 + currentStep * questionsPerStep}. </span>
-                  {q.text[lang]}
-                </p>
+                  <p
+                    className="question-text"
+                    style={isMissing ? { color: "#ff4d4d" } : {}}
+                  >
+                    <span>{index + 1 + currentStep * questionsPerStep}. </span>
+                    {q.text[lang]}
+                  </p>
 
-                <div className="answers-row">
-                  <span className="sa">Strongly disagree</span>
+                  <div className="answers-row">
+                   
 
-                  {(testId === "metabolic-health"
-                    ? [0, 1, 2, 3, 4]
-                    : [1, 2, 3, 4, 5]
-                  ).map((value) => (
-                    <button
-                      key={value}
-                      className={`answer-btn ${
-                        answers[q.id] === value ? "active" : ""
-                      }`}
-                      onClick={() => handleAnswer(q.id, value)}
-                    >
-                      {value}
-                    </button>
-                  ))}
+                    {(testId === "metabolic-health"
+                      ? [0, 1, 2, 3, 4]
+                      : [1, 2, 3, 4, 5]
+                    ).map((value) => (
+                      <button
+                        key={value}
+                        className={`answer-btn ${
+                          answers[q.id] === value ? "active" : ""
+                        }`}
+                        onClick={() => handleAnswer(q.id, value)}
+                      >
+                        {value}
+                      </button>
+                    ))}
 
-                  <span className="sa">Strongly agree</span>
+                   
 
-                  {allowSkip && (
-                    <button
-                      className={`answer-btn skip-btn ${
-                        answers[q.id] === null ? "active" : ""
-                      }`}
-                      onClick={() => handleAnswer(q.id, null)}
-                    >
-                      Skip
-                    </button>
-                  )}
+                    {allowSkip && (
+                      <button
+                        className={`answer-btn skip-btn ${
+                          answers[q.id] === null ? "active" : ""
+                        }`}
+                        onClick={() => handleAnswer(q.id, null)}
+                      >
+                        Skip
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             );

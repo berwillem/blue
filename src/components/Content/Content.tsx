@@ -144,6 +144,7 @@ useEffect(() => {
         >
           {DATA2.title_rightDesc}
         </p>
+          {DATA2?.sig && <span className="sig">{DATA2?.sig}</span>}
      <p    style={{ 
          
             marginBottom: "8px", 
@@ -295,6 +296,7 @@ useEffect(() => {
                       className="right-description" 
                       dangerouslySetInnerHTML={{ __html: DATA[currentIndex]?.rightDesc }} 
                     />
+                      {DATA[currentIndex]?.sig && <span className="sig">{DATA[currentIndex]?.sig}</span>}
 
                     <motion.div layout>
                       <AnimatePresence initial={false}>
