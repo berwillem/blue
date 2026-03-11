@@ -14,6 +14,7 @@ import { personalCapacityTest } from "../../data/personalCapacity.config";
 import { metabolicHealthTest } from "../../data/metabolicHealth.config";
 import { personalResultsConfig } from "../../data/personalResults.config";
 import { metabolicResultsConfig } from "../../data/metabolicResults.config";
+import { useUserTypeStore } from "../../store/useUserTypeStore";
 
 // ---------------- SCORING HELPERS (Identiques) ----------------
 const computePersonalScores = (testConfig, storedResult) => {
@@ -74,7 +75,8 @@ export default function Results() {
 
   const containerRef = useRef(null);
   const buttonRef = useRef(null);
-
+    const userType = useUserTypeStore((state) => state.userType);
+ const Path = userType === "individuals" ? "/individuals" : "/corporates";
 
   const results = useTestResultsStore((s) => s.results);
   const location = useLocation();
@@ -252,7 +254,7 @@ export default function Results() {
             width="250px" 
           />
           <Button 
-            onClick={() => navigate("/")}
+            onClick={() => navigate(Path)}
             text={lang === "fr" ? "Retourner à l'accueil" : "Go Home"} 
             width="250px" 
           />

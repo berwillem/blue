@@ -223,6 +223,7 @@ useEffect(() => {
          
         </motion.div>
 
+
         {/* --- DESKTOP --- */}
         {isPC && (
           <div className="big-size">
@@ -266,69 +267,83 @@ useEffect(() => {
                   exit={{ y: direction > 0 ? "-100%" : "100%", opacity: 0 }}
                   transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
                   layout
-                  style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}
+                  style={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    height: "100%",
+                    overflowY: "auto", // Permet le scroll interne si le texte est trop long
+                    scrollbarWidth: "none" // Optionnel: cache la scrollbar sur Firefox
+                  }}
                 >
-                  <motion.div layout className="image-wrapper-tiktok" initial={{ filter: "grayscale(100%)" }} animate={{ filter: "grayscale(0%)" }} transition={{ duration: 3, times: [0.3, 1], ease: "easeInOut" }}>
-                    <img src={DATA[currentIndex]?.img} alt={DATA[currentIndex]?.title} />
-                  </motion.div>
+                  {/* L'image est maintenant isolée en haut */}
+                  <div className="image-sticky-top" style={{ flexShrink: 0 }}>
+                    <motion.div layout className="image-wrapper-tiktok" initial={{ filter: "grayscale(100%)" }} animate={{ filter: "grayscale(0%)" }} transition={{ duration: 3, times: [0.3, 1], ease: "easeInOut" }}>
+                      <img src={DATA[currentIndex]?.img} alt={DATA[currentIndex]?.title} />
+                    </motion.div>
+                  </div>
 
-                  {DATA[currentIndex]?.title_rightDesc && (
-                    <motion.p layout className="right-description" style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>
-                      {DATA[currentIndex]?.title_rightDesc}
-                    </motion.p>
-                  )}
+                  {/* Le texte commence ici et s'étend normalement */}
+                  <div className="text-content-scroll" style={{ marginTop: "auto" }}>
+                    {DATA[currentIndex]?.title_rightDesc && (
+                      <motion.p layout className="right-description" style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>
+                        {DATA[currentIndex]?.title_rightDesc}
+                      </motion.p>
+                    )}
 
-                  <motion.p 
-                    layout 
-                    className="right-description" 
-                    dangerouslySetInnerHTML={{ __html: DATA[currentIndex]?.rightDesc }} 
-                  />
+                    <motion.p 
+                      layout 
+                      className="right-description" 
+                      dangerouslySetInnerHTML={{ __html: DATA[currentIndex]?.rightDesc }} 
+                    />
 
-                  <motion.div layout>
-                    <AnimatePresence initial={false}>
-                      {show && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                          className="expanded-content"
-                        >
-                          {DATA[currentIndex]?.moreContent?.paragraphs?.map((p, i) => (
-                            <div key={i}>
-                              {p.title && <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{p.title}</p>}
-                              <p className="right-description" style={{ fontSize: "0.9rem", marginBottom: "15px" }} dangerouslySetInnerHTML={{ __html: p.text }} />
-                                   <span className="sig">{p?.sig}</span>
-                            </div>
-                          ))}
-                          {DATA[currentIndex]?.moreContent?.lists?.map((list, idx) => (
-                            <div key={idx} className="dynamic-list-area" style={{ marginBottom: "20px" }}>
-                              <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{list.title}</p>
-                              <ul style={{ paddingLeft: "20px", fontSize: "0.85rem", listStyleType: "disc" }}>
-                                {list.items.map((item, i) => (
-                                  <li key={i} style={{ marginBottom: "5px" }} dangerouslySetInnerHTML={{ __html: item }} />
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
+                    <motion.div layout>
+                      <AnimatePresence initial={false}>
+                        {show && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                            className="expanded-content"
+                          >
+                            {DATA[currentIndex]?.moreContent?.paragraphs?.map((p, i) => (
+                              <div key={i}>
+                                {p.title && <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{p.title}</p>}
+                                <p className="right-description" style={{ fontSize: "0.9rem", marginBottom: "15px" }} dangerouslySetInnerHTML={{ __html: p.text }} />
+                                    {p?.sig && <span className="sig">{p?.sig}</span>} 
+                              </div>
+                            ))}
+                            {DATA[currentIndex]?.moreContent?.lists?.map((list, idx) => (
+                              <div key={idx} className="dynamic-list-area" style={{ marginBottom: "20px" }}>
+                                <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{list.title}</p>
+                                <ul style={{ paddingLeft: "20px", fontSize: "0.85rem", listStyleType: "disc" }}>
+                                  {list.items.map((item, i) => (
+                                    <li key={i} style={{ marginBottom: "5px" }} dangerouslySetInnerHTML={{ __html: item }} />
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
 
-                  <motion.div layout style={{ cursor: "pointer", display: "inline-block", marginTop: "10px" }} onClick={() => setShow(!show)}>
-                    <p className="know-more">
-                      <span>{show ? t("show_less") : t("know_more")}</span>
-                      <motion.span animate={{ rotate: show ? 90 : 0 }} style={{ display: "flex", alignItems: "center" }}>
-                        <ArrowRight size={15} />
-                      </motion.span>
-                    </p>
-                  </motion.div>
+                    <motion.div layout style={{ cursor: "pointer", display: "inline-block", marginTop: "10px" }} onClick={() => setShow(!show)}>
+                      <p className="know-more">
+                        <span>{show ? t("show_less") : t("know_more")}</span>
+                        <motion.span animate={{ rotate: show ? 90 : 0 }} style={{ display: "flex", alignItems: "center" }}>
+                          <ArrowRight size={15} />
+                        </motion.span>
+                      </p>
+                    </motion.div>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
         )}
+
+
       </div>
     </div>
   );

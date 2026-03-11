@@ -1,3 +1,13 @@
 .method p{
 margin-top: 0.8rem !important;
 }
+.method .left ul{
+    list-style:disc !important;
+        margin-bottom: 0.8rem !important;
+}
+.method .left ul li p{
+   font-size: 1.1rem;
+}
+ .method .list-title{
+    font-weight: 800 !important;
+}

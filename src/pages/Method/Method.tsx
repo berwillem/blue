@@ -12,7 +12,6 @@ import { FiCalendar } from "react-icons/fi";
 
 interface AnimatedTextProps {
   text: string;
-  delayOffset: number;
   className?: string;
   as?: any;
   style?: React.CSSProperties;
@@ -26,28 +25,15 @@ const wordVariants: Variants = {
   },
 };
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, className = "reveal-text-auto", as = "p", style }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = "reveal-text-auto", as = "p", style }) => {
   const Tag = motion[as];
 
-  const containerVariants: Variants = {
-    visible: {
-      transition: {
-        delayChildren: delayOffset,
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  // --- LA LOGIQUE DE TON AUTRE PAGE ADAPTÉE ICI ---
   const renderContent = () => {
     if (!text) return null;
-
-    // Capture les balises strong
     const regex = /(<strong>.*?<\/strong>)/g;
     const splitText = text.split(regex);
 
     return splitText.map((part, i) => {
-      // Si c'est un strong, on utilise dangerouslySetInnerHTML comme dans ton exemple
       if (part.match(/<strong>/)) {
         return (
           <motion.span 
@@ -60,7 +46,6 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, classNam
         );
       }
 
-      // Sinon on split par mot pour l'animation classique
       return part.split(" ").map((word, index) => {
         if (word === "") return null;
         return (
@@ -75,13 +60,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, classNam
   };
 
   return (
-    <Tag 
-      className={className}
-      style={style}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <Tag className={className} style={style}>
       {renderContent()}
     </Tag>
   );
@@ -90,6 +69,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, delayOffset, classNam
 export default function Method() {
   const { t, i18n } = useTranslation();
   const userType = useUserTypeStore((state) => state.userType);
+  
   const links = [
     { name: "home", path:"/" },
     { name: "about", path:userType=="individuals" ? "/individuals": "/corporates" },
@@ -101,39 +81,64 @@ export default function Method() {
   const sectionsData = t("individuals.sections", { returnObjects: true }) || [];
   const firstSection = sectionsData[0] || {};
 
+  // Ce variant gère l'enchaînement automatique des paragraphes et listes
+  const containerVariants: Variants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1, // Délai entre chaque bloc de texte
+      },
+    },
+  };
+
   return (
     <div className="about-container method">
       <Navbar links={links} />
       <div className="about-content">
-        <div className="left">
-          
+        <motion.div 
+          className="left"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          key={i18n.language} 
+        >
+          {/* TITRE */}
           <AnimatedText 
             as="h3"
-            key={`title-${i18n.language}`}
-            delayOffset={0}
             className="small-title-about"
             text={firstSection.title} 
             style={{ marginBottom: "0.5rem", fontWeight: "bold" }}
           />
          
-          <AnimatedText 
-            key={`p1-${i18n.language}`}
-            delayOffset={0.5}
-            text={firstSection.leftText} 
-          />
-          <AnimatedText 
-            key={`p2-${i18n.language}`}
-            delayOffset={2}
-            text={firstSection.rightDesc} 
-          />
+          {/* TEXTES PRINCIPAUX */}
+          <AnimatedText text={firstSection.leftText} />
+          <AnimatedText text={firstSection.rightDesc} />
+
+          {/* PARAGRAPHES SUPPLÉMENTAIRES */}
           {firstSection.moreContent?.paragraphs?.map((para, idx) => (
             <AnimatedText 
-              key={`p-extra-${i18n.language}-${idx}`}
-              delayOffset={5 + idx * 0.3}
+              key={`p-extra-${idx}`}
               text={para.text} 
             />
           ))}
+      
+          {/* LISTES SYNCHRONISÉES */}
+          {firstSection.moreContent?.lists?.map((list, idx) => (
+            <React.Fragment key={`list-block-${idx}`}>
+              <AnimatedText 
+                text={list.title} 
+                className="list-title"
+              />
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {list.items.map((item, i) => (
+                  <li key={`li-${idx}-${i}`}>
+                    <AnimatedText text={item} />
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          ))}
 
+          {/* BOUTON (Animation d'origine préservée) */}
           <motion.div 
             className="button-about"
             key={`btn-${i18n.language}`}
@@ -145,7 +150,7 @@ export default function Method() {
               <Button text={firstSection.button} width="100%" />
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
       
       <Link to={userType=="individuals" ? "/contact": "/contactb2b"} className="buble">
