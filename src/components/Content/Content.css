@@ -153,7 +153,7 @@ font-style: italic !important;
 @media (max-width: 450px) {
     .sig{
 
-  color: white;
+  color: white !important;
 }
 }
 @media (max-width: 600px) {

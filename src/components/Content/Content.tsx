@@ -144,13 +144,14 @@ useEffect(() => {
         >
           {DATA2.title_rightDesc}
         </p>
-          {DATA2?.sig && <span className="sig">{DATA2?.sig}</span>}
+          
      <p    style={{ 
          
             marginBottom: "8px", 
          
           
           }} dangerouslySetInnerHTML={{ __html: DATA2.rightDesc }}></p>
+          {DATA2?.sig && <span className="sig">{DATA2?.sig}</span>}
   {DATA2?.moreContent?.paragraphs?.map((value, index) => (
     <div key={index} style={{ marginBottom: "16px" }}>
       {value.title && (
