@@ -145,7 +145,7 @@ useEffect(() => {
           {DATA2.title_rightDesc}
         </p>
           
-     <p    style={{ 
+     <p   className="right-description" style={{ 
          
             marginBottom: "8px", 
          
