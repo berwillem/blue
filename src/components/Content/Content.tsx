@@ -80,7 +80,7 @@ useEffect(() => {
     <div
       className="content-scroll-wrapper"
       ref={containerRef}
-      style={{ height: isPC ? `${numItems * 150}vh` : "auto" }}
+      style={{ height: isPC ? `${numItems * 100}vh` : "auto" }}
     >
       {isPC &&
         DATA.map((_, i) => (
@@ -285,7 +285,7 @@ useEffect(() => {
                   </div>
 
                   {/* Le texte commence ici et s'étend normalement */}
-                  <div className="text-content-scroll" style={{ marginTop: "auto" }}>
+                  <div className="text-content-scroll" >
                     {DATA[currentIndex]?.title_rightDesc && (
                       <motion.p layout className="right-description" style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>
                         {DATA[currentIndex]?.title_rightDesc}
