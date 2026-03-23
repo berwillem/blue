@@ -1,10 +1,12 @@
 // @ts-nocheck
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Navbar from "../../components/Navbar/Navbar";
 import "./About.css";
 import redaabout from "../../assets/images/DSC03683.JPG.jpeg";
+import redaabout2 from "../../assets/images//redafounder.png";
+
 import Button from "../../ui/button/Button";
 import { useTranslation } from "react-i18next";
 import { useUserTypeStore } from "../../store/useUserTypeStore";
@@ -65,11 +67,19 @@ export default function About() {
     { name: "joinus",path:userType=="individuals" ? "/individuals#joinus": "/joinus"  }
   ];
   const contactButton = userType === "individuals" ? t("navbar.contact2") : t("navbar.contact");
+  const [Isphone, setIsphone] = useState(false)
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+    const checkDevice = () => setIsphone(mediaQuery.matches);
+    checkDevice();
+    mediaQuery.addEventListener("change", checkDevice);
+    return () => mediaQuery.removeEventListener("change", checkDevice);
+  }, []);
   return (
     <div className="about-container">
       <Navbar links={links} />
       <div className="about-content">
-        <img src={redaabout} alt="about" />
+        <img src={Isphone ? redaabout2 : redaabout} alt="about" />
         <div className="left">
           {/* On utilise i18n.language dans la key pour forcer le re-mount et relancer l'anim au switch de langue */}
           
