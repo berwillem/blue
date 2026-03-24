@@ -38,13 +38,13 @@
       "skin_issues": "Problèmes de peau",
       "autoimmune": "Maladies auto-immunes"
     },
-    "main_title1": "Le monde moderne a apporté confort et progrès, mais aussi des menaces silencieuses qui érodent la santé physique et mentale. Que faites-vous aujourd'hui pour protéger la vôtre ?",
-    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire — santé métabolique, solidité mentale et clarté — afin que la vie retrouve du sens. ",
+    "main_title1": "e moderne a apporté confort et progrès, mais aussi des menaces silencieuses qui érodent votre sante physique et mentale. Que faites-vous aujourd’hui pour protéger la vôtre ?",
+    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire <strong>— santé métabolique,</strong> <strong>solidité mentale</strong> <strong>et </strong><strong>clarté—</strong>afin que la vie retrouve du sens. ",
     "button": "À propos du fondateur",
     "why": "Pourquoi nous faisons ce que nous faisons :",
-    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie, afin qu'elles puissent se redresser et devenir fiables pour <strong>elles-mêmes et pour les autres</strong>",
-    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline, la santé métabolique, la responsabilité et le sens</strong>",
-    "whyp3": "Nous savons que les personnes performantes n’échouent pas par manque de capacités. Elles vacillent lorsque la biologie, les rituel et le sens ne sont plus en ligne. Blu existe pour <strong>réaligner</strong> ces fondations",
+    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie — afin qu’elles puissent de nouveau se tenir droites et <strong>redevenir </strong> <strong>fiables pour elles-mêmes</strong><strong> comme pour les autres</strong>",
+    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline,</strong><strong> la santé métabolique ,</strong> <strong>la responsabilité et le sens</strong>",
+    "whyp3": "Nous savons que les personnes performantes n’échouent pas par manque de capacités. Elles vacillent lorsque la biologie, les rituels et le sens ne sont plus en ligne. Blu existe pour <strong>réaligner</strong> ces fondations",
     "whyp4": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui <strong>compte le plus</strong> : la famille, la responsabilité et l'héritage.",
     "sections": [
       {
@@ -99,7 +99,7 @@
             },
             {
              
-              "text": "Avec l’appui de partenaires spécialisés lorsque cela s’avère nécessaire, nous vous aidons à intégrer <strong>votre santé métabolique et votre état d’esprit comme la nouvelle devise d’échange du leadership —</strong>s et ce, pour vous permettre d’exprimer votre plein potentiel dans chaque domaine de votre vie"
+              "text": "Avec l’appui de partenaires spécialisés lorsque cela s’avère nécessaire, nous vous aidons à intégrer <strong>votre santé métabolique et votre état d’esprit comme la nouvelle devise d’échange du leadership —</strong> et ce, pour vous permettre d’exprimer votre plein potentiel dans chaque domaine de votre vie"
             }
           ]
         }
@@ -175,7 +175,7 @@
     }
   },
   "about": {
-    "paragraph1": "Avec plus de 21 ans d’expérience dans des environnements multinationaux — dont 15 en tant que cadre dirigeant aux responsabilités régionales — Redha a bâti un parcours solide autour du leadership, du business développement, des finances et du développement humain et organisationnel. Son parcours, marqué par plusieurs années d’expatriation, lui a apporté une expertise approfondie en transformation organisationnelle ainsi qu’une compréhension pointue de nombreuses industries. Formé dans des institutions de renom à Stockholm,Boston, Singapour et Genève, il met aujourd’hui cette expérience au service despersonnes et des entreprises en quête d’évolution, de clarté et d’impact durable. ",
+    "paragraph1": "Avec plus de 21 ans d’expérience dans des environnements multinationaux — dont 15 en tant que cadre dirigeant aux responsabilités régionales — Redha a bâti un parcours solide autour du leadership, du business développement, des finances et du développement humain et organisationnel. Son parcours, marqué par plusieurs années d’expatriation, lui a apporté une expertise approfondie en transformation organisationnelle ainsi qu’une compréhension pointue de nombreuses industries. Formé dans des institutions de renom à Stockholm, Boston, Singapour et Genève, il met aujourd’hui cette expérience au service despersonnes et des entreprises en quête d’évolution, de clarté et d’impact durable. ",
     "paragraph11":"Avec plus de 21 ans d’expérience dans des environnements multinationaux exigeants — dont 15 années à des postes de cadre dirigeant — Redha a longtemps évolué à haut niveau tout en faisant face à des difficultés personnelles bien réelles : surpoids, énergie faible, troubles de la concentration et déséquilibres métaboliques multiples. ",
     "paragraph2": "En parcourant son propre chemin de transformation, il a progressivement retrouvé une énergie durable, une clarté d’esprit profonde et une discipline plus stable et alignée. Aujourd’hui, il met cette expérience vécue au service des personnes qui souhaitent se reconnecter à elles-mêmes, retrouver leur vitalité, renforcer leur mental et avancer avec plus de sens et de cohérence dans leur vie. ",
 
@@ -213,7 +213,7 @@
     {
       "id": 2,
       "title": "Performance financière et création de valeur",
-      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer ce qui génère réellement laperformance financière.En reliant stratégie, opérations et rigueur dans la gestion du capital, nous rendons possible une croissance rentable et durable ainsi qu’une <strong>création de valeur</strong> pérenne pour les actionnaires.",
+      "leftText": "Nous aidons les dirigeants à comprendre, mesurer et améliorer ce qui génère réellement la performance financière. En reliant stratégie, opérations et rigueur dans la gestion du capital, nous rendons possible une croissance rentable et durable ainsi qu’une <strong>création de valeur</strong> pérenne pour les actionnaires.",
        "title_rightDesc":"Croissance rentable durable ",
       "rightDesc": " Nous accompagnons les organisations dans une croissance rentable dans le temps — pas seulement rapide. Nous alignons les ambitions de croissance avec la génération de trésorerie, l’efficacité du capital et la gestion de risques afin de garantir une performance consistante et scalable.",
       "moreContent": {
@@ -464,48 +464,48 @@
   "join": {
     "hero": {
       "overline": "Rejoignez-nous en tant que partenaire",
-      "title": "Tout le monde ne devrait pas nous rejoindre. Et c'est intentionnel.",
-      "p1": "Blu s'associe à des professionnels expérimentés qui comprennent que la santé durable, la performance et la prise de décision exigent une structure, une discipline et une responsabilité professionnelle — et non des tendances ou des raccourcis.",
-      "p2": "Si vous vous engagez à obtenir des résultats vérifiables, une responsabilité à long terme et une pratique éthique, vous avez peut-être votre place ici."
+      "title": "Nous rejoindre n’est pas pour tout le monde. Et c’est intentionnel. ",
+      "p1": "Blu collabore avec des professionnels expérimentés qui comprennent que la santé à long terme, la performance et la qualité des décisions reposent sur la rigueur, la discipline et une responsabilité professionnelle réelle — et non sur des tendances, des effets de mode ou des raccourcis. ",
+      "p2": "Si vous avez un engagement lié a des résultats vérifiables, une responsabilité à long terme et une pratique éthique, votre place est peut-être ici"
     },
     "partners_section": {
-      "overline": "Avec qui nous associons-nous ?",
-      "title": "Nous collaborons avec des professionnels expérimentés qui souhaitent accroître leur impact sans compromettre leurs standards :",
+      "overline": "Avec qui nous collaborons ",
+      "title": "Nous travaillons avec des professionnels expérimentés souhaitant étendre leur impact sans compromettre leurs standards : ",
       "card_label1": "Médecins et praticiens de santé agréés",
       "card_label2": "Kinésithérapeutes et spécialistes de la rééducation",
-      "card_label3": "Coachs sportifs certifiés, préparateurs physiques et entraîneurs de performanc",
+      "card_label3": "Coachs sportifs certifiés, préparateurs physiques et entraîneurs de performance",
       "card_label4": "Professionnels de la nutrition, du métabolisme et du mode de vie",
       "card_label5": "Consultants en stratégie, management et organisation",
       "card_label6": "Spécialistes en finance et gestion des risques ",
       "card_label7": "Enseignants, chercheurs et experts dans les domaines ci-dessus"
     },
     "why_blu": {
-      "overline": "Pourquoi s'associer à Blu.",
+      "overline": "Pourquoi devenir partenaire Blu",
       "title": "Il ne s'agit pas d'un système de recommandation. C'est une collaboration professionnelle.",
-      "label": "En tant que partenaire, vous gagnez :",
+      "label": "En tant que partenaire, vous bénéficiez de :",
       "list": [
-        "Un environnement de travail structuré et aligné sur les normes professionnelles",
-        "L'accès à des pairs pluridisciplinaires opérant dans des limites claires",
+        "Un environnement de travail structuré, aligné sur des standards professionnels élevés ",
+        "Un accès à des pairs pluridisciplinaires opérant dans un cadre clair et défini ",
         "Un alignement professionnel avec une plateforme sérieuse et sélective",
-        "La capacité de contribuer de manière significative à des cas complexes et à haute responsabilité",
-        "Une valeur professionnelle à long terme, et non un engagement transactionnel"
+        "La possibilité de contribuer de manière significative à des situations complexes et à grande responsabilité",
+        "Une valeur professionnelle à long terme, et non une relation transactionnelle "
       ]
     },
     "standards": {
       "overline": "Nos Standards",
       "label": "Nous travaillons uniquement avec des professionnels qui :",
       "list": [
-        "Acceptent la responsabilité personnelle de leur rôle et de leurs décisions",
-        "Respectent les limites de compétences et le champ d'exercice",
-        "Opèrent avec confidentialité, discrétion et rigueur éthique",
-        "Préfèrent la précision à la commodité",
-        "Sont prêts à être évalués et maintenus à des standards élevés"
+        "Assument pleinement la responsabilité de leur rôle et de leurs décisions",
+        "Respectent strictement les limites de compétence et le périmètre de leur pratique",
+        "Opèrent avec confidentialité, discrétion et rigueur éthique ",
+        "Privilégient l’exactitude à la facilité",
+        "Acceptent d’être évalués et tenus à des standards élevés"
       ],
-      "footer": "Si cela vous parle, nous devrions discuter."
+      "footer": "Si cela résonne avec votre manière de travailler, nous devrions échanger."
     },
     "cta": {
-      "overline": "Commencer la conversation",
-      "text": "Si vous pensez que votre expertise a sa place dans une alliance sérieuse, disciplinée et axée sur un objectif, nous vous invitons à postuler.",
+      "overline": "Initier la discussion ",
+      "text": "Si vous estimez que votre expertise a sa place au sein d’une alliance sérieuse, disciplinée et guidée par le sens, nous vous invitons à candidater. ",
       "button": "Postuler pour devenir partenaire Blu."
     }
   },
