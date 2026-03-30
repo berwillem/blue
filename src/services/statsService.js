@@ -10,6 +10,20 @@ export const incrementJoinUs = () => axiosInstance.post("/stats/join");
 
 export const getFormStats = () => axiosInstance.get("/stats");
 
+/* ===== B2B Detail ===== */
+
+export const saveB2BDetail = (data) =>
+  axiosInstance.post("/stats/b2b-detail", data);
+
+export const getB2BStats = () => axiosInstance.get("/stats/b2b-detail");
+
+/* ===== Join Us Detail ===== */
+
+export const saveJoinUsDetail = (data) =>
+  axiosInstance.post("/stats/joinus-detail", data);
+
+export const getJoinUsStats = () => axiosInstance.get("/stats/joinus-detail");
+
 /* ===== Tests ===== */
 
 export const recordTest = (data) => {

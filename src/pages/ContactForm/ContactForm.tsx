@@ -10,7 +10,7 @@ import { ChevronDown } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { incrementB2B } from "../../services/statsService";
+import { incrementB2B, saveB2BDetail } from "../../services/statsService";
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -103,6 +103,11 @@ const ContactForm = () => {
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       incrementB2B().catch((err) => console.error("B2B stats error:", err));
+      saveB2BDetail({
+        industry: formData.get("industry") || industry || "unknown",
+        companySize: formData.get("company_size") || "unknown",
+        servicesInterest: selectedServices,
+      }).catch((err) => console.error("B2B detail error:", err));
 
       toast.success(t("contactForm.form.success_msg") || "Sent successfully!");
 

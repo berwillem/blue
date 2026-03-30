@@ -9,7 +9,7 @@ import { FiCalendar } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { incrementJoinUs } from "../../services/statsService";
+import { incrementJoinUs, saveJoinUsDetail } from "../../services/statsService";
 
 const PartnerForm: React.FC = () => {
   const { t } = useTranslation();
@@ -60,6 +60,13 @@ const PartnerForm: React.FC = () => {
 
       // Increment Join Us stat
       await incrementJoinUs();
+
+      // Save detailed Join Us data
+      saveJoinUsDetail({
+        profession: templateParams.profession || "unknown",
+        yearsOfPractice: templateParams.experience || "unknown",
+        credential: professionalStatus || "unknown",
+      }).catch((err) => console.error("JoinUs detail error:", err));
 
       // Show success toast and reset form
       toast.success(
