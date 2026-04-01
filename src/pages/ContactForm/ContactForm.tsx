@@ -83,7 +83,7 @@ const ContactForm = () => {
 
     setLoading(true);
 
-    const SERVICE_ID = "blu_path_service";
+    const SERVICE_ID = "service_rcagz3o";
     const TEMPLATE_ID = "template_vlwn1en";
     const PUBLIC_KEY = "S2Yyu_AWtznhKDE3H";
 
