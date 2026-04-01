@@ -33,15 +33,15 @@ const COLORS = [
   "#f59e0b","#10b981","#ef4444","#f97316","#84cc16",
 ];
 
-/* ---- Small bar chart used inside modals ---- */
-function MiniBarChart({ data, color = "#00296F" }) {
+/* ---- Bar chart used in sub-pages ---- */
+function MiniBarChart({ data, color = "#00296F", height = 240 }) {
   if (!data || data.length === 0) {
-    return <p style={{ color: "#aaa", fontSize: 13 }}>No data yet</p>;
+    return <p className="no-data-msg">No data yet</p>;
   }
   const chartData = data.map((d) => ({ name: d._id || "N/A", count: d.count }));
   return (
-    <ResponsiveContainer width="100%" height={200}>
-      <BarChart data={chartData} margin={{ top: 5, right: 10, left: -10, bottom: 40 }}>
+    <ResponsiveContainer width="100%" height={height}>
+      <BarChart data={chartData} margin={{ top: 5, right: 10, left: -10, bottom: 50 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis
           dataKey="name"
@@ -62,23 +62,47 @@ function MiniBarChart({ data, color = "#00296F" }) {
   );
 }
 
-/* ---- Modal component ---- */
-function StatsModal({ title, onClose, children }) {
-  useEffect(() => {
-    const handleKey = (e) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, [onClose]);
+/* ---- Monthly trend line chart ---- */
+function TrendChart({ byMonth, color = "#00296F", label = "Submissions" }) {
+  const trendData = useMemo(() => {
+    const monthly = {};
+    MONTHS.forEach((m, i) => {
+      monthly[i + 1] = { name: m, count: 0 };
+    });
+    (byMonth || []).forEach((d) => {
+      const m = d._id?.month;
+      if (m && monthly[m]) monthly[m].count += d.count;
+    });
+    return Object.values(monthly);
+  }, [byMonth]);
+
+  const hasData = trendData.some((d) => d.count > 0);
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <h3>{title}</h3>
-          <button className="modal-close" onClick={onClose}>✕</button>
-        </div>
-        <div className="modal-body">{children}</div>
-      </div>
+    <div className="chart-container">
+      <p className="chart-subtitle">Monthly submissions trend (12 months)</p>
+      {!hasData ? (
+        <p className="no-data-msg">No trend data yet</p>
+      ) : (
+        <ResponsiveContainer width="100%" height={320}>
+          <ComposedChart data={trendData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <XAxis dataKey="name" />
+            <YAxis allowDecimals={false} />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="count" fill={color} radius={[4, 4, 0, 0]} name={label} fillOpacity={0.55} />
+            <Line
+              type="monotone"
+              dataKey="count"
+              stroke={color}
+              strokeWidth={3}
+              dot={{ r: 4, fill: color }}
+              name="Trend"
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 }
@@ -89,6 +113,7 @@ export default function Stat() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
 
+  // tabs: "total" | "personal" | "mental" | "b2b" | "joinus"
   const [tab, setTab] = useState("total");
 
   const [formStats, setFormStats] = useState(null);
@@ -98,13 +123,10 @@ export default function Stat() {
   const [joinUsStats, setJoinUsStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const [openModal, setOpenModal] = useState(null); // "b2b" | "joinus" | null
-
   /* ---------------- FETCH MAIN DATA ---------------- */
   useEffect(() => {
     const fetchStats = async () => {
       if (!isAuthenticated) return;
-
       try {
         const [formsRes, testsRes, b2bRes, joinUsRes] = await Promise.all([
           getFormStats(),
@@ -112,7 +134,6 @@ export default function Stat() {
           getB2BStats(),
           getJoinUsStats(),
         ]);
-
         setFormStats(formsRes.data);
         setTestStats(testsRes.data);
         setB2bStats(b2bRes.data);
@@ -123,14 +144,13 @@ export default function Stat() {
         setLoading(false);
       }
     };
-
     fetchStats();
   }, [isAuthenticated]);
 
   /* ---------------- FETCH PERSONAL CATEGORIES ---------------- */
   useEffect(() => {
+    if (tab !== "personal") return;
     const fetchCategories = async () => {
-      if (tab !== "personal") return;
       try {
         const res = await getPersonalAverages();
         setPersonalCategories(res.data);
@@ -169,42 +189,29 @@ export default function Stat() {
   const b2b = formStats?.b2bSubmissions || 0;
   const b2c = formStats?.b2cSubmissions || 0;
 
-  /* ---------------- CURRENT TAB VALUES ---------------- */
+  /* ---------------- CURRENT TAB VALUES (tests) ---------------- */
   let finished = totalPassed;
   let unfinished = totalUnfinished;
-
-  if (tab === "personal") {
-    finished = personalPassed;
-    unfinished = personalUnfinished;
-  }
-
-  if (tab === "mental") {
-    finished = metabolicPassed;
-    unfinished = metabolicUnfinished;
-  }
+  if (tab === "personal") { finished = personalPassed; unfinished = personalUnfinished; }
+  if (tab === "mental")   { finished = metabolicPassed; unfinished = metabolicUnfinished; }
 
   /* ---------------- CHART DATA (main trend) ---------------- */
   const mergedData = useMemo(() => {
     const monthly = {};
-
     MONTHS.forEach((m, i) => {
       monthly[i + 1] = { name: m, finished: 0, abandoned: 0 };
     });
-
     testStats.forEach((t) => {
       const { month, testType, status } = t._id;
       if (!month) return;
       if (tab === "personal" && testType !== "personal") return;
-      if (tab === "mental" && testType !== "metabolic") return;
-
-      if (status === "passed") monthly[month].finished += t.count;
+      if (tab === "mental"   && testType !== "metabolic") return;
+      if (status === "passed")  monthly[month].finished  += t.count;
       if (status === "started") monthly[month].abandoned += t.count;
     });
-
     Object.values(monthly).forEach((m) => {
       m.abandoned = Math.max(m.abandoned - m.finished, 0);
     });
-
     return Object.values(monthly);
   }, [testStats, tab]);
 
@@ -261,21 +268,135 @@ export default function Stat() {
   }
 
   if (loading) {
-    return <div className="stats-page">Loading stats...</div>;
+    return <div className="stats-page"><div className="stats-container">Loading stats...</div></div>;
   }
 
+  /* ======================== B2B PAGE ======================== */
+  if (tab === "b2b") {
+    const total = b2bStats?.byIndustry?.reduce((s, d) => s + d.count, 0) ?? b2b;
+    return (
+      <div className="stats-page">
+        <div className="stats-container">
+          <div className="stats-header-main">
+            <h2>Stats</h2>
+            <TabBar tab={tab} setTab={setTab} />
+          </div>
+
+          {/* Top cards */}
+          <section className="stats-section">
+            <h3>Formulaire B2B</h3>
+            <div className="general-cards">
+              <div className="stat-card highlight">
+                <span className="card-value">{total}</span>
+                <span className="card-label">Total soumissions B2B</span>
+              </div>
+              <div className="stat-card">
+                <span className="card-value">{b2bStats?.byIndustry?.length ?? 0}</span>
+                <span className="card-label">Industries représentées</span>
+              </div>
+              <div className="stat-card">
+                <span className="card-value">{b2bStats?.byService?.length ?? 0}</span>
+                <span className="card-label">Services demandés</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Trend graph */}
+          <section className="stats-section">
+            <h3>Tendance mensuelle</h3>
+            <TrendChart byMonth={b2bStats?.byMonth} color="#00296F" label="Soumissions B2B" />
+          </section>
+
+          {/* Bar charts */}
+          <section className="stats-section">
+            <h3>Statistiques détaillées</h3>
+            <div className="detail-charts-grid">
+              <div className="chart-container">
+                <p className="chart-subtitle">Par industrie</p>
+                <MiniBarChart data={b2bStats?.byIndustry} color="#00296F" height={260} />
+              </div>
+              <div className="chart-container">
+                <p className="chart-subtitle">Par taille d'entreprise</p>
+                <MiniBarChart data={b2bStats?.bySize} color="#06b6d4" height={260} />
+              </div>
+              <div className="chart-container detail-chart-full">
+                <p className="chart-subtitle">Par service d'intérêt</p>
+                <MiniBarChart data={b2bStats?.byService} color="#8b5cf6" height={260} />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
+  }
+
+  /* ======================== JOIN US PAGE ======================== */
+  if (tab === "joinus") {
+    const total = joinUsStats?.byProfession?.reduce((s, d) => s + d.count, 0) ?? joinUs;
+    return (
+      <div className="stats-page">
+        <div className="stats-container">
+          <div className="stats-header-main">
+            <h2>Stats</h2>
+            <TabBar tab={tab} setTab={setTab} />
+          </div>
+
+          {/* Top cards */}
+          <section className="stats-section">
+            <h3>Formulaire Join Us</h3>
+            <div className="general-cards">
+              <div className="stat-card highlight">
+                <span className="card-value">{total}</span>
+                <span className="card-label">Total soumissions Join Us</span>
+              </div>
+              <div className="stat-card">
+                <span className="card-value">{joinUsStats?.byProfession?.length ?? 0}</span>
+                <span className="card-label">Professions représentées</span>
+              </div>
+              <div className="stat-card">
+                <span className="card-value">{joinUsStats?.byCredential?.length ?? 0}</span>
+                <span className="card-label">Types de credentials</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Trend graph */}
+          <section className="stats-section">
+            <h3>Tendance mensuelle</h3>
+            <TrendChart byMonth={joinUsStats?.byMonth} color="#10b981" label="Soumissions Join Us" />
+          </section>
+
+          {/* Bar charts */}
+          <section className="stats-section">
+            <h3>Statistiques détaillées</h3>
+            <div className="detail-charts-grid">
+              <div className="chart-container">
+                <p className="chart-subtitle">Par profession</p>
+                <MiniBarChart data={joinUsStats?.byProfession} color="#10b981" height={260} />
+              </div>
+              <div className="chart-container">
+                <p className="chart-subtitle">Par années de pratique</p>
+                <MiniBarChart data={joinUsStats?.byYears} color="#f59e0b" height={260} />
+              </div>
+              <div className="chart-container detail-chart-full">
+                <p className="chart-subtitle">Par credentials / statut</p>
+                <MiniBarChart data={joinUsStats?.byCredential} color="#8b5cf6" height={260} />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
+  }
+
+  /* ======================== TESTS PAGES (total / personal / mental) ======================== */
   return (
     <div className="stats-page">
       <div className="stats-container">
         {/* HEADER */}
         <div className="stats-header-main">
           <h2>Stats</h2>
-
-          <div className="tab-switch">
-            <button className={tab === "total" ? "active" : ""} onClick={() => setTab("total")}>Total</button>
-            <button className={tab === "personal" ? "active" : ""} onClick={() => setTab("personal")}>Personal capacity</button>
-            <button className={tab === "mental" ? "active" : ""} onClick={() => setTab("mental")}>Metabolic health</button>
-          </div>
+          <TabBar tab={tab} setTab={setTab} />
         </div>
 
         {/* GENERAL STATS */}
@@ -289,37 +410,21 @@ export default function Stat() {
                   <span className="card-value">{totalPassed}</span>
                   <span className="card-label">Total Test finis</span>
                 </div>
-
                 <div className="stat-card">
                   <span className="card-value">{totalUnfinished}</span>
                   <span className="card-label">Total Test non finis</span>
                 </div>
-
-                {/* Clickable Join Us card */}
-                <div
-                  className="stat-card highlight clickable-card"
-                  onClick={() => setOpenModal("joinus")}
-                  title="Click to see details"
-                >
+                <div className="stat-card highlight">
                   <span className="card-value">{joinUs}</span>
                   <span className="card-label">Nombre de Join us</span>
-                  <span className="card-detail-hint">Voir détails →</span>
                 </div>
-
                 <div className="stat-card highlight">
                   <span className="card-value">{b2c}</span>
                   <span className="card-label">Formulaire B2C</span>
                 </div>
-
-                {/* Clickable B2B card */}
-                <div
-                  className="stat-card highlight clickable-card"
-                  onClick={() => setOpenModal("b2b")}
-                  title="Click to see details"
-                >
+                <div className="stat-card highlight">
                   <span className="card-value">{b2b}</span>
                   <span className="card-label">Formulaire B2B</span>
-                  <span className="card-detail-hint">Voir détails →</span>
                 </div>
               </>
             ) : (
@@ -328,7 +433,6 @@ export default function Stat() {
                   <span className="card-value">{finished}</span>
                   <span className="card-label">Test finis</span>
                 </div>
-
                 <div className="stat-card">
                   <span className="card-value">{unfinished}</span>
                   <span className="card-label">Test non finis</span>
@@ -366,7 +470,6 @@ export default function Stat() {
               </table>
             </div>
 
-            {/* Category Bar Chart */}
             {categoryChartData.length > 0 && (
               <div className="chart-container" style={{ marginTop: "30px" }}>
                 <p className="chart-subtitle">Average score per category</p>
@@ -388,10 +491,9 @@ export default function Stat() {
           </section>
         )}
 
-        {/* MAIN CHART */}
+        {/* MAIN TREND CHART */}
         <section className="stats-section">
           <h3>Test Activity Trend (12 Months)</h3>
-
           <div className="chart-container">
             <ResponsiveContainer width="100%" height={400}>
               <ComposedChart data={mergedData}>
@@ -400,8 +502,7 @@ export default function Stat() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-
-                <Bar dataKey="finished" fill="#36a2eb" radius={[4, 4, 0, 0]} name="Tests Finished" />
+                <Bar dataKey="finished"  fill="#36a2eb" radius={[4, 4, 0, 0]} name="Tests Finished" />
                 <Bar dataKey="abandoned" fill="#ff9f40" radius={[4, 4, 0, 0]} name="Tests Abandoned" />
                 <Line type="monotone" dataKey="finished" stroke="#ff6384" strokeWidth={3} dot={false} name="Trend" />
               </ComposedChart>
@@ -409,46 +510,30 @@ export default function Stat() {
           </div>
         </section>
       </div>
+    </div>
+  );
+}
 
-      {/* ===== B2B MODAL ===== */}
-      {openModal === "b2b" && (
-        <StatsModal title="Formulaire B2B — Détails" onClose={() => setOpenModal(null)}>
-          <div className="modal-grid">
-            <div className="modal-chart-section">
-              <h4>Par industrie</h4>
-              <MiniBarChart data={b2bStats?.byIndustry} />
-            </div>
-            <div className="modal-chart-section">
-              <h4>Par taille d'entreprise</h4>
-              <MiniBarChart data={b2bStats?.bySize} color="#06b6d4" />
-            </div>
-            <div className="modal-chart-section modal-chart-full">
-              <h4>Par service d'intérêt</h4>
-              <MiniBarChart data={b2bStats?.byService} color="#8b5cf6" />
-            </div>
-          </div>
-        </StatsModal>
-      )}
-
-      {/* ===== JOIN US MODAL ===== */}
-      {openModal === "joinus" && (
-        <StatsModal title="Join Us — Détails" onClose={() => setOpenModal(null)}>
-          <div className="modal-grid">
-            <div className="modal-chart-section">
-              <h4>Par profession</h4>
-              <MiniBarChart data={joinUsStats?.byProfession} />
-            </div>
-            <div className="modal-chart-section">
-              <h4>Par années de pratique</h4>
-              <MiniBarChart data={joinUsStats?.byYears} color="#10b981" />
-            </div>
-            <div className="modal-chart-section modal-chart-full">
-              <h4>Par credentials / statut</h4>
-              <MiniBarChart data={joinUsStats?.byCredential} color="#f59e0b" />
-            </div>
-          </div>
-        </StatsModal>
-      )}
+/* ---- Tab bar extracted as reusable component ---- */
+function TabBar({ tab, setTab }) {
+  const tabs = [
+    { key: "total",    label: "Total" },
+    { key: "personal", label: "Personal capacity" },
+    { key: "mental",   label: "Metabolic health" },
+    { key: "b2b",      label: "B2B Form" },
+    { key: "joinus",   label: "Join Us" },
+  ];
+  return (
+    <div className="tab-switch">
+      {tabs.map((t) => (
+        <button
+          key={t.key}
+          className={tab === t.key ? "active" : ""}
+          onClick={() => setTab(t.key)}
+        >
+          {t.label}
+        </button>
+      ))}
     </div>
   );
 }
