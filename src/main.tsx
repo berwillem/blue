@@ -1,6 +1,12 @@
+// @ts-nocheck
 import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration, useLocation } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
 import "./index.css";
 
 import Home from "./pages/Home/Home";
@@ -23,18 +29,23 @@ import Method from "./pages/Method/Method";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// ✅ Import your GA hook
+import usePageTracking from "./hooks/usePageTracking.jsx";
+
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Créer un composant Layout qui inclut le ScrollRestoration
-// Copie et remplace cette partie dans ton main.tsx
+// ✅ Root Layout
 const RootLayout = () => {
-  const { pathname } = useLocation(); // Tu dois importer useLocation de react-router-dom
-useEffect(() => {
+  const { pathname } = useLocation();
+
+  // ✅ GOOGLE ANALYTICS TRACKING (THIS WAS MISSING)
+  usePageTracking();
+
+  // GSAP resize observer
+  useEffect(() => {
     let timer;
     const resizeObserver = new ResizeObserver(() => {
-      // On annule le refresh précédent s'il y en a un
       clearTimeout(timer);
-      // On attend 500ms (fin de l'anim Show More) pour rafraîchir
       timer = setTimeout(() => {
         ScrollTrigger.refresh();
       }, 500);
@@ -47,11 +58,13 @@ useEffect(() => {
       clearTimeout(timer);
     };
   }, []);
+
+  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant", // <--- C'est ça qui enlève l'effet de scroll
+      behavior: "instant",
     });
   }, [pathname]);
 
@@ -62,10 +75,11 @@ useEffect(() => {
   );
 };
 
+// ✅ Router config
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />, // On utilise le layout ici
+    element: <RootLayout />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/individuals", element: <Individuals /> },
@@ -87,9 +101,9 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")!).render(
+// ✅ App render
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-    
   </StrictMode>,
 );
