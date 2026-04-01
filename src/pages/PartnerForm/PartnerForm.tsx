@@ -32,13 +32,13 @@ const PartnerForm: React.FC = () => {
     },
   ];
 
-  const sendEmail = async (e: React.FormEvent) => {
+const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    const SERVICE_ID = "blu_path_smtp";
-    const TEMPLATE_ID = "template_uyowadz";
-    const PUBLIC_KEY = "JgOBZ0eKJM4x52p3J";
+    const SERVICE_ID = "service_lqjgvbr";
+    const TEMPLATE_ID = "template_1zjwg5h";
+    const PUBLIC_KEY = "dpOf-bUkIi8H8qmjt";
 
     const formData = new FormData(formRef.current);
 
@@ -55,27 +55,25 @@ const PartnerForm: React.FC = () => {
     };
 
     try {
-      // Send email
+      // 1. Envoi de l'e-mail (Priorité)
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      
+      // Si on arrive ici, l'e-mail est OK
+      toast.success(t("partner_form.success_msg") || "Application sent successfully!");
+      
+      if (formRef.current) formRef.current.reset();
+      setProfessionalStatus("");
 
-      // Increment Join Us stat
-      await incrementJoinUs();
-
-      // Save detailed Join Us data
+      // 2. Stats (On ne met pas de "await" critique ici pour ne pas bloquer l'UI si le serveur de stats bug)
+      incrementJoinUs().catch(err => console.error("Stats Error:", err));
       saveJoinUsDetail({
         profession: templateParams.profession || "unknown",
         yearsOfPractice: templateParams.experience || "unknown",
         credential: professionalStatus || "unknown",
       }).catch((err) => console.error("JoinUs detail error:", err));
 
-      // Show success toast and reset form
-      toast.success(
-        t("partner_form.success_msg") || "Application sent successfully!",
-      );
-      formRef.current.reset();
-      setProfessionalStatus("");
     } catch (err) {
-      console.error(err);
+      console.error("EmailJS Error:", err);
       toast.error(t("partner_form.error_msg") || "An error occurred.");
     } finally {
       setLoading(false);
