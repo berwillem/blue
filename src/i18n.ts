@@ -6,13 +6,12 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    lng: "fr", // Définit le français comme langue active au démarrage
+    fallbackLng: "fr", // Utilise le français si la traduction est manquante dans une autre langue
     debug: false,
     interpolation: { escapeValue: false },
     backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
     react: { useSuspense: true },
-    
-    // AJOUTE CETTE LIGNE ABSOLUMENT :
     returnObjects: true 
   });
 
