@@ -174,6 +174,9 @@ useEffect(() => {
       />
       
       {value?.sig && <span className="sig">{value?.sig}</span>}
+        {value?.link && <Link className="link-pag" to="/disclaimer2"  >
+                                      {value?.link || "Learn more"}
+                                    </Link>} 
     </div>
   ))}
 </motion.div>
@@ -310,10 +313,13 @@ useEffect(() => {
                             className="expanded-content"
                           >
                             {DATA[currentIndex]?.moreContent?.paragraphs?.map((p, i) => (
-                              <div key={i}>
+                              <div key={i} style={{ marginBottom: "10px" }}>
                                 {p.title && <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#002b49", fontWeight: "bold" }}>{p.title}</p>}
                                 <p className="right-description" style={{ fontSize: "0.9rem", marginBottom: "15px" }} dangerouslySetInnerHTML={{ __html: p.text }} />
                                     {p?.sig && <span className="sig">{p?.sig}</span>} 
+                                    {p?.link && <Link className="link-pag" to="/disclaimer2"  >
+                                      {p?.link || "Learn more"}
+                                    </Link>} 
                               </div>
                             ))}
                             {DATA[currentIndex]?.moreContent?.lists?.map((list, idx) => (

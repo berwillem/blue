@@ -446,3 +446,19 @@ font-weight: 400;
 .ind .lines{
   display: none !important; 
 }
+.link-pag{
+  text-decoration: underline;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media screen and (min-width: 600px) {
+.link-pag{
+  text-decoration: underline;
+  padding-bottom: 10px;
+  color: #00314D;
+  font-weight: 600;
+  cursor: pointer;
+}
+}
