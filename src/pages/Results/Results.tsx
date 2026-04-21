@@ -254,7 +254,7 @@ export default function Results() {
             
         
          {lang === "fr" ? "Cette évaluation est un outil de coaching destiné à orienter les stratégies de mode de vie et de nutrition. Elle ne constitue pas un diagnostic médical" : "This assessment is a coaching tool designed to guide lifestyle and nutritional strategies. It is not a medical diagnosis. "}
-         <span className="title-result-paragraph"><Link to="/disclaimer2" style={{backgroundColor: "white", color:"#002438", fontWeight: "500", padding:"10px",borderRadius:"16px"}}>{lang === "fr" ? "En savoir plus." : "Learn more."}</Link> </span>
+         <span  style={{marginTop:"20px"}} className="title-result-paragraph"><Link to="/disclaimer2" style={{backgroundColor: "white", color:"#002438", fontWeight: "500", padding:"10px",borderRadius:"24px"}}>{lang === "fr" ? "En savoir plus." : "Learn more."}</Link> </span>
           </p>
 
         {mappedResults.map((item, index) => (
