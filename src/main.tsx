@@ -31,6 +31,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // ✅ Import your GA hook
 import usePageTracking from "./hooks/usePageTracking.jsx";
+import Disclaimer2 from "./pages/Disclaimer2/Disclaimer2.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,6 +96,7 @@ const router = createBrowserRouter([
       { path: "/privacy", element: <Privacy /> },
       { path: "/stats", element: <Stat /> },
       { path: "/disclaimer/:testId", element: <Disclaimer /> },
+        { path: "/disclaimer2", element: <Disclaimer2 /> },
       { path: "/method", element: <Method /> },
       { path: "*", element: <NotFound /> },
     ],

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useEffect, useRef, useState, useMemo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { jsPDF } from "jspdf";
 import {
@@ -115,6 +115,7 @@ export default function Results() {
   // ---------------- PDF GENERATION ----------------
 // ---------------- PDF GENERATION ----------------
 // ---------------- PDF GENERATION ----------------
+// ---------------- PDF GENERATION ----------------
   const handleDownloadPDF = (e) => {
     if (e) e.preventDefault();
     const doc = new jsPDF();
@@ -162,11 +163,25 @@ export default function Results() {
     doc.setFontSize(18);
     doc.text(lang === "fr" ? "Vos Résultats" : "Your Results", 20, 45);
 
-    let y = 60;
+    let y = 55;
+
+    // --- AJOUT DU PARAGRAPHE DISCLAIMER AU DÉBUT DU PDF ---
+    const disclaimerText = lang === "fr" 
+      ? "Cette évaluation est un outil de coaching destiné à orienter les stratégies de mode de vie et de nutrition. Elle ne constitue pas un diagnostic médical." 
+      : "This assessment is a coaching tool designed to guide lifestyle and nutritional strategies. It is not a medical diagnosis.";
+    
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(10);
+    doc.setTextColor(100, 100, 100);
+    
+    const disclaimerLines = doc.splitTextToSize(disclaimerText, 170);
+    doc.text(disclaimerLines, 20, y);
+    
+    y += (disclaimerLines.length * 5) + 10; // On descend le curseur pour la suite
 
     // --- BOUCLE SUR LES RÉSULTATS (AVEC TITRES) ---
     mappedResults.forEach((item) => {
-      // 1. Dessiner le TITRE de la catégorie (ex: What this means)
+      // 1. Dessiner le TITRE de la catégorie
       doc.setFont("helvetica", "bold");
       doc.setFontSize(12);
       doc.setTextColor(14, 58, 74);
@@ -174,7 +189,7 @@ export default function Results() {
       const categoryTitle = item.category.toUpperCase();
       doc.text(categoryTitle, 20, y);
       
-      y += 8; // Petit saut après le titre
+      y += 8;
 
       // 2. Dessiner le TEXTE (sentence)
       doc.setFont("helvetica", "normal");
@@ -183,19 +198,16 @@ export default function Results() {
 
       const lines = doc.splitTextToSize(item.sentence, 170);
 
-      // Vérifier si ça passe sur la page (marge footer 30mm)
       if (y + (lines.length * 7) > pageHeight - 30) {
         doc.addPage();
         y = 30;
       }
 
       doc.text(lines, 20, y);
-      y += (lines.length * 7) + 15; // Espace plus large entre les blocs
+      y += (lines.length * 7) + 15;
     });
 
-    // Finaliser avec le footer
     addFooter(doc);
-
     doc.save(`Blu_Results_${testId}.pdf`);
   };
   // ---------------- AUTO SCROLL LOGIC FIXED ----------------
@@ -227,10 +239,23 @@ export default function Results() {
 
   return (
     <div className="results-wrapper">
-      <h1>{lang === "fr" ? "Résultat" : "Result"}</h1>
+      
+ <h1>{lang === "fr" ? "Résultat" : "Result"}</h1>
+
+   
+     
 
       <div className={`results-content `} ref={containerRef}>
+
+
+
         <div className="spacer"></div>
+           <p  className="result-paragraph passed">
+            
+        
+         {lang === "fr" ? "Cette évaluation est un outil de coaching destiné à orienter les stratégies de mode de vie et de nutrition. Elle ne constitue pas un diagnostic médical" : "This assessment is a coaching tool designed to guide lifestyle and nutritional strategies. It is not a medical diagnosis. "}
+         <span className="title-result-paragraph"><Link to="/disclaimer2" style={{backgroundColor: "white", color:"#002438", fontWeight: "500", padding:"10px",borderRadius:"16px"}}>{lang === "fr" ? "En savoir plus." : "Learn more."}</Link> </span>
+          </p>
 
         {mappedResults.map((item, index) => (
        <>

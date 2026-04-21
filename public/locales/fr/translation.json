@@ -51,7 +51,7 @@
         "id": 1,
         "title": "Qu’est-ce que nous faisons",
         "button": "Commencer le test métabolique",
-        "leftText": "<strong>Executive Metabolic Method™</strong> pdestinée aux profils exigeants, aux dirigeants et aux individus performance intense. Accomplissement. Discipline. Sens<strong>— Le nouveau code de l'élite.</strong>",
+        "leftText": "<strong>Executive Metabolic Method™</strong> destinée aux profils exigeants, aux dirigeants et aux individus performance intense. Accomplissement. Discipline. Sens<strong>— Le nouveau code de l'élite.</strong>",
         "rightDesc": "L'excellence durable commence de l'intérieur — par un équilibre profond entre métabolisme, état d'esprit et bien-être global. Cette conviction nous a conduits à dédier notre travail à l'accompagnement d'individus qui ne cherchent pas seulement le succès, mais l'alignement entre le corps, l'esprit et leur mission.",
         "moreContent": {
           "paragraphs": [
@@ -818,5 +818,41 @@
         
         " Avis de confidentialité : Ce test est anonyme. Aucune donnée personnelle n'est stockée. Seules des statistiques agrégées et anonymisées peuvent être utilisées à des fins d'analyse, conformément aux réglementations sur la protection des données."
       ]
+    },
+    
+"disclaimer_page": {
+    "hero_title": "MENTION LÉGALE / AVERTISSEMENT",
+    "subtitle": "(Services non médicaux)",
+    "last_updated": "Dernière mise à jour : Avril 2026",
+    "sections": {
+      "1": {
+        "title": "Nature des services et limitation du périmètre",
+        "content": "Blu. propose des services de coaching, de mentoring et d’accompagnement orientés vers l’organisation du mode de vie, les habitudes, la discipline et le bien-être global. Ces services s’inscrivent dans une approche holistique de gestion de vie et visent à améliorer la structure, la constance et l’alignement au quotidien.\n\nBlu. n’est pas un prestataire de soins de santé et ne fournit aucune activité médicale, paramédicale ou réglementée. En particulier, Blu. ne réalise ni ne propose, directement ou indirectement :",
+        "list": [
+          "Aucun diagnostic, traitement ou prévention médicale",
+          "Aucun plan nutritionnel thérapeutique ou médical personnalisé",
+          "Aucun acte de kinésithérapie ou de rééducation",
+          "Aucun soin infirmier ou acte clinique",
+          "Aucune prise en charge psychologique ou psychiatrique",
+          "Aucun acte réservé aux professionnels de santé réglementés conformément à la législation en vigueur, notamment la loi algérienne n° 18-11 relative à la santé"
+        ],
+        "footer": "Les contenus, évaluations, rapports et recommandations fournis par Blu. sont exclusivement à visée informative, éducative et d’accompagnement, et ne sauraient en aucun cas se substituer à un avis médical, un diagnostic ou un traitement."
+      },
+      "2": {
+        "title": "Suivi médical",
+        "content": "Il est fortement recommandé aux clients de consulter et de maintenir un suivi médical approprié auprès de professionnels de santé qualifiés, en particulier en cas de pathologie, de symptômes ou de traitement en cours.\n\nLes services de Blu. ne doivent en aucun cas être utilisés comme un substitut à une consultation, un diagnostic ou une prise en charge médicale. Toute décision relative à la santé, à la nutrition ou à un traitement doit être prise avec un professionnel de santé habilité."
+      },
+      "3": {
+        "title": "Responsabilité du client",
+        "content": "En faisant appel aux services de Blu., le client reconnaît et accepte que :",
+        "list": [
+          "Il demeure entièrement responsable de sa santé et de son suivi médical",
+          "Il s’engage à consulter des professionnels de santé qualifiés lorsque nécessaire",
+          "Il comprend que les services de Blu. se limitent à du coaching, du mentoring et de l’accompagnement en hygiène de vie"
+        ],
+        "footer": "Blu. intervient dans un cadre non médical et non clinique, fondé sur des systèmes d’habitudes, la discipline et la structuration de la vie quotidienne au service du bien-être."
+      }
     }
+  }
+
 }

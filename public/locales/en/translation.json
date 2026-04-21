@@ -772,5 +772,41 @@
     "link_more": "Learn more about our Privacy & Confidentiality Policy",
     "show_more": "Show More",
     "show_less": "Show Less"
+  },
+  
+"disclaimer_page": {
+    "hero_title": "DISCLAIMER",
+    "subtitle": "(Non-Medical Service)",
+    "last_updated": "Last updated: April 2026",
+    "sections": {
+      "1": {
+        "title": "Nature of Services and Limitation of Scope",
+        "content": "Blu. provides coaching, mentoring, and guidance services focused on lifestyle organization, habits, discipline, and overall well-being. These services are part of a holistic approach to personal life management and are intended to support individuals in improving consistency, structure, and alignment in their daily lives.\n\nBlu. is not a healthcare provider and does not provide medical, paramedical, or regulated health services. In particular, Blu. does not perform or offer, directly or indirectly:",
+        "list": [
+          "Medical diagnosis, treatment, or prevention of disease",
+          "Personalized medical or therapeutic nutritional plans",
+          "Physiotherapy or rehabilitation services",
+          "Nursing care or clinical procedures",
+          "Psychological or psychiatric therapy",
+          "Any act reserved for regulated health professionals under applicable laws and regulations, including Algerian Law No. 18-11 relating to health"
+        ],
+        "footer": "All content, assessments, reports, and recommendations provided by Blu. are for informational, educational, and coaching purposes only and are not intended to replace professional medical advice, diagnosis, or treatment."
+      },
+      "2": {
+        "title": "Medical Supervision",
+        "content": "Clients are strongly encouraged to seek and maintain appropriate medical supervision from licensed healthcare professionals, particularly in the presence of any medical condition, symptoms, or ongoing treatment.\n\nBlu.’s services must not be used as a substitute for medical consultation, diagnosis, or care. Any decision related to health, nutrition, or treatment should be made in consultation with a qualified healthcare provider."
+      },
+      "3": {
+        "title": "Client Responsibility",
+        "content": "By engaging with Blu., clients acknowledge and agree that:",
+        "list": [
+          "They remain fully responsible for their health, medical follow-up, and personal decisions",
+          "They will consult qualified healthcare professionals when necessary",
+          "They understand that Blu.’s services are limited to coaching, mentoring, and lifestyle guidance"
+        ],
+        "footer": "Blu. operates within a non-clinical, non-medical framework, centered on habit systems, discipline, and structured life management to support overall well-being."
+      }
+    }
   }
+
 }
