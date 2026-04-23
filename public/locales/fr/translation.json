@@ -42,22 +42,22 @@
     "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire <strong>— santé métabolique,</strong> <strong>solidité mentale</strong> <strong>et </strong><strong>clarté—</strong>afin que la vie retrouve du sens. ",
     "button": "À propos du fondateur",
     "why": "Pourquoi nous faisons ce que nous faisons :",
-    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie — afin qu’elles puissent de nouveau se tenir droites et <strong>redevenir </strong> <strong>fiables pour elles-mêmes</strong><strong> comme pour les autres</strong>",
-    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline,</strong><strong> la santé métabolique ,</strong> <strong>la responsabilité et le sens</strong>",
-    "whyp3": "Nous savons que les personnes performantes n’échouent pas par manque de capacités. Elles vacillent lorsque la biologie, les rituels et le sens ne sont plus en ligne. Blu existe pour <strong>réaligner</strong> ces fondations",
-    "whyp4": "Lorsqu'une personne s'effondre, son environnement en subit les conséquences : le conjoint, les enfants, les équipes et les amis. Nous aidons à protéger ce qui <strong>compte le plus</strong> : la famille, la responsabilité et l'héritage.",
+    "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie — afin qu’elles puissent de nouveau se tenir droites et<strong>redevenir</strong><strong>fiables pour elles-mêmes</strong><strong>comme pour les autres</strong>",
+    "whyp2": "Blu n'est pas théorique. Il repose sur une expérience vécue : perdre sa clarté et son énergie, puis les reconstruire à travers <strong>la discipline,</strong><strong>la santé métabolique,</strong><strong>la responsabilité et le sens</strong>",
+    "whyp3": "Nous savons que les personnes performantes n’échouent pas par manque de capacités. Elles vacillent lorsque la biologie, les rituels et le sens ne sont plus en ligne. Blu existe pour<strong>réaligner</strong> ces fondations",
+    "whyp4": "Lorsqu’un individu s’effondre, son environnement en paie le prix — conjoint, enfants, collègues, amis. Nous aidons à protéger<strong>ce qui compte le plus</strong>: la famille, la responsabilité et le sens.",
     "sections": [
       {
         "id": 1,
         "title": "Qu’est-ce que nous faisons",
         "button": "Commencer le test métabolique",
-        "leftText": "<strong>Executive Metabolic Method™</strong> destinée aux profils exigeants, aux dirigeants et aux individus performance intense. Accomplissement. Discipline. Sens<strong>— Le nouveau code de l'élite.</strong>",
-        "rightDesc": "L'excellence durable commence de l'intérieur — par un équilibre profond entre métabolisme, état d'esprit et bien-être global. Cette conviction nous a conduits à dédier notre travail à l'accompagnement d'individus qui ne cherchent pas seulement le succès, mais l'alignement entre le corps, l'esprit et leur mission.",
+        "leftText": "<strong>Executive Metabolic Method™</strong> destinée aux profils exigeants, aux dirigeants et aux individus performance intense. Accomplissement. Discipline. Sens<strong> — Le nouveau code de l'élite.</strong>",
+        "rightDesc": "L’excellence commence de l’intérieur — par un équilibre profond entre le métabolisme, l’état d’esprit et le bien-être. C’est cette compréhension qui nous a conduits à consacrer notre travail à l’accompagnement d’individus qui ne recherchent pas seulement le succès, mais l’alignement entre le corps, l’esprit et le sens. ",
         "moreContent": {
           "paragraphs": [
             {
               
-              "text": "Si vous êtes un performeur de haut niveau et que vous vous sentez épuisé malgré le succès, nous vous aidons à restaurer votre discipline, votre énergie et votre raison d'être. Notre approche <strong>holistique</strong>,  fondée sur des faits scientifiques, intègre santé métabolique, état d’esprit et principes de leadership — afin que performance et équilibre puissent coexister. Les vrais leaders ne s’effondrent pas. Ils se reconstruisent. Restaurez votre énergie, confiance et clarté d’esprit — de manièr<strong>privée et durable.</strong>"
+              "text": "Si vous êtes un Individus engagés dans la performance épuisé derrière votre réussite, nous vous aidons à restaurer discipline, énergie et direction. Notre approche <strong>holistique</strong>, fondée sur des faits scientifiques, intègre santé métabolique, état d’esprit et principes de leadership — afin que performance et équilibre puissent coexister. Les vrais leaders ne s’effondrent pas. Ils se reconstruisent. Restaurez votre énergie, confiance et clarté d’esprit — de manière <strong>privée et durable.</strong>"
             },
                {
             "text":"Avertissement (Services non médicaux): Blu. propose un accompagnement en coaching et hygiène de vie (habitudes, discipline, bien-être). Blu. n’est pas un professionnel de santé et ne fournit aucune activité médicale ou réglementé."
@@ -77,7 +77,7 @@
             {
               "title": "À qui nous nous adressons :",
               "items": [
-                "Entrepreneurs, investisseurs et indépendants en quête de haute performance et de bien-être.",
+                "Entrepreneurs, investisseurs et professionnels indépendants en quête de haute performance et de bien-être durable.",
                 "Cadres et dirigeants d'entreprise au sein de moyennes et grandes structures.",
                 "Professionnels, performers d’élite et athlètes de haut niveau ouverts à une optimisation mentale et métabolique pragmatique et scientifiquement objective ."
               ]
@@ -520,12 +520,12 @@
   },
   "home": {
     "individuals": {
-      "quote": "“ Regain control of your health, clarity,discipline, and direction.”",
+      "quote": "“ Regain control of your health, clarity, discipline, and direction.”",
       "title": "Individuals",
       "subtitle": "Coaching <1>and</1> Mentoring"
     },
     "corporates": {
-      "quote": "“ Strengthening governance, leadership, and execution to drive profitable,sustainable growth in complex environments”",
+      "quote": "“ Strengthening governance, leadership, and execution to drive profitable, sustainable growth in complex environments”",
       "title": "Corporates",
       "subtitle": "Consulting <1>and</1> Advisory"
     },
