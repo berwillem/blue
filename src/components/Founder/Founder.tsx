@@ -62,14 +62,16 @@ export default function Founder() {
         defaults: { ease: "power4.out" },
       });
 
-      entryTl.to(imageRef.current, { opacity: 1, duration: 1.2 })
-        .to(titleWords, {
+      entryTl.to(imageRef.current, { opacity: 1, duration: 1.2 });
+      if (titleWords?.length) {
+        entryTl.to(titleWords, {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
           stagger: 0.02,
           duration: 1,
         }, "-=0.8");
+      }
 
       // --- 3. TIMELINE PRINCIPALE (SCRUB) ---
       const mainTl = gsap.timeline({
@@ -83,24 +85,26 @@ export default function Founder() {
         },
       });
 
-      mainTl
-        .to(textRef.current, {
+      if (textRef.current) {
+        mainTl.to(textRef.current, {
           opacity: 0,
           y: -50,
           filter: "blur(10px)",
           duration: 1,
-        })
+        });
+      }
+      mainTl
         .to(imageRef.current, {
           width: "100vw",
           height: "100dvh",
           borderRadius: 0,
           bottom: 0,
           duration: 1,
-        }, "<")
-        .to(buttonRef.current, { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.8 
+        }, textRef.current ? "<" : undefined)
+        .to(buttonRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8
         }, "<0.5");
 
     }, containerRef);

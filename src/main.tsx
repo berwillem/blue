@@ -77,7 +77,8 @@ const RootLayout = () => {
 };
 
 // ✅ Router config
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     path: "/",
     element: <RootLayout />,
@@ -101,7 +102,9 @@ const router = createBrowserRouter([
       { path: "*", element: <NotFound /> },
     ],
   },
-]);
+  ],
+  { future: { v7_startTransition: true } }
+);
 
 // ✅ App render
 createRoot(document.getElementById("root")).render(
