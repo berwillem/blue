@@ -39,7 +39,7 @@
       "autoimmune": "Maladies auto-immunes"
     },
     "main_title1": "Le monde moderne a apporté confort et progrès, mais aussi des menaces silencieuses qui érodent votre sante physique et mentale. Que faites-vous aujourd’hui pour protéger la vôtre  ?",
-    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire <strong>— santé métabolique,</strong> <strong>solidité mentale</strong> <strong>et </strong><strong>clarté—</strong>afin que la vie retrouve du sens. ",
+    "main_title": "Je dirige Blu pour aider des personnes qui semblent fonctionnelles en apparence, mais épuisées en profondeur, à se reconstruire <strong>— santé métabolique,</strong><strong>solidité mentale</strong><strong>et</strong><strong>clarté—</strong> afin que la vie retrouve du sens. ",
     "button": "À propos du fondateur",
     "why": "Pourquoi nous faisons ce que nous faisons :",
     "whyp1": "Nous aidons les personnes qui souffrent à reprendre le contrôle de leur corps, de leur esprit et de leur vie — afin qu’elles puissent de nouveau se tenir droites et<strong>redevenir</strong><strong>fiables pour elles-mêmes</strong><strong>comme pour les autres</strong>",
@@ -51,7 +51,7 @@
         "id": 1,
         "title": "Qu’est-ce que nous faisons",
         "button": "Commencer le test métabolique",
-        "leftText": "<strong>Executive Metabolic Method™</strong> destinée aux profils exigeants, aux dirigeants et aux individus performance intense. Accomplissement. Discipline. Sens<strong> — Le nouveau code de l'élite.</strong>",
+        "leftText": "<strong>Executive Metabolic Method™</strong> destinée aux profils exigeants, aux dirigeants et aux individus à performance intense. Accomplissement. Discipline. Sens<strong> — Le nouveau code de l'élite.</strong>",
         "rightDesc": "L’excellence commence de l’intérieur — par un équilibre profond entre le métabolisme, l’état d’esprit et le bien-être. C’est cette compréhension qui nous a conduits à consacrer notre travail à l’accompagnement d’individus qui ne recherchent pas seulement le succès, mais l’alignement entre le corps, l’esprit et le sens. ",
         "moreContent": {
           "paragraphs": [
@@ -185,7 +185,99 @@
 
     "button": "Prendre rendez-vous"
   },
-  "sections2": [
+  "sections2": [     {
+      "id": 7,
+      "title": "Coaching et mentorat pour dirigeants",
+      "button": " Métabolique méthode",
+      "leftText": "Propulsé par <strong>l'Executive Metabolic Method™</strong>, ce programme accompagne les dirigeants soumis à une pression constante dans la restauration de leur énergie, de leur focus et de la qualité de leurs décisions, tout en renforçant leur leadership et leur discipline d’exécution.  ",
+      "rightDesc": "Notre approche intègre <strong> performance métabolique, état d’esprit et leadership </strong>afin d’apporter clarté et résilience là où cela compte le plus — aux niveaux personnel et professionnel. ",
+      "moreContent": {
+        "paragraphs": [
+          {
+
+            "text": "L’ensemble de l’accompagnement se déroule exclusivement lors de séances privées, en présentiel. La confidentialité et la discrétion absolue constituent des principes fondamentaux de notre engagement, garantissant un espace de confiance propice à une réflexion honnête, à la récupération et à une performance durable sur le long terme.  "
+          },
+          {
+            "text":"Avertissement (Services non médicaux): Blu. propose un accompagnement en coaching et hygiène de vie (habitudes, discipline, bien-être). Blu. n’est pas un professionnel de santé et ne fournit aucune activité médicale ou réglementé."
+         ,"link":"Pour en savoir plus: “Nature des services et limitation du périmètre”"
+          }
+
+         
+        ]
+    
+      }
+    },   {
+      "id": 6,
+      "title": "Formation ",
+      "leftText": "Nous proposons des dispositifs de développement des compétences ciblés à destination des <strong>cadres dirigeants et des managers</strong>, afin de renforcer la qualité de la prise de décision, la résilience, la discipline d’exécution et la création de valeur dans des environnements complexes.",
+      "rightDesc": "Nous proposons des <strong>programmes de formation sur mesure</strong> destinés aux cadres dirigeants et au management confrontés à des décisions critiques et à des transformations à forts enjeux.",
+      "moreContent": {
+        "paragraphs": [
+          {
+            
+            "text": "Nous renforçons votre capacité à <strong>planifier et exécuter</strong> en soutenant l'excellence des processus et une livraison disciplinée d'exécution rigoureuse."
+          },
+          {
+           
+            "text": "Nous aidons les dirigeants à mieux évaluer le potentiel de leur activité et à identifier des leviers innovants et efficace dans la création de valeur. Les organisations développent ainsi une compréhension approfondie de leurs <strong>moteurs de création de valeur</strong> et des implications financières de leurs décisions et actions"
+          },
+          {
+           
+            "text": "Grâce à des dispositifs personnalisés et à des formations interactives, nous permettons à vos équipes de maîtriser ce qui est essentiel — créer de la valeur durable pour les clients, les actionnaires et l’ensemble des parties prenantes.  "
+          }
+        ],
+  "lists": [
+  {
+    "title": "Principaux modules de formation Aptitude et Acuité Financière :",
+    "items": [
+      "Compte de résultat (P&L) ",
+      "Bilan",
+      "Valeur ajoutée opérationnelle (OVA) vs EBIT",
+      "Coût du capital (WACC) ",
+      "Rendements et dividendes ",
+      "Valorisation d’entrepris "
+    ]
+  },
+  {
+    "title": "Business & développement commercial",
+    "items": [
+      "Vente par la valeur (Value Selling)",
+      "Efficacité et performance commerciale",
+      "Canaux de vente",
+      "Analyse du potentiel de marché",
+      "Stratégie, mission et organisation",
+      "Marketing digital",
+      "Suivi commercial, pilotage de l’activité et discipline d’exécution",
+      "CRM & rigueur opérationnelle"
+    ]
+  },
+  {
+    "title": "Leadership & organisation",
+    "items": [
+      "Culture interne",
+      "Recrutement",
+      "Développement des compétences & rétention des talents",
+      "Transparence, mission et responsabilisation",
+      "Analyse des risques",
+      "Gestion de projet (LEAN / Agile)",
+      "Maîtrise des coûts (excellence opérationnelle, automatisation & IA, hubs et infrastructures systèmes, contrôle de gestion)"
+    ]
+  },
+  {
+    "title": "IA pour dirigeants : de l’outil à l’avantage concurrentiel",
+    "items": [
+      "Gestion des tâches : rendement, effort et allocation intelligente",
+      "Raisonnement, pensée structurée & art du prompting",
+      "Agents & automatisation",
+      "Recherche & analyse augmentées",
+      "Agents & nouvelle génération de dirigeants",
+      "Le concept de “Learn-it-all”"
+    ]
+  }
+]
+      }
+    },
+
     {
       "id": 1,
       "title": "Gouvernance",
@@ -345,100 +437,8 @@
         ]
         
       }
-    },
-    {
-      "id": 6,
-      "title": "Formation ",
-      "leftText": "Nous proposons des dispositifs de développement des compétences ciblés à destination des <strong>cadres dirigeants et des managers</strong>, afin de renforcer la qualité de la prise de décision, la résilience, la discipline d’exécution et la création de valeur dans des environnements complexes.",
-      "rightDesc": "Nous proposons des <strong>programmes de formation sur mesure</strong> destinés aux cadres dirigeants et au management confrontés à des décisions critiques et à des transformations à forts enjeux.",
-      "moreContent": {
-        "paragraphs": [
-          {
-            
-            "text": "Nous renforçons votre capacité à <strong>planifier et exécuter</strong> en soutenant l'excellence des processus et une livraison disciplinée d'exécution rigoureuse."
-          },
-          {
-           
-            "text": "Nous aidons les dirigeants à mieux évaluer le potentiel de leur activité et à identifier des leviers innovants et efficace dans la création de valeur. Les organisations développent ainsi une compréhension approfondie de leurs <strong>moteurs de création de valeur</strong> et des implications financières de leurs décisions et actions"
-          },
-          {
-           
-            "text": "Grâce à des dispositifs personnalisés et à des formations interactives, nous permettons à vos équipes de maîtriser ce qui est essentiel — créer de la valeur durable pour les clients, les actionnaires et l’ensemble des parties prenantes.  "
-          }
-        ],
-  "lists": [
-  {
-    "title": "Principaux modules de formation Aptitude et Acuité Financière :",
-    "items": [
-      "Compte de résultat (P&L) ",
-      "Bilan",
-      "Valeur ajoutée opérationnelle (OVA) vs EBIT",
-      "Coût du capital (WACC) ",
-      "Rendements et dividendes ",
-      "Valorisation d’entrepris "
-    ]
-  },
-  {
-    "title": "Business & développement commercial",
-    "items": [
-      "Vente par la valeur (Value Selling)",
-      "Efficacité et performance commerciale",
-      "Canaux de vente",
-      "Analyse du potentiel de marché",
-      "Stratégie, mission et organisation",
-      "Marketing digital",
-      "Suivi commercial, pilotage de l’activité et discipline d’exécution",
-      "CRM & rigueur opérationnelle"
-    ]
-  },
-  {
-    "title": "Leadership & organisation",
-    "items": [
-      "Culture interne",
-      "Recrutement",
-      "Développement des compétences & rétention des talents",
-      "Transparence, mission et responsabilisation",
-      "Analyse des risques",
-      "Gestion de projet (LEAN / Agile)",
-      "Maîtrise des coûts (excellence opérationnelle, automatisation & IA, hubs et infrastructures systèmes, contrôle de gestion)"
-    ]
-  },
-  {
-    "title": "IA pour dirigeants : de l’outil à l’avantage concurrentiel",
-    "items": [
-      "Gestion des tâches : rendement, effort et allocation intelligente",
-      "Raisonnement, pensée structurée & art du prompting",
-      "Agents & automatisation",
-      "Recherche & analyse augmentées",
-      "Agents & nouvelle génération de dirigeants",
-      "Le concept de “Learn-it-all”"
-    ]
-  }
-]
-      }
-    },
-    {
-      "id": 7,
-      "title": "Coaching et mentorat pour dirigeants",
-      "button": " Métabolique méthode",
-      "leftText": "Propulsé par <strong>l'Executive Metabolic Method™</strong>, ce programme accompagne les dirigeants soumis à une pression constante dans la restauration de leur énergie, de leur focus et de la qualité de leurs décisions, tout en renforçant leur leadership et leur discipline d’exécution.  ",
-      "rightDesc": "Notre approche intègre <strong> performance métabolique, état d’esprit et leadership </strong>afin d’apporter clarté et résilience là où cela compte le plus — aux niveaux personnel et professionnel. ",
-      "moreContent": {
-        "paragraphs": [
-          {
-
-            "text": "L’ensemble de l’accompagnement se déroule exclusivement lors de séances privées, en présentiel. La confidentialité et la discrétion absolue constituent des principes fondamentaux de notre engagement, garantissant un espace de confiance propice à une réflexion honnête, à la récupération et à une performance durable sur le long terme.  "
-          },
-          {
-            "text":"Avertissement (Services non médicaux): Blu. propose un accompagnement en coaching et hygiène de vie (habitudes, discipline, bien-être). Blu. n’est pas un professionnel de santé et ne fournit aucune activité médicale ou réglementé."
-         ,"link":"Pour en savoir plus: “Nature des services et limitation du périmètre”"
-          }
-
-         
-        ]
-    
-      }
     }
+
   ],
   "intro": {
     "subtitle": "Que faisons-nous chez Blu. :",
