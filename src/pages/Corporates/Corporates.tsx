@@ -5,7 +5,7 @@ import placeholder2 from "../../assets/images/corporates2.png";
 import placeholder3 from "../../assets/images/corporates3.jpg";
 import placeholder4 from "../../assets/images/corporates4.png";
 import placeholder5 from "../../assets/images/corporates5.jpg";
-import placeholder6 from "../../assets/images/corporates6.jpg";
+import placeholder6 from "../../assets/images/oss.jpeg";
 import placeholder7 from "../../assets/images/corporates7.jpg";
 import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
@@ -34,13 +34,15 @@ export default function Corporates() {
   // On récupère le tableau brut des sections via t() avec returnObjects
   const sectionsData = t("sections2", { returnObjects: true });
   const images = [
+        placeholder7,
+        placeholder6,
+
     placeholder1,
     placeholder2,
     placeholder3,
     placeholder4,
     placeholder5,
-    placeholder6,
-    placeholder7,
+
   ];
 
 

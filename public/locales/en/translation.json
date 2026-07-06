@@ -177,6 +177,104 @@
     "button": "Book a meet"
   },
   "sections2": [
+        {
+      "id": 7,
+      "title": "Coaching & Mentoring Programs for Executives",
+      "button": "Metabolic Method",
+      "leftText": "Powered by the <strong>Executive Metabolic Method™</strong>, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
+      "rightDesc": "Our approach integrates <strong>metabolic performance, mindset, and leadership</strong> to deliver clarity and resilience where it matters most—at the personal and professional level.",
+      "moreContent": {
+        "paragraphs": [
+          {
+            "title": "",
+            "text": "This program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence."
+          },
+          {
+            "title": "",
+            "text": "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental to our engagement, ensuring a trusted space for honest reflection, recovery, and long-term performance."
+          },
+          {
+            "text":"Disclaimer (NonMedical Service): Blu. provides coaching and lifestyle guidance focused on habits, discipline, and well-being. Blu. is not a healthcare provider and does not offer medical or regulated health services. ",
+            "link":"To learn more: “Nature of Services and Limitation of Scope” "
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Organizational Training",
+      "leftText": "We deliver targeted competence development for <strong>executives and managers</strong> to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
+      "rightDesc": "We provide <strong>tailored executive education</strong> and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
+      "moreContent": {
+        "paragraphs": [
+          {
+            "title": "",
+            "text": "We strengthen your ability to <strong>plan, adapt, and execute</strong> by supporting process excellence and disciplined delivery—on time, on budget, and on target."
+          },
+          {
+            "title": "",
+            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value. Organizations gain a deeper understanding of their <strong>value-creation drivers</strong> and the financial implications of decisions and actions"
+          },
+          {
+            "title": "",
+            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters—creating sustainable value for customers, shareholders, and stakeholder"
+          }
+        ],
+        "lists": [
+          {
+            "title": "Financial acumen:",
+            "items": [
+              "P&L",
+              "Balance Sheet",
+              "Operational Value Added vs EBIT",
+              "Cost of capital",
+              "Returns & Dividends",
+              "Valuation"
+            ]
+          },
+          {
+            "title": "Business & Sales Performance: ",
+            "items": [
+              "Value selling ",
+              "Sales efficiency & effectiveness ",
+              "Sales channels",
+              "Market potential analysis",
+              "Strategy, Mission, Organization",
+              "Digital marketing ",
+              "Follow-up, Business Control and Execution ",
+              "CRM & discipline "
+            ]
+          },
+          {
+            "title": "Leadership & Organization: ",
+            "items": [
+              " Internal culture ",
+              "Recruitment",
+              "Competence development & employee retention",
+              "Transparency, Mission, Accountability",
+              "Risk Assessment",
+              "Project management (LEAN/Agile)",
+              "Cost control (Operational excellence, Automation & AI, hubs and systems infrastructure, controlling)"
+     
+            ]
+          },
+          {
+            "title": "AI for leaders: from tool to competitive advantage",
+            "items": [
+              "Tasks management (returns: laziness vs efforts) ",
+              "Reasoning, thoughts and prompting ",
+              "Agents and automation ",
+              "Research and analysis ",
+              "Agents vs next generation of leaders",
+              " “Learn it alls” concept "
+             
+     
+            ]
+          }
+        ]
+      }
+    },
+
     {
       "id": 1,
       "title": "Governance",
@@ -328,103 +426,6 @@
           {
             "title": "Operational Excellence ",
             "text": "We improve reliability, quality, and execution discipline so strategy consistently translates into results. "
-          }
-        ]
-      }
-    },
-    {
-      "id": 6,
-      "title": "Organizational Training",
-      "leftText": "We deliver targeted competence development for <strong>executives and managers</strong> to strengthen decision-making, resilience, execution discipline, and value creation in complex environments.",
-      "rightDesc": "We provide <strong>tailored executive education</strong> and practical knowledge to top executives and managers facing high-stakes decisions and transformation.",
-      "moreContent": {
-        "paragraphs": [
-          {
-            "title": "",
-            "text": "We strengthen your ability to <strong>plan, adapt, and execute</strong> by supporting process excellence and disciplined delivery—on time, on budget, and on target."
-          },
-          {
-            "title": "",
-            "text": "We help leaders better assess business potential and identify innovative, efficient ways to create value. Organizations gain a deeper understanding of their <strong>value-creation drivers</strong> and the financial implications of decisions and actions"
-          },
-          {
-            "title": "",
-            "text": "Through customized solutions and interactive training programs, we enable your people to master what truly matters—creating sustainable value for customers, shareholders, and stakeholder"
-          }
-        ],
-        "lists": [
-          {
-            "title": "Financial acumen:",
-            "items": [
-              "P&L",
-              "Balance Sheet",
-              "Operational Value Added vs EBIT",
-              "Cost of capital",
-              "Returns & Dividends",
-              "Valuation"
-            ]
-          },
-          {
-            "title": "Business & Sales Performance: ",
-            "items": [
-              "Value selling ",
-              "Sales efficiency & effectiveness ",
-              "Sales channels",
-              "Market potential analysis",
-              "Strategy, Mission, Organization",
-              "Digital marketing ",
-              "Follow-up, Business Control and Execution ",
-              "CRM & discipline "
-            ]
-          },
-          {
-            "title": "Leadership & Organization: ",
-            "items": [
-              " Internal culture ",
-              "Recruitment",
-              "Competence development & employee retention",
-              "Transparency, Mission, Accountability",
-              "Risk Assessment",
-              "Project management (LEAN/Agile)",
-              "Cost control (Operational excellence, Automation & AI, hubs and systems infrastructure, controlling)"
-     
-            ]
-          },
-          {
-            "title": "AI for leaders: from tool to competitive advantage",
-            "items": [
-              "Tasks management (returns: laziness vs efforts) ",
-              "Reasoning, thoughts and prompting ",
-              "Agents and automation ",
-              "Research and analysis ",
-              "Agents vs next generation of leaders",
-              " “Learn it alls” concept "
-             
-     
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": 7,
-      "title": "Coaching & Mentoring Programs for Executives",
-      "button": "Metabolic Method",
-      "leftText": "Powered by the <strong>Executive Metabolic Method™</strong>, this program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence and execution discipline.",
-      "rightDesc": "Our approach integrates <strong>metabolic performance, mindset, and leadership</strong> to deliver clarity and resilience where it matters most—at the personal and professional level.",
-      "moreContent": {
-        "paragraphs": [
-          {
-            "title": "",
-            "text": "This program supports executives under sustained pressure in restoring energy, focus, and decision quality while strengthening leadership presence."
-          },
-          {
-            "title": "",
-            "text": "All work is conducted through private, face-to-face sessions. Privacy and strict confidentiality are fundamental to our engagement, ensuring a trusted space for honest reflection, recovery, and long-term performance."
-          },
-          {
-            "text":"Disclaimer (NonMedical Service): Blu. provides coaching and lifestyle guidance focused on habits, discipline, and well-being. Blu. is not a healthcare provider and does not offer medical or regulated health services. ",
-            "link":"To learn more: “Nature of Services and Limitation of Scope” "
           }
         ]
       }
