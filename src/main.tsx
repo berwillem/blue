@@ -29,136 +29,55 @@ import Method from "./pages/Method/Method";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// ✅ Import your GA hook
 import usePageTracking from "./hooks/usePageTracking.jsx";
 import Disclaimer2 from "./pages/Disclaimer2/Disclaimer2.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* =========================
-   GLOBAL ERROR LOGGING
-========================= */
-
-// You can later replace this with an API call to your backend
-const logError = (type, error, info) => {
-  const payload = {
-    type,
-    message: error?.message || String(error),
-    stack: error?.stack,
-    info,
-    url: window.location.href,
-    time: new Date().toISOString(),
-  };
-
-  console.error("🚨 APP ERROR LOG:", payload);
-
-  // OPTIONAL: send to backend
-  // fetch("/api/client-error", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(payload),
-  // }).catch(() => {});
-};
-
-// Global JS errors
-window.addEventListener("error", (event) => {
-  logError("window_error", event.error || event.message, {
-    filename: event.filename,
-    lineno: event.lineno,
-    colno: event.colno,
-  });
-});
-
-// Unhandled promise rejections
-window.addEventListener("unhandledrejection", (event) => {
-  logError("unhandled_promise", event.reason, null);
-});
-
-/* =========================
-   ROOT LAYOUT
-========================= */
+// ✅ Root Layout
 
 const RootLayout = () => {
   const { pathname } = useLocation();
 
+  // ✅ GOOGLE ANALYTICS TRACKING (THIS WAS MISSING)
   usePageTracking();
 
+  // GSAP resize observer
   useEffect(() => {
     let timer;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 500);
+    });
 
-    try {
-      const resizeObserver = new ResizeObserver(() => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          try {
-            ScrollTrigger.refresh();
-          } catch (err) {
-            logError("scrolltrigger_refresh", err);
-          }
-        }, 500);
-      });
+    resizeObserver.observe(document.body);
 
-      resizeObserver.observe(document.body);
-
-      return () => {
-        resizeObserver.disconnect();
-        clearTimeout(timer);
-      };
-    } catch (err) {
-      logError("resize_observer_init", err);
-    }
+    return () => {
+      resizeObserver.disconnect();
+      clearTimeout(timer);
+    };
   }, []);
 
+  // Scroll to top on route change
   useEffect(() => {
-    try {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant",
-      });
-    } catch (err) {
-      logError("scroll_to_top", err);
-    }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
   }, [pathname]);
 
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 
-/* =========================
-   ROUTER ERROR BOUNDARY
-========================= */
-
-class RouterErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    logError("react_render_error", error);
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    logError("react_catch_error", error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: 20 }}>
-          <h2>Something went wrong.</h2>
-          <p>Check console logs for details.</p>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
-
-/* =========================
-   ROUTER CONFIG
-========================= */
+// ✅ Router config
 
 const router = createBrowserRouter(
   [
@@ -189,14 +108,10 @@ const router = createBrowserRouter(
   { future: { v7_startTransition: true } },
 );
 
-/* =========================
-   APP START
-========================= */
+// ✅ App render
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterErrorBoundary>
-      <RouterProvider router={router} />
-    </RouterErrorBoundary>
+    <RouterProvider router={router} />
   </StrictMode>,
 );
