@@ -331,8 +331,8 @@ export default function Stat() {
   }
 
   /* ======================== JOIN US PAGE ======================== */
-  if (tab === "joinus") {
-    const total = joinUsStats?.byProfession?.reduce((s, d) => s + d.count, 0) ?? joinUs;
+ if (tab === "joinus") {
+    const total = joinUsStats?.traffic ?? joinUs;
     return (
       <div className="stats-page">
         <div className="stats-container">
@@ -350,7 +350,7 @@ export default function Stat() {
                 <span className="card-label">Total soumissions Join Us</span>
               </div>
               <div className="stat-card">
-                <span className="card-value">{joinUsStats?.byProfession?.length ?? 0}</span>
+                <span className="card-value">{joinUsStats?.byProfessionalField?.length ?? 0}</span>
                 <span className="card-label">Professions représentées</span>
               </div>
               <div className="stat-card">
@@ -372,7 +372,7 @@ export default function Stat() {
             <div className="detail-charts-grid">
               <div className="chart-container">
                 <p className="chart-subtitle">Par profession</p>
-                <MiniBarChart data={joinUsStats?.byProfession} color="#10b981" height={260} />
+                <MiniBarChart data={joinUsStats?.byProfessionalField} color="#10b981" height={260} />
               </div>
               <div className="chart-container">
                 <p className="chart-subtitle">Par années de pratique</p>

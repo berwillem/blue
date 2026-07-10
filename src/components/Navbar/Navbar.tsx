@@ -80,13 +80,15 @@ const scrollToSection = (e, id, path, index) => {
         { name: t("navbar.services_indiv.test"), path: "/individuals", target: "last", idx: 3 },
       ]
     : [
-        { name: t("navbar.services_corp.governance"), path: "/corporates", target: "section-0", idx: 0 },
-        { name: t("navbar.services_corp.finance"), path: "/corporates", target: "section-1", idx: 1 },
-        { name: t("navbar.services_corp.business"), path: "/corporates", target: "section-2", idx: 2 },
-        { name: t("navbar.services_corp.leadership"), path: "/corporates", target: "section-3", idx: 3 },
-        { name: t("navbar.services_corp.excellence"), path: "/corporates", target: "section-4", idx: 4 },
-        { name: t("navbar.services_corp.training"), path: "/corporates", target: "section-5", idx: 5 },
-        { name: t("navbar.services_corp.coaching"), path: "/corporates", target: "section-6", idx: 6 },
+        { name: t("navbar.services_corp.coaching"), path: "/corporates", target: "section-0", idx: 0 },
+         { name: t("navbar.services_corp.training"), path: "/corporates", target: "section-1", idx: 1 },
+        { name: t("navbar.services_corp.governance"), path: "/corporates", target: "section-2", idx: 2 },
+        { name: t("navbar.services_corp.finance"), path: "/corporates", target: "section-3", idx: 3 },
+        { name: t("navbar.services_corp.business"), path: "/corporates", target: "section-4", idx: 4 },
+        { name: t("navbar.services_corp.leadership"), path: "/corporates", target: "section-5", idx: 5 },
+        { name: t("navbar.services_corp.excellence"), path: "/corporates", target: "section-6", idx: 6 },
+       
+      
       ];
 
   return (

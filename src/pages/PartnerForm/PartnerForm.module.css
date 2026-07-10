@@ -52,6 +52,14 @@
   margin-bottom: 8px;
   color: black;
 }
+.section p {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: black;
+}
+
 
 .field input[type="text"], 
 .field textarea {

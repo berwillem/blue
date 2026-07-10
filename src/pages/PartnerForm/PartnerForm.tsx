@@ -45,7 +45,8 @@ const sendEmail = async (e: React.FormEvent) => {
     const templateParams = {
       user_name: formData.get("user_name"),
       profession: formData.get("profession"),
-      experience: formData.get("experience"),
+      professional_field: formData.get("professional_field"),
+      years_of_practice: formData.get("years_of_practice"),
       expertise: formData.get("expertise"),
       status: professionalStatus,
       status_other: formData.get("status_other") || "N/A",
@@ -66,11 +67,12 @@ const sendEmail = async (e: React.FormEvent) => {
 
       // 2. Stats (On ne met pas de "await" critique ici pour ne pas bloquer l'UI si le serveur de stats bug)
       incrementJoinUs().catch(err => console.error("Stats Error:", err));
-      saveJoinUsDetail({
-        profession: templateParams.profession || "unknown",
-        yearsOfPractice: templateParams.experience || "unknown",
-        credential: professionalStatus || "unknown",
-      }).catch((err) => console.error("JoinUs detail error:", err));
+saveJoinUsDetail({
+  profession: templateParams.profession || "unknown",
+  professionalField: templateParams.professional_field || "unknown",
+  yearsOfPractice: templateParams.years_of_practice || "unknown",
+  credential: professionalStatus || "unknown",
+}).catch((err) => console.error("JoinUs detail error:", err));
 
     } catch (err) {
       console.error("EmailJS Error:", err);
@@ -115,6 +117,24 @@ const sendEmail = async (e: React.FormEvent) => {
             />
           </div>
           <div className={styles.field}>
+            <label>{t("partner_form.sections.id.Professional_field")}</label>
+            <div className={styles.radioGroup}>
+              {t("partner_form.sections.id.Professional_field_select", { returnObjects: true }).map(
+                (field: string) => (
+                  <label key={field} className={styles.radioLabel}>
+                    <input
+                      type="radio"
+                      name="professional_field"
+                      value={field}
+                      required
+                    />{" "}
+                    {field}
+                  </label>
+                ),
+              )}
+            </div>
+          </div>
+          <div className={styles.field}>
             <label>{t("partner_form.sections.id.exp")}</label>
             <div className={styles.radioGroup}>
               {t("partner_form.sections.id.years", { returnObjects: true }).map(
@@ -122,7 +142,7 @@ const sendEmail = async (e: React.FormEvent) => {
                   <label key={year} className={styles.radioLabel}>
                     <input
                       type="radio"
-                      name="experience"
+                      name="years_of_practice"
                       value={year}
                       required
                     />{" "}
@@ -208,6 +228,10 @@ const sendEmail = async (e: React.FormEvent) => {
               required
             />
           </div>
+         
+
+
+
         </section>
 
         {/* Section 4: Compliance */}
@@ -227,6 +251,9 @@ const sendEmail = async (e: React.FormEvent) => {
               </label>
             ))}
           </div>
+          <p style={{ "marginTop": "10px"}}> {t("partner_form.sections.intent.prv1")}</p>
+<p>{t("partner_form.sections.intent.prv2")} <a style={{ color:"black", textDecoration: 'underline' }} href="mailto:privacy@blu.com">privacy@blu.com</a></p>
+ <Link to="/privacy" style={{ color:"black", textDecoration: 'underline' }}><p>{t("partner_form.sections.intent.prv3")}</p>  </Link>
         </section>
 
         {/* Section 5: GDPR */}

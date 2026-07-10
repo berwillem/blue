@@ -609,16 +609,19 @@
   "know_more": "know more",
   "show_less": "show less",
   "partner_form": {
-    "overline": "Become a partner",
+    "overline": "Blu. Partner Application",
     "success_msg": "Application sent successfully! Welcome to the ecosystem.",
     "error_msg": "A technical error occurred. Please check your connection and try again.",
-    "main_title": "This form is used solely to assess professional eligibility and alignment for a potential partnership with Blu. Completion of this form does not constitute acceptance, endorsement, or contractual commitment.",
+    "main_title": "Purpose of this form This form is used solely to assess professional eligibility and alignment for a potential partnership with Blu. Completion of this form does not constitute acceptance, endorsement, or contractual commitment.",
     "sections": {
       "id": {
         "title": "Professional Identification",
         "name": "Full name",
         "profession": "Primary Profession",
         "profession_placeholder": "e.g. Medical Doctor – General Practice...",
+        "Professional_field": "Professional Field",
+        "Professional_field_select": ["Health & Sport (e.g. medical field, clinical care, nutrition, biology, neuroscience…)","Behavioral science (e.g. psychology, mental preparation, life coaching…) ","Business, Management & Law","technology & systems (e.g. IT, logistics…) ","Other"],
+       
         "exp": "Years of Professional Practice",
         "years": ["3–5 years", "6–10 years", "11–15 years", "15+ years"]
       },
@@ -640,7 +643,11 @@
         "reason": "Reason for Interest in Partnering with Blu",
         "reason_placeholder": "(Max 150 words. Do not include patient, client, or identifiable third-party information).",
         "contribution": "Type of Professional Contribution Considered",
-        "contribution_placeholder": "Clinical, advisory, educational, strategic, other — short description"
+        "contribution_placeholder": "Clinical, advisory, educational, strategic, other — short description",
+        "prv1":"We respect your privacy. Your information will be used solely to respond to your request and retained only for as long as necessary for this purpose.",
+        "prv2":"You may request access to, correction, or deletion of your data at any time thru email :",
+        "prv3":"For more information, please consult our Privacy & Confidentiality Policy."
+
       },
       "compliance": {
         "title": "Confidentiality & Ethical Compliance",
@@ -669,7 +676,7 @@
       }
     },
     "submit": "Submit Application",
-    "final_note": "Applications are reviewed individually."
+    "final_note": "Applications are reviewed individually. Selected applicants may be invited to a confidential, nonbinding discussion."
   },
   "contact": {
     "nav": {

@@ -733,16 +733,19 @@
     }
     },
         "partner_form": {
-      "overline": "Devenir partenaire",
+      "overline": "Candidature Partenaire Blu.",
       "success_msg": "Candidature envoyée avec succès !",
   "error_msg": "Une erreur est survenue lors de l'envoi.",
-      "main_title": "Ce formulaire est utilisé exclusivement pour évaluer l'éligibilité professionnelle et l'alignement pour un partenariat potentiel avec Blu. Le fait de remplir ce formulaire ne constitue pas une acceptation, une approbation ou un engagement contractuel.",
+      "main_title": "Ce formulaire est utilisé exclusivement afin d’évaluer l’éligibilité professionnelle et l’alignement dans le cadre d’un partenariat potentiel avec Blu. Le fait de compléter ce formulaire ne constitue ni une acceptation, ni une approbation, ni un engagement contractuel",
       "sections": {
         "id": {
           "title": "Identification professionnelle",
           "name": "Nom complet",
           "profession": "Profession principale",
           "profession_placeholder": "ex: Médecin Généraliste, Coach...",
+            "Professional_field": "Domaine professionnel",
+        "Professional_field_select": [" Santé & sport (ex. : domaine médical, soins cliniques, nutrition, biologie, neurosciences…)","Sciences du comportement (ex. : psychologie, préparation mentale, coaching de vie…) ","Business, management & droit ","Technologie & systèmes (ex. : informatique, logistique…) ","Autre"],
+       
           "exp": "Années de pratique professionnelle",
           "years": [
             "3–5 ans",
@@ -752,7 +755,7 @@
           ]
         },
         "credentials": {
-          "title": "Titres et champ de pratique",
+          "title": "Qualifications & périmètre de pratique ",
           "status": "Statut professionnel actuel",
           "status_list": {
             "independent": "Praticien indépendant",
@@ -766,39 +769,42 @@
         },
         "intent": {
           "title": "Intention professionnelle",
-          "reason": "Raison de votre intérêt pour un partenariat avec Blu",
+          "reason": "Motivation pour un partenariat avec Blu",
           "reason_placeholder": "(Max 150 mots. N'incluez aucune information identifiable de patients ou de clients).",
           "contribution": "Type de contribution professionnelle envisagée",
-          "contribution_placeholder": "Clinique, conseil, éducatif, stratégique, autre — description courte"
+          "contribution_placeholder": "Clinique, conseil, éducatif, stratégique, autre — description courte",
+           "prv1":"Nous respectons votre vie privée. Vos informations sont utilisées uniquement pour répondre à votre demande et conservées uniquement pendant la durée nécessaire à cette finalité.",
+        "prv2":"Vous pouvez demander l’accès, la rectification ou la suppression de vos données à tout moment par email :",
+        "prv3":"Pour plus d’informations, veuillez consulter notre Politique de confidentialité et de protection des données. "
         },
         "compliance": {
           "title": "Confidentialité et conformité éthique",
           "confirm": "En soumettant ce formulaire, vous confirmez que :",
           "checks": [
-            "Vous opérez dans le cadre de votre champ de pratique autorisé et de vos compétences professionnelles",
-            "Vous ne divulguerez aucune donnée relative à des patients ou clients dans cette candidature",
-            "Vous respectez la confidentialité, le secret professionnel et les obligations éthiques",
-            "Vous comprenez que toute collaboration future est soumise à un examen formel et à un accord"
+            "Vous exercez strictement dans le cadre de vos compétences professionnelles et de votre autorisation d’exercice ",
+            "Vous ne communiquerez aucune donnée relative à des patients, clients ou tiers sensibles dans cette candidature ",
+            "Vous respectez les obligations de confidentialité, de secret professionnel et d’éthique ",
+            "Vous comprenez que toute collaboration future est soumise à une évaluation formelle et à un accord écrit "
           ]
         },
         "gdpr": {
-          "title": "Protection des données et RGPD",
+          "title": "Protection des données & information RGPD",
           "controller": "Responsable du traitement :",
           "purpose": "Finalité du traitement :",
           "purpose_val": "Évaluation de l'éligibilité au partenariat professionnel",
           "basis": "Base légale :",
           "basis_val": "Intérêt légitime (RGPD Art. 6(1)(f))",
-          "retention": "Conservation des données :",
-          "retention_val": "Les données seront conservées uniquement le temps nécessaire à l'évaluation de la candidature.",
-          "consent": "Consentement",
-          "check_accurate": "Je confirme que les informations fournies sont exactes et professionnelles",
-          "check_consent": "Je consens au traitement de mes données",
+          "retention": "Durée de conservation :",
+          "retention_val": "Les données personnelles sont conservées uniquement pendant la durée nécessaire à l’évaluation de la candidature et, le cas échéant, à l’ouverture de discussions complémentaires. Les données ne sont pas transmises à des tiers. ",
+           "consent": "Consentement",
+          "check_accurate": " Je confirme que les informations fournies sont exactes et présentées dans un cadre strictement professionnel",
+          "check_consent": "Je consens au traitement de mes données conformément aux finalités décrites ci-dessus ",
           "check_privacy": "J'ai lu et j'accepte la Politique de confidentialité. Je consens à ce que mes données soient traitées pour répondre à ma demande.",
           "check_privacy_link": "La Politique de confidentialité"
         }
       },
       "submit": "Soumettre la candidature",
-      "final_note": "Les candidatures sont examinées individuellement."
+      "final_note": "Les candidatures sont examinées individuellement. Les profils sélectionnés pourront être invités à un échange confidentiel et sans engagement. "
     },
         "disclaimer1": {
       "starts_in": "Le test commence dans :",
