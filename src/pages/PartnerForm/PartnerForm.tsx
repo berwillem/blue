@@ -252,7 +252,7 @@ saveJoinUsDetail({
             ))}
           </div>
           <p style={{ "marginTop": "10px"}}> {t("partner_form.sections.intent.prv1")}</p>
-<p>{t("partner_form.sections.intent.prv2")} <a style={{ color:"black", textDecoration: 'underline' }} href="mailto:privacy@blu.com">privacy@blu.com</a></p>
+<p>{t("partner_form.sections.intent.prv2")} <a style={{ color:"black", textDecoration: 'underline' }} href="mailto:contact@blu-path.com">contact@blu-path.com</a></p>
  <Link to="/privacy" style={{ color:"black", textDecoration: 'underline' }}><p>{t("partner_form.sections.intent.prv3")}</p>  </Link>
         </section>
 
