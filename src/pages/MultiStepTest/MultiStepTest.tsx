@@ -252,31 +252,31 @@ export default function MultiStepTest() {
                   <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
                          <div className="test-legend-container">
                     <div className="legend-item">
-                      <span className="legend-number">0</span>
+                      <span className="legend-number">1</span>
                       <span className="legend-text">
                         {lang === "fr" ? "Pas du tout d'accord" : "Strongly disagree"}
                       </span>
                     </div>
                     <div className="legend-item">
-                      <span className="legend-number">1</span>
+                      <span className="legend-number">2</span>
                           <span className="legend-text">
                         {lang === "fr" ? "Pas d'accord" : "disagree"}
                       </span>
                     </div>
                     <div className="legend-item">
-                      <span className="legend-number">2</span>
+                      <span className="legend-number">3</span>
                           <span className="legend-text">
                         {lang === "fr" ? "Neutre" : "Neutral"}
                       </span>
                     </div>
                     <div className="legend-item">
-                      <span className="legend-number">3</span>
+                      <span className="legend-number">4</span>
                           <span className="legend-text">
                         {lang === "fr" ? "d'accord" : "Agree"}
                       </span>
                     </div>
                     <div className="legend-item">
-                      <span className="legend-number">4</span>
+                      <span className="legend-number">5</span>
                       <span className="legend-text">
                         {lang === "fr" ? "Tout à fait d'accord" : "Strongly Agree"}
                       </span>
